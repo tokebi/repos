@@ -3,6 +3,12 @@ set PATH=%PATH%;D:\eclipse4.6\python\3;D:\pleiades-e4.4-python-jre_20130625\plei
 
 set foldername=%date:~0,4%%date:~5,2%%date:~8,2%
 
+REM カレントディレクトリの保存
+set CurDir=%~d0%~p0
+IF EXIST "C:\Users\hhara\OneDrive\SWProxy-windows" (
+	cd C:\Users\hhara\OneDrive\SWProxy-windows
+)
+
 REM ファイル・フォルダ存在チェック
 IF EXIST "819205.json" ( 
 	if NOT EXIST "%foldername%" (
@@ -12,7 +18,7 @@ IF EXIST "819205.json" (
 	copy %foldername%\819205-swarfarm.json .
 )
 
-
+cd %CurDir%
 python.exe sw.py
 
 emeditor monster.tsv runes.tsv

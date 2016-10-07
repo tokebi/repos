@@ -164,14 +164,51 @@ class MAIN:
 		if no > 0:
 			arr.append( '★'+ str(rune["class"]) + "(" + str(rune["reado"]) + ")+" + str(rune["upgrade_curr"]))
 			arr.append(int(math.ceil(rune["reado"] - int(rune["upgrade_curr"]))/3))
-			arr.append(self.getUmuValue(rune, 2))	#体%有無
-			arr.append(self.getUmuValue(rune, 4))	#攻%有無
-			arr.append(self.getUmuValue(rune, 6))	#防%有無
-			arr.append(self.getUmuValue(rune, 8))	#速 有無
-			arr.append(self.getUmuValue(rune, 9))	#クリ有無
-			arr.append(self.getUmuValue(rune, 10))	#ダメ有無
-			arr.append(self.getUmuValue(rune, 11))	#抵抗有無
-			arr.append(self.getUmuValue(rune, 12))	#的中有無
+			arr.append(self.getUmuValue(rune, 2))	# 体%有無
+			arr.append(self.getUmuValue(rune, 4))	# 攻%有無
+			arr.append(self.getUmuValue(rune, 6))	# 防%有無
+			arr.append(self.getUmuValue(rune, 8))	# 速 有無
+			arr.append(self.getUmuValue(rune, 9))	# クリ有無
+			arr.append(self.getUmuValue(rune, 10))	# ダメ有無
+			arr.append(self.getUmuValue(rune, 11))	# 抵抗有無
+			arr.append(self.getUmuValue(rune, 12))	# 的中有無
+			# 価格
+			arr.append(rune["sell_value"])
+			# 売りかどうか
+			uri = ""
+			if rune["reado"] == 6: # レア
+				if rune["sec_eff"][0][0] in [1,3,5]: # 1:体、3:攻、5:防
+					uri = "売1"
+				if rune["sec_eff"][1][0] in [1,3,5]:
+					uri = "売2"
+				if rune["slot_no"] in [2,4,6]:
+					uri = ""
+				if uri == "":
+					if rune["sec_eff"][0][0] == 8 or rune["sec_eff"][1][0] == 8:
+						uri = ""
+					elif rune["slot_no"] in [2,4,6]:
+						uri = ""
+					elif rune["sec_eff"][0][0] in [9, 10] and rune["sec_eff"][1][0] in [9, 10]: # 9:クリ、10:ダメ
+						uri = ""
+					else:
+						uri = "売3"
+			if rune["reado"] == 9: # ヒーロー
+				if rune["sec_eff"][0][0] in [1,3,5]:
+					uri = "売4"
+				if rune["sec_eff"][1][0] in [1,3,5]:
+					uri = "売5"
+				if rune["sec_eff"][1][0] in [1,3,5]:
+					uri = "売6"
+				if rune["slot_no"] in [2,4,6]:
+					uri = ""
+				if uri != "":
+					if rune["sec_eff"][0][0] == 8:
+						uri = ""
+					if rune["sec_eff"][1][0] == 8:
+						uri = ""
+					if rune["sec_eff"][2][0] == 8:
+						uri = ""
+			arr.append(uri)
 		if rune["class"] == 6:
 			self.toukei["★6ルーン総数"] += 1
 		elif rune["class"] == 5:
