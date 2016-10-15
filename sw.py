@@ -275,14 +275,16 @@ class MAIN:
 	# JSONファイルの読み込み
 	#
 	def ReadJson(self, filename):
-		targetDirs = {"C:\\Users\\hhara\\OneDrive\\SWProxy-windows"}
+		targetDirs = {"C:\\Users\\hhara\\OneDrive\\SWProxy-windows"
+			     ,"C:\\Users\\tokebi\\OneDrive\\SWProxy-windows"}
+		f = None
 		for targetDir in targetDirs:
 			targetFile = targetDir + "\\" + filename
 			if os.path.exists(targetFile):
 				f = codecs.open(targetFile, "r", "utf-8")
-			else:
-				print("819205-swarfarm.jsonが存在しない")
-				os.exit()
+		if f is None:
+			print("819205-swarfarm.jsonが存在しない")
+			os.exit()
 		return json.load(f)
 
 	#
