@@ -8,6 +8,9 @@ set CurDir=%~d0%~p0
 IF EXIST "C:\Users\hhara\OneDrive\SWProxy-windows" (
 	cd C:\Users\hhara\OneDrive\SWProxy-windows
 )
+IF EXIST "C:\Users\tokebi\OneDrive\SWProxy-windows" (
+	cd C:\Users\tokebi\OneDrive\SWProxy-windows
+)
 
 REM ファイル・フォルダ存在チェック
 IF EXIST "819205.json" ( 
