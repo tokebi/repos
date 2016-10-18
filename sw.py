@@ -6,6 +6,7 @@ import json
 import math
 import os.path
 from swMaster import *
+from swSkill import *
 
 class MAIN:
 	def __init__(self):
@@ -19,6 +20,8 @@ class MAIN:
 		self.effect_type_map = swMaster.getEffectTypeMap()
 		self.attribute_map = swMaster.getAttributeMap()
 		self.notOutputMonster = swMaster.getNotOutputMonster()
+		swSkill = SwSkill()
+		self.skills = swSkill.getSkillsMap()
 		self.unit_master_hash = {}
 		self.toukei = {}
 		self.toukei["★6ルーン総数"] = 0
@@ -62,11 +65,13 @@ class MAIN:
 			elif unit_list["class"] == 5 and unit_list["unit_level"] == 35:
 				self.toukei["★5モンス総数"] += 1
 			# スキル
+			skillno = 1
 			for skill in unit_list["skills"]:
-				self.fs.write(unit_list["unit_master_id_c"] + "\t")
+				self.fs.write(unit_list["unit_master_id_c"] + "_" + str(skillno)+ "\t")
 				self.fs.write(str(skill[0]) + "\t")
 				self.fs.write(str(skill[1]) + "\t")
 				self.fs.write("\n")
+				skillno += 1
 		#ルーンを生成
 		no = 1
 		#sorted(data["unit_list"], key=lambda x:(-x['class'],x['attribute'])):
