@@ -181,38 +181,53 @@ class MAIN:
 			arr.append(rune["sell_value"])
 			# 売りかどうか
 			uri = ""
+			uricomment = ""
 			if rune["reado"] == 6: # レア
 				if rune["sec_eff"][0][0] in [1,3,5]: # 1:体、3:攻、5:防
-					uri = "売1"
+					uri = "売"
+					uricomment = "1番実数"
 				if rune["sec_eff"][1][0] in [1,3,5]:
-					uri = "売2"
+					uri = "売"
+					uricomment = "2番実数"
 				if rune["slot_no"] in [2,4,6]:
 					uri = ""
+					uricomment = ""
 				if uri == "":
-					if rune["sec_eff"][0][0] == 8 or rune["sec_eff"][1][0] == 8:
+					if rune["sec_eff"][0][0] == 8 or rune["sec_eff"][1][0] == 8:# 速度
 						uri = ""
-					elif rune["slot_no"] in [2,4,6]:
+						uricomment = ""
+					elif rune["slot_no"] in [2,4,6]: # スロットが2,4,6
 						uri = ""
+						uricomment = ""
 					elif rune["sec_eff"][0][0] in [9, 10] and rune["sec_eff"][1][0] in [9, 10]: # 9:クリ、10:ダメ
 						uri = ""
+						uricomment = ""
 					else:
 						uri = "売3"
+						uricomment = "速度なし、クリなし、ダメなし"
 			if rune["reado"] == 9: # ヒーロー
 				if rune["sec_eff"][0][0] in [1,3,5]:
 					uri = "売4"
+					uricomment = "1番実数"
 				if rune["sec_eff"][1][0] in [1,3,5]:
 					uri = "売5"
-				if rune["sec_eff"][1][0] in [1,3,5]:
+					uricomment = "2番実数"
+				if rune["sec_eff"][2][0] in [1,3,5]:
 					uri = "売6"
+					uricomment = "3番実数"
 				if rune["slot_no"] in [2,4,6]:
 					uri = ""
+					uricomment = ""
 				if uri != "":
 					if rune["sec_eff"][0][0] == 8:
 						uri = ""
+						uricomment = ""
 					if rune["sec_eff"][1][0] == 8:
 						uri = ""
+						uricomment = ""
 					if rune["sec_eff"][2][0] == 8:
 						uri = ""
+						uricomment = ""
 			arr.append(uri)
 		if rune["class"] == 6:
 			self.toukei["★6ルーン総数"] += 1
