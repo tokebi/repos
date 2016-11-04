@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
+# -*- coding: sjis -*-
 
 import codecs
 import json
@@ -13,66 +13,87 @@ class MAIN:
 		self.fm = open("monster.tsv", "w")
 		self.fr = open("runes.tsv", "w")
 		self.fs = open("skill.tsv", "w")
-		#ãƒã‚¹ã‚¿ãƒ¼ãƒ‡ãƒ¼ã‚¿ã®åˆæœŸåŒ–
+		#ƒ}ƒXƒ^[ƒf[ƒ^‚Ì‰Šú‰»
 		swMaster = SwMaster()
 		self.rune_set_map = swMaster.getRuneSetMap()
 		self.monsters_name_map = swMaster.getMonstersNameMap()
 		self.effect_type_map = swMaster.getEffectTypeMap()
 		self.attribute_map = swMaster.getAttributeMap()
 		self.notOutputMonster = swMaster.getNotOutputMonster()
+		self.monter_type = swMaster.getMonsterType()
 		swSkill = SwSkill()
 		self.skills = swSkill.getSkillsMap()
 		self.unit_master_hash = {}
 		self.toukei = {}
-		self.toukei["â˜…6ãƒ«ãƒ¼ãƒ³ç·æ•°"] = 0
-		self.toukei["â˜…5ãƒ«ãƒ¼ãƒ³ç·æ•°"] = 0
-		self.toukei["â˜…6ãƒ¢ãƒ³ã‚¹ç·æ•°"] = 0
-		self.toukei["â˜…5ãƒ¢ãƒ³ã‚¹ç·æ•°"] = 0
+		self.toukei["š6ƒ‹[ƒ“‘”"] = 0
+		self.toukei["š5ƒ‹[ƒ“‘”"] = 0
+		self.toukei["š6ƒ‚ƒ“ƒX‘”"] = 0
+		self.toukei["š5ƒ‚ƒ“ƒX‘”"] = 0
 
 	def main(self):
 		data = self.ReadJson("819205-swarfarm.json")
 		no = 1
 
 		for unit_list in sorted(data["unit_list"], key=lambda x:(-x['class'],x['attribute'])):
-			# æ—¥æœ¬èªãƒ¢ãƒ³ã‚¹ã‚¿ãƒ¼åã‚’è¨­å®š
+			# “ú–{Œêƒ‚ƒ“ƒXƒ^[–¼‚ğİ’è
 			self.setJname(unit_list)
 			if self.isNotOutputMonster(unit_list["unit_master_id_c"], self.notOutputMonster):
 				continue
-			# å€‰åº«ã‹å¦ã‹
+			# ‘qŒÉ‚©”Û‚©
 			sort_souko = 0
 			if unit_list["building_id" ] == 9384277:
 				sort_souko = 1
-			#ãƒ¢ãƒ³ã‚¹ã‚¿ãƒ¼ãƒ‡ãƒ¼ã‚¿ã®å‡ºåŠ›
-			self.OutputMonster(self.fm, no, unit_list)
-			# æ‰€æŒãƒ«ãƒ¼ãƒ³å‡¦ç†
+			#ƒ‚ƒ“ƒXƒ^[ƒf[ƒ^‚Ìo—Í
+			self.outputMonster(self.fm, no, unit_list)
+			# Šƒ‹[ƒ“ˆ—
 			runes = unit_list["runes"]
-
-			runeTag = ""
-			if len(runes) == 0:
-				runeTag = "	" * 16 * 6
-
+			w_slot_no = 1
 			for rune in sorted(runes, key=lambda x:x['slot_no']):
-				rune["unit_id"] = unit_list["unit_id"]
-				rune["unit_master_id"] = unit_list["unit_master_id_c"]
-				data["runes"].append(rune)
-				#runeTag = runeTag + self.outputRune(rune, "mons")
-				self.outputRune(self.fm, rune, 0)
-			#self.fm.write(runeTag)
-			self.fm.write("\n")
+				if rune["slot_no"] > w_slot_no: # ƒ‹[ƒ“‚ª‚Í‚Ü‚Á‚Ä‚È‚¢‚Æ‚«‚Í‹óƒf[ƒ^ 
+					self.outputData(self.fm, [""] * (16 * (rune["slot_no"]-w_slot_no) + 1))
+					w_slot_no += (rune["slot_no"]-w_slot_no)
+				if rune["slot_no"] == w_slot_no:
+					rune["unit_id"] = unit_list["unit_id"]
+					rune["unit_master_id"] = unit_list["unit_master_id_c"]
+					data["runes"].append(rune)
+					self.outputRune(self.fm, rune, 0)
+				else:
+					self.outputData(self.fm, [""] * 16)
+				w_slot_no += 1
+			if w_slot_no <= 6: # ƒ‹[ƒ“‚ª‚Í‚Ü‚Á‚Ä‚È‚¢‚Æ‚«‚Í‹óƒf[ƒ^
+				self.outputData(self.fm, [""] * (16 * (7-w_slot_no) + 1))
+			# ƒ‚ƒ“ƒXƒ^[ƒ^ƒCƒvˆ—
+			self.outputMonsterType(self.fm, unit_list["unit_master_id_c"], runes)
+			
 			no += 1
 			if unit_list["class"] == 6:
-				self.toukei["â˜…6ãƒ¢ãƒ³ã‚¹ç·æ•°"] += 1
+				self.toukei["š6ƒ‚ƒ“ƒX‘”"] += 1
 			elif unit_list["class"] == 5 and unit_list["unit_level"] == 35:
-				self.toukei["â˜…5ãƒ¢ãƒ³ã‚¹ç·æ•°"] += 1
-			# ã‚¹ã‚­ãƒ«
+				self.toukei["š5ƒ‚ƒ“ƒX‘”"] += 1
+			# ƒXƒLƒ‹
 			skillno = 1
+			arr = ["" ,0,0 ,0,0 ,0,0 ,0,0]
 			for skill in unit_list["skills"]:
+				skill_id = str(skill[0])
+				skill_lv = str(skill[1])
 				self.fs.write(unit_list["unit_master_id_c"] + "_" + str(skillno)+ "\t")
-				self.fs.write(str(skill[0]) + "\t")
-				self.fs.write(str(skill[1]) + "\t")
+				self.fs.write(skill_id + "\t")
+				self.fs.write(skill_lv + "\t")
 				self.fs.write("\n")
+				#print (skillno)
+				arr[(skillno-1)*2+1] = skill_lv
+				try:
+					lxmax = self.skills[skill_id]["lvmax"]
+					if lxmax != "":
+						arr[(skillno-1)*2+2] = self.skills[skill_id]["lvmax"]
+					else:
+						arr[(skillno-1)*2+2] = "9999"
+				except:
+					arr[(skillno-1)*2+2] = skill_id #"–¢İ’è:skill_id=" + skill_id
 				skillno += 1
-		#ãƒ«ãƒ¼ãƒ³ã‚’ç”Ÿæˆ
+			self.outputData(self.fm, arr)
+			self.fm.write("\n")
+		#ƒ‹[ƒ“‚ğ¶¬
 		no = 1
 		#sorted(data["unit_list"], key=lambda x:(-x['class'],x['attribute'])):
 		for rune in data["runes"]:
@@ -80,15 +101,15 @@ class MAIN:
 			#self.fr.write(str(no) + "	" + runeTag + "\n")
 			self.fr.write("\n")
 			no += 1
-		print(self.toukei["â˜…6ãƒ¢ãƒ³ã‚¹ç·æ•°"])
-		print(self.toukei["â˜…5ãƒ¢ãƒ³ã‚¹ç·æ•°"])
-		print(self.toukei["â˜…6ãƒ«ãƒ¼ãƒ³ç·æ•°"])
-		print(self.toukei["â˜…5ãƒ«ãƒ¼ãƒ³ç·æ•°"])
+		print(self.toukei["š6ƒ‚ƒ“ƒX‘”"])
+		print(self.toukei["š5ƒ‚ƒ“ƒX‘”"])
+		print(self.toukei["š6ƒ‹[ƒ“‘”"])
+		print(self.toukei["š5ƒ‹[ƒ“‘”"])
 
 	#
-	# ãƒ¢ãƒ³ã‚¹ã‚¿ãƒ¼ãƒ‡ãƒ¼ã‚¿ã‚’å‡ºåŠ›
+	# ƒ‚ƒ“ƒXƒ^[ƒf[ƒ^‚ğo—Í
 	#
-	def OutputMonster(self, fm, no, unit_list):
+	def outputMonster(self, fm, no, unit_list):
 		arr = [
 				no
 				,unit_list["unit_id"]
@@ -105,11 +126,57 @@ class MAIN:
 				,unit_list["resist"]
 				,unit_list["accuracy"]
 				,unit_list["create_time"]
-				]
+		]
 		self.outputData(fm, arr)
 
 	#
-	# ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›
+	# ƒ‚ƒ“ƒXƒ^[í—Şƒf[ƒ^‚ğo—Í
+	#
+	# 1:‘Ì—Í
+	# 2:‘Ì—Í%
+	# 3:UŒ‚
+	# 4:UŒ‚%
+	# 5:–hŒä
+	# 6:–hŒä%
+	# 8:‘¬“x
+	# 9:ƒNƒŠ
+	#10:ƒ_ƒ
+	#11:’ïR
+	#12:“I’†
+	def outputMonsterType(self, fm, unit_id, runes):
+		type = "–¢İ’è"
+		wbCalc = 0
+		if unit_id in self.monter_type:
+			type = self.monter_type[unit_id]
+		for rune in runes:
+			for eff in [rune["pri_eff"]] + [rune['prefix_eff']] + rune['sec_eff']:
+				typ = eff[0]
+				if len(eff) == 2:
+					value = eff[1]
+				else:
+					value = eff[1]+eff[3]
+				if type == "UŒ‚Œn":
+					if typ in [4,9,10]: # 4:UŒ‚% 9:ƒNƒŠ 10:ƒ_ƒ
+						wbCalc = wbCalc + value
+				if type == "–hŒäŒn":
+					if typ in [6,9,10]:# 6:–hŒä% 9:ƒNƒŠ 10:ƒ_ƒ
+						wbCalc = wbCalc + value
+				if type == "ƒTƒ|[ƒgŒn":
+					if typ in [8]: # 8:‘¬“x 
+						wbCalc = wbCalc + value * 6
+					if typ in [6,12]: # # 6:–hŒä% #12:“I’†
+						wbCalc = wbCalc + value
+				if type == "‘Ì—ÍŒn":    # 2:‘Ì—Í%
+					if typ in [2]:
+						wbCalc = wbCalc + value
+		arr = [
+			"",
+			type,
+			wbCalc
+		]
+		self.outputData(fm, arr)
+	#
+	# ƒf[ƒ^‚ğƒtƒ@ƒCƒ‹‚Éo—Í
 	#
 	def outputData(self, fm, arr):
 		isFirst = True
@@ -124,21 +191,21 @@ class MAIN:
 				fm.write(one)
 
 	#
-	# å‡ºåŠ›å¯¾è±¡å¤–ã®ãƒ¢ãƒ³ã‚¹ã‚¿ãƒ¼ã‹å¦ã‹ã‚’è¿”ã™
+	# o—Í‘ÎÛŠO‚Ìƒ‚ƒ“ƒXƒ^[‚©”Û‚©‚ğ•Ô‚·
 	#
 	def isNotOutputMonster(self, tmon, mons):
 		for mon in mons:
 			if tmon[0:len(mon)] in mon:
-				#print("å¯¾è±¡å¤–:" + mon)
+				#print("‘ÎÛŠO:" + mon)
 				return True
 		return False
 
 	#
-	# ãƒ«ãƒ¼ãƒ³ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’å‡ºåŠ›
+	# ƒ‹[ƒ“ƒe[ƒuƒ‹‚ğo—Í
 	#
 	def outputRune(self, fr, rune, no):
 		arr = []
-		if no > 0:	# ãƒ«ãƒ¼ãƒ³å‡ºåŠ›ãªã‚‰
+		if no > 0:	# ƒ‹[ƒ“o—Í‚È‚ç
 			arr.append(no)
 			arr.append(rune["rune_id"])
 			arr.append(rune["slot_no"])
@@ -149,72 +216,72 @@ class MAIN:
 		else:
 			arr.append("")
 		#kouritu = self.rune_efficiency(rune)
-		arr.append('â˜…'+ str(rune["class"]))
+		arr.append('š'+ str(rune["class"]))
 		arr.append(rune["upgrade_curr"])
 		arr.append(self.rune_set_map[rune["set_id"]])
-		# ãƒ¡ã‚¤ãƒ³åŠ¹æœ
+		# ƒƒCƒ“Œø‰Ê
 		arr.append(self.effect_type_map[rune["pri_eff"][0]])
 		arr.append(rune["pri_eff"][1])
-		# ã‚ªãƒ—åŠ¹æœ
+		# ƒIƒvŒø‰Ê
 		arr.append(self.effect_type_map[rune["prefix_eff"][0]])
 		arr.append(rune["prefix_eff"][1])
-		# ã‚ªãƒ—ï¼‘ï½ï¼”åŠ¹æœ
+		# ƒIƒv‚P`‚SŒø‰Ê
 		rune["reado"] = 0
 		arr.extend(self.getSecEff(rune, 0))
 		arr.extend(self.getSecEff(rune, 1))
 		arr.extend(self.getSecEff(rune, 2))
 		arr.extend(self.getSecEff(rune, 3))
-		# åŠ¹ç‡
+		# Œø—¦
 		arr.append(self.rune_efficiency(rune))
 		if no > 0:
-			arr.append( 'â˜…'+ str(rune["class"]) + "(" + str(rune["reado"]) + ")+" + str(rune["upgrade_curr"]))
+			arr.append( 'š'+ str(rune["class"]) + "(" + str(rune["reado"]) + ")+" + str(rune["upgrade_curr"]))
 			arr.append(int(math.ceil(rune["reado"] - int(rune["upgrade_curr"]))/3))
-			arr.append(self.getUmuValue(rune, 2))	# ä½“%æœ‰ç„¡
-			arr.append(self.getUmuValue(rune, 4))	# æ”»%æœ‰ç„¡
-			arr.append(self.getUmuValue(rune, 6))	# é˜²%æœ‰ç„¡
-			arr.append(self.getUmuValue(rune, 8))	# é€Ÿ æœ‰ç„¡
-			arr.append(self.getUmuValue(rune, 9))	# ã‚¯ãƒªæœ‰ç„¡
-			arr.append(self.getUmuValue(rune, 10))	# ãƒ€ãƒ¡æœ‰ç„¡
-			arr.append(self.getUmuValue(rune, 11))	# æŠµæŠ—æœ‰ç„¡
-			arr.append(self.getUmuValue(rune, 12))	# çš„ä¸­æœ‰ç„¡
-			# ä¾¡æ ¼
+			arr.append(self.getUmuValue(rune, 2))	# ‘Ì%—L–³
+			arr.append(self.getUmuValue(rune, 4))	# U%—L–³
+			arr.append(self.getUmuValue(rune, 6))	# –h%—L–³
+			arr.append(self.getUmuValue(rune, 8))	# ‘¬ —L–³
+			arr.append(self.getUmuValue(rune, 9))	# ƒNƒŠ—L–³
+			arr.append(self.getUmuValue(rune, 10))	# ƒ_ƒ—L–³
+			arr.append(self.getUmuValue(rune, 11))	# ’ïR—L–³
+			arr.append(self.getUmuValue(rune, 12))	# “I’†—L–³
+			# ‰¿Ši
 			arr.append(rune["sell_value"])
-			# å£²ã‚Šã‹ã©ã†ã‹
+			# ”„‚è‚©‚Ç‚¤‚©
 			uri = ""
 			uricomment = ""
-			if rune["reado"] == 6: # ãƒ¬ã‚¢
-				if rune["sec_eff"][0][0] in [1,3,5]: # 1:ä½“ã€3:æ”»ã€5:é˜²
-					uri = "å£²"
-					uricomment = "1ç•ªå®Ÿæ•°"
+			if rune["reado"] == 6: # ƒŒƒA
+				if rune["sec_eff"][0][0] in [1,3,5]: # 1:‘ÌA3:UA5:–h
+					uri = "”„"
+					uricomment = "1”ÔÀ”"
 				if rune["sec_eff"][1][0] in [1,3,5]:
-					uri = "å£²"
-					uricomment = "2ç•ªå®Ÿæ•°"
+					uri = "”„"
+					uricomment = "2”ÔÀ”"
 				if rune["slot_no"] in [2,4,6]:
 					uri = ""
 					uricomment = ""
 				if uri == "":
-					if rune["sec_eff"][0][0] == 8 or rune["sec_eff"][1][0] == 8:# é€Ÿåº¦
+					if rune["sec_eff"][0][0] == 8 or rune["sec_eff"][1][0] == 8:# ‘¬“x
 						uri = ""
 						uricomment = ""
-					elif rune["slot_no"] in [2,4,6]: # ã‚¹ãƒ­ãƒƒãƒˆãŒ2,4,6
+					elif rune["slot_no"] in [2,4,6]: # ƒXƒƒbƒg‚ª2,4,6
 						uri = ""
 						uricomment = ""
-					elif rune["sec_eff"][0][0] in [9, 10] and rune["sec_eff"][1][0] in [9, 10]: # 9:ã‚¯ãƒªã€10:ãƒ€ãƒ¡
+					elif rune["sec_eff"][0][0] in [9, 10] and rune["sec_eff"][1][0] in [9, 10]: # 9:ƒNƒŠA10:ƒ_ƒ
 						uri = ""
 						uricomment = ""
 					else:
-						uri = "å£²3"
-						uricomment = "é€Ÿåº¦ãªã—ã€ã‚¯ãƒªãªã—ã€ãƒ€ãƒ¡ãªã—"
-			if rune["reado"] == 9: # ãƒ’ãƒ¼ãƒ­ãƒ¼
+						uri = "”„3"
+						uricomment = "‘¬“x‚È‚µAƒNƒŠ‚È‚µAƒ_ƒ‚È‚µ"
+			if rune["reado"] == 9: # ƒq[ƒ[
 				if rune["sec_eff"][0][0] in [1,3,5]:
-					uri = "å£²4"
-					uricomment = "1ç•ªå®Ÿæ•°"
+					uri = "”„4"
+					uricomment = "1”ÔÀ”"
 				if rune["sec_eff"][1][0] in [1,3,5]:
-					uri = "å£²5"
-					uricomment = "2ç•ªå®Ÿæ•°"
+					uri = "”„5"
+					uricomment = "2”ÔÀ”"
 				if rune["sec_eff"][2][0] in [1,3,5]:
-					uri = "å£²6"
-					uricomment = "3ç•ªå®Ÿæ•°"
+					uri = "”„6"
+					uricomment = "3”ÔÀ”"
 				if rune["slot_no"] in [2,4,6]:
 					uri = ""
 					uricomment = ""
@@ -230,13 +297,13 @@ class MAIN:
 						uricomment = ""
 			arr.append(uri)
 		if rune["class"] == 6:
-			self.toukei["â˜…6ãƒ«ãƒ¼ãƒ³ç·æ•°"] += 1
+			self.toukei["š6ƒ‹[ƒ“‘”"] += 1
 		elif rune["class"] == 5:
-			self.toukei["â˜…5ãƒ«ãƒ¼ãƒ³ç·æ•°"] += 1
+			self.toukei["š5ƒ‹[ƒ“‘”"] += 1
 		self.outputData(fr, arr)
 
 	#
-	# ã‚µãƒ–ã‚ªãƒ—ã‚’å–å¾—
+	# ƒTƒuƒIƒv‚ğæ“¾
 	#
 	def getSecEff(self,  rune, effno):
 		if len(rune["sec_eff"]) >= effno+1:
@@ -247,7 +314,7 @@ class MAIN:
 		else:
 			return ["",""]
 	#
-	# æ•°å€¤æœ‰ç„¡ã‚’å–å¾—
+	# ”’l—L–³‚ğæ“¾
 	#
 	def getUmuValue(self, rune, type):
 		for eff in [rune['prefix_eff']] + rune['sec_eff']:
@@ -292,7 +359,7 @@ class MAIN:
 		return sum / 2.8
 
 	#
-	# JSONãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿
+	# JSONƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ
 	#
 	def ReadJson(self, filename):
 		targetDirs = {"C:\\Users\\hhara\\OneDrive\\SWProxy-windows"
@@ -303,12 +370,12 @@ class MAIN:
 			if os.path.exists(targetFile):
 				f = codecs.open(targetFile, "r", "utf-8")
 		if f is None:
-			print("819205-swarfarm.jsonãŒå­˜åœ¨ã—ãªã„")
+			print("819205-swarfarm.json‚ª‘¶İ‚µ‚È‚¢")
 			os.exit()
 		return json.load(f)
 
 	#
-	# ãƒ¢ãƒ³ã‚¹ã‚¿ãƒ¼åã®æ—¥æœ¬èªã‚’å–å¾—
+	# ƒ‚ƒ“ƒXƒ^[–¼‚Ì“ú–{Œê‚ğæ“¾
 	#
 	def setJname(self, unit_list):
 		jname = ""
@@ -320,7 +387,7 @@ class MAIN:
 			jname = self.monsters_name_map[str(int(math.floor(unit_master_id) / 100))] + \
 				"(" + self.attribute_map[unit_list["attribute"]] + ")"
 		if jname in self.unit_master_hash:
-			# æ—¢ã«åŒã˜åå‰ã®ãƒ¢ãƒ³ã‚¹ã‚¿ãƒ¼ãŒã„ãŸã‚‰
+			# Šù‚É“¯‚¶–¼‘O‚Ìƒ‚ƒ“ƒXƒ^[‚ª‚¢‚½‚ç
 			self.unit_master_hash[jname] += 1
 			jname = jname + "_" + str(self.unit_master_hash[jname])
 		else:
