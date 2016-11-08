@@ -8,51 +8,62 @@ import os.path
 import xlrd
 import sys
 
-ROW_LSKILL_COMMENT	= "E9"
-ROW_SKILL1_COMMENT	= "E10"
-ROW_SKILL2_COMMENT	= "E11"
-ROW_SKILL3_COMMENT	= "E12"
-ROW_SKILL4_COMMENT	= "E13"
-ROW_MONSTER_KIND	= "E17"
-ROW_KIND_MONSTER	= 18
-ROW_SKILL1_NO		= "E19"
-ROW_SKILL2_NO		= "E20"
-ROW_SKILL3_NO		= "E21"
-ROW_SKILL4_NO		= "E22"
-ROW_LSKILL_NO		= "E23"
-ROW_SKILL1_NAME		= "E25"
-ROW_SKILL2_NAME		= "E26"
-ROW_SKILL3_NAME		= "E27"
-ROW_SKILL4_NAME		= "E28"
-ROW_SKILL1_MAXLV	= "E30"
-ROW_SKILL2_MAXLV	= "E31"
-ROW_SKILL3_MAXLV	= "E32"
-ROW_SKILL4_MAXLV	= "E33"
-ROW_LSKILL_RATE		= 0
-ROW_SKILL1_RATE		= 1
-ROW_SKILL2_RATE		= 1
-ROW_SKILL3_RATE		= 1
-ROW_SKILL4_RATE		= 1
-ROW_LSKILL_NUM		= 0
-ROW_SKILL1_NUM		= 1
-ROW_SKILL2_NUM		= 1
-ROW_SKILL3_NUM		= 1
-ROW_SKILL4_NUM		= 1
-ROW_LSKILL_USEMIN	= 0
-ROW_SKILL1_USEMIN	= 1
-ROW_SKILL2_USEMIN	= 1
-ROW_SKILL3_USEMIN	= 1
-ROW_SKILL4_USEMIN	= 1
-ROW_LSKILL_USEMAX	= 0
-ROW_SKILL1_USEMAX	= 1
-ROW_SKILL2_USEMAX	= 1
-ROW_SKILL3_USEMAX	= 1
-ROW_SKILL4_USEMAX	= 1
+LSKILL_COMMENT	= "E9"
+SKILL1_COMMENT	= "E10"
+SKILL2_COMMENT	= "E11"
+SKILL3_COMMENT	= "E12"
+SKILL4_COMMENT	= "E13"
+DUMMY			= "E14"
+DUMMY			= "E15"
+DUMMY			= "E16"
+MONSTER_KIND	= "E17"
+KIND_MONSTER	= 18
+KAKU_MONSTER	= "E19"
+KIND_ATTACK		= "E20"
+DUMMY			= "E21"
+SKILL1_NO		= "E22"
+SKILL2_NO		= "E23"
+SKILL3_NO		= "E24"
+SKILL4_NO		= "E25"
+LSKILL_NO		= "E26"
+DUMMY			= "E27"
+SKILL1_NAME		= "E28"
+SKILL2_NAME		= "E29"
+SKILL3_NAME		= "E30"
+SKILL4_NAME		= "E31"
+DUMMY			= "E32"
+SKILL1_MAXLV	= "E33"
+SKILL2_MAXLV	= "E34"
+SKILL3_MAXLV	= "E35"
+SKILL4_MAXLV	= "E36"
+LSKILL_RATE		= 0
+SKILL1_RATE		= 1
+SKILL2_RATE		= 1
+SKILL3_RATE		= 1
+SKILL4_RATE		= 1
+LSKILL_NUM		= 0
+SKILL1_NUM		= 1
+SKILL2_NUM		= 1
+SKILL3_NUM		= 1
+SKILL4_NUM		= 1
+LSKILL_USEMIN	= 0
+SKILL1_USEMIN	= 1
+SKILL2_USEMIN	= 1
+SKILL3_USEMIN	= 1
+SKILL4_USEMIN	= 1
+LSKILL_USEMAX	= 0
+SKILL1_USEMAX	= 1
+SKILL2_USEMAX	= 1
+SKILL3_USEMAX	= 1
+SKILL4_USEMAX	= 1
 
 def getCellNum(row, cellnum, defval):
 	ret = ""
 	if isinstance(cellnum, str) and cellnum[:1] == "E":
-		ret = inb.cell(row, int(cellnum[1:])).value
+		try:
+			ret = inb.cell(row, int(cellnum[1:])).value
+		except:
+			ret = ""
 		if not isinstance(ret, str):
 			ret = str(int(inb.cell(row, int(cellnum[1:])).value))
 	else:
@@ -72,11 +83,13 @@ def outputSkill(row, skillno_in, name_in, comment_in, rate_in, num_in, usemin_in
 	lvmax		= getCellNum(row, lvmax_in, "9999")
 	
 	if skillno != "":
+		#print("出力対象" + skillno)
 		if skillno in skill_ids:
 			# 既に同じ名前のスキルがあったら
 			skill_ids[skillno] += 1
-			#print("重複:" + itemList[23])
+			#print("重複:" + skillno)
 		else:
+			#print("出力" + skillno)
 			skill_ids[skillno] = 1
 			outf.write('			"' + skillno + '" :{' + "\n")
 			outf.write('				"name":"' + name +'"' + "\n")			# スキル名
@@ -102,34 +115,22 @@ outf.write('#!/usr/bin/python' + "\n")
 outf.write('# -*- coding: sjis -*-' + "\n")
 outf.write('' + "\n")
 outf.write('class SwSkill:' + "\n")
-outf.write('	def getSkillsMap(self):' + "\n")
+outf.write('	#' + "\n")
+outf.write('	# スキルハッシュを返す' + "\n")
+outf.write('	#' + "\n")
+outf.write('	def getMap(self):' + "\n")
 outf.write('		return {' + "\n")
 skill_ids = {}
-#for line in inf:
+
 for row in range(2, maxrow):
-	#itemList = line[:-1].split('\t')
-	#nameList = itemList[0].split("・")
-	#name = nameList[0]
-	#if len(nameList) == 2:
-	#	name = nameList[1] + nameList[0]
-	#if name == "名前":
-	#	continue;
-	#outf.write(name  + "\t")	# 名前
-	#outf.write(itemList[9]  + "\t")	# リーダスキル
-	#outf.write(itemList[10] + "\t")	# スキル１
-	#outf.write(itemList[11] + "\t")	# スキル２
-	#outf.write(itemList[12] + "\t")	# スキル３
-	#outf.write(itemList[19] + "\t")	# スキル１no
-	#outf.write(itemList[20] + "\t")	# スキル２no
-	#outf.write(itemList[21] + "\t")	# スキル３no
 	#print("row=" + str(row))
-	outf.write('			#' + inb.cell(row, ROW_KIND_MONSTER).value +',' + "\n")
-	#                skillno,       name             comment           , rate           , num           , usemin           , usemax           , lvmax
-	outputSkill(row, ROW_LSKILL_NO, ""             , ROW_LSKILL_COMMENT, ROW_LSKILL_RATE, ROW_LSKILL_NUM, ROW_LSKILL_USEMIN, ROW_LSKILL_USEMAX, 1)
-	outputSkill(row, ROW_SKILL1_NO, ROW_SKILL1_NAME, ROW_SKILL1_COMMENT, ROW_SKILL1_RATE, ROW_SKILL1_NUM, ROW_SKILL1_USEMIN, ROW_SKILL1_USEMAX, ROW_SKILL1_MAXLV)
-	outputSkill(row, ROW_SKILL2_NO, ROW_SKILL2_NAME, ROW_SKILL2_COMMENT, ROW_SKILL2_RATE, ROW_SKILL2_NUM, ROW_SKILL2_USEMIN, ROW_SKILL2_USEMAX, ROW_SKILL2_MAXLV)
-	outputSkill(row, ROW_SKILL3_NO, ROW_SKILL3_NAME, ROW_SKILL3_COMMENT, ROW_SKILL3_RATE, ROW_SKILL3_NUM, ROW_SKILL3_USEMIN, ROW_SKILL3_USEMAX, ROW_SKILL3_MAXLV)
-	outputSkill(row, ROW_SKILL4_NO, ROW_SKILL4_NAME, ROW_SKILL4_COMMENT, ROW_SKILL4_RATE, ROW_SKILL4_NUM, ROW_SKILL4_USEMIN, ROW_SKILL4_USEMAX, ROW_SKILL4_MAXLV)
+	outf.write('			#' + inb.cell(row, KIND_MONSTER).value +',' + "\n")
+	#                skillno,       name   , comment       , rate       , num       , usemin       , usemax       , lvmax
+	outputSkill(row, LSKILL_NO, ""         , LSKILL_COMMENT, 0          , 0         , 0            , 0            , 1)
+	outputSkill(row, SKILL1_NO, SKILL1_NAME, SKILL1_COMMENT, SKILL1_RATE, SKILL1_NUM, SKILL1_USEMIN, SKILL1_USEMAX, SKILL1_MAXLV)
+	outputSkill(row, SKILL2_NO, SKILL2_NAME, SKILL2_COMMENT, SKILL2_RATE, SKILL2_NUM, SKILL2_USEMIN, SKILL2_USEMAX, SKILL2_MAXLV)
+	outputSkill(row, SKILL3_NO, SKILL3_NAME, SKILL3_COMMENT, SKILL3_RATE, SKILL3_NUM, SKILL3_USEMIN, SKILL3_USEMAX, SKILL3_MAXLV)
+	outputSkill(row, SKILL4_NO, SKILL4_NAME, SKILL4_COMMENT, SKILL4_RATE, SKILL4_NUM, SKILL4_USEMIN, SKILL4_USEMAX, SKILL4_MAXLV)
 outf.write('		}' +"\n")
 #inf.close()
 sys.exit()

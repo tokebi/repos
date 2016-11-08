@@ -54,7 +54,7 @@ class MAIN:
 			if w_slot_no <= 6: # ルーンがはまってないときは空データ
 				self.outputData(self.fm, [""] * (16 * (7-w_slot_no) + 1))
 			# モンスタータイプ処理
-			self.outputMonsterType(self.fm, unit_list["unit_master_id_c"], runes)
+			self.outputMonsterType(self.fm, unit_list["unit_master_id"], runes)
 			
 			no += 1
 			if unit_list["class"] == 6:
@@ -75,6 +75,8 @@ class MAIN:
 				arr[(skillno-1)*2+1] = skill_lv
 				arr[(skillno-1)*2+2] = self.mst.getSkillMaxLev(skill_id)
 				skillno += 1
+			# 覚醒名称
+			arr.append(self.mst.getKakuseiName(unit_list["unit_master_id"]))
 			self.outputData(self.fm, arr)
 			self.fm.write("\n")
 		#ルーンを生成
@@ -129,7 +131,8 @@ class MAIN:
 	#12:的中
 	def outputMonsterType(self, fm, unit_id, runes):
 		wbCalc = 0
-		type = self.mst.getMonsterType(unit_id)
+		#type = self.mst.getMonsterType(unit_id)
+		type = self.mst.getMonsterTypeName(unit_id)
 		for rune in runes:
 			for eff in [rune["pri_eff"]] + [rune['prefix_eff']] + rune['sec_eff']:
 				typ = eff[0]
