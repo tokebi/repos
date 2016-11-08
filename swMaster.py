@@ -16,7 +16,6 @@ class SwMaster:
 		self.__swMonstersNameMap  = swMonstersName    .SwMonstersName()    .getMap()
 		self.__swNotOutputMonster = swNotOutputMonster.SwNotOutputMonster().getMap()
 		self.__swAttribute        = swAttribute       .SwAttribute()       .getMap()
-		#self.__swMonsterType      = swMonsterType     .SwMonsterType()     .getMap()
 		self.__swSkill            = swSkill           .SwSkill()           .getMap()
 
 	#
@@ -37,11 +36,6 @@ class SwMaster:
 	def getMonsterName(self, id, attribute_id):
 		if id in self.__swMonstersNameMap:
 			return self.__swMonstersNameMap[id][0]
-		# "122"  : "スライム",だが、水スライムだと 12201となるため計算する
-		#else:
-		#	print(str(id))
-		#	return self.__swMonstersNameMap[str(int(math.floor(id) / 100))] + \
-		#		"(" + self.__swAttribute[attribute_id] + ")"
 
 	#
 	# モンスターの覚醒名称名を返す
@@ -61,10 +55,8 @@ class SwMaster:
 	# 出力対象外のモンスターを返す
 	#
 	def isNotOutputMonster(self, tmon):
-		#return self.__swNotOutputMonster
 		for mon in self.__swNotOutputMonster:
 			if tmon[0:len(mon)] in mon:
-				#print("対象外:" + mon)
 				return True
 		return False
 
@@ -86,9 +78,3 @@ class SwMaster:
 				return "9999"
 		else:
 			return id
-
-
-
-
-
-
