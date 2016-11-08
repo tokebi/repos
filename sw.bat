@@ -24,6 +24,7 @@ IF EXIST "819205.json" (
 cd %CurDir%
 python.exe sw.py
 
-emeditor monster.tsv runes.tsv skill.tsv
+REM emeditor monster.tsv runes.tsv skill.tsv
+emeditor monster.tsv runes.tsv
 
 pause

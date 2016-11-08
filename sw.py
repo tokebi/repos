@@ -5,8 +5,7 @@ import codecs
 import json
 import math
 import os.path
-from swMaster import *
-from swSkill import *
+import swMaster
 
 class MAIN:
 	def __init__(self):
@@ -14,15 +13,7 @@ class MAIN:
 		self.fr = open("runes.tsv", "w")
 		self.fs = open("skill.tsv", "w")
 		#マスターデータの初期化
-		swMaster = SwMaster()
-		self.rune_set_map = swMaster.getRuneSetMap()
-		self.monsters_name_map = swMaster.getMonstersNameMap()
-		self.effect_type_map = swMaster.getEffectTypeMap()
-		self.attribute_map = swMaster.getAttributeMap()
-		self.notOutputMonster = swMaster.getNotOutputMonster()
-		self.monter_type = swMaster.getMonsterType()
-		swSkill = SwSkill()
-		self.skills = swSkill.getSkillsMap()
+		self.mst = swMaster.SwMaster()
 		self.unit_master_hash = {}
 		self.toukei = {}
 		self.toukei["★6ルーン総数"] = 0
@@ -37,7 +28,7 @@ class MAIN:
 		for unit_list in sorted(data["unit_list"], key=lambda x:(-x['class'],x['attribute'])):
 			# 日本語モンスター名を設定
 			self.setJname(unit_list)
-			if self.isNotOutputMonster(unit_list["unit_master_id_c"], self.notOutputMonster):
+			if self.mst.isNotOutputMonster(unit_list["unit_master_id_c"]):
 				continue
 			# 倉庫か否か
 			sort_souko = 0
@@ -82,14 +73,7 @@ class MAIN:
 				self.fs.write("\n")
 				#print (skillno)
 				arr[(skillno-1)*2+1] = skill_lv
-				try:
-					lxmax = self.skills[skill_id]["lvmax"]
-					if lxmax != "":
-						arr[(skillno-1)*2+2] = self.skills[skill_id]["lvmax"]
-					else:
-						arr[(skillno-1)*2+2] = "9999"
-				except:
-					arr[(skillno-1)*2+2] = skill_id #"未設定:skill_id=" + skill_id
+				arr[(skillno-1)*2+2] = self.mst.getSkillMaxLev(skill_id)
 				skillno += 1
 			self.outputData(self.fm, arr)
 			self.fm.write("\n")
@@ -116,7 +100,7 @@ class MAIN:
 				,unit_list["unit_master_id_c"]
 				,unit_list["unit_level"]
 				,unit_list["class"]
-				,self.attribute_map[unit_list["attribute"]]
+				,self.mst.getAttributeName(unit_list["attribute"])
 				,unit_list["con"]*15
 				,unit_list["atk"]
 				,unit_list["def"]
@@ -144,10 +128,8 @@ class MAIN:
 	#11:抵抗
 	#12:的中
 	def outputMonsterType(self, fm, unit_id, runes):
-		type = "未設定"
 		wbCalc = 0
-		if unit_id in self.monter_type:
-			type = self.monter_type[unit_id]
+		type = self.mst.getMonsterType(unit_id)
 		for rune in runes:
 			for eff in [rune["pri_eff"]] + [rune['prefix_eff']] + rune['sec_eff']:
 				typ = eff[0]
@@ -175,6 +157,7 @@ class MAIN:
 			wbCalc
 		]
 		self.outputData(fm, arr)
+
 	#
 	# データをファイルに出力
 	#
@@ -189,16 +172,6 @@ class MAIN:
 				fm.write(str(one))
 			else:
 				fm.write(one)
-
-	#
-	# 出力対象外のモンスターか否かを返す
-	#
-	def isNotOutputMonster(self, tmon, mons):
-		for mon in mons:
-			if tmon[0:len(mon)] in mon:
-				#print("対象外:" + mon)
-				return True
-		return False
 
 	#
 	# ルーンテーブルを出力
@@ -218,12 +191,12 @@ class MAIN:
 		#kouritu = self.rune_efficiency(rune)
 		arr.append('★'+ str(rune["class"]))
 		arr.append(rune["upgrade_curr"])
-		arr.append(self.rune_set_map[rune["set_id"]])
+		arr.append(self.mst.getRuneSetName(rune["set_id"]))
 		# メイン効果
-		arr.append(self.effect_type_map[rune["pri_eff"][0]])
+		arr.append(self.mst.getEffectTypeName(rune["pri_eff"][0]))
 		arr.append(rune["pri_eff"][1])
 		# オプ効果
-		arr.append(self.effect_type_map[rune["prefix_eff"][0]])
+		arr.append(self.mst.getEffectTypeName(rune["prefix_eff"][0]))
 		arr.append(rune["prefix_eff"][1])
 		# オプ１～４効果
 		rune["reado"] = 0
@@ -308,7 +281,7 @@ class MAIN:
 	def getSecEff(self,  rune, effno):
 		if len(rune["sec_eff"]) >= effno+1:
 			rune["reado"] = (effno+1) * 3
-			return [self.effect_type_map[rune["sec_eff"][effno][0]]
+			return [self.mst.getEffectTypeName(rune["sec_eff"][effno][0])
 				,rune["sec_eff"][effno][1]+rune["sec_eff"][effno][3]
 				]
 		else:
@@ -378,14 +351,7 @@ class MAIN:
 	# モンスター名の日本語を取得
 	#
 	def setJname(self, unit_list):
-		jname = ""
-		unit_master_id = unit_list["unit_master_id"]
-		str_unit_master_id = str(unit_list["unit_master_id"])
-		if str_unit_master_id in self.monsters_name_map:
-			jname = self.monsters_name_map[str_unit_master_id]
-		else:
-			jname = self.monsters_name_map[str(int(math.floor(unit_master_id) / 100))] + \
-				"(" + self.attribute_map[unit_list["attribute"]] + ")"
+		jname = self.mst.getMonsterName(unit_list["unit_master_id"], unit_list["attribute"])
 		if jname in self.unit_master_hash:
 			# 既に同じ名前のモンスターがいたら
 			self.unit_master_hash[jname] += 1

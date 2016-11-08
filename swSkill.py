@@ -2,7 +2,10 @@
 # -*- coding: sjis -*-
 
 class SwSkill:
-	def getSkillsMap(self):
+	#
+	# スキルハッシュを返す
+	#
+	def getMap(self):
 		return {
 			#火キノコ,
 			"L00066" :{
