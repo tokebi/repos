@@ -139,7 +139,34 @@ class SwSkill:
 			},
 			#水インプ,
 			#風インプ,
-			#光ヴァイキング,
+			#火ヴァイキング,
+			"5402" :{
+				"name":""
+				,"comment":"斧を投げて敵を攻撃し、30％の確率で3ターンの間、持続ダメージを与える。"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":8
+			},
+			"5407" :{
+				"name":""
+				,"comment":"自分の現在の体力に比例するダメージを敵に与え、2ターンの間、防御力を弱らせる。(スキル再使用可能まで4ターン)"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			"5412" :{
+				"name":""
+				,"comment":"敵に与えるダメージの30％を体力に変えて回復し、強化効果を一つ奪う。(効果自動適用)"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":1
+			},
 			#水ヴァイキング,
 			"5401" :{
 				"name":""
@@ -148,7 +175,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":8
 			},
 			"5406" :{
 				"name":""
@@ -157,7 +184,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":4
 			},
 			"5411" :{
 				"name":""
@@ -166,7 +193,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":1
 			},
 			#風ヴァイキング,
 			"5403" :{
@@ -186,6 +213,35 @@ class SwSkill:
 				,"usemin:":1
 				,"usemax":1
 				,"lvmax":9999
+			},
+			#光ヴァイキング,
+			"5404" :{
+				"name":""
+				,"comment":"斧を投げて敵を攻撃し、30％の確率で3ターンの間、持続ダメージを与える。"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
+			"5409" :{
+				"name":""
+				,"comment":"斧を3回投げて攻撃する。クリティカル攻撃発生時は攻撃ゲージが15％上昇する。(スキル再使用可能まで3ターン)"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
+			#闇ヴァイキング,
+			"L00148" :{
+				"name":""
+				,"comment":"味方モンスターの攻撃速度が10％増加する。"
+				,"rate":0
+				,"num":0
+				,"usemin:":0
+				,"usemax":0
+				,"lvmax":1
 			},
 			#闇ウォーベア,
 			"1805" :{
@@ -289,7 +345,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":8
 			},
 			"1706" :{
 				"name":""
@@ -298,7 +354,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"1711" :{
 				"name":""
@@ -307,7 +363,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":3
 			},
 			#風エレメンタル,
 			"1703" :{
@@ -357,14 +413,41 @@ class SwSkill:
 				,"lvmax":9999
 			},
 			#光ガルーダ,
-			"1914" :{
+			"L00051" :{
 				"name":""
-				,"comment":"1"
+				,"comment":"ダンジョンで味方モンスターの体力が17％増加する。"
+				,"rate":0
+				,"num":0
+				,"usemin:":0
+				,"usemax":0
+				,"lvmax":1
+			},
+			"1904" :{
+				"name":""
+				,"comment":"猛烈な速度で敵を攻撃し、24％の確率で気絶させる。"
 				,"rate":1
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":9
+			},
+			"1909" :{
+				"name":""
+				,"comment":"味方のターゲットの攻撃ゲージをいっぱいにし、1ターンの間、攻撃力を強化させる。(スキル再使用可能まで4ターン)"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":3
+			},
+			"1914" :{
+				"name":""
+				,"comment":"倒された味方対象を復活させ、味方全員の体力を20％ずつ回復させる。復活した味方がいない場合は再使用時間が2ターン減少する。(スキル再使用可能まで7ターン)"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
 			},
 			#火ガルーダ,
 			"1902" :{
@@ -437,7 +520,7 @@ class SwSkill:
 			#光サプライズボックス,
 			#水サプライズボックス,
 			#風サプライズボックス,
-			#闇サラマンダ,
+			#闇サラマンダー,
 			"2105" :{
 				"name":""
 				,"comment":"敵を攻撃して50％の確率で攻撃力を2ターンの間、弱らせる。"
@@ -465,37 +548,9 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":1
 			},
-			#光サラマンダ,
-			#サラマンダ(火),
+			#光サラマンダー,
+			#火サラマンダー,
 			"2102" :{
-				"name":""
-				,"comment":"1"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":9999
-			},
-			"2107" :{
-				"name":""
-				,"comment":"1"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":9999
-			},
-			"2112" :{
-				"name":""
-				,"comment":"1"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":9999
-			},
-			#水サラマンダ,
-			"2101" :{
 				"name":""
 				,"comment":"敵を攻撃して50％の確率で攻撃力を2ターンの間、弱らせる。"
 				,"rate":1
@@ -504,6 +559,34 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":9999
 			},
+			"2107" :{
+				"name":""
+				,"comment":"敵にダメージを与えて、1ターンの間、気絶させる。(スキル再使用可能まで3ターン)"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
+			"2112" :{
+				"name":""
+				,"comment":"強力な地震で敵全員にダメージを与え、攻撃ゲージを50％ずつ減少させる。(スキル再使用可能まで6ターン)"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
+			#水サラマンダー,
+			"2101" :{
+				"name":""
+				,"comment":"敵を攻撃して50％の確率で攻撃力を2ターンの間、弱らせる。"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":8
+			},
 			"2106" :{
 				"name":""
 				,"comment":"敵にダメージを与えて、2ターンの間、攻撃速度を遅らせる。(スキル再使用可能まで3ターン)"
@@ -511,7 +594,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"2111" :{
 				"name":""
@@ -520,9 +603,9 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
-			#風サラマンダ,
+			#風サラマンダー,
 			"2103" :{
 				"name":""
 				,"comment":"敵を攻撃して50％の確率で攻撃力を2ターンの間、弱らせる。"
@@ -652,7 +735,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"4606" :{
 				"name":""
@@ -661,7 +744,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"4611" :{
 				"name":""
@@ -670,7 +753,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#風ハウル,
 			"4603" :{
@@ -834,35 +917,6 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":2
 			},
-			#闇フェアリー,
-			#風フェアリー,
-			"1103" :{
-				"name":""
-				,"comment":"烈風の柱で対象を3回攻撃し、20％の確率で1ターンの間スタンさせる。"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":9999
-			},
-			"1108" :{
-				"name":""
-				,"comment":"ターゲットの味方の体力を回復させ、弱化効果を全て解除する。回復量は攻撃力に比例する。(スキル再使用可能まで3ターン)"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":9999
-			},
-			"1113" :{
-				"name":""
-				,"comment":"精霊の力を借りて敵を攻撃する。敵にかかった弱化効果毎にダメージが30％増加する。(スキル再使用可能まで4ターン)"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":9999
-			},
 			#火ヘルハウンド,
 			"1502" :{
 				"name":""
@@ -918,7 +972,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"1506" :{
 				"name":""
@@ -927,7 +981,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"1511" :{
 				"name":""
@@ -936,7 +990,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":3
 			},
 			#風ヘルハウンド,
 			"1503" :{
@@ -968,7 +1022,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":9
 			},
 			"6606" :{
 				"name":""
@@ -977,7 +1031,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"6611" :{
 				"name":""
@@ -986,7 +1040,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":1
 			},
 			#風放浪騎士,
 			"6603" :{
@@ -1099,7 +1153,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"5806" :{
 				"name":""
@@ -1108,7 +1162,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"5811" :{
 				"name":""
@@ -1117,7 +1171,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#風アマゾン,
 			"L00143" :{
@@ -1267,7 +1321,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":8
 			},
 			"2006" :{
 				"name":""
@@ -1276,7 +1330,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":2
 			},
 			"2011" :{
 				"name":""
@@ -1285,7 +1339,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":4
 			},
 			#風イヌガミ,
 			"L00129" :{
@@ -1407,7 +1461,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"3306" :{
 				"name":""
@@ -1416,7 +1470,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"3311" :{
 				"name":""
@@ -1425,7 +1479,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#風インプチャンピオン,
 			"3303" :{
@@ -1595,45 +1649,6 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":9999
 			},
-			#闇ヴァイキング,
-			"L00148" :{
-				"name":""
-				,"comment":"味方モンスターの攻撃速度が10％増加する。"
-				,"rate":0
-				,"num":0
-				,"usemin:":0
-				,"usemax":0
-				,"lvmax":1
-			},
-			#火ヴァイキング,
-			"5402" :{
-				"name":""
-				,"comment":"斧を投げて敵を攻撃し、30％の確率で3ターンの間、持続ダメージを与える。"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":8
-			},
-			"5407" :{
-				"name":""
-				,"comment":"自分の現在の体力に比例するダメージを敵に与え、2ターンの間、防御力を弱らせる。(スキル再使用可能まで4ターン)"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":5
-			},
-			"5412" :{
-				"name":""
-				,"comment":"敵に与えるダメージの30％を体力に変えて回復し、強化効果を一つ奪う。(効果自動適用)"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":1
-			},
-			#ヴァイキング・水,
 			#光ウォーベア,
 			"L00067" :{
 				"name":""
@@ -1679,7 +1694,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"1806" :{
 				"name":""
@@ -1688,7 +1703,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"1811" :{
 				"name":""
@@ -1697,7 +1712,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":4
 			},
 			#闇エピキオン司祭,
 			"6705" :{
@@ -1784,7 +1799,7 @@ class SwSkill:
 				,"lvmax":9999
 			},
 			#火エルフレンジャー,
-			"11702" :{
+			"11717" :{
 				"name":""
 				,"comment":"対象を2回射撃し、クリティカルヒット発生率によって1回の追撃を加える。この攻撃はそれぞれ30％の確率で1ターンの間体力回復を邪魔する。"
 				,"rate":1
@@ -1812,6 +1827,15 @@ class SwSkill:
 				,"lvmax":3
 			},
 			#エルフレンジャー(火),
+			"11702" :{
+				"name":""
+				,"comment":"1"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
 			#光エルフレンジャー,
 			"L00150" :{
 				"name":""
@@ -1857,7 +1881,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"11706" :{
 				"name":""
@@ -1866,7 +1890,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"11711" :{
 				"name":""
@@ -1875,7 +1899,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#風エルフレンジャー,
 			"L00144" :{
@@ -2213,34 +2237,6 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":9999
 			},
-			#光ガルーダ,
-			"L00051" :{
-				"name":""
-				,"comment":"ダンジョンで味方モンスターの体力が17％増加する。"
-				,"rate":0
-				,"num":0
-				,"usemin:":0
-				,"usemax":0
-				,"lvmax":1
-			},
-			"1904" :{
-				"name":""
-				,"comment":"猛烈な速度で敵を攻撃し、24％の確率で気絶させる。"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":9999
-			},
-			"1909" :{
-				"name":""
-				,"comment":"味方のターゲットの攻撃ゲージをいっぱいにし、1ターンの間、攻撃力を強化させる。(スキル再使用可能まで4ターン)"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":9999
-			},
 			#闇グリフォン,
 			#火グリフォン,
 			"2502" :{
@@ -2297,7 +2293,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"2506" :{
 				"name":""
@@ -2306,7 +2302,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"2511" :{
 				"name":""
@@ -2315,7 +2311,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#風グリフォン,
 			"L00131" :{
@@ -2559,7 +2555,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"2406" :{
 				"name":""
@@ -2568,7 +2564,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"2411" :{
 				"name":""
@@ -2577,7 +2573,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":1
 			},
 			#風ゴーレム,
 			"L00134" :{
@@ -2693,7 +2689,6 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":1
 			},
-			#火サラマンダー,
 			#闇ドランクンマスター,
 			#火ドランクンマスター,
 			"8102" :{
@@ -2759,7 +2754,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"8106" :{
 				"name":""
@@ -2768,7 +2763,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"8111" :{
 				"name":""
@@ -2777,7 +2772,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#風ドランクンマスター,
 			"8103" :{
@@ -2890,7 +2885,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":8
 			},
 			"1606" :{
 				"name":""
@@ -2899,7 +2894,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"1611" :{
 				"name":""
@@ -2908,7 +2903,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#風ハーピー,
 			"1603" :{
@@ -2947,7 +2942,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"3107" :{
 				"name":""
@@ -2956,7 +2951,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#光ハイエレメンタル,
 			#水ハイエレメンタル,
@@ -2967,7 +2962,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"3106" :{
 				"name":""
@@ -2976,7 +2971,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"3111" :{
 				"name":""
@@ -2985,7 +2980,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#風ハイエレメンタル,
 			"3103" :{
@@ -3071,7 +3066,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"7006" :{
 				"name":""
@@ -3080,7 +3075,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"7011" :{
 				"name":""
@@ -3089,7 +3084,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":3
 			},
 			#風バウンティハンター,
 			"L00040" :{
@@ -3202,7 +3197,7 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":5
 			},
-			#火フェアリ,
+			#火フェアリー,
 			"1102" :{
 				"name":""
 				,"comment":"熱風の柱で対象を3回攻撃し、20％の確率で1ターンの間スタンさせる。"
@@ -3230,7 +3225,7 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":5
 			},
-			#光フェアリ,
+			#水フェアリー,
 			"L00163" :{
 				"name":""
 				,"comment":"味方モンスターの抵抗力が20％増加する。"
@@ -3240,34 +3235,6 @@ class SwSkill:
 				,"usemax":0
 				,"lvmax":1
 			},
-			"1104" :{
-				"name":""
-				,"comment":"旋光の柱で対象を3回攻撃し、20％の確率で1ターンの間スタンさせる。"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":8
-			},
-			"1109" :{
-				"name":""
-				,"comment":"ターゲットの味方の体力を回復させ、弱化効果を全て解除する。回復量は攻撃力に比例する。(スキル再使用可能まで3ターン)"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":6
-			},
-			"1114" :{
-				"name":""
-				,"comment":"味方にかかった弱化効果を解除させ、2ターンの間、無敵状態にさせる。(スキル再使用可能まで7ターン)"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":4
-			},
-			#水フェアリ,
 			"1101" :{
 				"name":""
 				,"comment":"水流の柱で対象を3回攻撃し、20％の確率で1ターンの間氷結させる。"
@@ -3295,6 +3262,63 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":5
 			},
+			#風フェアリー,
+			"1103" :{
+				"name":""
+				,"comment":"烈風の柱で対象を3回攻撃し、20％の確率で1ターンの間スタンさせる。"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
+			"1108" :{
+				"name":""
+				,"comment":"ターゲットの味方の体力を回復させ、弱化効果を全て解除する。回復量は攻撃力に比例する。(スキル再使用可能まで3ターン)"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
+			"1113" :{
+				"name":""
+				,"comment":"精霊の力を借りて敵を攻撃する。敵にかかった弱化効果毎にダメージが30％増加する。(スキル再使用可能まで4ターン)"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
+			#光フェアリー,
+			"1104" :{
+				"name":""
+				,"comment":"旋光の柱で対象を3回攻撃し、20％の確率で1ターンの間スタンさせる。"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":8
+			},
+			"1109" :{
+				"name":""
+				,"comment":"ターゲットの味方の体力を回復させ、弱化効果を全て解除する。回復量は攻撃力に比例する。(スキル再使用可能まで3ターン)"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"1114" :{
+				"name":""
+				,"comment":"味方にかかった弱化効果を解除させ、2ターンの間、無敵状態にさせる。(スキル再使用可能まで7ターン)"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":4
+			},
+			#闇フェアリー,
 			#光フェアリクイーン,
 			"9904" :{
 				"name":""
@@ -4737,7 +4761,7 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":9999
 			},
-			#闇戦大像,
+			#闇戦大象,
 			"9805" :{
 				"name":""
 				,"comment":"突進で攻撃し、50％の確率で対象を1ターンの間挑発する。"
@@ -4821,7 +4845,7 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":9999
 			},
-			#水戦大像,
+			#水戦大象,
 			"9801" :{
 				"name":""
 				,"comment":"突進で攻撃し、50％の確率で対象を1ターンの間挑発する。"
@@ -5905,6 +5929,15 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":9999
 			},
+			"8017" :{
+				"name":""
+				,"comment":"なし"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
 			#光サムライ,
 			#水サムライ,
 			"8001" :{
@@ -5933,6 +5966,15 @@ class SwSkill:
 				,"usemin:":1
 				,"usemax":1
 				,"lvmax":5
+			},
+			"8016" :{
+				"name":""
+				,"comment":"なし"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
 			},
 			#風サムライ,
 			"8023" :{
@@ -6008,7 +6050,7 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":9999
 			},
-			#闇パンプキン,
+			#闇ジャック・オ・ランタン,
 			"L00058" :{
 				"name":""
 				,"comment":"ダンジョンで味方モンスターの抵抗力が40％増加する。"
@@ -6018,7 +6060,7 @@ class SwSkill:
 				,"usemax":0
 				,"lvmax":1
 			},
-			#パンプキン火,
+			#火ジャック・オ・ランタン,
 			"L00054" :{
 				"name":""
 				,"comment":"ダンジョンで味方モンスターの体力が33％増加する。"
@@ -6055,7 +6097,7 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":9999
 			},
-			#光パンプキン,
+			#光ジャック・オ・ランタン,
 			"L00043" :{
 				"name":""
 				,"comment":"ダンジョンで味方モンスターのクリティカル攻撃率が24％増加する。"
@@ -6065,7 +6107,7 @@ class SwSkill:
 				,"usemax":0
 				,"lvmax":1
 			},
-			#水パンプキン,
+			#水ジャック・オ・ランタン,
 			"L00062" :{
 				"name":""
 				,"comment":"ダンジョンで味方モンスターの的中力が40％増加する。"
@@ -6102,7 +6144,7 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":1
 			},
-			#風パンプキン,
+			#風ジャック・オ・ランタン,
 			"L00064" :{
 				"name":""
 				,"comment":"ダンジョンで味方モンスターの防御力が33％増加する。"
@@ -8498,6 +8540,38 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":7
 			},
+			#水熊猫武士,
+			#風熊猫武士,
+			#光熊猫武士,
+			#闇熊猫武士,
+			#火ハッグ,
+			"11802" :{
+				"name":""
+				,"comment":"1"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
+			"11807" :{
+				"name":""
+				,"comment":"1"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
+			"11812" :{
+				"name":""
+				,"comment":"1"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
 			#水ハッグ,
 			"11801" :{
 				"name":""
@@ -8554,33 +8628,6 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":9999
 			},
-			#火ハッグ,
-			"11802" :{
-				"name":""
-				,"comment":"1"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":9999
-			},
-			"11807" :{
-				"name":""
-				,"comment":"1"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":9999
-			},
-			"11812" :{
-				"name":""
-				,"comment":"1"
-				,"rate":1
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":9999
-			},
-			#タテガミイノシシ(水),
+			#光ハッグ,
+			#闇ハッグ,
 		}

@@ -38,21 +38,17 @@ class MAIN:
 			self.outputMonster(self.fm, no, unit_list)
 			# 所持ルーン処理
 			runes = unit_list["runes"]
-			w_slot_no = 1
-			for rune in sorted(runes, key=lambda x:x['slot_no']):
-				if rune["slot_no"] > w_slot_no: # ルーンがはまってないときは空データ 
-					self.outputData(self.fm, [""] * (16 * (rune["slot_no"]-w_slot_no) + 1))
-					w_slot_no += (rune["slot_no"]-w_slot_no)
-				if rune["slot_no"] == w_slot_no:
-					rune["unit_id"] = unit_list["unit_id"]
-					rune["unit_master_id"] = unit_list["unit_master_id_c"]
-					data["runes"].append(rune)
-					self.outputRune(self.fm, rune, 0)
-				else:
-					self.outputData(self.fm, [""] * 16)
-				w_slot_no += 1
-			if w_slot_no <= 6: # ルーンがはまってないときは空データ
-				self.outputData(self.fm, [""] * (16 * (7-w_slot_no) + 1))
+			for w_slot_no in range(1, 7):
+				isFound=False
+				for rune in runes:
+					if rune["slot_no"] == w_slot_no:
+						rune["unit_id"] = unit_list["unit_id"]
+						rune["unit_master_id"] = unit_list["unit_master_id_c"]
+						data["runes"].append(rune)
+						self.outputRune(self.fm, rune, 0)
+						isFound=True
+				if isFound == False:
+					self.outputData(self.fm, [""] * (16 + 1))
 			# モンスタータイプ処理
 			self.outputMonsterType(self.fm, unit_list["unit_master_id"], runes)
 			
