@@ -25,6 +25,6 @@ cd %CurDir%
 python.exe sw.py
 
 REM emeditor monster.tsv runes.tsv skill.tsv
-emeditor monster.tsv runes.tsv
+REM emeditor monster.tsv runes.tsv
 
 pause

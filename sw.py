@@ -50,7 +50,7 @@ class MAIN:
 				if isFound == False:
 					self.outputData(self.fm, [""] * (16 + 1))
 			# モンスタータイプ処理
-			self.outputMonsterType(self.fm, unit_list["unit_master_id"], runes)
+			self.outputMonsterType(self.fm, unit_list, runes)
 			
 			no += 1
 			if unit_list["class"] == 6:
@@ -83,10 +83,10 @@ class MAIN:
 			#self.fr.write(str(no) + "	" + runeTag + "\n")
 			self.fr.write("\n")
 			no += 1
-		print(self.toukei["★6モンス総数"])
-		print(self.toukei["★5モンス総数"])
-		print(self.toukei["★6ルーン総数"])
-		print(self.toukei["★5ルーン総数"])
+		print("★6モンス総数:" + str(self.toukei["★6モンス総数"]))
+		print("★5モンス総数:" + str(self.toukei["★5モンス総数"]))
+		print("★6ルーン総数:" + str(self.toukei["★6ルーン総数"]))
+		print("★6ルーン総数:" + str(self.toukei["★5ルーン総数"]))
 
 	#
 	# モンスターデータを出力
@@ -125,11 +125,15 @@ class MAIN:
 	#10:ダメ
 	#11:抵抗
 	#12:的中
-	def outputMonsterType(self, fm, unit_id, runes):
-		wbCalc = 0
-		#type = self.mst.getMonsterType(unit_id)
+	def outputMonsterType(self, fm, unit_list, runes):
+		# ★数とレベル
+		wbCalc = unit_list["unit_level"] * unit_list["class"] * 10
+		# ルーン
+		unit_id = unit_list["unit_master_id"]
 		type = self.mst.getMonsterTypeName(unit_id)
 		for rune in runes:
+			# ★数と強化数
+			wbCalc = wbCalc + rune["class"] + rune["upgrade_curr"] * 10
 			for eff in [rune["pri_eff"]] + [rune['prefix_eff']] + rune['sec_eff']:
 				typ = eff[0]
 				if len(eff) == 2:
@@ -150,6 +154,17 @@ class MAIN:
 				if type == "体力系":    # 2:体力%
 					if typ in [2]:
 						wbCalc = wbCalc + value
+		# 属性
+		if   unit_list["attribute"] == 1: # 水
+			wbCalc = wbCalc + 1000 * (1.5+1)	# 水＞火　水＝水
+		elif unit_list["attribute"] == 2: # 火
+			wbCalc = wbCalc + 1000 * (1+0.5)	# 火＝火　火＜水
+		elif unit_list["attribute"] == 3: # 風
+			wbCalc = wbCalc + 1000 * (0.5+1.5)	# 風＜火　風＞水
+		elif unit_list["attribute"] == 4: # 光
+			wbCalc = wbCalc + 1000 * (1+1)		# 光＝火　光＝水
+		elif unit_list["attribute"] == 5: # 闇
+			wbCalc = wbCalc + 1000 * (1+1)		# 闇＝火　闇＝水
 		arr = [
 			"",
 			type,
