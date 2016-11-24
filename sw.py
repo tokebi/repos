@@ -248,8 +248,14 @@ class MAIN:
 					uricomment = ""
 				if uri == "":
 					if rune["sec_eff"][0][0] == 8 or rune["sec_eff"][1][0] == 8:# 速度
-						uri = ""
-						uricomment = ""
+						if rune["class"] == 5 and \
+							((rune["sec_eff"][0][0] == 8 and rune["sec_eff"][0][1] == 3) or \
+							 (rune["sec_eff"][1][0] == 8 and rune["sec_eff"][1][1] == 3)):# 速度:3
+							uri = "売"
+							uricomment = "速度3"
+						else:
+							uri = ""
+							uricomment = ""
 					elif rune["slot_no"] in [2,4,6]: # スロットが2,4,6
 						uri = ""
 						uricomment = ""
@@ -283,6 +289,7 @@ class MAIN:
 						uri = ""
 						uricomment = ""
 			arr.append(uri)
+			arr.append(uricomment)
 		if rune["class"] == 6:
 			self.toukei["★6ルーン総数"] += 1
 		elif rune["class"] == 5:
