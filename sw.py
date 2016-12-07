@@ -12,6 +12,7 @@ class MAIN:
 		self.fm = open("monster.tsv", "w")
 		self.fr = open("runes.tsv", "w")
 		self.fs = open("skill.tsv", "w")
+		self.ft = open("tokei.tsv", "w")
 		#マスターデータの初期化
 		self.mst = swMaster.SwMaster()
 		self.unit_master_hash = {}
@@ -20,6 +21,18 @@ class MAIN:
 		self.toukei["★5ルーン総数"] = 0
 		self.toukei["★6モンス総数"] = 0
 		self.toukei["★5モンス総数"] = 0
+		
+		self.toukei["★6水モンス総数"] = 0
+		self.toukei["★6火モンス総数"] = 0
+		self.toukei["★6風モンス総数"] = 0
+		self.toukei["★6光モンス総数"] = 0
+		self.toukei["★6闇モンス総数"] = 0
+		
+		self.toukei["★5水モンス総数"] = 0
+		self.toukei["★5火モンス総数"] = 0
+		self.toukei["★5風モンス総数"] = 0
+		self.toukei["★5光モンス総数"] = 0
+		self.toukei["★5闇モンス総数"] = 0
 
 	def main(self):
 		data = self.ReadJson("819205-swarfarm.json")
@@ -55,8 +68,28 @@ class MAIN:
 			no += 1
 			if unit_list["class"] == 6:
 				self.toukei["★6モンス総数"] += 1
+				if unit_list["attribute"] == 1: # 水
+					self.toukei["★6水モンス総数"] += 1
+				if unit_list["attribute"] == 2: # 火
+					self.toukei["★6火モンス総数"] += 1
+				if unit_list["attribute"] == 3: # 風
+					self.toukei["★6風モンス総数"] += 1
+				if unit_list["attribute"] == 4: # 光
+					self.toukei["★6光モンス総数"] += 1
+				if unit_list["attribute"] == 5: # 闇
+					self.toukei["★6闇モンス総数"] += 1
 			elif unit_list["class"] == 5 and unit_list["unit_level"] == 35:
 				self.toukei["★5モンス総数"] += 1
+				if unit_list["attribute"] == 1: # 水
+					self.toukei["★5水モンス総数"] += 1
+				if unit_list["attribute"] == 2: # 火
+					self.toukei["★5火モンス総数"] += 1
+				if unit_list["attribute"] == 3: # 風
+					self.toukei["★5風モンス総数"] += 1
+				if unit_list["attribute"] == 4: # 光
+					self.toukei["★5光モンス総数"] += 1
+				if unit_list["attribute"] == 5: # 闇
+					self.toukei["★5闇モンス総数"] += 1
 			# スキル
 			skillno = 1
 			arr = ["" ,0,0 ,0,0 ,0,0 ,0,0]
@@ -83,10 +116,24 @@ class MAIN:
 			#self.fr.write(str(no) + "	" + runeTag + "\n")
 			self.fr.write("\n")
 			no += 1
-		print("★6モンス総数:" + str(self.toukei["★6モンス総数"]))
-		print("★5モンス総数:" + str(self.toukei["★5モンス総数"]))
-		print("★6ルーン総数:" + str(self.toukei["★6ルーン総数"]))
-		print("★6ルーン総数:" + str(self.toukei["★5ルーン総数"]))
+		arr = [
+			self.toukei["★6モンス総数"]
+			,self.toukei["★6水モンス総数"]
+			,self.toukei["★6火モンス総数"]
+			,self.toukei["★6風モンス総数"]
+			,self.toukei["★6光モンス総数"]
+			,self.toukei["★6闇モンス総数"]
+			,self.toukei["★5モンス総数"]
+			,self.toukei["★5水モンス総数"]
+			,self.toukei["★5火モンス総数"]
+			,self.toukei["★5風モンス総数"]
+			,self.toukei["★5光モンス総数"]
+			,self.toukei["★5闇モンス総数"]
+			,self.toukei["★6ルーン総数"]
+			,self.toukei["★5ルーン総数"]
+		]
+		self.outputData(self.ft, arr)
+
 
 	#
 	# モンスターデータを出力
