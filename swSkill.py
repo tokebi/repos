@@ -143,6 +143,24 @@ class SwSkill:
 				,"lvmax":5
 			},
 			#水インプ,
+			"1201" :{
+				"name":"アイススピア"
+				,"comment":"鋭い突き攻撃を与え、クリティカル攻撃が発生すると2ターンの間、攻撃速度が増す。"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":8
+			},
+			"1206" :{
+				"name":"アイスボール"
+				,"comment":"敵を1ターンの間、凍らせ行動できないようにする。(スキル再使用可能まで4ターン)"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
 			#風インプ,
 			#火ヴァイキング,
 			"5402" :{
@@ -218,6 +236,15 @@ class SwSkill:
 				,"usemin:":1
 				,"usemax":1
 				,"lvmax":5
+			},
+			"5413" :{
+				"name":"斧乱射"
+				,"comment":"5個の斧をランダムで投げてそれぞれ30％の確率で3ターンの間、持続ダメージを与える。(スキル再使用可能まで6ターン)"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":7
 			},
 			#光ヴァイキング,
 			"5404" :{
@@ -1568,7 +1595,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"3310" :{
 				"name":""
@@ -1577,7 +1604,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"3315" :{
 				"name":""
@@ -1586,7 +1613,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#火インプチャンピオン,
 			"3302" :{
@@ -2037,7 +2064,7 @@ class SwSkill:
 				,"lvmax":1
 			},
 			#火エルフレンジャー,
-			"11702" :{
+			"11717" :{
 				"name":""
 				,"comment":"対象を2回射撃し、クリティカルヒット発生率によって1回の追撃を加える。この攻撃はそれぞれ30％の確率で1ターンの間体力回復を邪魔する。"
 				,"rate":1
@@ -2065,6 +2092,15 @@ class SwSkill:
 				,"lvmax":3
 			},
 			#エルフレンジャー(火),
+			"11702" :{
+				"name":""
+				,"comment":"1"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":7
+			},
 			#光エルフレンジャー,
 			"L00150" :{
 				"name":""
@@ -2082,7 +2118,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"11709" :{
 				"name":""
@@ -2091,7 +2127,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"11714" :{
 				"name":""
@@ -2100,7 +2136,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#水エルフレンジャー,
 			"11716" :{
@@ -2147,7 +2183,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"11708" :{
 				"name":""
@@ -2156,7 +2192,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"11713" :{
 				"name":""
@@ -2165,7 +2201,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":1
 			},
 			#闇エレメンタル,
 			"1705" :{
@@ -2224,6 +2260,24 @@ class SwSkill:
 				,"lvmax":1
 			},
 			#火エレメンタル,
+			"1702" :{
+				"name":"炎の爪"
+				,"comment":"鋭い爪で敵を攻撃する。クリティカル攻撃発生時に2ターンの間、持続ダメージを与える。"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":7
+			},
+			"1707" :{
+				"name":"元素爆発"
+				,"comment":"元素の爆発で、対象の最大体力に比例するダメージを与える。(スキル再使用可能まで4ターン)"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
 			#水エレメンタル,
 			"1701" :{
 				"name":"氷の爪"
@@ -2419,7 +2473,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"10110" :{
 				"name":""
@@ -2428,7 +2482,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"10115" :{
 				"name":""
@@ -2437,7 +2491,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#火カウガール,
 			"10102" :{
@@ -3679,7 +3733,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"11608" :{
 				"name":""
@@ -3688,7 +3742,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"11613" :{
 				"name":""
@@ -3697,7 +3751,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":1
 			},
 			#闇ベアマン,
 			"L00081" :{
@@ -4173,7 +4227,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"6807" :{
 				"name":""
@@ -4182,7 +4236,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"6812" :{
 				"name":""
@@ -4191,7 +4245,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			#光マジックアーチャー,
 			"L00141" :{
@@ -4304,7 +4358,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"11107" :{
 				"name":""
@@ -4313,7 +4367,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			#光ミイラ,
 			"L00107" :{
@@ -4332,7 +4386,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"11109" :{
 				"name":""
@@ -4341,7 +4395,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":3
 			},
 			#水ミイラ,
 			"L00122" :{
@@ -4397,7 +4451,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"11108" :{
 				"name":""
@@ -4406,7 +4460,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":3
 			},
 			#闇ミスティックウィッチ,
 			"L00015" :{
@@ -5514,7 +5568,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"11208" :{
 				"name":""
@@ -5523,7 +5577,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"11213" :{
 				"name":""
@@ -5532,7 +5586,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":4
 			},
 			#火ヴァンパイア,
 			"L00047" :{
@@ -5598,7 +5652,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"6508" :{
 				"name":""
@@ -5607,7 +5661,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			#闇ウンディーネ,
 			"L00082" :{
@@ -5626,7 +5680,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":4
 			},
 			"2610" :{
 				"name":""
@@ -5635,7 +5689,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"2615" :{
 				"name":""
@@ -5644,7 +5698,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":2
 			},
 			#火ウンディーネ,
 			"L00096" :{
@@ -5750,7 +5804,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"8207" :{
 				"name":""
@@ -5759,7 +5813,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#光カンフーガール,
 			"L00002" :{
@@ -5800,6 +5854,24 @@ class SwSkill:
 				,"usemin:":0
 				,"usemax":0
 				,"lvmax":1
+			},
+			"8905" :{
+				"name":""
+				,"comment":"爆弾で敵を攻撃する。対象に適用されている弱化効果1つ当たり、15％ずつダメージが上昇する。"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			"8910" :{
+				"name":""
+				,"comment":"爆弾で敵全体を3回ずつ攻撃し、それぞれ25％の確率で2ターンの間強化効果を邪魔する。(スキル再使用可能まで4ターン)"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":4
 			},
 			#火コボルト爆弾狂,
 			"L00174" :{
@@ -5902,7 +5974,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"8908" :{
 				"name":""
@@ -5911,7 +5983,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#闇サキュバス,
 			#火サキュバス,
@@ -5922,7 +5994,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":8
 			},
 			"5307" :{
 				"name":""
@@ -5931,7 +6003,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"5312" :{
 				"name":""
@@ -5940,7 +6012,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#光サキュバス,
 			"L00013" :{
@@ -6024,7 +6096,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"5308" :{
 				"name":""
@@ -6033,7 +6105,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"5313" :{
 				"name":""
@@ -6042,7 +6114,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#闇サムライ,
 			#火サムライ,
@@ -6053,7 +6125,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"8007" :{
 				"name":""
@@ -6062,7 +6134,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":4
 			},
 			"8012" :{
 				"name":""
@@ -6071,7 +6143,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"8017" :{
 				"name":""
@@ -6080,7 +6152,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":4
 			},
 			#光サムライ,
 			#水サムライ,
@@ -6121,7 +6193,7 @@ class SwSkill:
 				,"lvmax":9999
 			},
 			#風サムライ,
-			"8003" :{
+			"8023" :{
 				"name":""
 				,"comment":"居合で敵を攻撃し、50％の確率で2ターンの間防衛力を下げる。使用後10％の確率で「超天狼拔刀術」が活性化される。"
 				,"rate":1
@@ -6130,7 +6202,7 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":6
 			},
-			"8008" :{
+			"8028" :{
 				"name":""
 				,"comment":"鋭い剣気を飛ばす攻撃で、クリティカルが発生すると2ターンの間攻撃速度が上昇する。使用後、20％の確率で「超天狼拔刀術」が活性化する。(スキル再使用可能まで3ターン)"
 				,"rate":1
@@ -6139,7 +6211,7 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":5
 			},
-			"8013" :{
+			"8033" :{
 				"name":""
 				,"comment":"雷のような迅速の居合で、敵のスキル再使用時間を最大に伸ばす。攻撃速度によって威力が上昇する。使用後50％の確率で「超天狼拔刀術」が活性化される。(スキル再使用可能まで5ターン)"
 				,"rate":1
@@ -6158,6 +6230,33 @@ class SwSkill:
 				,"lvmax":4
 			},
 			#サムライ(風),
+			"8003" :{
+				"name":""
+				,"comment":"1"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"8008" :{
+				"name":""
+				,"comment":"1"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			"8013" :{
+				"name":""
+				,"comment":"1"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
 			"8018" :{
 				"name":""
 				,"comment":"1"
@@ -6165,7 +6264,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":4
 			},
 			#闇ジャック・オ・ランタン,
 			"L00058" :{
@@ -6194,7 +6293,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"11507" :{
 				"name":""
@@ -6203,7 +6302,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"11512" :{
 				"name":""
@@ -6212,7 +6311,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#光ジャック・オ・ランタン,
 			"L00043" :{
@@ -6279,7 +6378,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"4710" :{
 				"name":""
@@ -6288,7 +6387,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#火ジョーカー,
 			"4702" :{
@@ -6298,7 +6397,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"4707" :{
 				"name":""
@@ -6307,7 +6406,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#光ジョーカー,
 			#水ジョーカー,
@@ -6442,7 +6541,7 @@ class SwSkill:
 			},
 			#光シルフ,
 			#水シルフ,
-			"3001" :{
+			"3016" :{
 				"name":"羽飛ばし"
 				,"comment":"小さい精霊を飛ばして30％の確率で連続攻撃をし、クリティカル攻撃発生時に次の攻撃のクリティカル率が30％増加する。"
 				,"rate":1
@@ -6470,6 +6569,15 @@ class SwSkill:
 				,"lvmax":5
 			},
 			#シルフ(水),
+			"3001" :{
+				"name":""
+				,"comment":"1"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":4
+			},
 			#風シルフ,
 			"L00005" :{
 				"name":""
@@ -6538,7 +6646,7 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":5
 			},
-			"2811" :{
+			"2816" :{
 				"name":""
 				,"comment":"ターゲットの体力を全回復させる。(スキル再使用可能まで6ターン)"
 				,"rate":1
@@ -6548,6 +6656,15 @@ class SwSkill:
 				,"lvmax":2
 			},
 			#シルフィード(水),
+			"2811" :{
+				"name":""
+				,"comment":"1"
+				,"rate":1
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":2
+			},
 			#風シルフィード,
 			"L00137" :{
 				"name":""
@@ -6785,7 +6902,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"10806" :{
 				"name":""
@@ -6794,7 +6911,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"10811" :{
 				"name":""
@@ -6803,7 +6920,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#風ネオストーンファイター,
 			"10803" :{
@@ -6813,7 +6930,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"10808" :{
 				"name":""
@@ -6822,7 +6939,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":3
 			},
 			"10813" :{
 				"name":""
@@ -6831,7 +6948,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#闇バーバリアンキング,
 			#火バーバリアンキング,
@@ -6842,7 +6959,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"9607" :{
 				"name":""
@@ -6851,7 +6968,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"9612" :{
 				"name":""
@@ -6860,7 +6977,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#光バーバリアンキング,
 			"L00029" :{
@@ -6890,7 +7007,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"9608" :{
 				"name":""
@@ -6899,7 +7016,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"9613" :{
 				"name":""
@@ -6908,7 +7025,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":4
 			},
 			#闇ピエレット,
 			"L00169" :{
@@ -6938,7 +7055,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"5509" :{
 				"name":""
@@ -6947,7 +7064,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":4
 			},
 			"5514" :{
 				"name":""
@@ -6956,7 +7073,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":4
 			},
 			#水ピエレット,
 			"5501" :{
@@ -7023,7 +7140,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"5707" :{
 				"name":""
@@ -7032,7 +7149,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"5712" :{
 				"name":""
@@ -7041,7 +7158,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":1
 			},
 			#光ファントムシーフ,
 			#水ファントムシーフ,
@@ -7055,7 +7172,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"11407" :{
 				"name":""
@@ -7064,7 +7181,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":3
 			},
 			"11412" :{
 				"name":""
@@ -7073,7 +7190,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			#水ホルス,
 			"11401" :{
@@ -7111,7 +7228,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"11408" :{
 				"name":""
@@ -7120,7 +7237,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"11413" :{
 				"name":""
@@ -7129,7 +7246,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":3
 			},
 			#闇マーメイド,
 			#火マーメイド,
@@ -7143,7 +7260,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"10408" :{
 				"name":""
@@ -7152,7 +7269,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"10413" :{
 				"name":""
@@ -7161,7 +7278,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			#闇マジカルブラウニー,
 			"L00146" :{
@@ -7191,7 +7308,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"8809" :{
 				"name":""
@@ -7200,7 +7317,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"8814" :{
 				"name":""
@@ -7209,7 +7326,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":1
 			},
 			#水マジカルブラウニー,
 			"L00171" :{
@@ -7305,7 +7422,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"7507" :{
 				"name":""
@@ -7314,7 +7431,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"7512" :{
 				"name":""
@@ -7323,7 +7440,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":1
 			},
 			#光リッチ,
 			#水リッチ,
@@ -7364,7 +7481,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"10707" :{
 				"name":""
@@ -7373,7 +7490,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"10712" :{
 				"name":""
@@ -7382,7 +7499,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":1
 			},
 			#光暗殺者,
 			#水暗殺者,
@@ -7418,7 +7535,7 @@ class SwSkill:
 				,"lvmax":6
 			},
 			#水海賊船長,
-			"10201" :{
+			"10211" :{
 				"name":"スピンスラッシュ"
 				,"comment":"素早い動きで対象を攻撃し、75％の確率で1ターンの間防御力を下げる。"
 				,"rate":1
@@ -7427,7 +7544,7 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":6
 			},
-			"10206" :{
+			"10216" :{
 				"name":"海賊の流儀"
 				,"comment":"強烈な攻撃で、対象の攻撃ゲージを30％吸収する。(スキル再使用可能まで3ターン)"
 				,"rate":1
@@ -7473,7 +7590,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"2207" :{
 				"name":""
@@ -7482,7 +7599,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":2
 			},
 			"2212" :{
 				"name":""
@@ -7491,7 +7608,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":4
 			},
 			#光九尾の狐,
 			"L00104" :{
@@ -7530,7 +7647,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"2208" :{
 				"name":""
@@ -7539,7 +7656,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"2213" :{
 				"name":""
@@ -7548,7 +7665,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#闇守護羅刹,
 			"6905" :{
@@ -7558,7 +7675,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"6910" :{
 				"name":""
@@ -7567,7 +7684,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"6915" :{
 				"name":""
@@ -7576,7 +7693,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#火守護羅刹,
 			"6902" :{
@@ -7616,7 +7733,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"6908" :{
 				"name":""
@@ -7625,7 +7742,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"6913" :{
 				"name":""
@@ -7634,7 +7751,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":1
 			},
 			#火天舞姫,
 			"9102" :{
@@ -7644,7 +7761,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":6
 			},
 			"9107" :{
 				"name":""
@@ -7653,7 +7770,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"9112" :{
 				"name":""
@@ -7662,7 +7779,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":4
 			},
 			#水天舞姫,
 			"9101" :{
@@ -7821,7 +7938,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"4807" :{
 				"name":""
@@ -7830,7 +7947,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"4812" :{
 				"name":""
@@ -7839,7 +7956,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":1
 			},
 			#光忍者,
 			"L00101" :{
@@ -7858,7 +7975,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"4809" :{
 				"name":""
@@ -7867,7 +7984,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			"4814" :{
 				"name":""
@@ -7876,7 +7993,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":5
 			},
 			#水ニンジャ,
 			"L00116" :{
@@ -8705,7 +8822,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"11807" :{
 				"name":""
@@ -8714,7 +8831,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":3
 			},
 			"11812" :{
 				"name":""
@@ -8723,7 +8840,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":1
 			},
 			#水ハッグ,
 			"11801" :{
@@ -8761,7 +8878,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"11808" :{
 				"name":""
@@ -8770,7 +8887,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":7
 			},
 			"11813" :{
 				"name":""
@@ -8779,7 +8896,7 @@ class SwSkill:
 				,"num":1
 				,"usemin:":1
 				,"usemax":1
-				,"lvmax":9999
+				,"lvmax":4
 			},
 			#光ハッグ,
 			#闇ハッグ,
