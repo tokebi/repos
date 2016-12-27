@@ -1100,4 +1100,5 @@ class SwMonstersName:
 			21213: ["•—ŒF”L•Žm","•—‰","–hŒäŒn"],
 			21214: ["ŒõŒF”L•Žm","“V˜T","‘Ì—ÍŒn"],
 			21215: ["ˆÅŒF”L•Žm","”é‰e","UŒ‚Œn"],
+			1000111: ["ƒzƒ€ƒ“ƒNƒ‹ƒX(…)","…ƒzƒ€ƒ“ƒNƒ‹ƒX","UŒ‚Œn"],
 		}
