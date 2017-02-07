@@ -27,4 +27,6 @@ python.exe sw.py
 REM emeditor monster.tsv runes.tsv skill.tsv
 REM emeditor monster.tsv runes.tsv
 
+C:\Users\hhara\OneDrive\test.xlsx
+
 pause

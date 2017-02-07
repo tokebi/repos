@@ -6,33 +6,19 @@ import json
 import math
 import os.path
 import swMaster
+import swToukei
+import swOutputExcel
 
 class MAIN:
 	def __init__(self):
 		self.fm = open("monster.tsv", "w")
 		self.fr = open("runes.tsv", "w")
 		self.fs = open("skill.tsv", "w")
-		self.ft = open("tokei.tsv", "w")
 		#マスターデータの初期化
 		self.mst = swMaster.SwMaster()
+		self.toukei = swToukei.SwToukei()
+		self.outputExcel = swOutputExcel.SwOutputExcel()
 		self.unit_master_hash = {}
-		self.toukei = {}
-		self.toukei["★6ルーン総数"] = 0
-		self.toukei["★5ルーン総数"] = 0
-		self.toukei["★6モンス総数"] = 0
-		self.toukei["★5モンス総数"] = 0
-		
-		self.toukei["★6水モンス総数"] = 0
-		self.toukei["★6火モンス総数"] = 0
-		self.toukei["★6風モンス総数"] = 0
-		self.toukei["★6光モンス総数"] = 0
-		self.toukei["★6闇モンス総数"] = 0
-		
-		self.toukei["★5水モンス総数"] = 0
-		self.toukei["★5火モンス総数"] = 0
-		self.toukei["★5風モンス総数"] = 0
-		self.toukei["★5光モンス総数"] = 0
-		self.toukei["★5闇モンス総数"] = 0
 
 	def main(self):
 		data = self.ReadJson("819205-swarfarm.json")
@@ -41,6 +27,8 @@ class MAIN:
 		for unit_list in sorted(data["unit_list"], key=lambda x:(-x['class'],x['attribute'])):
 			# 日本語モンスター名を設定
 			self.setJname(unit_list)
+			if (unit_list["unit_master_id_c"] is None):
+				print(unit_list["unit_master_id"])
 			if self.mst.isNotOutputMonster(unit_list["unit_master_id_c"]):
 				continue
 			# 倉庫か否か
@@ -58,38 +46,16 @@ class MAIN:
 						rune["unit_id"] = unit_list["unit_id"]
 						rune["unit_master_id"] = unit_list["unit_master_id_c"]
 						data["runes"].append(rune)
-						self.outputRune(self.fm, rune, 0)
+						self.outputRune(self.fm, rune, 0, "mons")
 						isFound=True
 				if isFound == False:
-					self.outputData(self.fm, [""] * (16 + 1))
+					self.outputData(self.fm, [""] * (16 + 1), "mons")
 			# モンスタータイプ処理
 			self.outputMonsterType(self.fm, unit_list, runes)
 			
 			no += 1
-			if unit_list["class"] == 6:
-				self.toukei["★6モンス総数"] += 1
-				if unit_list["attribute"] == 1: # 水
-					self.toukei["★6水モンス総数"] += 1
-				if unit_list["attribute"] == 2: # 火
-					self.toukei["★6火モンス総数"] += 1
-				if unit_list["attribute"] == 3: # 風
-					self.toukei["★6風モンス総数"] += 1
-				if unit_list["attribute"] == 4: # 光
-					self.toukei["★6光モンス総数"] += 1
-				if unit_list["attribute"] == 5: # 闇
-					self.toukei["★6闇モンス総数"] += 1
-			elif unit_list["class"] == 5 and unit_list["unit_level"] == 35:
-				self.toukei["★5モンス総数"] += 1
-				if unit_list["attribute"] == 1: # 水
-					self.toukei["★5水モンス総数"] += 1
-				if unit_list["attribute"] == 2: # 火
-					self.toukei["★5火モンス総数"] += 1
-				if unit_list["attribute"] == 3: # 風
-					self.toukei["★5風モンス総数"] += 1
-				if unit_list["attribute"] == 4: # 光
-					self.toukei["★5光モンス総数"] += 1
-				if unit_list["attribute"] == 5: # 闇
-					self.toukei["★5闇モンス総数"] += 1
+			# 統計処理
+			self.toukei.addMonster(unit_list["class"], unit_list["unit_level"], unit_list["attribute"])
 			# スキル
 			skillno = 1
 			arr = ["" ,0,0 ,0,0 ,0,0 ,0,0]
@@ -106,35 +72,22 @@ class MAIN:
 				skillno += 1
 			# 覚醒名称
 			arr.append(self.mst.getKakuseiName(unit_list["unit_master_id"]))
-			self.outputData(self.fm, arr)
+			self.outputData(self.fm, arr, "mons")
 			self.fm.write("\n")
+			self.outputExcel.writeMonsterNextRow()
 		#ルーンを生成
 		no = 1
 		#sorted(data["unit_list"], key=lambda x:(-x['class'],x['attribute'])):
 		for rune in data["runes"]:
-			self.outputRune(self.fr, rune, no);
+			self.outputRune(self.fr, rune, no, "runes");
 			#self.fr.write(str(no) + "	" + runeTag + "\n")
 			self.fr.write("\n")
+			self.outputExcel.writeRuneNextRow()
 			no += 1
-		arr = [
-			self.toukei["★6モンス総数"]
-			,self.toukei["★6水モンス総数"]
-			,self.toukei["★6火モンス総数"]
-			,self.toukei["★6風モンス総数"]
-			,self.toukei["★6光モンス総数"]
-			,self.toukei["★6闇モンス総数"]
-			,self.toukei["★5モンス総数"]
-			,self.toukei["★5水モンス総数"]
-			,self.toukei["★5火モンス総数"]
-			,self.toukei["★5風モンス総数"]
-			,self.toukei["★5光モンス総数"]
-			,self.toukei["★5闇モンス総数"]
-			,self.toukei["★6ルーン総数"]
-			,self.toukei["★5ルーン総数"]
-		]
-		self.outputData(self.ft, arr)
-
-
+		# 統計データ出力
+		self.toukei.outputData()
+		# Excel出力
+		self.outputExcel.save()
 	#
 	# モンスターデータを出力
 	#
@@ -156,7 +109,7 @@ class MAIN:
 				,unit_list["accuracy"]
 				,unit_list["create_time"]
 		]
-		self.outputData(fm, arr)
+		self.outputData(fm, arr, "mons")
 
 	#
 	# モンスター種類データを出力
@@ -217,12 +170,12 @@ class MAIN:
 			type,
 			wbCalc
 		]
-		self.outputData(fm, arr)
+		self.outputData(fm, arr, "mons")
 
 	#
 	# データをファイルに出力
 	#
-	def outputData(self, fm, arr):
+	def outputData(self, fm, arr, target):
 		isFirst = True
 		for one in arr:
 			if isFirst:
@@ -233,11 +186,17 @@ class MAIN:
 				fm.write(str(one))
 			else:
 				fm.write(one)
+		if arr[0] == "":
+			del arr[0]
+		if target == "mons":
+			self.outputExcel.writeMonsterData(arr)
+		elif target == "runes":
+			self.outputExcel.writeRuneData(arr)
 
 	#
 	# ルーンテーブルを出力
 	#
-	def outputRune(self, fr, rune, no):
+	def outputRune(self, fr, rune, no, target):
 		arr = []
 		if no > 0:	# ルーン出力なら
 			arr.append(no)
@@ -258,7 +217,10 @@ class MAIN:
 		arr.append(rune["pri_eff"][1])
 		# オプ効果
 		arr.append(self.mst.getEffectTypeName(rune["prefix_eff"][0]))
-		arr.append(rune["prefix_eff"][1])
+		if rune["prefix_eff"][0] == 0 and rune["prefix_eff"][1] == 0:
+			arr.append("")
+		else:
+			arr.append(rune["prefix_eff"][1])
 		# オプ１～４効果
 		rune["reado"] = 0
 		arr.extend(self.getSecEff(rune, 0))
@@ -337,11 +299,9 @@ class MAIN:
 						uricomment = ""
 			arr.append(uri)
 			arr.append(uricomment)
-		if rune["class"] == 6:
-			self.toukei["★6ルーン総数"] += 1
-		elif rune["class"] == 5:
-			self.toukei["★5ルーン総数"] += 1
-		self.outputData(fr, arr)
+		# ルーン統計処理
+		self.toukei.addRune(rune["class"])
+		self.outputData(fr, arr, target)
 
 	#
 	# サブオプを取得
