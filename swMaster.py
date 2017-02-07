@@ -2,21 +2,18 @@
 # -*- coding: sjis -*-
 
 import math
-import swRuneSet
-import swEffectType
-import swMonstersName
-import swNotOutputMonster
-import swAttribute
-import swSkill
+from swMonstersName     import SwMonstersName
+from swNotOutputMonster import SwNotOutputMonster
+from swSkill            import SwSkill
 
 class SwMaster:
 	def __init__(self):
-		self.__runeSetMap         = swRuneSet         .SwRuneSet()         .getMap()
-		self.__swEffectTypeMap    = swEffectType      .SwEffectType()      .getMap()
-		self.__swMonstersNameMap  = swMonstersName    .SwMonstersName()    .getMap()
-		self.__swNotOutputMonster = swNotOutputMonster.SwNotOutputMonster().getMap()
-		self.__swAttribute        = swAttribute       .SwAttribute()       .getMap()
-		self.__swSkill            = swSkill           .SwSkill()           .getMap()
+		self.__runeSetMap         = SwRuneSet()         .getMap()
+		self.__swEffectTypeMap    = SwEffectType()      .getMap()
+		self.__swAttribute        = SwAttribute()       .getMap()
+		self.__swMonstersNameMap  = SwMonstersName()    .getMap()
+		self.__swNotOutputMonster = SwNotOutputMonster().getMap()
+		self.__swSkill            = SwSkill()           .getMap()
 
 	#
 	# ルーンセット名を返す
@@ -78,3 +75,68 @@ class SwMaster:
 				return "9999"
 		else:
 			return id
+
+class SwRuneSet:
+	#
+	# ルーン設置のハッシュを返す
+	#
+	def getMap(self):
+		return {
+			1: "元",
+			2: "守",
+			3: "迅",
+			4: "刃",
+			5: "激",
+			6: "集",
+			7: "忍",
+			8: "猛",
+			10: "絶",
+			11: "吸",
+			13: "暴",
+			14: "果",
+			15: "意",
+			16: "保",
+			17: "反",
+			18: "破",
+			19: "闘", #闘志：味方の攻撃力＋１０％
+			20: "決", # 決意：味方の防御＋７％
+			21: "21未設定",
+			22: "命", #命中：味方の的中＋１０％
+			23: "根", #根性：味方の抵抗＋１０％
+			24: "24未設定",
+			# 高揚：味方の体力＋７％
+			# 闘志：味方の攻撃＋７％
+		}
+
+class SwEffectType:
+	#
+	# 効果名のハッシュを返す
+	#
+	def getMap(self):
+		return {
+			0:  "",
+			1:  "体",
+			2:  "体%",
+			3:  "攻",
+			4:  "攻%",
+			5:  "防",
+			6:  "防%",
+			8:  "速",
+			9:  "クリ",
+			10: "ダメ",
+			11: "抵抗",
+			12: "的中"
+		}
+
+class SwAttribute:
+	#
+	# 属性名を日本語ハッシュを返す
+	#
+	def getMap(self):
+		return {
+			1: "水",
+			2: "火",
+			3: "風",
+			4: "光",
+			5: "闇"
+		}
