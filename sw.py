@@ -46,10 +46,11 @@ class MAIN:
 						rune["unit_id"] = unit_list["unit_id"]
 						rune["unit_master_id"] = unit_list["unit_master_id_c"]
 						data["runes"].append(rune)
-						self.outputRune(self.fm, rune, 0, "mons")
+						self.outputRune(self.fm, rune, 0)
 						isFound=True
 				if isFound == False:
-					self.outputData(self.fm, [""] * (16 + 1), "mons")
+					self.outputData(self.fm, [""] * (16 + 1))
+					self.outputExcel.writeMonsterData([""] * (16 + 1))
 			# モンスタータイプ処理
 			self.outputMonsterType(self.fm, unit_list, runes)
 			
@@ -72,14 +73,15 @@ class MAIN:
 				skillno += 1
 			# 覚醒名称
 			arr.append(self.mst.getKakuseiName(unit_list["unit_master_id"]))
-			self.outputData(self.fm, arr, "mons")
+			self.outputData(self.fm, arr)
+			self.outputExcel.writeMonsterData(arr)
 			self.fm.write("\n")
 			self.outputExcel.writeMonsterNextRow()
 		#ルーンを生成
 		no = 1
 		#sorted(data["unit_list"], key=lambda x:(-x['class'],x['attribute'])):
 		for rune in data["runes"]:
-			self.outputRune(self.fr, rune, no, "runes");
+			self.outputRune(self.fr, rune, no);
 			#self.fr.write(str(no) + "	" + runeTag + "\n")
 			self.fr.write("\n")
 			self.outputExcel.writeRuneNextRow()
@@ -109,7 +111,8 @@ class MAIN:
 				,unit_list["accuracy"]
 				,unit_list["create_time"]
 		]
-		self.outputData(fm, arr, "mons")
+		self.outputData(fm, arr)
+		self.outputExcel.writeMonsterData(arr)
 
 	#
 	# モンスター種類データを出力
@@ -170,12 +173,13 @@ class MAIN:
 			type,
 			wbCalc
 		]
-		self.outputData(fm, arr, "mons")
+		self.outputData(fm, arr)
+		self.outputExcel.writeMonsterData(arr)
 
 	#
 	# データをファイルに出力
 	#
-	def outputData(self, fm, arr, target):
+	def outputData(self, fm, arr):
 		isFirst = True
 		for one in arr:
 			if isFirst:
@@ -186,20 +190,14 @@ class MAIN:
 				fm.write(str(one))
 			else:
 				fm.write(one)
-		if arr[0] == "":
-			del arr[0]
-		if target == "mons":
-			self.outputExcel.writeMonsterData(arr)
-		elif target == "runes":
-			self.outputExcel.writeRuneData(arr)
 
 	#
 	# ルーンテーブルを出力
 	#
-	def outputRune(self, fr, rune, no, target):
+	def outputRune(self, fr, rune, isRune):
 		arr = []
-		if no > 0:	# ルーン出力なら
-			arr.append(no)
+		if isRune > 0:	# ルーン出力なら
+			arr.append(isRune)
 			arr.append(rune["rune_id"])
 			arr.append(rune["slot_no"])
 			if "unit_master_id" in rune:
@@ -229,9 +227,15 @@ class MAIN:
 		arr.extend(self.getSecEff(rune, 3))
 		# 効率
 		arr.append(self.rune_efficiency(rune))
-		if no > 0:
+		arre = []
+		# Excel出力
+		if isRune == 0:
+			self.outputExcel.writeMonsterData(arr)
+		if isRune > 0: # ルーン出力のみ対象
 			arr.append( '★'+ str(rune["class"]) + "(" + str(rune["reado"]) + ")+" + str(rune["upgrade_curr"]))
 			arr.append(int(math.ceil(rune["reado"] - int(rune["upgrade_curr"]))/3))
+			arre = arr[:]
+			# tsv用
 			arr.append(self.getUmuValue(rune, 2))	# 体%有無
 			arr.append(self.getUmuValue(rune, 4))	# 攻%有無
 			arr.append(self.getUmuValue(rune, 6))	# 防%有無
@@ -240,8 +244,19 @@ class MAIN:
 			arr.append(self.getUmuValue(rune, 10))	# ダメ有無
 			arr.append(self.getUmuValue(rune, 11))	# 抵抗有無
 			arr.append(self.getUmuValue(rune, 12))	# 的中有無
+			# Excel用
+			row = str(self.outputExcel.getRuneRone()+1)
+			arre.append('=IF(J' + row + '="体%" ,K' + row + ',   IF(L' + row + '="体%" ,M' + row + ',   IF(N' + row + '="体%" ,O' + row + ',   IF(P' + row + '="体%" ,Q' + row + ',   IF(R' + row + '="体%" ,S' + row + ',"")))))')	# 体%有無
+			arre.append('=IF(J' + row + '="攻%" ,K' + row + ',   IF(L' + row + '="攻%" ,M' + row + ',   IF(N' + row + '="攻%" ,O' + row + ',   IF(P' + row + '="攻%" ,Q' + row + ',   IF(R' + row + '="攻%" ,S' + row + ',"")))))')	# 攻%有無
+			arre.append('=IF(J' + row + '="防%" ,K' + row + ',   IF(L' + row + '="防%" ,M' + row + ',   IF(N' + row + '="防%" ,O' + row + ',   IF(P' + row + '="防%" ,Q' + row + ',   IF(R' + row + '="防%" ,S' + row + ',"")))))')	# 防%有無
+			arre.append('=IF(J' + row + '="速"  ,K' + row + ',   IF(L' + row + '="速"  ,M' + row + ',   IF(N' + row + '="速"  ,O' + row + ',   IF(P' + row + '="速"  ,Q' + row + ',   IF(R' + row + '="速"  ,S' + row + ',"")))))')	# 速 有無
+			arre.append('=IF(J' + row + '="クリ",K' + row + ',   IF(L' + row + '="クリ",M' + row + ',   IF(N' + row + '="クリ",O' + row + ',   IF(P' + row + '="クリ",Q' + row + ',   IF(R' + row + '="クリ",S' + row + ',"")))))')	# クリ有無
+			arre.append('=IF(J' + row + '="ダメ",K' + row + ',   IF(L' + row + '="ダメ",M' + row + ',   IF(N' + row + '="ダメ",O' + row + ',   IF(P' + row + '="ダメ",Q' + row + ',   IF(R' + row + '="ダメ",S' + row + ',"")))))')	# ダメ有無
+			arre.append('=IF(J' + row + '="抵抗",K' + row + ',   IF(L' + row + '="抵抗",M' + row + ',   IF(N' + row + '="抵抗",O' + row + ',   IF(P' + row + '="抵抗",Q' + row + ',   IF(R' + row + '="抵抗",S' + row + ',"")))))')	# 抵抗有無
+			arre.append('=IF(J' + row + '="的中",K' + row + ',   IF(L' + row + '="的中",M' + row + ',   IF(N' + row + '="的中",O' + row + ',   IF(P' + row + '="的中",Q' + row + ',   IF(R' + row + '="的中",S' + row + ',"")))))')	# 的中有無
 			# 価格
 			arr.append(rune["sell_value"])
+			arre.append(rune["sell_value"])
 			# 売りかどうか
 			uri = ""
 			uricomment = ""
@@ -299,9 +314,12 @@ class MAIN:
 						uricomment = ""
 			arr.append(uri)
 			arr.append(uricomment)
+			arre.append(uri)
+			arre.append(uricomment)
 		# ルーン統計処理
 		self.toukei.addRune(rune["class"])
-		self.outputData(fr, arr, target)
+		self.outputData(fr, arr)
+		self.outputExcel.writeRuneData(arre)
 
 	#
 	# サブオプを取得
@@ -318,13 +336,36 @@ class MAIN:
 	# 数値有無を取得
 	#
 	def getUmuValue(self, rune, type):
+		i = 0
 		for eff in [rune['prefix_eff']] + rune['sec_eff']:
 			if type == eff[0]:
+				if i == 0: # prefix_effならセルの色を黄色にする
+					self.setExcelColorYellow(type)
 				if len(eff) == 2:
 					return eff[1]
 				else:
 					return eff[1]+eff[3]
+			i += 1
 		return ""
+
+	def setExcelColorYellow(self, type):
+		# オプ効果が%系ならばExcelセルを黄色にする
+		if type == 2:
+			self.outputExcel.setRuneColorYellow(22)
+		elif type == 4:
+			self.outputExcel.setRuneColorYellow(23)
+		elif type == 6:
+			self.outputExcel.setRuneColorYellow(24)
+		elif type == 8:
+			self.outputExcel.setRuneColorYellow(25)
+		elif type == 9:
+			self.outputExcel.setRuneColorYellow(26)
+		elif type == 10:
+			self.outputExcel.setRuneColorYellow(27)
+		elif type == 11:
+			self.outputExcel.setRuneColorYellow(28)
+		elif type == 12:
+			self.outputExcel.setRuneColorYellow(29)
 
 	#  0: ("",""),
 	#  1: ("HP flat", "HP +%s"),
