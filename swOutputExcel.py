@@ -105,7 +105,6 @@ class SwOutputExcel:
 			'align': 'center',
 			'valign': 'vcenter',
 			'fg_color': '#BFBFBF'})
-		
 		self.__runes.write(0,  0, 'No', format)
 		self.__runes.write(0,  1, 'ルーンID', format)
 		self.__runes.write(0,  2, 'SLT', format)
@@ -219,17 +218,29 @@ class SwOutputExcel:
 	# ルーンデータの行出力
 	#
 	def writeRuneNextRow(self):
-		format_per = self.__book.add_format({
-			'border': 1,
-			'num_format': '0.00%'
-			})
-		format_shrink = self.__book.add_format({
-			'border': 1,
-			'shrink': 1,
-			})
+		format_def = self.__book.add_format({'border': 1})
+		# パーセント表示
+		format_per = format_def
+		format_per.set_num_format('0.00%')
+		# 縮小して全体を表示
+		format_shrink = format_def
+		format_shrink.set_shrink(1)
+		# "0"を表示しない
+		format_nonZero = format_def
+		format_nonZero.set_num_format('#;-#;"";@')
+		# 各列のフォーマットを設定
 		formatHash = {}
-		formatHash[ 1] = format_shrink
-		formatHash[19] = format_per
+		formatHash[ 1] = format_shrink	# ルーンID
+		formatHash[19] = format_per		# ルーン効率
+		formatHash[22] = format_nonZero	# 体%有無
+		formatHash[23] = format_nonZero	# 攻%有無
+		formatHash[24] = format_nonZero	# 防%有無
+		formatHash[25] = format_nonZero	# 速　有無
+		formatHash[26] = format_nonZero	# クリ有無
+		formatHash[27] = format_nonZero	# ダメ有無
+		formatHash[28] = format_nonZero	# 抵抗有無
+		formatHash[29] = format_nonZero	# 的中有無
+
 		for k, v in self.__runeFormat.items():
 			formatHash[k] = v
 		self.__writeData(self.__runes, self.__stockRunes, self.__rowRunes, formatHash)
@@ -257,7 +268,6 @@ class SwOutputExcel:
 		format_def = self.__book.add_format({
 			'border': 1,
 			})
-		#yyyy/m/d h:mm
 		colnum = 0
 		for one in arr:
 			if colnum in formatHash:

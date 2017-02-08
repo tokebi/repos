@@ -246,14 +246,14 @@ class MAIN:
 			arr.append(self.getUmuValue(rune, 12))	# 的中有無
 			# Excel用
 			row = str(self.outputExcel.getRuneRone()+1)
-			arre.append('=IF(J' + row + '="体%" ,K' + row + ',   IF(L' + row + '="体%" ,M' + row + ',   IF(N' + row + '="体%" ,O' + row + ',   IF(P' + row + '="体%" ,Q' + row + ',   IF(R' + row + '="体%" ,S' + row + ',"")))))')	# 体%有無
-			arre.append('=IF(J' + row + '="攻%" ,K' + row + ',   IF(L' + row + '="攻%" ,M' + row + ',   IF(N' + row + '="攻%" ,O' + row + ',   IF(P' + row + '="攻%" ,Q' + row + ',   IF(R' + row + '="攻%" ,S' + row + ',"")))))')	# 攻%有無
-			arre.append('=IF(J' + row + '="防%" ,K' + row + ',   IF(L' + row + '="防%" ,M' + row + ',   IF(N' + row + '="防%" ,O' + row + ',   IF(P' + row + '="防%" ,Q' + row + ',   IF(R' + row + '="防%" ,S' + row + ',"")))))')	# 防%有無
-			arre.append('=IF(J' + row + '="速"  ,K' + row + ',   IF(L' + row + '="速"  ,M' + row + ',   IF(N' + row + '="速"  ,O' + row + ',   IF(P' + row + '="速"  ,Q' + row + ',   IF(R' + row + '="速"  ,S' + row + ',"")))))')	# 速 有無
-			arre.append('=IF(J' + row + '="クリ",K' + row + ',   IF(L' + row + '="クリ",M' + row + ',   IF(N' + row + '="クリ",O' + row + ',   IF(P' + row + '="クリ",Q' + row + ',   IF(R' + row + '="クリ",S' + row + ',"")))))')	# クリ有無
-			arre.append('=IF(J' + row + '="ダメ",K' + row + ',   IF(L' + row + '="ダメ",M' + row + ',   IF(N' + row + '="ダメ",O' + row + ',   IF(P' + row + '="ダメ",Q' + row + ',   IF(R' + row + '="ダメ",S' + row + ',"")))))')	# ダメ有無
-			arre.append('=IF(J' + row + '="抵抗",K' + row + ',   IF(L' + row + '="抵抗",M' + row + ',   IF(N' + row + '="抵抗",O' + row + ',   IF(P' + row + '="抵抗",Q' + row + ',   IF(R' + row + '="抵抗",S' + row + ',"")))))')	# 抵抗有無
-			arre.append('=IF(J' + row + '="的中",K' + row + ',   IF(L' + row + '="的中",M' + row + ',   IF(N' + row + '="的中",O' + row + ',   IF(P' + row + '="的中",Q' + row + ',   IF(R' + row + '="的中",S' + row + ',"")))))')	# 的中有無
+			arre.append('=IF(J' + row + '="体%" ,K' + row + ',   IF(L' + row + '="体%" ,M' + row + ',   IF(N' + row + '="体%" ,O' + row + ',   IF(P' + row + '="体%" ,Q' + row + ',   IF(R' + row + '="体%" ,S' + row + ',0)))))')	# 体%有無
+			arre.append('=IF(J' + row + '="攻%" ,K' + row + ',   IF(L' + row + '="攻%" ,M' + row + ',   IF(N' + row + '="攻%" ,O' + row + ',   IF(P' + row + '="攻%" ,Q' + row + ',   IF(R' + row + '="攻%" ,S' + row + ',0)))))')	# 攻%有無
+			arre.append('=IF(J' + row + '="防%" ,K' + row + ',   IF(L' + row + '="防%" ,M' + row + ',   IF(N' + row + '="防%" ,O' + row + ',   IF(P' + row + '="防%" ,Q' + row + ',   IF(R' + row + '="防%" ,S' + row + ',0)))))')	# 防%有無
+			arre.append('=IF(J' + row + '="速"  ,K' + row + ',   IF(L' + row + '="速"  ,M' + row + ',   IF(N' + row + '="速"  ,O' + row + ',   IF(P' + row + '="速"  ,Q' + row + ',   IF(R' + row + '="速"  ,S' + row + ',0)))))')	# 速 有無
+			arre.append('=IF(J' + row + '="クリ",K' + row + ',   IF(L' + row + '="クリ",M' + row + ',   IF(N' + row + '="クリ",O' + row + ',   IF(P' + row + '="クリ",Q' + row + ',   IF(R' + row + '="クリ",S' + row + ',0)))))')	# クリ有無
+			arre.append('=IF(J' + row + '="ダメ",K' + row + ',   IF(L' + row + '="ダメ",M' + row + ',   IF(N' + row + '="ダメ",O' + row + ',   IF(P' + row + '="ダメ",Q' + row + ',   IF(R' + row + '="ダメ",S' + row + ',0)))))')	# ダメ有無
+			arre.append('=IF(J' + row + '="抵抗",K' + row + ',   IF(L' + row + '="抵抗",M' + row + ',   IF(N' + row + '="抵抗",O' + row + ',   IF(P' + row + '="抵抗",Q' + row + ',   IF(R' + row + '="抵抗",S' + row + ',0)))))')	# 抵抗有無
+			arre.append('=IF(J' + row + '="的中",K' + row + ',   IF(L' + row + '="的中",M' + row + ',   IF(N' + row + '="的中",O' + row + ',   IF(P' + row + '="的中",Q' + row + ',   IF(R' + row + '="的中",S' + row + ',0)))))')	# 的中有無
 			# 価格
 			arr.append(rune["sell_value"])
 			arre.append(rune["sell_value"])
