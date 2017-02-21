@@ -98,14 +98,12 @@ class SwRuneSet:
 			16: "•Û",
 			17: "”½",
 			18: "”j",
-			19: "“¬", #“¬ŽuF–¡•û‚ÌUŒ‚—Í{‚P‚O“
+			19: "“¬", # “¬ŽuF–¡•û‚ÌUŒ‚—Í{‚P‚O“
 			20: "Œˆ", # ŒˆˆÓF–¡•û‚Ì–hŒä{‚V“
-			21: "21–¢Ý’è",
-			22: "–½", #–½’†F–¡•û‚Ì“I’†{‚P‚O“
-			23: "ª", #ª«F–¡•û‚Ì’ïR{‚P‚O“
-			24: "24–¢Ý’è",
-			# ‚—gF–¡•û‚Ì‘Ì—Í{‚V“
-			# “¬ŽuF–¡•û‚ÌUŒ‚{‚V“
+			21: "‚", # ‚—gF–¡•û‚Ì‘Ì—Í{‚V“
+			22: "–½", # –½’†F–¡•û‚Ì“I’†{‚P‚O“
+			23: "ª", # ª«F–¡•û‚Ì’ïR{‚P‚O“
+			24: "“¬", # “¬ŽuF–¡•û‚ÌUŒ‚{‚V“
 		}
 
 class SwEffectType:

@@ -189,15 +189,15 @@ class SwOutputExcel:
 		format_per = self.__book.add_format({
 			'border': 1,
 			'num_format': '0.00%'
-			})
+		})
 		format_date = self.__book.add_format({
 			'border': 1,
 			'num_format': 'yyyy/m/d h:mm'
-			})
+		})
 		format_shrink = self.__book.add_format({
 			'border': 1,
 			'shrink': 1,
-			})
+		})
 		formatHash = {}
 		formatHash[ 1] = format_shrink
 		formatHash[14] = format_date
@@ -220,14 +220,20 @@ class SwOutputExcel:
 	def writeRuneNextRow(self):
 		format_def = self.__book.add_format({'border': 1})
 		# パーセント表示
-		format_per = format_def
-		format_per.set_num_format('0.00%')
+		format_per = self.__book.add_format({
+			'border': 1,
+			'num_format': '0.00%'
+		})
 		# 縮小して全体を表示
-		format_shrink = format_def
-		format_shrink.set_shrink(1)
+		format_shrink = self.__book.add_format({
+			'border': 1,
+			'shrink': 1,
+		})
 		# "0"を表示しない
-		format_nonZero = format_def
-		format_nonZero.set_num_format('#;-#;"";@')
+		format_nonZero = self.__book.add_format({
+			'border': 1,
+			'num_format': '#;-#;"";@'
+		})
 		# 各列のフォーマットを設定
 		formatHash = {}
 		formatHash[ 1] = format_shrink	# ルーンID
@@ -258,7 +264,7 @@ class SwOutputExcel:
 		format = self.__book.add_format({'border': 1})
 		if col in self.__runeFormat:
 			format = self.__runeFormat[col]
-		format.set_bg_color('yellow')
+		format.set_bg_color('green')
 		self.__runeFormat[col] = format
 
 	#
