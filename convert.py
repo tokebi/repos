@@ -37,25 +37,25 @@ SKILL2_MAXLV	= "E34"
 SKILL3_MAXLV	= "E35"
 SKILL4_MAXLV	= "E36"
 LSKILL_RATE		= 0
-SKILL1_RATE		= 1
-SKILL2_RATE		= 1
-SKILL3_RATE		= 1
-SKILL4_RATE		= 1
+SKILL1_RATE		= "E39"
+SKILL2_RATE		= "E40"
+SKILL3_RATE		= "E41"
+SKILL4_RATE		= "E42"
 LSKILL_NUM		= 0
 SKILL1_NUM		= 1
 SKILL2_NUM		= 1
 SKILL3_NUM		= 1
 SKILL4_NUM		= 1
 LSKILL_USEMIN	= 0
-SKILL1_USEMIN	= 1
-SKILL2_USEMIN	= 1
-SKILL3_USEMIN	= 1
-SKILL4_USEMIN	= 1
+SKILL1_USEMIN	= "E47"
+SKILL2_USEMIN	= "E48"
+SKILL3_USEMIN	= "E49"
+SKILL4_USEMIN	= "E50"
 LSKILL_USEMAX	= 0
-SKILL1_USEMAX	= 1
-SKILL2_USEMAX	= 1
-SKILL3_USEMAX	= 1
-SKILL4_USEMAX	= 1
+SKILL1_USEMAX	= "E43"
+SKILL2_USEMAX	= "E44"
+SKILL3_USEMAX	= "E45"
+SKILL4_USEMAX	= "E46"
 
 def getCellNum(row, cellnum, defval):
 	ret = ""
@@ -94,7 +94,7 @@ def outputSkill(row, skillno_in, name_in, comment_in, rate_in, num_in, usemin_in
 			outf.write('			"' + skillno + '" :{' + "\n")
 			outf.write('				"name":"' + name +'"' + "\n")			# スキル名
 			outf.write('				,"comment":"' + comment + '"' + "\n")	# スキル詳細
-			outf.write('				,"rate":' + rate + "\n")				# 倍率
+			outf.write('				,"rate":"' + rate + '"' + "\n")			# 倍率
 			outf.write('				,"num":'  + num + "\n")					# 攻撃回数
 			outf.write('				,"usemin:":' + usemin + "\n")			# 再利用最小
 			outf.write('				,"usemax":'  + usemax + "\n")			# 再利用最大
