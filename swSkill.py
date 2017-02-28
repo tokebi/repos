@@ -52,7 +52,7 @@ class SwSkill:
 				,"comment":"敵にくっついてダメージを与え、50％の確率で1ターンの間、ミス発生率を高める。"
 				,"rate":"ATK*3.4"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -62,7 +62,7 @@ class SwSkill:
 				,"comment":"敵にくっついてダメージを与え、50％の確率で1ターンの間、ミス発生率を高める。"
 				,"rate":"ATK*3.4"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -72,7 +72,7 @@ class SwSkill:
 				,"comment":"敵にくっついてダメージを与え、50％の確率で1ターンの間、ミス発生率を高める。"
 				,"rate":"ATK*3.4"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -82,7 +82,7 @@ class SwSkill:
 				,"comment":"敵にくっついてダメージを与え、50％の確率で1ターンの間、ミス発生率を高める。"
 				,"rate":"ATK*3.4"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -92,7 +92,7 @@ class SwSkill:
 				,"comment":"突き上がる砂で敵を攻撃し、30％の確率で敵を1ターンの間、眠らせる。"
 				,"rate":"ATK*3.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -102,7 +102,7 @@ class SwSkill:
 				,"comment":"突き上がる砂で敵を攻撃し、30％の確率で敵を1ターンの間、眠らせる。"
 				,"rate":"ATK*3.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -112,7 +112,7 @@ class SwSkill:
 				,"comment":"突き上がる砂で敵を攻撃し、30％の確率で敵を1ターンの間、眠らせる。"
 				,"rate":"ATK*3.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -122,7 +122,7 @@ class SwSkill:
 				,"comment":"突き上がる砂で敵を攻撃し、30％の確率で敵を1ターンの間、眠らせる。"
 				,"rate":"ATK*3.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -132,7 +132,7 @@ class SwSkill:
 				,"comment":"空中に飛んで敵を攻撃し、30％の確率で攻撃速度を減少させる。"
 				,"rate":"ATK*3.3+35"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -142,7 +142,7 @@ class SwSkill:
 				,"comment":"空中に飛んで敵を攻撃し、30％の確率で攻撃速度を減少させる。"
 				,"rate":"ATK*3.3+35"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -152,7 +152,7 @@ class SwSkill:
 				,"comment":"空中に飛んで敵を攻撃し、30％の確率で攻撃速度を減少させる。"
 				,"rate":"ATK*3.3+35"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -162,7 +162,7 @@ class SwSkill:
 				,"comment":"敵に噛みついてダメージを与えて50％の確率で1ターンの間、防御力を減少させる。"
 				,"rate":"ATK*3.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -172,7 +172,7 @@ class SwSkill:
 				,"comment":"敵に噛みついてダメージを与えて50％の確率で1ターンの間、防御力を減少させる。"
 				,"rate":"ATK*3.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -182,7 +182,7 @@ class SwSkill:
 				,"comment":"敵に噛みついてダメージを与えて50％の確率で1ターンの間、防御力を減少させる。"
 				,"rate":"ATK*3.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -192,7 +192,7 @@ class SwSkill:
 				,"comment":"敵に噛みついてダメージを与えて50％の確率で1ターンの間、防御力を減少させる。"
 				,"rate":"ATK*3.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -211,7 +211,7 @@ class SwSkill:
 				,"comment":"凝縮された元素の塊で2回攻撃し、それぞれ20％の確率で2ターンの間、攻撃力を減少させる。"
 				,"rate":"ATK*1.9"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -230,7 +230,7 @@ class SwSkill:
 				,"comment":"凝縮された元素の塊で2回攻撃し、それぞれ20％の確率で2ターンの間、攻撃力を減少させる。"
 				,"rate":"ATK*1.9"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -250,7 +250,7 @@ class SwSkill:
 				,"comment":"凝縮された元素の塊で2回攻撃し、それぞれ20％の確率で2ターンの間、攻撃力を減少させる。"
 				,"rate":"ATK*1.9"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -269,7 +269,7 @@ class SwSkill:
 				,"comment":"凝縮された元素の塊で2回攻撃し、それぞれ20％の確率で2ターンの間、攻撃力を減少させる。"
 				,"rate":"ATK*1.9"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -328,7 +328,7 @@ class SwSkill:
 				,"comment":"硬い木のブロックを投げてダメージを与え、15％の確率で気絶させる。"
 				,"rate":"ATK*3.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -338,7 +338,7 @@ class SwSkill:
 				,"comment":"硬い木のブロックを投げてダメージを与え、15％の確率で気絶させる。"
 				,"rate":"ATK*3.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -348,7 +348,7 @@ class SwSkill:
 				,"comment":"硬い木のブロックを投げてダメージを与え、15％の確率で気絶させる。"
 				,"rate":"ATK*3.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -555,7 +555,7 @@ class SwSkill:
 				,"comment":"斧を投げて敵を攻撃し、30％の確率で3ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -583,7 +583,7 @@ class SwSkill:
 				,"comment":"斧を投げて敵を攻撃し、30％の確率で3ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -611,7 +611,7 @@ class SwSkill:
 				,"comment":"斧を投げて敵を攻撃し、30％の確率で3ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -639,7 +639,7 @@ class SwSkill:
 				,"comment":"斧を投げて敵を攻撃し、30％の確率で3ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -676,7 +676,7 @@ class SwSkill:
 				,"comment":"斧を投げて敵を攻撃し、30％の確率で3ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -704,7 +704,7 @@ class SwSkill:
 				,"comment":"敵を殴り飛ばして自分の最大体力に比例するダメージを与え、50％の確率で攻撃ゲージを25％減少させる。"
 				,"rate":"ATK*1.7+ATTACK_TOT_HP*0.15"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -732,7 +732,7 @@ class SwSkill:
 				,"comment":"敵を殴り飛ばして自分の最大体力に比例するダメージを与え、50％の確率で攻撃ゲージを25％減少させる。"
 				,"rate":"ATK*1.7+ATTACK_TOT_HP*0.15"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -760,7 +760,7 @@ class SwSkill:
 				,"comment":"敵を殴り飛ばして自分の最大体力に比例するダメージを与え、50％の確率で攻撃ゲージを25％減少させる。"
 				,"rate":"ATK*1.7+ATTACK_TOT_HP*0.15"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -788,7 +788,7 @@ class SwSkill:
 				,"comment":"猛烈な速度で敵を攻撃し、24％の確率で気絶させる。"
 				,"rate":"ATK*3.7-15"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":9
 			},
@@ -825,7 +825,7 @@ class SwSkill:
 				,"comment":"猛烈な速度で敵を攻撃し、24％の確率で気絶させる。"
 				,"rate":"ATK*3.7-15"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":9
 			},
@@ -853,7 +853,7 @@ class SwSkill:
 				,"comment":"猛烈な速度で敵を攻撃し、24％の確率で気絶させる。"
 				,"rate":"ATK*3.7-15"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":9
 			},
@@ -881,7 +881,7 @@ class SwSkill:
 				,"comment":"猛烈な速度で敵を攻撃し、24％の確率で気絶させる。"
 				,"rate":"ATK*3.7-15"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":9
 			},
@@ -909,7 +909,7 @@ class SwSkill:
 				,"comment":"猛烈な速度で敵を攻撃し、24％の確率で気絶させる。"
 				,"rate":"ATK*3.7-15"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":9
 			},
@@ -937,7 +937,7 @@ class SwSkill:
 				,"comment":"敵を驚かせてダメージを与えて50％の確率でかかっている強化効果を解除する。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -947,7 +947,7 @@ class SwSkill:
 				,"comment":"敵を驚かせてダメージを与えて50％の確率でかかっている強化効果を解除する。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -957,7 +957,7 @@ class SwSkill:
 				,"comment":"敵を驚かせてダメージを与えて50％の確率でかかっている強化効果を解除する。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -967,7 +967,7 @@ class SwSkill:
 				,"comment":"敵を驚かせてダメージを与えて50％の確率でかかっている強化効果を解除する。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -977,7 +977,7 @@ class SwSkill:
 				,"comment":"敵を驚かせてダメージを与えて50％の確率でかかっている強化効果を解除する。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -987,7 +987,7 @@ class SwSkill:
 				,"comment":"敵を攻撃して50％の確率で攻撃力を2ターンの間、弱らせる。"
 				,"rate":"ATK*3.5+15"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -1015,7 +1015,7 @@ class SwSkill:
 				,"comment":"敵を攻撃して50％の確率で攻撃力を2ターンの間、弱らせる。"
 				,"rate":"ATK*3.5+15"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -1043,7 +1043,7 @@ class SwSkill:
 				,"comment":"敵を攻撃して50％の確率で攻撃力を2ターンの間、弱らせる。"
 				,"rate":"ATK*3.5+15"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -1071,7 +1071,7 @@ class SwSkill:
 				,"comment":"敵を攻撃して50％の確率で攻撃力を2ターンの間、弱らせる。"
 				,"rate":"ATK*3.5+15"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -1099,7 +1099,7 @@ class SwSkill:
 				,"comment":"敵を攻撃して50％の確率で攻撃力を2ターンの間、弱らせる。"
 				,"rate":"ATK*3.5+15"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -1127,7 +1127,7 @@ class SwSkill:
 				,"comment":"鈍い剣で敵を攻撃して50％の確率で2ターンの間、攻撃力を弱らせる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -1146,7 +1146,7 @@ class SwSkill:
 				,"comment":"鈍い剣で敵を攻撃して50％の確率で2ターンの間、攻撃力を弱らせる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -1165,7 +1165,7 @@ class SwSkill:
 				,"comment":"鈍い剣で敵を攻撃して50％の確率で2ターンの間、攻撃力を弱らせる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -1184,7 +1184,7 @@ class SwSkill:
 				,"comment":"敵に猛烈に突進し、15％の確率で1ターンの間、気絶させる。"
 				,"rate":"ATK*3.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -1194,7 +1194,7 @@ class SwSkill:
 				,"comment":"敵に猛烈に突進し、15％の確率で1ターンの間、気絶させる。"
 				,"rate":"ATK*3.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -1204,7 +1204,7 @@ class SwSkill:
 				,"comment":"敵に猛烈に突進し、15％の確率で1ターンの間、気絶させる。"
 				,"rate":"ATK*3.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -1807,7 +1807,7 @@ class SwSkill:
 				,"comment":"巨大な大剣を振り回して自分の最大体力に比例するダメージを与えて40％の確率で2ターンの間、防御力を弱らせる。"
 				,"rate":"ATK*1.0+ATTACK_TOT_HP*0.18"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":9
 			},
@@ -1835,7 +1835,7 @@ class SwSkill:
 				,"comment":"巨大な大剣を振り回して自分の最大体力に比例するダメージを与えて40％の確率で2ターンの間、防御力を弱らせる。"
 				,"rate":"ATK*1.0+ATTACK_TOT_HP*0.18"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":9
 			},
@@ -1863,7 +1863,7 @@ class SwSkill:
 				,"comment":"巨大な大剣を振り回して自分の最大体力に比例するダメージを与えて40％の確率で2ターンの間、防御力を弱らせる。"
 				,"rate":"ATK*1.0+ATTACK_TOT_HP*0.18"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":9
 			},
@@ -1900,7 +1900,7 @@ class SwSkill:
 				,"comment":"巨大な大剣を振り回して自分の最大体力に比例するダメージを与えて40％の確率で2ターンの間、防御力を弱らせる。"
 				,"rate":"ATK*1.0+ATTACK_TOT_HP*0.18"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":9
 			},
@@ -1928,7 +1928,7 @@ class SwSkill:
 				,"comment":"巨大な大剣を振り回して自分の最大体力に比例するダメージを与えて40％の確率で2ターンの間、防御力を弱らせる。"
 				,"rate":"ATK*1.0+ATTACK_TOT_HP*0.18"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":9
 			},
@@ -2141,7 +2141,7 @@ class SwSkill:
 				,"comment":"素早いパンチで敵を2回攻撃し、それぞれ50％の確率で1ターンの間、攻撃速度を減少させる。"
 				,"rate":"ATK*1.9+20"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -2169,7 +2169,7 @@ class SwSkill:
 				,"comment":"素早いパンチで敵を2回攻撃し、それぞれ50％の確率で1ターンの間、攻撃速度を減少させる。"
 				,"rate":"ATK*1.9+20"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -2197,7 +2197,7 @@ class SwSkill:
 				,"comment":"素早いパンチで敵を2回攻撃し、それぞれ50％の確率で1ターンの間、攻撃速度を減少させる。"
 				,"rate":"ATK*1.9+20"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -2225,7 +2225,7 @@ class SwSkill:
 				,"comment":"素早いパンチで敵を2回攻撃し、それぞれ50％の確率で1ターンの間、攻撃速度を減少させる。"
 				,"rate":"ATK*1.9+20"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -2253,7 +2253,7 @@ class SwSkill:
 				,"comment":"素早いパンチで敵を2回攻撃し、それぞれ50％の確率で1ターンの間、攻撃速度を減少させる。"
 				,"rate":"ATK*1.9+20"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -2374,7 +2374,7 @@ class SwSkill:
 				,"comment":"巨大な爪で敵を攻撃し、50％の確率で2ターンの間、防御力を弱らせる。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -2411,7 +2411,7 @@ class SwSkill:
 				,"comment":"巨大な爪で敵を攻撃し、50％の確率で2ターンの間、防御力を弱らせる。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -2764,7 +2764,7 @@ class SwSkill:
 				,"comment":"敵を殴り飛ばして自分の最大体力に比例するダメージを与え、50％の確率で攻撃ゲージを25％減少させる。"
 				,"rate":"ATK*1.7+ATTACK_TOT_HP*0.15"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -2792,7 +2792,7 @@ class SwSkill:
 				,"comment":"敵を殴り飛ばして自分の最大体力に比例するダメージを与え、50％の確率で攻撃ゲージを25％減少させる。"
 				,"rate":"ATK*1.7+ATTACK_TOT_HP*0.15"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -2978,7 +2978,7 @@ class SwSkill:
 				,"comment":"対象を2回射撃し、クリティカルヒット発生率によって1回の追撃を加える。この攻撃はそれぞれ30％の確率で1ターンの間体力回復を邪魔する。"
 				,"rate":"ATK*1.6"
 				,"num":1
-				,"usemin:":-2
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -2987,7 +2987,7 @@ class SwSkill:
 				,"comment":"ランダム対象を4回攻撃し、それぞれ50％の確率で1ターンの間持続ダメージを与える。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*2.0"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -3044,7 +3044,7 @@ class SwSkill:
 				,"comment":"対象を2回射撃し、クリティカルヒット発生率によって1回の追撃を加える。この攻撃はそれぞれ30％の確率で対象の攻撃ゲージを15％ずつ下げる。"
 				,"rate":"ATK*1.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -3090,7 +3090,7 @@ class SwSkill:
 				,"comment":"ランダム対象を4回攻撃し、それぞれ50％の確率で1ターンの間持続ダメージを与える。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*2.0"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -3109,7 +3109,7 @@ class SwSkill:
 				,"comment":"鋭い爪で敵を攻撃する。クリティカル攻撃発生時に2ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -3137,7 +3137,7 @@ class SwSkill:
 				,"comment":"鋭い爪で敵を攻撃する。クリティカル攻撃発生時に2ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -3165,7 +3165,7 @@ class SwSkill:
 				,"comment":"鋭い爪で敵を攻撃する。クリティカル攻撃発生時に2ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -3193,7 +3193,7 @@ class SwSkill:
 				,"comment":"鋭い爪で敵を攻撃する。クリティカル攻撃発生時に2ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -3221,7 +3221,7 @@ class SwSkill:
 				,"comment":"鋭い爪で敵を攻撃する。クリティカル攻撃発生時に2ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -3463,7 +3463,7 @@ class SwSkill:
 				,"comment":"迅速な6連射で、それぞれ65％の確率で1ターンの間持続ダメージを与える。(スキル再使用可能まで5ターン)"
 				,"rate":"ATK*1.3"
 				,"num":1
-				,"usemin:":3
+				,"usemin:":4
 				,"usemax":5
 				,"lvmax":6
 			},
@@ -3826,7 +3826,7 @@ class SwSkill:
 				,"comment":"衝撃波を撃ち出し、25％確率で敵を気絶させるか、10％確率で挑発する。自分の防御力が高いと威力が上がる。"
 				,"rate":"ATK*1.8+ATTACK_DEF*2.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -3854,7 +3854,7 @@ class SwSkill:
 				,"comment":"衝撃波を撃ち出し、25％確率で敵を気絶させるか、10％確率で挑発する。自分の防御力が高いと威力が上がる。"
 				,"rate":"ATK*1.8+ATTACK_DEF*2.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -3891,7 +3891,7 @@ class SwSkill:
 				,"comment":"衝撃波を撃ち出し、25％確率で敵を気絶させるか、10％確率で挑発する。自分の防御力が高いと威力が上がる。"
 				,"rate":"ATK*1.8+ATTACK_DEF*2.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -3919,7 +3919,7 @@ class SwSkill:
 				,"comment":"衝撃波を撃ち出し、25％確率で敵を気絶させるか、10％確率で挑発する。自分の防御力が高いと威力が上がる。"
 				,"rate":"ATK*1.8+ATTACK_DEF*2.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -3956,7 +3956,7 @@ class SwSkill:
 				,"comment":"衝撃波を撃ち出し、25％確率で敵を気絶させるか、10％確率で挑発する。自分の防御力が高いと威力が上がる。"
 				,"rate":"ATK*1.8+ATTACK_DEF*2.5"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -4207,7 +4207,7 @@ class SwSkill:
 				,"comment":"素早い一撃で対象を攻撃し、75％の確率で2ターンの間体力回復を邪魔する。与えたダメージの50％分を体力として回復する。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*2.7"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -4263,7 +4263,7 @@ class SwSkill:
 				,"comment":"優雅な一撃でターゲットを攻撃した後、75％の確率で2ターンの間、防御力を弱くする。以降、自分の防御力を2ターンの間、増加させる。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*2.5"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -4273,7 +4273,7 @@ class SwSkill:
 				,"comment":"鋭いキックで敵を攻撃し、50％の確率で2ターンの間、防御力を弱らせる。"
 				,"rate":"ATK*3.7-20"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -4301,7 +4301,7 @@ class SwSkill:
 				,"comment":"鋭いキックで敵を攻撃し、50％の確率で2ターンの間、防御力を弱らせる。"
 				,"rate":"ATK*3.7-20"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -4329,7 +4329,7 @@ class SwSkill:
 				,"comment":"鋭いキックで敵を攻撃し、50％の確率で2ターンの間、防御力を弱らせる。"
 				,"rate":"ATK*3.7-20"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -4357,7 +4357,7 @@ class SwSkill:
 				,"comment":"鋭いキックで敵を攻撃し、50％の確率で2ターンの間、防御力を弱らせる。"
 				,"rate":"ATK*3.7-20"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -4385,7 +4385,7 @@ class SwSkill:
 				,"comment":"鋭いキックで敵を攻撃し、50％の確率で2ターンの間、防御力を弱らせる。"
 				,"rate":"ATK*3.7-20"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":8
 			},
@@ -4413,7 +4413,7 @@ class SwSkill:
 				,"comment":"十字型のエネルギーを発射して敵を攻撃し、20％の確率で3ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -4441,7 +4441,7 @@ class SwSkill:
 				,"comment":"十字型のエネルギーを発射して敵を攻撃し、20％の確率で3ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -4469,7 +4469,7 @@ class SwSkill:
 				,"comment":"十字型のエネルギーを発射して敵を攻撃し、20％の確率で3ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -4497,7 +4497,7 @@ class SwSkill:
 				,"comment":"十字型のエネルギーを発射して敵を攻撃し、20％の確率で3ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -4525,7 +4525,7 @@ class SwSkill:
 				,"comment":"十字型のエネルギーを発射して敵を攻撃し、20％の確率で3ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -5083,7 +5083,7 @@ class SwSkill:
 				,"comment":"敵を強く突き落として自分の最大体力に比例するダメージを与える。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*2.5"
 				,"num":1
-				,"usemin:":3
+				,"usemin:":4
 				,"usemax":4
 				,"lvmax":5
 			},
@@ -5223,7 +5223,7 @@ class SwSkill:
 				,"comment":"自分の体力を25％回復し、75％の確率で対象を1ターンの間挑発する。(スキル再使用可能まで3ターン)"
 				,"rate":"ATTACK_TOT_HP*0.25"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":3
 				,"lvmax":5
 			},
@@ -5269,7 +5269,7 @@ class SwSkill:
 				,"comment":"対象を75％の確率で2ターンの間挑発し、自分は1ターンの間無敵状態になる。(スキル再使用可能まで5ターン)"
 				,"rate":"1"
 				,"num":1
-				,"usemin:":3
+				,"usemin:":4
 				,"usemax":5
 				,"lvmax":4
 			},
@@ -5353,7 +5353,7 @@ class SwSkill:
 				,"comment":"自分の体力を25％回復し、75％の確率で対象を1ターンの間挑発する。(スキル再使用可能まで3ターン)"
 				,"rate":"ATTACK_TOT_HP*0.25"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":3
 				,"lvmax":5
 			},
@@ -5372,7 +5372,7 @@ class SwSkill:
 				,"comment":"拳に回転力を乗せて攻撃して25％の確率で1ターンの間、気絶させる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -5400,7 +5400,7 @@ class SwSkill:
 				,"comment":"拳に回転力を乗せて攻撃して25％の確率で1ターンの間、気絶させる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -5428,7 +5428,7 @@ class SwSkill:
 				,"comment":"拳に回転力を乗せて攻撃して25％の確率で1ターンの間、気絶させる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -5456,7 +5456,7 @@ class SwSkill:
 				,"comment":"拳に回転力を乗せて攻撃して25％の確率で1ターンの間、気絶させる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -5484,7 +5484,7 @@ class SwSkill:
 				,"comment":"拳に回転力を乗せて攻撃して25％の確率で1ターンの間、気絶させる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -5558,7 +5558,7 @@ class SwSkill:
 				,"comment":"強い魔力の矢を射て60％の確率でターゲットを気絶させるか、2ターンの間、防御力を減少させる。(スキル再使用可能まで5ターン)"
 				,"rate":"ATK*7.5"
 				,"num":1
-				,"usemin:":3
+				,"usemin:":4
 				,"usemax":5
 				,"lvmax":7
 			},
@@ -5633,7 +5633,7 @@ class SwSkill:
 				,"comment":"相手を2回攻撃し自分の最大体力に比例するダメージを与え、20％の確率で1ターンの間持続ダメージを与える。"
 				,"rate":"ATK*0.5+ATTACK_TOT_HP*0.08"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -5670,7 +5670,7 @@ class SwSkill:
 				,"comment":"相手を2回攻撃し自分の最大体力に比例するダメージを与え、20％の確率で1ターンの間持続ダメージを与える。"
 				,"rate":"ATK*0.5+ATTACK_TOT_HP*0.08"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -5707,7 +5707,7 @@ class SwSkill:
 				,"comment":"相手を2回攻撃し自分の最大体力に比例するダメージを与え、20％の確率で1ターンの間持続ダメージを与える。"
 				,"rate":"ATK*0.5+ATTACK_TOT_HP*0.08"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -5744,7 +5744,7 @@ class SwSkill:
 				,"comment":"相手を2回攻撃し自分の最大体力に比例するダメージを与え、20％の確率で1ターンの間持続ダメージを与える。"
 				,"rate":"ATK*0.5+ATTACK_TOT_HP*0.08"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -5781,7 +5781,7 @@ class SwSkill:
 				,"comment":"相手を2回攻撃し自分の最大体力に比例するダメージを与え、20％の確率で1ターンの間持続ダメージを与える。"
 				,"rate":"ATK*0.5+ATTACK_TOT_HP*0.08"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -5827,7 +5827,7 @@ class SwSkill:
 				,"comment":"猛毒をかけ敵の強化効果を解除してダメージを与えた後、75％の確率で1ターンの間、ターゲットが強化効果を受けられないようにする。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*5.3"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -5929,7 +5929,7 @@ class SwSkill:
 				,"comment":"猛毒をかけ敵の強化効果を解除してダメージを与えた後、75％の確率で1ターンの間、ターゲットが強化効果を受けられないようにする。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*5.3"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -6293,7 +6293,7 @@ class SwSkill:
 				,"comment":"敵を強く叩き落として75％の確率で2ターンの間、防御力を弱らせる。防御力によって威力が増す。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*3.0+DEF*4.0"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":7
 			},
@@ -6321,7 +6321,7 @@ class SwSkill:
 				,"comment":"敵を強く叩き落として75％の確率で2ターンの間、防御力を弱らせる。防御力によって威力が増す。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*3.0+DEF*4.0"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":7
 			},
@@ -6609,7 +6609,7 @@ class SwSkill:
 				,"comment":"他の味方1体と対象を攻撃し、75％の確率で2ターンの間防御力を下げる。ダメージは自分の最大体力に比例する。(スキル再使用可能まで4ターン)"
 				,"rate":"ATTACK_TOT_HP*0.3"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -6917,7 +6917,7 @@ class SwSkill:
 				,"comment":"地面を鳴らして対象を攻撃し、75％の確率で1ターンの間気絶させる。防衛力によって威力が増加する。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*2.1+DEF*4.4"
 				,"num":1
-				,"usemin:":1
+				,"usemin:":2
 				,"usemax":3
 				,"lvmax":7
 			},
@@ -6936,7 +6936,7 @@ class SwSkill:
 				,"comment":"相手を3回攻撃し、それぞれ20％の確率で2ターンの間防衛力を下げる。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*1.9"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -6955,7 +6955,7 @@ class SwSkill:
 				,"comment":"相手を3回攻撃し、それぞれ20％の確率で2ターンの間防衛力を下げる。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*1.9"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -6974,7 +6974,7 @@ class SwSkill:
 				,"comment":"地面を鳴らして対象を攻撃し、75％の確率で1ターンの間気絶させる。防衛力によって威力が増加する。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*2.1+DEF*4.4"
 				,"num":1
-				,"usemin:":1
+				,"usemin:":2
 				,"usemax":3
 				,"lvmax":7
 			},
@@ -6993,7 +6993,7 @@ class SwSkill:
 				,"comment":"相手を3回攻撃し、それぞれ20％の確率で2ターンの間防衛力を下げる。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*1.9"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -7375,7 +7375,7 @@ class SwSkill:
 				,"comment":"対象を2回射撃し、クリティカルヒット発生率によって1回の追撃を加える。この攻撃はそれぞれ30％の確率で2ターンの間攻撃速度を下げる。"
 				,"rate":"ATK*1.6"
 				,"num":1
-				,"usemin:":-2
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -7384,7 +7384,7 @@ class SwSkill:
 				,"comment":"ランダム対象を4回攻撃し、それぞれ50％の確率で1ターンの間持続ダメージを与える。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*2.0"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -7746,7 +7746,7 @@ class SwSkill:
 				,"comment":"コウモリを飛ばして敵を攻撃し、50％の確率で1ターン間眠らせる。敵が眠ると攻撃ゲージを50％回復する。"
 				,"rate":"ATK*3.9"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -7774,7 +7774,7 @@ class SwSkill:
 				,"comment":"コウモリを飛ばして敵を攻撃し、50％の確率で1ターン間眠らせる。敵が眠ると攻撃ゲージを50％回復する。"
 				,"rate":"ATK*3.9"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -7811,7 +7811,7 @@ class SwSkill:
 				,"comment":"コウモリを飛ばして敵を攻撃し、50％の確率で1ターン間眠らせる。敵が眠ると攻撃ゲージを50％回復する。"
 				,"rate":"ATK*3.9"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -7839,7 +7839,7 @@ class SwSkill:
 				,"comment":"コウモリを飛ばして敵を攻撃し、50％の確率で1ターン間眠らせる。敵が眠ると攻撃ゲージを50％回復する。"
 				,"rate":"ATK*3.9"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -7867,7 +7867,7 @@ class SwSkill:
 				,"comment":"コウモリを飛ばして敵を攻撃し、50％の確率で1ターン間眠らせる。敵が眠ると攻撃ゲージを50％回復する。"
 				,"rate":"ATK*3.9"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -7895,7 +7895,7 @@ class SwSkill:
 				,"comment":"居合で敵を攻撃し、50％の確率で2ターンの間防衛力を下げる。使用後10％の確率で「超天狼拔刀術」が活性化される。"
 				,"rate":"ATK*4.0"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -7923,7 +7923,7 @@ class SwSkill:
 				,"comment":"居合で敵を攻撃し、50％の確率で2ターンの間防衛力を下げる。使用後10％の確率で「超天狼拔刀術」が活性化される。"
 				,"rate":"ATK*4.0"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -7960,7 +7960,7 @@ class SwSkill:
 				,"comment":"居合で敵を攻撃し、50％の確率で2ターンの間防衛力を下げる。使用後10％の確率で「超天狼拔刀術」が活性化される。"
 				,"rate":"ATK*4.0"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -7988,7 +7988,7 @@ class SwSkill:
 				,"comment":"居合で敵を攻撃し、50％の確率で2ターンの間防衛力を下げる。使用後10％の確率で「超天狼拔刀術」が活性化される。"
 				,"rate":"ATK*4.0"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -8025,7 +8025,7 @@ class SwSkill:
 				,"comment":"居合で敵を攻撃し、50％の確率で2ターンの間防衛力を下げる。使用後10％の確率で「超天狼拔刀術」が活性化される。"
 				,"rate":"ATK*4.0"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -8062,7 +8062,7 @@ class SwSkill:
 				,"comment":"1"
 				,"rate":"ATK*4.0"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -8136,7 +8136,7 @@ class SwSkill:
 				,"comment":"招き入れた恨霊に対象を4回攻撃させ、それぞれ30％の確率で2ターンの間ミス発生確率を上げる。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*1.0*ATTACK_SPEED+180/230"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -8145,7 +8145,7 @@ class SwSkill:
 				,"comment":"相手全員を2回攻撃し、それぞれ50％の確率で2ターンの間攻撃力を下げるか、体力回復を邪魔する。(スキル再使用可能まで5ターン)"
 				,"rate":"ATK*2.2"
 				,"num":1
-				,"usemin:":3
+				,"usemin:":4
 				,"usemax":5
 				,"lvmax":5
 			},
@@ -8173,7 +8173,7 @@ class SwSkill:
 				,"comment":"招き入れた恨霊に対象を4回攻撃させ、それぞれ30％の確率で2ターンの間ミス発生確率を上げる。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*1.0*ATTACK_SPEED+180/230"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -8257,7 +8257,7 @@ class SwSkill:
 				,"comment":"鋭利なカードを飛ばして敵を攻撃し、70％の確率で2ターンの間、体力回復を邪魔する。"
 				,"rate":"ATK*3.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -8285,7 +8285,7 @@ class SwSkill:
 				,"comment":"鋭利なカードを飛ばして敵を攻撃し、70％の確率で2ターンの間、体力回復を邪魔する。"
 				,"rate":"ATK*3.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -8313,7 +8313,7 @@ class SwSkill:
 				,"comment":"鋭利なカードを飛ばして敵を攻撃し、70％の確率で2ターンの間、体力回復を邪魔する。"
 				,"rate":"ATK*3.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -8341,7 +8341,7 @@ class SwSkill:
 				,"comment":"鋭利なカードを飛ばして敵を攻撃し、70％の確率で2ターンの間、体力回復を邪魔する。"
 				,"rate":"ATK*3.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -8369,7 +8369,7 @@ class SwSkill:
 				,"comment":"鋭利なカードを飛ばして敵を攻撃し、70％の確率で2ターンの間、体力回復を邪魔する。"
 				,"rate":"ATK*3.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -8529,7 +8529,7 @@ class SwSkill:
 				,"comment":"鋭い刃で敵を攻撃し、30％の確率で3ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -8557,7 +8557,7 @@ class SwSkill:
 				,"comment":"鋭い刃で敵を攻撃し、30％の確率で3ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -8585,7 +8585,7 @@ class SwSkill:
 				,"comment":"鋭い刃で敵を攻撃し、30％の確率で3ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -8613,7 +8613,7 @@ class SwSkill:
 				,"comment":"鋭い刃で敵を攻撃し、30％の確率で3ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -8651,7 +8651,7 @@ class SwSkill:
 				,"comment":"鋭い刃で敵を攻撃し、30％の確率で3ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -8688,7 +8688,7 @@ class SwSkill:
 				,"comment":"敵を2回攻撃し、それぞれ75％の確率で2ターンの間、攻撃力もしくは防衛力を下げる。ダメージは自分の最大体力に比例する。(スキル再使用可能まで3ターン)"
 				,"rate":"ATK*1.0+ATTACK_TOT_HP*0.14"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":3
 				,"lvmax":5
 			},
@@ -8716,7 +8716,7 @@ class SwSkill:
 				,"comment":"敵全員に自分の最大体力に比例するダメージを与えてそれぞれ75％の確率で2ターンの間、攻撃力を弱らせる。(スキル再使用可能まで4ターン)"
 				,"rate":"ATTACK_TOT_HP*0.20"
 				,"num":1
-				,"usemin:":3
+				,"usemin:":4
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -8744,7 +8744,7 @@ class SwSkill:
 				,"comment":"敵全員に自分の最大体力に比例するダメージを与えてそれぞれ75％の確率で2ターンの間、攻撃力を弱らせる。(スキル再使用可能まで4ターン)"
 				,"rate":"ATTACK_TOT_HP*0.20"
 				,"num":1
-				,"usemin:":3
+				,"usemin:":4
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -8772,7 +8772,7 @@ class SwSkill:
 				,"comment":"敵を2回攻撃し、それぞれ75％の確率で2ターンの間、攻撃力もしくは防衛力を下げる。ダメージは自分の最大体力に比例する。(スキル再使用可能まで3ターン)"
 				,"rate":"ATK*1.0+ATTACK_TOT_HP*0.14"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":3
 				,"lvmax":5
 			},
@@ -8800,7 +8800,7 @@ class SwSkill:
 				,"comment":"敵全員に自分の最大体力に比例するダメージを与えてそれぞれ75％の確率で2ターンの間、攻撃力を弱らせる。(スキル再使用可能まで4ターン)"
 				,"rate":"ATTACK_TOT_HP*0.20"
 				,"num":1
-				,"usemin:":3
+				,"usemin:":4
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -8819,7 +8819,7 @@ class SwSkill:
 				,"comment":"相手を2回攻撃し、それぞれ25％の確率で2ターンの間、ミス発生率を増加させる。"
 				,"rate":"ATK*1.9"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -8847,7 +8847,7 @@ class SwSkill:
 				,"comment":"相手を2回攻撃し、それぞれ25％の確率で2ターンの間、ミス発生率を増加させる。"
 				,"rate":"ATK*1.9"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -8875,7 +8875,7 @@ class SwSkill:
 				,"comment":"相手を2回攻撃し、それぞれ25％の確率で2ターンの間、ミス発生率を増加させる。"
 				,"rate":"ATK*1.9"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -8903,7 +8903,7 @@ class SwSkill:
 				,"comment":"相手を2回攻撃し、それぞれ25％の確率で2ターンの間、ミス発生率を増加させる。"
 				,"rate":"ATK*1.9"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -9401,7 +9401,7 @@ class SwSkill:
 				,"comment":"対象を攻撃し、50％の確率で攻撃ゲージを30％減少させる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -9429,7 +9429,7 @@ class SwSkill:
 				,"comment":"対象を攻撃し、50％の確率で攻撃ゲージを30％減少させる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -9447,7 +9447,7 @@ class SwSkill:
 				,"comment":"対象を攻撃して70％の確率で攻撃ゲージを30％吸収し、1ターンの間スタンさせる。防御力によってダメージが上昇する。(スキル再使用可能まで5ターン)"
 				,"rate":"ATK*3.0+DEF*3.0"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -9457,7 +9457,7 @@ class SwSkill:
 				,"comment":"対象を攻撃し、50％の確率で攻撃ゲージを30％減少させる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -9485,7 +9485,7 @@ class SwSkill:
 				,"comment":"対象を攻撃し、50％の確率で攻撃ゲージを30％減少させる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -9840,7 +9840,7 @@ class SwSkill:
 				,"comment":"亡者の魂で対象を2～3回攻撃し、それぞれ40％の確率で2ターンの間攻撃速度を下げる。"
 				,"rate":"ATK*1.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -9868,7 +9868,7 @@ class SwSkill:
 				,"comment":"亡者の魂で対象を2～3回攻撃し、それぞれ40％の確率で2ターンの間攻撃速度を下げる。"
 				,"rate":"ATK*1.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -9896,7 +9896,7 @@ class SwSkill:
 				,"comment":"亡者の魂で対象を2～3回攻撃し、それぞれ40％の確率で2ターンの間攻撃速度を下げる。"
 				,"rate":"ATK*1.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -9924,7 +9924,7 @@ class SwSkill:
 				,"comment":"亡者の魂で対象を2～3回攻撃し、それぞれ40％の確率で2ターンの間攻撃速度を下げる。"
 				,"rate":"ATK*1.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -9952,7 +9952,7 @@ class SwSkill:
 				,"comment":"亡者の魂で対象を2～3回攻撃し、それぞれ40％の確率で2ターンの間攻撃速度を下げる。"
 				,"rate":"ATK*1.6"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -9980,7 +9980,7 @@ class SwSkill:
 				,"comment":"攻撃と同時に相手の弱点を露出させ、25％の確率で2ターンの間防衛力を下げる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -10008,7 +10008,7 @@ class SwSkill:
 				,"comment":"攻撃と同時に相手の弱点を露出させ、25％の確率で2ターンの間防衛力を下げる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -10017,7 +10017,7 @@ class SwSkill:
 				,"comment":"相手を2回攻撃し、それぞれ50％の確率で2ターンの間「烙印」状態にする。烙印状態の相手はダメージが25％増加する。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*3.0"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -10036,7 +10036,7 @@ class SwSkill:
 				,"comment":"攻撃と同時に相手の弱点を露出させ、25％の確率で2ターンの間防衛力を下げる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -10045,7 +10045,7 @@ class SwSkill:
 				,"comment":"相手を2回攻撃し、それぞれ50％の確率で2ターンの間「烙印」状態にする。烙印状態の相手はダメージが25％増加する。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*3.0"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -10064,7 +10064,7 @@ class SwSkill:
 				,"comment":"攻撃と同時に相手の弱点を露出させ、25％の確率で2ターンの間防衛力を下げる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -10073,7 +10073,7 @@ class SwSkill:
 				,"comment":"相手を2回攻撃し、それぞれ50％の確率で2ターンの間「烙印」状態にする。烙印状態の相手はダメージが25％増加する。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*3.0"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -10092,7 +10092,7 @@ class SwSkill:
 				,"comment":"攻撃と同時に相手の弱点を露出させ、25％の確率で2ターンの間防衛力を下げる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -10120,7 +10120,7 @@ class SwSkill:
 				,"comment":"素早い動きで対象を攻撃し、75％の確率で1ターンの間防御力を下げる。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -10129,7 +10129,7 @@ class SwSkill:
 				,"comment":"ランダム対象に3回の支援射撃を行い、それぞれ75％の確率で1ターンの間スタンさせる。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*3.0"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -10148,7 +10148,7 @@ class SwSkill:
 				,"comment":"素早い動きで対象を攻撃し、75％の確率で1ターンの間防御力を下げる。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -10157,7 +10157,7 @@ class SwSkill:
 				,"comment":"ランダム対象に3回の支援射撃を行い、それぞれ75％の確率で1ターンの間スタンさせる。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*3.0"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -10176,7 +10176,7 @@ class SwSkill:
 				,"comment":"素早い動きで対象を攻撃し、75％の確率で1ターンの間防御力を下げる。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -10194,7 +10194,7 @@ class SwSkill:
 				,"comment":"攻撃とともに、それぞれ75％の確率で2ターンの間対象の攻撃力と防御力を下げ、強化効果を邪魔する。(スキル再使用可能まで4ターン)"
 				,"rate":"ATK*8.0"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":6
 			},
@@ -10204,7 +10204,7 @@ class SwSkill:
 				,"comment":"素早い動きで対象を攻撃し、75％の確率で1ターンの間防御力を下げる。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -10222,7 +10222,7 @@ class SwSkill:
 				,"comment":"2ターンの間味方全員の攻撃力を上げ、75％の確率で2ターンの間相手全員の防御力を下げる。(スキル再使用可能まで5ターン)"
 				,"rate":"1"
 				,"num":1
-				,"usemin:":3
+				,"usemin:":4
 				,"usemax":5
 				,"lvmax":4
 			},
@@ -10232,7 +10232,7 @@ class SwSkill:
 				,"comment":"素早い動きで対象を攻撃し、75％の確率で1ターンの間防御力を下げる。"
 				,"rate":"ATK*3.7"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -10288,7 +10288,7 @@ class SwSkill:
 				,"comment":"輝く球体の塊で敵を3回攻撃し、それぞれ15％の確率で3ターンの間、持続ダメージを与える。"
 				,"rate":"ATK*1.3"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":5
 			},
@@ -10316,7 +10316,7 @@ class SwSkill:
 				,"comment":"輝く球体の塊で敵を3回攻撃し、それぞれ30％の確率で2ターンの間、敵の体力回復を邪魔する。"
 				,"rate":"ATK*1.3"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":5
 			},
@@ -10344,7 +10344,7 @@ class SwSkill:
 				,"comment":"輝く球体の塊で敵を3回攻撃し、それぞれ10％の確率で1ターンの間、凍らせる。"
 				,"rate":"ATK*1.3"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":5
 			},
@@ -10372,7 +10372,7 @@ class SwSkill:
 				,"comment":"輝く球体の塊で敵を3回攻撃し、それぞれ15％の確率で2ターンの間、敵のミスの確率を高める。"
 				,"rate":"ATK*1.3"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":5
 			},
@@ -10400,7 +10400,7 @@ class SwSkill:
 				,"comment":"ムチで敵を攻撃して50％の確率で2ターンの間、攻撃速度を落とす。攻撃速度によって威力が増加する。"
 				,"rate":"ATK*1.0*ATTACK_SPEED+80/50"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -10428,7 +10428,7 @@ class SwSkill:
 				,"comment":"ムチで敵を攻撃して50％の確率で2ターンの間、攻撃速度を落とす。攻撃速度によって威力が増加する。"
 				,"rate":"ATK*1.0*ATTACK_SPEED+80/50"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -10456,7 +10456,7 @@ class SwSkill:
 				,"comment":"ムチで敵を攻撃して50％の確率で2ターンの間、攻撃速度を落とす。攻撃速度によって威力が増加する。"
 				,"rate":"ATK*1.0*ATTACK_SPEED+80/50"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -10484,7 +10484,7 @@ class SwSkill:
 				,"comment":"ムチで敵を攻撃して50％の確率で2ターンの間、攻撃速度を落とす。攻撃速度によって威力が増加する。"
 				,"rate":"ATK*1.0*ATTACK_SPEED+80/50"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -10512,7 +10512,7 @@ class SwSkill:
 				,"comment":"ムチで敵を攻撃して50％の確率で2ターンの間、攻撃速度を落とす。攻撃速度によって威力が増加する。"
 				,"rate":"ATK*1.0*ATTACK_SPEED+80/50"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -10866,7 +10866,7 @@ class SwSkill:
 				,"comment":"魔針で対象を攻撃し、75％の確率で2ターンの間、再使用時間のあるスキルを封印する。(スキル再使用可能まで3ターン)"
 				,"rate":"ATK*2.1"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":3
 				,"lvmax":6
 			},
@@ -10894,7 +10894,7 @@ class SwSkill:
 				,"comment":"魔針で対象を攻撃し、75％の確率で2ターンの間、再使用時間のあるスキルを封印する。(スキル再使用可能まで3ターン)"
 				,"rate":"ATK*2.1"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":3
 				,"lvmax":6
 			},
@@ -10903,7 +10903,7 @@ class SwSkill:
 				,"comment":"対象を3回攻撃し、それぞれ50％の確率で3ターンの間、体力回復を邪魔する。与えたダメージ分、体力比率が低い味方を回復させる。(スキル再使用可能まで4ターン)"
 				,"rate":"1"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -10950,7 +10950,7 @@ class SwSkill:
 				,"comment":"魔針で対象を攻撃し、75％の確率で2ターンの間、再使用時間のあるスキルを封印する。(スキル再使用可能まで3ターン)"
 				,"rate":"ATK*2.1"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":3
 				,"lvmax":6
 			},
@@ -11002,7 +11002,7 @@ class SwSkill:
 				,"comment":"魔力放出で対象を攻撃し、50％の確率で2ターンの間持続ダメージを与える。ダメージは攻撃速度に比例する。"
 				,"rate":"ATK*1.0*ATTACK_SPEED+210/70"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -11824,7 +11824,7 @@ class SwSkill:
 				,"comment":"ターゲットの敵の最大体力に比例するダメージを与えて40％の確率で2ターンの間、攻撃力を弱らせる。ターゲットの周りにいる敵も追加ダメージを負う。(スキル再使用可能まで3ターン)"
 				,"rate":"ATK*3.75+TARGET_TOT_HP*0.15"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":3
 				,"lvmax":6
 			},
@@ -11983,7 +11983,7 @@ class SwSkill:
 				,"comment":"相手を2回攻撃し、それぞれ25％の確率で2ターンの間、ミス発生率を増加させる。"
 				,"rate":"ATK*1.9"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
 			},
@@ -12291,7 +12291,7 @@ class SwSkill:
 				,"comment":"対象を攻撃し、50％の確率で攻撃ゲージを30％減少させる。"
 				,"rate":"ATK*3.8"
 				,"num":1
-				,"usemin:":-1
+				,"usemin:":1
 				,"usemax":1
 				,"lvmax":7
 			},
@@ -12415,7 +12415,7 @@ class SwSkill:
 				,"comment":"1"
 				,"rate":"DEF*0.8+TARGET_TOT_HP*0.04"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":5
 				,"lvmax":7
 			},
@@ -12538,7 +12538,7 @@ class SwSkill:
 				,"comment":"1"
 				,"rate":"ATK*2.0,+,DEF*3.2"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":7
 			},
@@ -12566,7 +12566,7 @@ class SwSkill:
 				,"comment":"1"
 				,"rate":"ATK*2.0,+,DEF*3.2"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":7
 			},
@@ -12622,7 +12622,7 @@ class SwSkill:
 				,"comment":"1"
 				,"rate":"ATK*2.0,+,DEF*3.2"
 				,"num":1
-				,"usemin:":2
+				,"usemin:":3
 				,"usemax":4
 				,"lvmax":7
 			},
