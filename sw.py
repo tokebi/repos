@@ -59,7 +59,7 @@ class MAIN:
 			self.toukei.addMonster(unit_list["class"], unit_list["unit_level"], unit_list["attribute"])
 			# スキル
 			skillno = 1
-			arr = ["" ,0,0 ,0,0 ,0,0 ,0,0]
+			arr = ["" ,0,0 ,0,0 ,0,0 ,0,0, "", "","","",""]
 			for skill in unit_list["skills"]:
 				skill_id = str(skill[0])
 				skill_lv = str(skill[1])
@@ -70,9 +70,11 @@ class MAIN:
 				#print (skillno)
 				arr[(skillno-1)*2+1] = skill_lv
 				arr[(skillno-1)*2+2] = self.mst.getSkillMaxLev(skill_id)
+				# スキル倍率
+				arr[(skillno-1)+10] = self.mst.getSkillRate(skill_id)
 				skillno += 1
 			# 覚醒名称
-			arr.append(self.mst.getKakuseiName(unit_list["unit_master_id"]))
+			arr[9] = self.mst.getKakuseiName(unit_list["unit_master_id"])
 			self.outputData(self.fm, arr)
 			self.outputExcel.writeMonsterData(arr)
 			self.fm.write("\n")

@@ -75,8 +75,8 @@ def getCellNum(row, cellnum, defval):
 def outputSkill(row, skillno_in, name_in, comment_in, rate_in, num_in, usemin_in, usemax_in, lvmax_in):
 	skillno		= getCellNum(row, skillno_in, "")
 	name		= getCellNum(row, name_in, "")
-	comment		= getCellNum(row, comment_in, "1")
-	rate		= getCellNum(row, rate_in, "1")
+	comment		= getCellNum(row, comment_in, "")
+	rate		= getCellNum(row, rate_in, "")
 	num			= getCellNum(row, num_in, "1")
 	usemin		= getCellNum(row, usemin_in, "1")
 	usemax		= getCellNum(row, usemax_in, "1")
