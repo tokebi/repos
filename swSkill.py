@@ -3540,6 +3540,155 @@ class SwSkill:
 				,"usemax":5
 				,"lvmax":5
 			},
+			#カウガール(水),
+			"10101" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.25"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"10106" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.5"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":5
+			},
+			"10111" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.3"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":6
+			},
+			#カウガール(火),
+			"22007" :{
+				"name":""
+				,"comment":""
+				,"rate":"0"
+				,"num":0
+				,"usemin:":0
+				,"usemax":0
+				,"lvmax":1
+			},
+			"10102" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.25"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"10107" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.5"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":5
+			},
+			"10112" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.6"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":6
+			},
+			#カウガール(風),
+			"10103" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.25"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"10108" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.7"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
+			"10113" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.45"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			#カウガール(光),
+			"10104" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.25"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"10109" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.7"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
+			"10114" :{
+				"name":""
+				,"comment":""
+				,"rate":""
+				,"num":1
+				,"usemin:":0
+				,"usemax":1
+				,"lvmax":1
+			},
+			#カウガール(闇),
+			"10105" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.25"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"10110" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.5"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":5
+			},
+			"10115" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.7"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":5
+			},
 			#闇グリフォン,
 			"2516" :{
 				"name":""
@@ -4172,6 +4321,20 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":1
 			},
+			#サーペント(水),
+			#サーペント(火),
+			#サーペント(風),
+			"2303" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*4.0"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":4
+			},
+			#サーペント(光),
+			#サーペント(闇),
 			#闇ドランクンマスター,
 			"8105" :{
 				"name":""
@@ -5996,15 +6159,6 @@ class SwSkill:
 				,"lvmax":4
 			},
 			#水ミスティックウィッチ,
-			"22007" :{
-				"name":""
-				,"comment":"アリーナで味方モンスターの攻撃力が21％増加する。"
-				,"rate":"0"
-				,"num":0
-				,"usemin:":0
-				,"usemax":0
-				,"lvmax":1
-			},
 			"7301" :{
 				"name":"カラス召喚"
 				,"comment":"カラスを呼び出して敵を攻撃し、50％の確率で1ターンの間、持続ダメージを与える。"
@@ -7208,6 +7362,74 @@ class SwSkill:
 				,"usemax":8
 				,"lvmax":4
 			},
+			#アヌビス(水),
+			"11201" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.0"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			#アヌビス(火),
+			"11202" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.0"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			#アヌビス(風),
+			"11203" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.0"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			#アヌビス(光),
+			"11204" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.0"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			#アヌビス(闇),
+			"11205" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.0"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"11210" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATTACK_TOT_HP*1.0*TARGET_CUR_HP_RATE*-0.3+0.7"
+				,"num":1
+				,"usemin:":2
+				,"usemax":3
+				,"lvmax":5
+			},
+			"11215" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATTACK_TOT_HP*0.4"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":4
+			},
 			#火ヴァンパイア,
 			"13003" :{
 				"name":""
@@ -7449,6 +7671,56 @@ class SwSkill:
 				,"usemin:":4
 				,"usemax":5
 				,"lvmax":2
+			},
+			#ウンディーネ(水),
+			"2601" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*4.1-50"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":4
+			},
+			#ウンディーネ(火),
+			"2602" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*4.1-50"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":4
+			},
+			#ウンディーネ(風),
+			"2603" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*4.1-50"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":4
+			},
+			#ウンディーネ(光),
+			"2604" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*4.1-50"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":4
+			},
+			#ウンディーネ(闇),
+			"2605" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*4.1-50"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":4
 			},
 			#闇エルフレンジャー,
 			"20002" :{
@@ -8146,6 +8418,118 @@ class SwSkill:
 				,"usemax":1
 				,"lvmax":4
 			},
+			#サムライ(闇),
+			"8005" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*4.0"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"8010" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.7"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":4
+			},
+			"8015" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.2"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			#サムライ(火),
+			"8002" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*4.0"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"8007" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.7"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":4
+			},
+			"8012" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.3"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":6
+			},
+			#サムライ(光),
+			"8004" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*4.0"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"8009" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.6"
+				,"num":1
+				,"usemin:":2
+				,"usemax":3
+				,"lvmax":5
+			},
+			"8014" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.2"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			#サムライ(水),
+			"8001" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*4.0"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"8006" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.6"
+				,"num":1
+				,"usemin:":2
+				,"usemax":3
+				,"lvmax":5
+			},
+			"8011" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.0*ATTACK_SPEED+150/70"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
 			#サムライ(風),
 			"8003" :{
 				"name":""
@@ -8761,6 +9145,56 @@ class SwSkill:
 				,"num":1
 				,"usemin:":4
 				,"usemax":5
+				,"lvmax":2
+			},
+			#シルフィード(水),
+			"42" :{
+				"name":""
+				,"comment":""
+				,"rate":"0"
+				,"num":0
+				,"usemin:":0
+				,"usemax":0
+				,"lvmax":1
+			},
+			#シルフィード(火),
+			"2812" :{
+				"name":""
+				,"comment":""
+				,"rate":""
+				,"num":1
+				,"usemin:":10
+				,"usemax":10
+				,"lvmax":1
+			},
+			#シルフィード(風),
+			"2813" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATTACK_LV*75.0"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":2
+			},
+			#シルフィード(光),
+			"2814" :{
+				"name":""
+				,"comment":""
+				,"rate":""
+				,"num":1
+				,"usemin:":4
+				,"usemax":4
+				,"lvmax":1
+			},
+			#シルフィード(闇),
+			"2815" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATTACK_TOT_HP*0.50, FIXED"
+				,"num":1
+				,"usemin:":5
+				,"usemax":6
 				,"lvmax":2
 			},
 			#闇デスナイト,
@@ -10434,6 +10868,101 @@ class SwSkill:
 				,"usemax":4
 				,"lvmax":2
 			},
+			#海賊船長(水),
+			"10201" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.7"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"10206" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.4"
+				,"num":1
+				,"usemin:":2
+				,"usemax":3
+				,"lvmax":5
+			},
+			#海賊船長(火),
+			"10202" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.7"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"10207" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.0"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
+			#海賊船長(風),
+			"10203" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.7"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"10208" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.4"
+				,"num":1
+				,"usemin:":2
+				,"usemax":3
+				,"lvmax":5
+			},
+			#海賊船長(光),
+			"10204" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.7"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"10209" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.4"
+				,"num":1
+				,"usemin:":2
+				,"usemax":3
+				,"lvmax":5
+			},
+			#海賊船長(闇),
+			"10205" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.7"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"10210" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.0"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
 			#闇九尾の狐,
 			"2220" :{
 				"name":""
@@ -10573,6 +11102,56 @@ class SwSkill:
 				,"usemin:":3
 				,"usemax":4
 				,"lvmax":5
+			},
+			#九尾の狐(水),
+			"2201" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.3"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			#九尾の狐(火),
+			"2202" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.3"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			#九尾の狐(風),
+			"2203" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.3"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			#九尾の狐(光),
+			"2204" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.3"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			#九尾の狐(闇),
+			"2205" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.3"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":4
 			},
 			#闇守護羅刹,
 			"6905" :{
@@ -10797,6 +11376,74 @@ class SwSkill:
 				,"usemin:":4
 				,"usemax":5
 				,"lvmax":2
+			},
+			#天舞姫(水),
+			#天舞姫(火),
+			"9107" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATTACK_TOT_HP*0.20"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":5
+			},
+			#天舞姫(風),
+			#天舞姫(光),
+			"9104" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.8"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"9109" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.0*ATTACK_SPEED+66/99"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":5
+			},
+			"9114" :{
+				"name":""
+				,"comment":""
+				,"rate":"TARGET_TOT_HP*0.50, FIXED"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":4
+			},
+			#天舞姫(闇),
+			"9105" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.8"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":6
+			},
+			"9110" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATTACK_TOT_HP*0.20"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":5
+			},
+			"9115" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.0*ATTACK_CUR_HP_RATE*-0.6+2.8"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":5
 			},
 			#光道士,
 			"9204" :{
@@ -11157,24 +11804,6 @@ class SwSkill:
 				,"usemin:":1
 				,"usemax":1
 				,"lvmax":6
-			},
-			"11210" :{
-				"name":""
-				,"comment":"自分の最大体力に比例したダメージを与え、その50％分を体力として回復する。(スキル再使用可能まで4ターン)"
-				,"rate":"ATTACK_TOT_HP*1.0*TARGET_CUR_HP_RATE*-0.3+0.7"
-				,"num":1
-				,"usemin:":2
-				,"usemax":3
-				,"lvmax":5
-			},
-			"11215" :{
-				"name":""
-				,"comment":"自分の最大体力に比例したダメージを相手全員に与える。対象が少ないほどダメージが上昇する。(スキル再使用可能まで6ターン)"
-				,"rate":"ATTACK_TOT_HP*0.4"
-				,"num":1
-				,"usemin:":4
-				,"usemax":5
-				,"lvmax":4
 			},
 			#闇イフリート,
 			"10005" :{
@@ -12524,15 +13153,6 @@ class SwSkill:
 			#水孫悟空,
 			#風孫悟空,
 			#闇天舞姫,
-			"9105" :{
-				"name":""
-				,"comment":"優雅な攻撃で30％の確率で対象を誘惑し、2ターンの間ミス確率を上昇させる。"
-				,"rate":"ATK*3.8"
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":6
-			},
 			"9117" :{
 				"name":""
 				,"comment":"攻撃力に比例して味方全員を回復させ、3ターンの間攻撃力を上昇させる。(スキル再使用可能まで4ターン)"
@@ -12542,43 +13162,7 @@ class SwSkill:
 				,"usemax":4
 				,"lvmax":5
 			},
-			"9115" :{
-				"name":""
-				,"comment":"恨みを乗せた脇差攻撃。自分の残り体力比率が低いほど攻撃力が上昇し、体力が50％以下の場合はダメージを軽減させる敵の強化効果を全て無視する。(スキル再使用可能まで4ターン)"
-				,"rate":"ATK*1.0*ATTACK_CUR_HP_RATE*-0.6+2.8"
-				,"num":1
-				,"usemin:":3
-				,"usemax":4
-				,"lvmax":5
-			},
 			#光天舞姫,
-			"9104" :{
-				"name":""
-				,"comment":"優雅な攻撃で30％の確率で対象を誘惑し、2ターンの間ミス確率を上昇させる。"
-				,"rate":"ATK*3.8"
-				,"num":1
-				,"usemin:":1
-				,"usemax":1
-				,"lvmax":6
-			},
-			"9109" :{
-				"name":""
-				,"comment":"刃扇で対象を3回攻撃し、それぞれ50％の確率で対象の強化効果を1つずつ解除する。攻撃速度によってダメージが上昇する。(スキル再使用可能まで4ターン)"
-				,"rate":"ATK*1.0*ATTACK_SPEED+66/99"
-				,"num":1
-				,"usemin:":3
-				,"usemax":4
-				,"lvmax":5
-			},
-			"9114" :{
-				"name":""
-				,"comment":"味方対象の攻撃ゲージを最大にし、体力を25％回復させる。自分の攻撃ゲージは50％回復する。(スキル再使用可能まで4ターン)"
-				,"rate":"TARGET_TOT_HP*0.50, FIXED"
-				,"num":1
-				,"usemin:":3
-				,"usemax":4
-				,"lvmax":4
-			},
 			#闇忍者,
 			#火熊猫武士,
 			"12007" :{
@@ -12814,5 +13398,488 @@ class SwSkill:
 				,"usemin:":4
 				,"usemax":6
 				,"lvmax":3
+			},
+			#,
+			"10114000" :{
+				"name":""
+				,"comment":""
+				,"rate":"0"
+				,"num":0
+				,"usemin:":0
+				,"usemax":0
+				,"lvmax":1
+			},
+			"10111000" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.8"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			"10112000" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.8"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
+			"10113000" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*8.0"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			#,
+			"10111010" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.8"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			"10112010" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.8"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
+			"10113010" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*4.6"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			#,
+			"10111011" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.8"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			"10112020" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.6"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
+			"10113020" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.5+TARGET_TOT_HP*0.15"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			#,
+			"10111012" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.8"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			"10112011" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.6"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
+			"10113030" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*4.1"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			#,
+			"10112012" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*4.0+TARGET_TOT_HP*0.10"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
+			"10113040" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*4.6"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			#,
+			"10112021" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.6"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
+			"10131000" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.8"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			#,
+			"10112022" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.2"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
+			"10131010" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.8"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			#,
+			"10121000" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.8"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			"10131011" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.3"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			#,
+			"10121010" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.8"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			"10131012" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*3.8"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			#,
+			"10121011" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.0*ATTACK_SPEED+120/60"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			"10132000" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.8"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
+			#,
+			"10121012" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.0"
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":5
+			},
+			"10132010" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.8"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
+			#,
+			"10122000" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.8"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
+			"10132020" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.8"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
+			#,
+			"10122010" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.8"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
+			"10132011" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.8"
+				,"num":1
+				,"usemin:":2
+				,"usemax":4
+				,"lvmax":6
+			},
+			#,
+			"10122020" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.8"
+				,"num":1
+				,"usemin:":3
+				,"usemax":4
+				,"lvmax":6
+			},
+			"10132012" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.0"
+				,"num":1
+				,"usemin:":2
+				,"usemax":4
+				,"lvmax":6
+			},
+			#,
+			"10122011" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.0*ATTACK_SPEED+170/50"
+				,"num":1
+				,"usemin:":2
+				,"usemax":4
+				,"lvmax":6
+			},
+			"10132021" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.8"
+				,"num":1
+				,"usemin:":2
+				,"usemax":4
+				,"lvmax":6
+			},
+			#,
+			"10122012" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.8"
+				,"num":1
+				,"usemin:":2
+				,"usemax":4
+				,"lvmax":6
+			},
+			"10132022" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.8"
+				,"num":1
+				,"usemin:":2
+				,"usemax":4
+				,"lvmax":6
+			},
+			#,
+			"10122021" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*5.8"
+				,"num":1
+				,"usemin:":2
+				,"usemax":4
+				,"lvmax":6
+			},
+			"10133000" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*8.0"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			#,
+			"10122022" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.0"
+				,"num":1
+				,"usemin:":2
+				,"usemax":4
+				,"lvmax":6
+			},
+			"10133010" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.5"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			#,
+			"10123000" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*8.0"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			"10133020" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.8"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			#,
+			"10123010" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATTACK_SPEED*1.0+TARGET_SPEED+225/60*ATK*1.0"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			"10133030" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*8.0"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			#,
+			"10123020" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*1.0*ATTACK_SPEED+165/70"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			"10133040" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*8.0"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			#,
+			"10123030" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*8.0"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			"10134000" :{
+				"name":""
+				,"comment":""
+				,"rate":""
+				,"num":1
+				,"usemin:":10
+				,"usemax":10
+				,"lvmax":1
+			},
+			#,
+			"10123040" :{
+				"name":""
+				,"comment":""
+				,"rate":"ATK*2.0"
+				,"num":1
+				,"usemin:":4
+				,"usemax":5
+				,"lvmax":5
+			},
+			#,
+			"10124000" :{
+				"name":""
+				,"comment":""
+				,"rate":""
+				,"num":1
+				,"usemin:":10
+				,"usemax":10
+				,"lvmax":1
 			},
 		}
