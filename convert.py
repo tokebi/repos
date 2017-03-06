@@ -66,6 +66,8 @@ def getCellNum(row, cellnum, defval):
 			ret = ""
 		if not isinstance(ret, str):
 			ret = str(int(inb.cell(row, int(cellnum[1:])).value))
+		if cellnum == LSKILL_NO:
+			ret = "L" + ret
 	else:
 		ret = str(cellnum)
 	if ret == "":
