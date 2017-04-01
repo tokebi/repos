@@ -2,6 +2,7 @@
 # -*- coding: sjis -*-
 
 import xlsxwriter
+import os.path
 
 class SwOutputExcel:
 	def __init__(self):
@@ -10,8 +11,13 @@ class SwOutputExcel:
 		self.__stockMonster = []
 		self.__stockRunes = []
 		self.__runeFormat = {}
+		if os.path.exists("C:\\Users\\hhara\\OneDrive"):
+			baseExcel = "C:\\Users\\hhara\\OneDrive\\"
+		else:
+			baseExcel = "C:\\Users\\tokebi\\OneDrive\\"
+
 		# sw_dra/xlsmの「モンスター」シート
-		self.__book = xlsxwriter.Workbook('C:\\Users\\hhara\\OneDrive\\test.xlsx');
+		self.__book = xlsxwriter.Workbook(baseExcel + 'test.xlsx');
 		self.__monster = self.__book.add_worksheet('mons')
 		self.__runes   = self.__book.add_worksheet('runes')
 		self.__initMonsterExcel()
