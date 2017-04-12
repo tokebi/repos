@@ -76,6 +76,15 @@ class SwMaster:
 		else:
 			return id
 
+	#
+	# スキル倍率を返す
+	#
+	def getSkillRate(self, id):
+		ret = ""
+		if id in self.__swSkill:
+			ret = self.__swSkill[id]["rate"]
+		return ret
+
 class SwRuneSet:
 	#
 	# ルーン設置のハッシュを返す

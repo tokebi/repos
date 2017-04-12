@@ -39,8 +39,8 @@ class SwOutputExcel:
 			'align': 'center',
 			'valign': 'vcenter',
 			'fg_color': '#948A54'})
-		for var in range(2, 120):
-			self.__monster.write(0, var, str(var-1))
+		for var in range(2, 126):
+			self.__monster.write(0, var, str(var))
 		self.__monster.merge_range(1,  0, 3,  0, 'No', format)
 		self.__monster.merge_range(1,  1, 3,  1, 'ID', format)
 		self.__monster.merge_range(1,  2, 3,  2, '名前', format)
@@ -87,6 +87,11 @@ class SwOutputExcel:
 		self.__monster.merge_range(2, 119, 3, 119,'レベル', format)
 		self.__monster.merge_range(2, 120, 3, 120,'MAX', format)
 		self.__monster.merge_range(1, 121, 3, 121,'覚醒名称', format)
+		self.__monster.merge_range(1, 122, 1, 125,'スキル倍率', format)
+		self.__monster.merge_range(2, 122, 3, 122,'1', format)
+		self.__monster.merge_range(2, 123, 3, 123,'2', format)
+		self.__monster.merge_range(2, 124, 3, 124,'3', format)
+		self.__monster.merge_range(2, 125, 3, 125,'4', format)
 		self.__monster.set_zoom(70)
 		self.__monster.set_column(1, 1, 11)
 		self.__monster.set_column(2, 2, 24.13)
