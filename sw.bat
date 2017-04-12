@@ -27,6 +27,11 @@ python.exe sw.py
 REM emeditor monster.tsv runes.tsv skill.tsv
 REM emeditor monster.tsv runes.tsv
 
-C:\Users\hhara\OneDrive\test.xlsx
+IF EXIST "C:\Users\hhara\OneDrive\SWProxy-windows" (
+	C:\Users\hhara\OneDrive\test.xlsx
+)
+IF EXIST "C:\Users\tokebi\OneDrive\SWProxy-windows" (
+	C:\Users\tokebi\OneDrive\test.xlsx
+)
 
 pause

@@ -316,6 +316,8 @@ class MAIN:
 			arr.append(uricomment)
 			arre.append(uri)
 			arre.append(uricomment)
+			arre.append(rune["rank"]-1) # ドロップ時のサブオプ数
+
 		# ルーン統計処理
 		self.toukei.addRune(rune["class"])
 		self.outputData(fr, arr)

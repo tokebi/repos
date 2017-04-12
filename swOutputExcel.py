@@ -138,7 +138,7 @@ class SwOutputExcel:
 		self.__runes.write(0,  30, '価格', format)
 		self.__runes.write(0,  31, '売', format)
 		self.__runes.write(0,  32, '売　備考', format)
-		self.__runes.write(0,  33, 'フラグ', format)
+		self.__runes.write(0,  33, 'ドロップランク', format)
 		self.__runes.set_zoom(90)
 		self.__runes.set_column('A:A', 5.38)
 		self.__runes.set_column('B:B', 11)
