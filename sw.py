@@ -11,8 +11,6 @@ import swOutputExcel
 
 class MAIN:
 	def __init__(self):
-		self.fm = open("monster.tsv", "w")
-		self.fr = open("runes.tsv", "w")
 		self.fs = open("skill.tsv", "w")
 		#マスターデータの初期化
 		self.mst = swMaster.SwMaster()
@@ -36,7 +34,7 @@ class MAIN:
 			if unit_list["building_id" ] == 9384277:
 				sort_souko = 1
 			#モンスターデータの出力
-			self.outputMonster(self.fm, no, unit_list)
+			self.outputMonster(no, unit_list)
 			# 所持ルーン処理
 			runes = unit_list["runes"]
 			for w_slot_no in range(1, 7):
@@ -46,13 +44,12 @@ class MAIN:
 						rune["unit_id"] = unit_list["unit_id"]
 						rune["unit_master_id"] = unit_list["unit_master_id_c"]
 						data["runes"].append(rune)
-						self.outputRune(self.fm, rune, 0)
-						isFound=True
+						self.outputExcel.writeMonsterData([rune["rune_id"]])
+						isFound = True
 				if isFound == False:
-					self.outputData(self.fm, [""] * (16 + 1))
-					self.outputExcel.writeMonsterData([""] * (16 + 1))
+					self.outputExcel.writeMonsterData([1])
 			# モンスタータイプ処理
-			self.outputMonsterType(self.fm, unit_list, runes)
+			self.outputMonsterType(unit_list, runes)
 			
 			no += 1
 			# 統計処理
@@ -75,17 +72,19 @@ class MAIN:
 				skillno += 1
 			# 覚醒名称
 			arr[9] = self.mst.getKakuseiName(unit_list["unit_master_id"])
-			self.outputData(self.fm, arr)
 			self.outputExcel.writeMonsterData(arr)
-			self.fm.write("\n")
 			self.outputExcel.writeMonsterNextRow()
-		#ルーンを生成
-		no = 1
+		# 未装備の場合のルーンを作成
+		noRune = [""] * 34
+		noRune[0] = 1
+		noRune[1] = 1
+		self.outputExcel.writeRuneData(noRune)
+		self.outputExcel.writeRuneNextRow()
+		# ルーンを生成
+		no = 2
 		#sorted(data["unit_list"], key=lambda x:(-x['class'],x['attribute'])):
 		for rune in data["runes"]:
-			self.outputRune(self.fr, rune, no);
-			#self.fr.write(str(no) + "	" + runeTag + "\n")
-			self.fr.write("\n")
+			self.outputRune(rune, no);
 			self.outputExcel.writeRuneNextRow()
 			no += 1
 		# 統計データ出力
@@ -95,7 +94,7 @@ class MAIN:
 	#
 	# モンスターデータを出力
 	#
-	def outputMonster(self, fm, no, unit_list):
+	def outputMonster(self, no, unit_list):
 		arr = [
 				no
 				,unit_list["unit_id"]
@@ -113,7 +112,6 @@ class MAIN:
 				,unit_list["accuracy"]
 				,unit_list["create_time"]
 		]
-		self.outputData(fm, arr)
 		self.outputExcel.writeMonsterData(arr)
 
 	#
@@ -130,7 +128,7 @@ class MAIN:
 	#10:ダメ
 	#11:抵抗
 	#12:的中
-	def outputMonsterType(self, fm, unit_list, runes):
+	def outputMonsterType(self, unit_list, runes):
 		# ★数とレベル
 		wbCalc = unit_list["unit_level"] * unit_list["class"] * 10
 		# ルーン
@@ -175,37 +173,18 @@ class MAIN:
 			type,
 			wbCalc
 		]
-		self.outputData(fm, arr)
 		self.outputExcel.writeMonsterData(arr)
-
-	#
-	# データをファイルに出力
-	#
-	def outputData(self, fm, arr):
-		isFirst = True
-		for one in arr:
-			if isFirst:
-				isFirst = False
-			else:
-				fm.write("\t")
-			if isinstance(one, (int, float)):
-				fm.write(str(one))
-			else:
-				fm.write(one)
 
 	#
 	# ルーンテーブルを出力
 	#
-	def outputRune(self, fr, rune, isRune):
+	def outputRune(self, rune, no):
 		arr = []
-		if isRune > 0:	# ルーン出力なら
-			arr.append(isRune)
-			arr.append(rune["rune_id"])
-			arr.append(rune["slot_no"])
-			if "unit_master_id" in rune:
-				arr.append(rune["unit_master_id"])
-			else:
-				arr.append("")
+		arr.append(no)
+		arr.append(rune["rune_id"])
+		arr.append(rune["slot_no"])
+		if "unit_master_id" in rune:
+			arr.append(rune["unit_master_id"])
 		else:
 			arr.append("")
 		#kouritu = self.rune_efficiency(rune)
@@ -231,98 +210,94 @@ class MAIN:
 		arr.append(self.rune_efficiency(rune))
 		arre = []
 		# Excel出力
-		if isRune == 0:
-			self.outputExcel.writeMonsterData(arr)
-		if isRune > 0: # ルーン出力のみ対象
-			arr.append( '★'+ str(rune["class"]) + "(" + str(rune["reado"]) + ")+" + str(rune["upgrade_curr"]))
-			arr.append(int(math.ceil(rune["reado"] - int(rune["upgrade_curr"]))/3))
-			arre = arr[:]
-			# tsv用
-			arr.append(self.getUmuValue(rune, 2))	# 体%有無
-			arr.append(self.getUmuValue(rune, 4))	# 攻%有無
-			arr.append(self.getUmuValue(rune, 6))	# 防%有無
-			arr.append(self.getUmuValue(rune, 8))	# 速 有無
-			arr.append(self.getUmuValue(rune, 9))	# クリ有無
-			arr.append(self.getUmuValue(rune, 10))	# ダメ有無
-			arr.append(self.getUmuValue(rune, 11))	# 抵抗有無
-			arr.append(self.getUmuValue(rune, 12))	# 的中有無
-			# Excel用
-			row = str(self.outputExcel.getRuneRone()+1)
-			arre.append('=IF(J' + row + '="体%" ,K' + row + ',   IF(L' + row + '="体%" ,M' + row + ',   IF(N' + row + '="体%" ,O' + row + ',   IF(P' + row + '="体%" ,Q' + row + ',   IF(R' + row + '="体%" ,S' + row + ',0)))))')	# 体%有無
-			arre.append('=IF(J' + row + '="攻%" ,K' + row + ',   IF(L' + row + '="攻%" ,M' + row + ',   IF(N' + row + '="攻%" ,O' + row + ',   IF(P' + row + '="攻%" ,Q' + row + ',   IF(R' + row + '="攻%" ,S' + row + ',0)))))')	# 攻%有無
-			arre.append('=IF(J' + row + '="防%" ,K' + row + ',   IF(L' + row + '="防%" ,M' + row + ',   IF(N' + row + '="防%" ,O' + row + ',   IF(P' + row + '="防%" ,Q' + row + ',   IF(R' + row + '="防%" ,S' + row + ',0)))))')	# 防%有無
-			arre.append('=IF(J' + row + '="速"  ,K' + row + ',   IF(L' + row + '="速"  ,M' + row + ',   IF(N' + row + '="速"  ,O' + row + ',   IF(P' + row + '="速"  ,Q' + row + ',   IF(R' + row + '="速"  ,S' + row + ',0)))))')	# 速 有無
-			arre.append('=IF(J' + row + '="クリ",K' + row + ',   IF(L' + row + '="クリ",M' + row + ',   IF(N' + row + '="クリ",O' + row + ',   IF(P' + row + '="クリ",Q' + row + ',   IF(R' + row + '="クリ",S' + row + ',0)))))')	# クリ有無
-			arre.append('=IF(J' + row + '="ダメ",K' + row + ',   IF(L' + row + '="ダメ",M' + row + ',   IF(N' + row + '="ダメ",O' + row + ',   IF(P' + row + '="ダメ",Q' + row + ',   IF(R' + row + '="ダメ",S' + row + ',0)))))')	# ダメ有無
-			arre.append('=IF(J' + row + '="抵抗",K' + row + ',   IF(L' + row + '="抵抗",M' + row + ',   IF(N' + row + '="抵抗",O' + row + ',   IF(P' + row + '="抵抗",Q' + row + ',   IF(R' + row + '="抵抗",S' + row + ',0)))))')	# 抵抗有無
-			arre.append('=IF(J' + row + '="的中",K' + row + ',   IF(L' + row + '="的中",M' + row + ',   IF(N' + row + '="的中",O' + row + ',   IF(P' + row + '="的中",Q' + row + ',   IF(R' + row + '="的中",S' + row + ',0)))))')	# 的中有無
-			# 価格
-			arr.append(rune["sell_value"])
-			arre.append(rune["sell_value"])
-			# 売りかどうか
-			uri = ""
-			uricomment = ""
-			if rune["reado"] == 6: # レア
-				if rune["sec_eff"][0][0] in [1,3,5]: # 1:体、3:攻、5:防
-					uri = "売"
-					uricomment = "1番実数"
-				if rune["sec_eff"][1][0] in [1,3,5]:
-					uri = "売"
-					uricomment = "2番実数"
-				if rune["slot_no"] in [2,4,6]:
-					uri = ""
-					uricomment = ""
-				if uri == "":
-					if rune["sec_eff"][0][0] == 8 or rune["sec_eff"][1][0] == 8:# 速度
-						if rune["class"] == 5 and \
-							((rune["sec_eff"][0][0] == 8 and rune["sec_eff"][0][1] == 3) or \
-							 (rune["sec_eff"][1][0] == 8 and rune["sec_eff"][1][1] == 3)):# 速度:3
-							uri = "売"
-							uricomment = "速度3"
-						else:
-							uri = ""
-							uricomment = ""
-					elif rune["slot_no"] in [2,4,6]: # スロットが2,4,6
-						uri = ""
-						uricomment = ""
-					elif rune["sec_eff"][0][0] in [9, 10] and rune["sec_eff"][1][0] in [9, 10]: # 9:クリ、10:ダメ
-						uri = ""
-						uricomment = ""
+		arr.append( '★'+ str(rune["class"]) + "(" + str(rune["reado"]) + ")+" + str(rune["upgrade_curr"]))
+		arr.append(int(math.ceil(rune["reado"] - int(rune["upgrade_curr"]))/3))
+		arre = arr[:]
+		# tsv用
+		arr.append(self.getUmuValue(rune, 2))	# 体%有無
+		arr.append(self.getUmuValue(rune, 4))	# 攻%有無
+		arr.append(self.getUmuValue(rune, 6))	# 防%有無
+		arr.append(self.getUmuValue(rune, 8))	# 速 有無
+		arr.append(self.getUmuValue(rune, 9))	# クリ有無
+		arr.append(self.getUmuValue(rune, 10))	# ダメ有無
+		arr.append(self.getUmuValue(rune, 11))	# 抵抗有無
+		arr.append(self.getUmuValue(rune, 12))	# 的中有無
+		# Excel用
+		row = str(self.outputExcel.getRuneRone()+1)
+		arre.append('=IF(J' + row + '="体%" ,K' + row + ',   IF(L' + row + '="体%" ,M' + row + ',   IF(N' + row + '="体%" ,O' + row + ',   IF(P' + row + '="体%" ,Q' + row + ',   IF(R' + row + '="体%" ,S' + row + ',0)))))')	# 体%有無
+		arre.append('=IF(J' + row + '="攻%" ,K' + row + ',   IF(L' + row + '="攻%" ,M' + row + ',   IF(N' + row + '="攻%" ,O' + row + ',   IF(P' + row + '="攻%" ,Q' + row + ',   IF(R' + row + '="攻%" ,S' + row + ',0)))))')	# 攻%有無
+		arre.append('=IF(J' + row + '="防%" ,K' + row + ',   IF(L' + row + '="防%" ,M' + row + ',   IF(N' + row + '="防%" ,O' + row + ',   IF(P' + row + '="防%" ,Q' + row + ',   IF(R' + row + '="防%" ,S' + row + ',0)))))')	# 防%有無
+		arre.append('=IF(J' + row + '="速"  ,K' + row + ',   IF(L' + row + '="速"  ,M' + row + ',   IF(N' + row + '="速"  ,O' + row + ',   IF(P' + row + '="速"  ,Q' + row + ',   IF(R' + row + '="速"  ,S' + row + ',0)))))')	# 速 有無
+		arre.append('=IF(J' + row + '="クリ",K' + row + ',   IF(L' + row + '="クリ",M' + row + ',   IF(N' + row + '="クリ",O' + row + ',   IF(P' + row + '="クリ",Q' + row + ',   IF(R' + row + '="クリ",S' + row + ',0)))))')	# クリ有無
+		arre.append('=IF(J' + row + '="ダメ",K' + row + ',   IF(L' + row + '="ダメ",M' + row + ',   IF(N' + row + '="ダメ",O' + row + ',   IF(P' + row + '="ダメ",Q' + row + ',   IF(R' + row + '="ダメ",S' + row + ',0)))))')	# ダメ有無
+		arre.append('=IF(J' + row + '="抵抗",K' + row + ',   IF(L' + row + '="抵抗",M' + row + ',   IF(N' + row + '="抵抗",O' + row + ',   IF(P' + row + '="抵抗",Q' + row + ',   IF(R' + row + '="抵抗",S' + row + ',0)))))')	# 抵抗有無
+		arre.append('=IF(J' + row + '="的中",K' + row + ',   IF(L' + row + '="的中",M' + row + ',   IF(N' + row + '="的中",O' + row + ',   IF(P' + row + '="的中",Q' + row + ',   IF(R' + row + '="的中",S' + row + ',0)))))')	# 的中有無
+		# 価格
+		arr.append(rune["sell_value"])
+		arre.append(rune["sell_value"])
+		# 売りかどうか
+		uri = ""
+		uricomment = ""
+		if rune["reado"] == 6: # レア
+			if rune["sec_eff"][0][0] in [1,3,5]: # 1:体、3:攻、5:防
+				uri = "売"
+				uricomment = "1番実数"
+			if rune["sec_eff"][1][0] in [1,3,5]:
+				uri = "売"
+				uricomment = "2番実数"
+			if rune["slot_no"] in [2,4,6]:
+				uri = ""
+				uricomment = ""
+			if uri == "":
+				if rune["sec_eff"][0][0] == 8 or rune["sec_eff"][1][0] == 8:# 速度
+					if rune["class"] == 5 and \
+						((rune["sec_eff"][0][0] == 8 and rune["sec_eff"][0][1] == 3) or \
+						 (rune["sec_eff"][1][0] == 8 and rune["sec_eff"][1][1] == 3)):# 速度:3
+						uri = "売"
+						uricomment = "速度3"
 					else:
-						uri = "売3"
-						uricomment = "速度なし、クリなし、ダメなし"
-			if rune["reado"] == 9: # ヒーロー
-				if rune["sec_eff"][0][0] in [1,3,5]:
-					uri = "売4"
-					uricomment = "1番実数"
-				if rune["sec_eff"][1][0] in [1,3,5]:
-					uri = "売5"
-					uricomment = "2番実数"
-				if rune["sec_eff"][2][0] in [1,3,5]:
-					uri = "売6"
-					uricomment = "3番実数"
-				if rune["slot_no"] in [2,4,6]:
+						uri = ""
+						uricomment = ""
+				elif rune["slot_no"] in [2,4,6]: # スロットが2,4,6
 					uri = ""
 					uricomment = ""
-				if uri != "":
-					if rune["sec_eff"][0][0] == 8:
-						uri = ""
-						uricomment = ""
-					if rune["sec_eff"][1][0] == 8:
-						uri = ""
-						uricomment = ""
-					if rune["sec_eff"][2][0] == 8:
-						uri = ""
-						uricomment = ""
-			arr.append(uri)
-			arr.append(uricomment)
-			arre.append(uri)
-			arre.append(uricomment)
-			arre.append(rune["rank"]-1) # ドロップ時のサブオプ数
+				elif rune["sec_eff"][0][0] in [9, 10] and rune["sec_eff"][1][0] in [9, 10]: # 9:クリ、10:ダメ
+					uri = ""
+					uricomment = ""
+				else:
+					uri = "売3"
+					uricomment = "速度なし、クリなし、ダメなし"
+		if rune["reado"] == 9: # ヒーロー
+			if rune["sec_eff"][0][0] in [1,3,5]:
+				uri = "売4"
+				uricomment = "1番実数"
+			if rune["sec_eff"][1][0] in [1,3,5]:
+				uri = "売5"
+				uricomment = "2番実数"
+			if rune["sec_eff"][2][0] in [1,3,5]:
+				uri = "売6"
+				uricomment = "3番実数"
+			if rune["slot_no"] in [2,4,6]:
+				uri = ""
+				uricomment = ""
+			if uri != "":
+				if rune["sec_eff"][0][0] == 8:
+					uri = ""
+					uricomment = ""
+				if rune["sec_eff"][1][0] == 8:
+					uri = ""
+					uricomment = ""
+				if rune["sec_eff"][2][0] == 8:
+					uri = ""
+					uricomment = ""
+		arr.append(uri)
+		arr.append(uricomment)
+		arre.append(uri)
+		arre.append(uricomment)
+		arre.append(rune["rank"]-1) # ドロップ時のサブオプ数
 
 		# ルーン統計処理
 		self.toukei.addRune(rune["class"])
-		self.outputData(fr, arr)
 		self.outputExcel.writeRuneData(arre)
 
 	#

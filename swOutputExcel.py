@@ -6,7 +6,7 @@ import os.path
 
 class SwOutputExcel:
 	def __init__(self):
-		self.__rowMonster = 4
+		self.__rowMonster = 2
 		self.__rowRunes = 1
 		self.__stockMonster = []
 		self.__stockRunes = []
@@ -39,71 +39,68 @@ class SwOutputExcel:
 			'align': 'center',
 			'valign': 'vcenter',
 			'fg_color': '#948A54'})
-		for var in range(2, 126):
+		for var in range(2, 36):
 			self.__monster.write(0, var, str(var))
-		self.__monster.merge_range(1,  0, 3,  0, 'No', format)
-		self.__monster.merge_range(1,  1, 3,  1, 'ID', format)
-		self.__monster.merge_range(1,  2, 3,  2, '名前', format)
-		self.__monster.merge_range(1,  3, 3,  3, 'レベル', format)
-		self.__monster.merge_range(1,  4, 3,  4, '★', format)
-		self.__monster.merge_range(1,  5, 3,  5, '属性', format)
-		self.__monster.merge_range(1,  6, 3,  6, '体力', format)
-		self.__monster.merge_range(1,  7, 3,  7, '攻撃', format)
-		self.__monster.merge_range(1,  8, 3,  8, '防御', format)
-		self.__monster.merge_range(1,  9, 3,  9, '速度', format)
-		self.__monster.merge_range(1, 10, 3, 10, 'クリ率', format)
-		self.__monster.merge_range(1, 11, 3, 11, 'クリダメ', format)
-		self.__monster.merge_range(1, 12, 3, 12, '抵抗', format)
-		self.__monster.merge_range(1, 13, 3, 13, '的中', format)
-		self.__monster.merge_range(1, 14, 3, 14, '作成日', format)
-		for var in range(0, 6):
-			format2 = format1 if (var % 2) == 0 else format
-			self.__monster.merge_range(1, 15+16*var   , 1, 15+16*var+15, str(var+1), format2)
-			self.__monster.merge_range(2, 15+16*var+0 , 3, 15+16*var+0 ,'星'       , format2)
-			self.__monster.merge_range(2, 15+16*var+1 , 3, 15+16*var+1 ,'レベル'   , format2)
-			self.__monster.merge_range(2, 15+16*var+2 , 3, 15+16*var+2 ,'種類'     , format2)
-			self.__monster.merge_range(2, 15+16*var+3 , 2, 15+16*var+4 ,'メイン'   , format2)
-			self.__monster.merge_range(2, 15+16*var+5 , 2, 15+16*var+6 ,'サブオプ' , format2)
-			self.__monster.merge_range(2, 15+16*var+7 , 2, 15+16*var+8 ,'サブオプ1', format2)
-			self.__monster.merge_range(2, 15+16*var+9 , 2, 15+16*var+10,'サブオプ2', format2)
-			self.__monster.merge_range(2, 15+16*var+11, 2, 15+16*var+12,'サブオプ3', format2)
-			self.__monster.merge_range(2, 15+16*var+13, 2, 15+16*var+14,'サブオプ4', format2)
-			self.__monster.merge_range(2, 15+16*var+15, 3, 15+16*var+15,'効率'     , format2)
-			for var2 in range(0, 6):
-				self.__monster.write(3, 15+16*var+3+var2*2 ,'効果', format2)
-				self.__monster.write(3, 15+16*var+4+var2*2 ,'値', format2)
-		self.__monster.merge_range(1, 111, 3, 111,'種類', format)
-		self.__monster.merge_range(1, 112, 3, 112,'WB期待値', format)
-		self.__monster.merge_range(1, 113, 1, 114,'S1', format)
-		self.__monster.merge_range(1, 115, 1, 116,'S2', format)
-		self.__monster.merge_range(1, 117, 1, 118,'S3', format)
-		self.__monster.merge_range(1, 119, 1, 120,'S4', format)
-		self.__monster.merge_range(2, 113, 3, 113,'レベル', format)
-		self.__monster.merge_range(2, 114, 3, 114,'MAX', format)
-		self.__monster.merge_range(2, 115, 3, 115,'レベル', format)
-		self.__monster.merge_range(2, 116, 3, 116,'MAX', format)
-		self.__monster.merge_range(2, 117, 3, 117,'レベル', format)
-		self.__monster.merge_range(2, 118, 3, 118,'MAX', format)
-		self.__monster.merge_range(2, 119, 3, 119,'レベル', format)
-		self.__monster.merge_range(2, 120, 3, 120,'MAX', format)
-		self.__monster.merge_range(1, 121, 3, 121,'覚醒名称', format)
-		self.__monster.merge_range(1, 122, 1, 125,'スキル倍率', format)
-		self.__monster.merge_range(2, 122, 3, 122,'1', format)
-		self.__monster.merge_range(2, 123, 3, 123,'2', format)
-		self.__monster.merge_range(2, 124, 3, 124,'3', format)
-		self.__monster.merge_range(2, 125, 3, 125,'4', format)
-		self.__monster.set_zoom(70)
-		self.__monster.set_column(1, 1, 11)
-		self.__monster.set_column(2, 2, 24.13)
-		#self.__monster.set_column('O:O', 16.63)
-		#self.__monster.set_column('P:DG', 5.63)
-		#self.__monster.set_column('DH:DH', 9.38)
-		#self.__monster.set_column('DI:DI', 8.38)
-		#self.__monster.set_column('DJ:DQ', 7.13)
-		#self.__monster.set_column('DR:DR', 24.5)
-		# xlrdから設定
-		#for col in range(self.__distMonser.ncols):
-		#	
+		self.__monster.write(1,  0, 'No', format)
+		self.__monster.write(1,  1, 'ID', format)
+		self.__monster.write(1,  2, '名前', format)
+		self.__monster.write(1,  3, 'レベル', format)
+		self.__monster.write(1,  4, '★', format)
+		self.__monster.write(1,  5, '属性', format)
+		self.__monster.write(1,  6, '体力', format)
+		self.__monster.write(1,  7, '攻撃', format)
+		self.__monster.write(1,  8, '防御', format)
+		self.__monster.write(1,  9, '速度', format)
+		self.__monster.write(1, 10, 'クリ率', format)
+		self.__monster.write(1, 11, 'クリダメ', format)
+		self.__monster.write(1, 12, '抵抗', format)
+		self.__monster.write(1, 13, '的中', format)
+		self.__monster.write(1, 14, '作成日', format)
+		#for var in range(0, 6):
+		#	format2 = format1 if (var % 2) == 0 else format
+		#	self.__monster.merge_range(1, 15+16*var   , 1, 15+16*var+15, str(var+1), format2)
+		#	self.__monster.merge_range(2, 15+16*var+0 , 3, 15+16*var+0 ,'星'       , format2)
+		#	self.__monster.merge_range(2, 15+16*var+1 , 3, 15+16*var+1 ,'レベル'   , format2)
+		#	self.__monster.merge_range(2, 15+16*var+2 , 3, 15+16*var+2 ,'種類'     , format2)
+		#	self.__monster.merge_range(2, 15+16*var+3 , 2, 15+16*var+4 ,'メイン'   , format2)
+		#	self.__monster.merge_range(2, 15+16*var+5 , 2, 15+16*var+6 ,'サブオプ' , format2)
+		#	self.__monster.merge_range(2, 15+16*var+7 , 2, 15+16*var+8 ,'サブオプ1', format2)
+		#	self.__monster.merge_range(2, 15+16*var+9 , 2, 15+16*var+10,'サブオプ2', format2)
+		#	self.__monster.merge_range(2, 15+16*var+11, 2, 15+16*var+12,'サブオプ3', format2)
+		#	self.__monster.merge_range(2, 15+16*var+13, 2, 15+16*var+14,'サブオプ4', format2)
+		#	self.__monster.merge_range(2, 15+16*var+15, 3, 15+16*var+15,'効率'     , format2)
+		#	for var2 in range(0, 6):
+		#		self.__monster.write(3, 15+16*var+3+var2*2 ,'効果', format2)
+		#		self.__monster.write(3, 15+16*var+4+var2*2 ,'値', format2)
+		self.__monster.write(1, 15, 'ルーン1', format)
+		self.__monster.write(1, 16, 'ルーン2', format)
+		self.__monster.write(1, 17, 'ルーン3', format)
+		self.__monster.write(1, 18, 'ルーン4', format)
+		self.__monster.write(1, 19, 'ルーン5', format)
+		self.__monster.write(1, 20, 'ルーン6', format)
+		
+		self.__monster.write(1, 21,'種類', format)
+		self.__monster.write(1, 22,'WB期待値', format)
+		self.__monster.write(1, 23,'S1レベル', format)
+		self.__monster.write(1, 24,'S1MAX', format)
+		self.__monster.write(1, 25,'S2レベル', format)
+		self.__monster.write(1, 26,'S2MAX', format)
+		self.__monster.write(1, 27,'S3レベル', format)
+		self.__monster.write(1, 28,'S3MAX', format)
+		self.__monster.write(1, 29,'S4レベル', format)
+		self.__monster.write(1, 30,'S4MAX', format)
+		self.__monster.write(1, 31,'覚醒名称', format)
+		self.__monster.write(1, 32,'スキル倍率1', format)
+		self.__monster.write(1, 33,'スキル倍率2', format)
+		self.__monster.write(1, 34,'スキル倍率3', format)
+		self.__monster.write(1, 35,'スキル倍率4', format)
+		#self.__monster.set_zoom(70)
+		#self.__monster.set_column('A:A', 5)		# no
+		#self.__monster.set_column('B:B', 11)	# id
+		#self.__monster.set_column('C:C', 24.13)	# 名前
+		#self.__monster.set_column('D:F', 5)		# レベル～属性
+		#self.__monster.set_column('G:N', 7)		# 体力～的中
+		#self.__monster.set_column('P:U', 11)	# ルーン1～ルーン6
 
 	#
 	# ルーンWorksheetのヘッダ作成
@@ -212,12 +209,12 @@ class SwOutputExcel:
 		formatHash = {}
 		formatHash[ 1] = format_shrink
 		formatHash[14] = format_date
-		formatHash[30] = format_per
-		formatHash[46] = format_per
-		formatHash[62] = format_per
-		formatHash[78] = format_per
-		formatHash[94] = format_per
-		formatHash[110] = format_per
+		#formatHash[30] = format_per
+		#formatHash[46] = format_per
+		#formatHash[62] = format_per
+		#formatHash[78] = format_per
+		#formatHash[94] = format_per
+		#formatHash[110] = format_per
 		# 日付変換
 		self.__stockMonster[14] = self.__stockMonster[14].replace('-', '/')
 		self.__writeData(self.__monster, self.__stockMonster, self.__rowMonster, formatHash)
