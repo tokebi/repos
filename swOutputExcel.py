@@ -56,22 +56,6 @@ class SwOutputExcel:
 		self.__monster.write(1, 12, '抵抗', format)
 		self.__monster.write(1, 13, '的中', format)
 		self.__monster.write(1, 14, '作成日', format)
-		#for var in range(0, 6):
-		#	format2 = format1 if (var % 2) == 0 else format
-		#	self.__monster.merge_range(1, 15+16*var   , 1, 15+16*var+15, str(var+1), format2)
-		#	self.__monster.merge_range(2, 15+16*var+0 , 3, 15+16*var+0 ,'星'       , format2)
-		#	self.__monster.merge_range(2, 15+16*var+1 , 3, 15+16*var+1 ,'レベル'   , format2)
-		#	self.__monster.merge_range(2, 15+16*var+2 , 3, 15+16*var+2 ,'種類'     , format2)
-		#	self.__monster.merge_range(2, 15+16*var+3 , 2, 15+16*var+4 ,'メイン'   , format2)
-		#	self.__monster.merge_range(2, 15+16*var+5 , 2, 15+16*var+6 ,'サブオプ' , format2)
-		#	self.__monster.merge_range(2, 15+16*var+7 , 2, 15+16*var+8 ,'サブオプ1', format2)
-		#	self.__monster.merge_range(2, 15+16*var+9 , 2, 15+16*var+10,'サブオプ2', format2)
-		#	self.__monster.merge_range(2, 15+16*var+11, 2, 15+16*var+12,'サブオプ3', format2)
-		#	self.__monster.merge_range(2, 15+16*var+13, 2, 15+16*var+14,'サブオプ4', format2)
-		#	self.__monster.merge_range(2, 15+16*var+15, 3, 15+16*var+15,'効率'     , format2)
-		#	for var2 in range(0, 6):
-		#		self.__monster.write(3, 15+16*var+3+var2*2 ,'効果', format2)
-		#		self.__monster.write(3, 15+16*var+4+var2*2 ,'値', format2)
 		self.__monster.write(1, 15, 'ルーン1', format)
 		self.__monster.write(1, 16, 'ルーン2', format)
 		self.__monster.write(1, 17, 'ルーン3', format)
@@ -94,13 +78,6 @@ class SwOutputExcel:
 		self.__monster.write(1, 33,'スキル倍率2', format)
 		self.__monster.write(1, 34,'スキル倍率3', format)
 		self.__monster.write(1, 35,'スキル倍率4', format)
-		#self.__monster.set_zoom(70)
-		#self.__monster.set_column('A:A', 5)		# no
-		#self.__monster.set_column('B:B', 11)	# id
-		#self.__monster.set_column('C:C', 24.13)	# 名前
-		#self.__monster.set_column('D:F', 5)		# レベル～属性
-		#self.__monster.set_column('G:N', 7)		# 体力～的中
-		#self.__monster.set_column('P:U', 11)	# ルーン1～ルーン6
 
 	#
 	# ルーンWorksheetのヘッダ作成
@@ -126,7 +103,7 @@ class SwOutputExcel:
 		self.__runes.merge_range(0,  13, 0,  14, 'サブオプ２', format)
 		self.__runes.merge_range(0,  15, 0,  16, 'サブオプ３', format)
 		self.__runes.merge_range(0,  17, 0,  18, 'サブオプ４', format)
-		self.__runes.write(0,  19, 'ルーン効率', format)
+		self.__runes.write(0,  19, '価値', format)
 		self.__runes.write(0,  20, '', format)
 		self.__runes.write(0,  21, '星', format)
 		self.__runes.write(0,  22, '体%有無', format)
@@ -209,12 +186,6 @@ class SwOutputExcel:
 		formatHash = {}
 		formatHash[ 1] = format_shrink
 		formatHash[14] = format_date
-		#formatHash[30] = format_per
-		#formatHash[46] = format_per
-		#formatHash[62] = format_per
-		#formatHash[78] = format_per
-		#formatHash[94] = format_per
-		#formatHash[110] = format_per
 		# 日付変換
 		self.__stockMonster[14] = self.__stockMonster[14].replace('-', '/')
 		self.__writeData(self.__monster, self.__stockMonster, self.__rowMonster, formatHash)
@@ -245,7 +216,7 @@ class SwOutputExcel:
 		# 各列のフォーマットを設定
 		formatHash = {}
 		formatHash[ 1] = format_shrink	# ルーンID
-		formatHash[19] = format_per		# ルーン効率
+		formatHash[19] = format_per		# ルーン価値
 		formatHash[22] = format_nonZero	# 体%有無
 		formatHash[23] = format_nonZero	# 攻%有無
 		formatHash[24] = format_nonZero	# 防%有無

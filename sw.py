@@ -8,6 +8,7 @@ import os.path
 import swMaster
 import swToukei
 import swOutputExcel
+import sys
 
 class MAIN:
 	def __init__(self):
@@ -25,8 +26,6 @@ class MAIN:
 		for unit_list in sorted(data["unit_list"], key=lambda x:(-x['class'],x['attribute'])):
 			# 日本語モンスター名を設定
 			self.setJname(unit_list)
-			if (unit_list["unit_master_id_c"] is None):
-				print(unit_list["unit_master_id"])
 			if self.mst.isNotOutputMonster(unit_list["unit_master_id_c"]):
 				continue
 			# 倉庫か否か
@@ -407,6 +406,9 @@ class MAIN:
 		else:
 			self.unit_master_hash[jname] = 1
 		unit_list["unit_master_id_c"] = jname
+		if (unit_list["unit_master_id_c"] is None):
+			print("日本語名称が見つからない：ID=" + str(unit_list["unit_master_id"]))
+			sys.exit()
 
 if __name__ == "__main__":
 	a = MAIN()
