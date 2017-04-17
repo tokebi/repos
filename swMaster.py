@@ -85,6 +85,24 @@ class SwMaster:
 			ret = self.__swSkill[id]["rate"]
 		return ret
 
+	#
+	# スキルコメントを返す
+	#
+	def getSkillComment(self, id):
+		ret = ""
+		if id in self.__swSkill:
+			ret = self.__swSkill[id]["comment"]
+		return ret
+		
+	#
+	# スキル略称を返す
+	#
+	def getSkillRyaku(self, id):
+		ret = ""
+		if id in self.__swSkill:
+			ret = self.__swSkill[id]["ryaku"]
+		return ret
+
 class SwRuneSet:
 	#
 	# ルーン設置のハッシュを返す

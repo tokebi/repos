@@ -97,12 +97,39 @@ class ConvertSkill:
 				self.outf.write('			"' + skillno + '" :{' + "\n")
 				self.outf.write('				"name":"' + name +'"' + "\n")			# スキル名
 				self.outf.write('				,"comment":"' + comment + '"' + "\n")	# スキル詳細
+				self.outf.write('				,"ryaku":"' + self.getRyaku(comment) + '"' + "\n")	# スキル略称
 				self.outf.write('				,"rate":"' + rate + '"' + "\n")			# 倍率
 				self.outf.write('				,"num":'  + num + "\n")					# 攻撃回数
 				self.outf.write('				,"usemin:":' + usemin + "\n")			# 再利用最小
 				self.outf.write('				,"usemax":'  + usemax + "\n")			# 再利用最大
 				self.outf.write('				,"lvmax":'  + lvmax + "\n")				# レベルＭＡＸ
 				self.outf.write('			},' + "\n")
+
+	def getRyaku(self, comment):
+		ryaku = ""
+		
+		ryaku = ryaku + self.RyakuTikan(comment, '1ターン', "1T")
+		ryaku = ryaku + self.RyakuTikan(comment, '2ターン', "2T")
+		ryaku = ryaku + self.RyakuTikan(comment, '3ターン', "3T")
+	
+		ryaku = ryaku + self.RyakuTikan(comment, '持続的にダメージ', "持続")
+		ryaku = ryaku + self.RyakuTikan(comment, 'ミス発生率を高め', "ミス")
+		ryaku = ryaku + self.RyakuTikan(comment, '攻撃力を強化'    , "攻↑")
+		ryaku = ryaku + self.RyakuTikan(comment, '気絶'            , "気絶")
+		ryaku = ryaku + self.RyakuTikan(comment, '15％ずつ回復'    , "全15%回復")
+		
+		ryaku = ryaku + self.RyakuTikan(comment, '18％', "18%")
+		ryaku = ryaku + self.RyakuTikan(comment, '24％', "24%")
+		ryaku = ryaku + self.RyakuTikan(comment, '50％', "50%")
+		ryaku = ryaku + self.RyakuTikan(comment, '75％', "75%")
+		ryaku = ryaku + self.RyakuTikan(comment, '80％', "80%")
+		return ryaku
+
+	def RyakuTikan(self, comment, moto, saki):
+		ret = ""
+		if comment.find(moto) > -1:
+			ret = saki
+		return ret
 
 	def __init__(self):
 		self.outf = open("swSkill.py", "w")
