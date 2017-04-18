@@ -32,21 +32,28 @@ class SwMaster:
 	#
 	def getMonsterName(self, id, attribute_id):
 		if id in self.__swMonstersNameMap:
-			return self.__swMonstersNameMap[id][0]
+			return self.__swMonstersNameMap[id]["name"]
 
 	#
 	# モンスターの覚醒名称名を返す
 	#
 	def getKakuseiName(self, id):
 		if id in self.__swMonstersNameMap:
-			return self.__swMonstersNameMap[id][1]
+			return self.__swMonstersNameMap[id]["kname"]
 
 	#
 	# モンスターの攻撃種類を返す
 	#
 	def getMonsterTypeName(self, id):
 		if id in self.__swMonstersNameMap:
-			return self.__swMonstersNameMap[id][2]
+			return self.__swMonstersNameMap[id]["kind"]
+
+	#
+	# モンスターのリーダスキルを返す
+	#
+	def getLSkillComment(self, id):
+		if id in self.__swMonstersNameMap:
+			return self.__swMonstersNameMap[id]["lskill"]
 
 	#
 	# 出力対象外のモンスターを返す

@@ -9,54 +9,54 @@ import xlrd
 import sys
 
 class ConvertSkill:
-	LSKILL_COMMENT	= "E9"
-	SKILL1_COMMENT	= "E10"
-	SKILL2_COMMENT	= "E11"
-	SKILL3_COMMENT	= "E12"
-	SKILL4_COMMENT	= "E13"
-	DUMMY			= "E14"
-	DUMMY			= "E15"
-	DUMMY			= "E16"
-	MONSTER_KIND	= "E17"
-	KIND_MONSTER	= 18
-	KAKU_MONSTER	= "E19"
-	KIND_ATTACK		= "E20"
-	DUMMY			= "E21"
-	SKILL1_NO		= "E22"
-	SKILL2_NO		= "E23"
-	SKILL3_NO		= "E24"
-	SKILL4_NO		= "E25"
-	LSKILL_NO		= "E26"
-	DUMMY			= "E27"
-	SKILL1_NAME		= "E28"
-	SKILL2_NAME		= "E29"
-	SKILL3_NAME		= "E30"
-	SKILL4_NAME		= "E31"
-	DUMMY			= "E32"
-	SKILL1_MAXLV	= "E33"
-	SKILL2_MAXLV	= "E34"
-	SKILL3_MAXLV	= "E35"
-	SKILL4_MAXLV	= "E36"
-	LSKILL_RATE		= 0
-	SKILL1_RATE		= "E39"
-	SKILL2_RATE		= "E40"
-	SKILL3_RATE		= "E41"
-	SKILL4_RATE		= "E42"
-	LSKILL_NUM		= 0
+	#LSKILL_COMMENT	= "E9"
+	SKILL1_COMMENT	= "E11"
+	SKILL2_COMMENT	= "E12"
+	SKILL3_COMMENT	= "E13"
+	SKILL4_COMMENT	= "E14"
+	#DUMMY			= "E14"
+	#DUMMY			= "E15"
+	#DUMMY			= "E16"
+	#MONSTER_KIND	= "E17"
+	KIND_MONSTER	= 1
+	#KAKU_MONSTER	= "E19"
+	#KIND_ATTACK		= "E20"
+	#DUMMY			= "E21"
+	SKILL1_NO		= "E19"
+	SKILL2_NO		= "E20"
+	SKILL3_NO		= "E21"
+	SKILL4_NO		= "E22"
+	#LSKILL_NO		= "E26"
+	#DUMMY			= "E27"
+	SKILL1_NAME		= "E24"
+	SKILL2_NAME		= "E25"
+	SKILL3_NAME		= "E26"
+	SKILL4_NAME		= "E27"
+	#DUMMY			= "E28"
+	SKILL1_MAXLV	= "E29"
+	SKILL2_MAXLV	= "E30"
+	SKILL3_MAXLV	= "E31"
+	SKILL4_MAXLV	= "E32"
+	#LSKILL_RATE		= 0
+	SKILL1_RATE		= "E34"
+	SKILL2_RATE		= "E35"
+	SKILL3_RATE		= "E36"
+	SKILL4_RATE		= "E37"
+	#LSKILL_NUM		= 0
 	SKILL1_NUM		= 1
 	SKILL2_NUM		= 1
 	SKILL3_NUM		= 1
 	SKILL4_NUM		= 1
-	LSKILL_USEMIN	= 0
-	SKILL1_USEMIN	= "E47"
-	SKILL2_USEMIN	= "E48"
-	SKILL3_USEMIN	= "E49"
-	SKILL4_USEMIN	= "E50"
-	LSKILL_USEMAX	= 0
-	SKILL1_USEMAX	= "E43"
-	SKILL2_USEMAX	= "E44"
-	SKILL3_USEMAX	= "E45"
-	SKILL4_USEMAX	= "E46"
+	#LSKILL_USEMAX	= 0
+	SKILL1_USEMAX	= "E38"
+	SKILL2_USEMAX	= "E39"
+	SKILL3_USEMAX	= "E40"
+	SKILL4_USEMAX	= "E41"
+	#LSKILL_USEMIN	= 0
+	SKILL1_USEMIN	= "E42"
+	SKILL2_USEMIN	= "E43"
+	SKILL3_USEMIN	= "E44"
+	SKILL4_USEMIN	= "E45"
 
 	def getCellNum(self, row, cellnum, defval):
 		ret = ""
@@ -67,12 +67,13 @@ class ConvertSkill:
 				ret = ""
 			if not isinstance(ret, str):
 				ret = str(int(self.inb.cell(row, int(cellnum[1:])).value))
-			if cellnum == self.LSKILL_NO:
-				ret = "L" + ret
+			#if cellnum == self.LSKILL_NO:
+			#	ret = "L" + ret
 		else:
 			ret = str(cellnum)
 		if ret == "":
 			ret = defval
+		#print(str(cellnum) + "=" + str(ret))
 		return ret
 
 	def outputSkill(self, row, skillno_in, name_in, comment_in, rate_in, num_in, usemin_in, usemax_in, lvmax_in):
@@ -84,7 +85,7 @@ class ConvertSkill:
 		usemin		= self.getCellNum(row, usemin_in, "1")
 		usemax		= self.getCellNum(row, usemax_in, "1")
 		lvmax		= self.getCellNum(row, lvmax_in, "9999")
-		
+		#sys.exit()
 		if skillno != "":
 			#print("出力対象" + skillno)
 			if skillno in self.skill_ids:
@@ -153,7 +154,7 @@ class ConvertSkill:
 		for row in range(2, maxrow):
 			self.outf.write('			#' + self.inb.cell(row, self.KIND_MONSTER).value +',' + "\n")
 			#                skillno,       name             , comment            , rate            , num            , usemin            , usemax            , lvmax
-			self.outputSkill(row, self.LSKILL_NO, ""              , self.LSKILL_COMMENT, 0               , 0              , 0                 , 0                 , 1)
+			#self.outputSkill(row, self.LSKILL_NO, ""              , self.LSKILL_COMMENT, 0               , 0              , 0                 , 0                 , 1)
 			self.outputSkill(row, self.SKILL1_NO, self.SKILL1_NAME, self.SKILL1_COMMENT, self.SKILL1_RATE, self.SKILL1_NUM, self.SKILL1_USEMIN, self.SKILL1_USEMAX, self.SKILL1_MAXLV)
 			self.outputSkill(row, self.SKILL2_NO, self.SKILL2_NAME, self.SKILL2_COMMENT, self.SKILL2_RATE, self.SKILL2_NUM, self.SKILL2_USEMIN, self.SKILL2_USEMAX, self.SKILL2_MAXLV)
 			self.outputSkill(row, self.SKILL3_NO, self.SKILL3_NAME, self.SKILL3_COMMENT, self.SKILL3_RATE, self.SKILL3_NUM, self.SKILL3_USEMIN, self.SKILL3_USEMAX, self.SKILL3_MAXLV)
@@ -162,56 +163,12 @@ class ConvertSkill:
 		self.outf.close()
 
 class ConvertMonster:
-	LSKILL_COMMENT	= "E9"
-	SKILL1_COMMENT	= "E10"
-	SKILL2_COMMENT	= "E11"
-	SKILL3_COMMENT	= "E12"
-	SKILL4_COMMENT	= "E13"
-	DUMMY			= "E14"
-	DUMMY			= "E15"
-	DUMMY			= "E16"
-	MONSTER_KIND	= "E17"
-	KIND_MONSTER	= 18
-	KAKU_MONSTER	= 19
-	KIND_ATTACK		= 20
-	DUMMY			= "E21"
-	SKILL1_NO		= "E22"
-	SKILL2_NO		= "E23"
-	SKILL3_NO		= "E24"
-	SKILL4_NO		= "E25"
-	LSKILL_NO		= "E26"
-	DUMMY			= "E27"
-	SKILL1_NAME		= "E28"
-	SKILL2_NAME		= "E29"
-	SKILL3_NAME		= "E30"
-	SKILL4_NAME		= "E31"
-	DUMMY			= "E32"
-	SKILL1_MAXLV	= "E33"
-	SKILL2_MAXLV	= "E34"
-	SKILL3_MAXLV	= "E35"
-	SKILL4_MAXLV	= "E36"
-	MONSTER_ID		= 38
-	LSKILL_RATE		= 0
-	SKILL1_RATE		= "E39"
-	SKILL2_RATE		= "E40"
-	SKILL3_RATE		= "E41"
-	SKILL4_RATE		= "E42"
-	LSKILL_NUM		= 0
-	SKILL1_NUM		= 1
-	SKILL2_NUM		= 1
-	SKILL3_NUM		= 1
-	SKILL4_NUM		= 1
-	LSKILL_USEMIN	= 0
-	SKILL1_USEMIN	= "E47"
-	SKILL2_USEMIN	= "E48"
-	SKILL3_USEMIN	= "E49"
-	SKILL4_USEMIN	= "E50"
-	LSKILL_USEMAX	= 0
-	SKILL1_USEMAX	= "E43"
-	SKILL2_USEMAX	= "E44"
-	SKILL3_USEMAX	= "E45"
-	SKILL4_USEMAX	= "E46"
-
+	MONSTER_ID      = 0
+	KIND_MONSTER	= 1
+	KAKU_MONSTER	= 2
+	KIND_ATTACK		= 5
+	LSKILL_COMMENT	= 10
+	
 	def __init__(self):
 		self.outf = open("swMonstersName.py", "w")
 		self.inb = book.sheet_by_name('モンスター')
@@ -230,7 +187,6 @@ class ConvertMonster:
 		self.outf.write('	#' + "\n")
 		self.outf.write('	def getMap(self):' + "\n")
 		self.outf.write('		return {' + "\n")
-		self.outf.write('#pythonソース' + "\n")
 
 		lines = []
 		for row in range(2, maxrow):
@@ -240,19 +196,23 @@ class ConvertMonster:
 			name  = self.inb.cell(row, self.KIND_MONSTER).value
 			kname = self.inb.cell(row, self.KAKU_MONSTER).value
 			kind  = self.inb.cell(row, self.KIND_ATTACK).value
-			
+			lskill= self.inb.cell(row, self.LSKILL_COMMENT).value
+			if not isinstance(lskill, str):
+				lskill = ""
 			try:
 				#10101: ["フェアリー(水)","エルーシャ","サポート系"],
 				line = "			"
-				line = line + id + ": "
-				line = line + '["' + name
-				line = line + '","' + kname
-				line = line + '","' + kind
-				line = line + '"],'
+				line = line + id + ": {" + "\n"
+				line = line + '				"name":"'  + name  + '"' + "\n"
+				line = line + '				,"kname":"' + kname + '"' + "\n"
+				line = line + '				,"kind":"'  + kind  + '"' + "\n"
+				line = line + '				,"lskill":"'  + lskill  + '"' + "\n"
+				line = line + '			},'
 				lines.append(line)
 			except:
 				print("変換エラー：id=" + id )
-		for line in sorted(lines):
+		#for line in sorted(lines):
+		for line in lines:
 			self.outf.write(line +"\n")
 		self.outf.write('		}' +"\n")
 		self.outf.close()

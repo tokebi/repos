@@ -12,7 +12,6 @@ import sys
 
 class MAIN:
 	def __init__(self):
-		self.fs = open("skill.tsv", "w")
 		#マスターデータの初期化
 		self.mst = swMaster.SwMaster()
 		self.toukei = swToukei.SwToukei()
@@ -55,15 +54,11 @@ class MAIN:
 			self.toukei.addMonster(unit_list["class"], unit_list["unit_level"], unit_list["attribute"])
 			# スキル
 			skillno = 1
-			#      0   1 2  3 4  5 6  7 8  9   10 11 12 13  14 15 16 17  18 19 20 21
-			arr = ["" ,0,0 ,0,0 ,0,0 ,0,0, "", "","","","", "","","","", "","","",""]
+			#      0   1 2  3 4  5 6  7 8  9   10 11 12 13  14 15 16 17  18 19 20 21  22
+			arr = ["" ,0,0 ,0,0 ,0,0 ,0,0, "", "","","","", "","","","", "","","","", ""]
 			for skill in unit_list["skills"]:
 				skill_id = str(skill[0])
 				skill_lv = str(skill[1])
-				self.fs.write(unit_list["unit_master_id_c"] + "_" + str(skillno)+ "\t")
-				self.fs.write(skill_id + "\t")
-				self.fs.write(skill_lv + "\t")
-				self.fs.write("\n")
 				#print (skillno)
 				arr[(skillno-1)*2+1] = skill_lv
 				arr[(skillno-1)*2+2] = self.mst.getSkillMaxLev(skill_id)
@@ -76,6 +71,8 @@ class MAIN:
 				skillno += 1
 			# 覚醒名称
 			arr[9] = self.mst.getKakuseiName(unit_list["unit_master_id"])
+			# リーダスキル
+			arr[22] = self.mst.getLSkillComment(unit_list["unit_master_id"])
 			self.outputExcel.writeMonsterData(arr)
 			self.outputExcel.writeMonsterNextRow()
 		# 未装備の場合のルーンを作成

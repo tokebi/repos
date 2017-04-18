@@ -7,6 +7,4 @@ set CurDir=%~d0%~p0
 cd %CurDir%
 python.exe convert.py
 
-python.exe convertMonster.py
-
 sw.bat

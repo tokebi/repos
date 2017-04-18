@@ -78,7 +78,15 @@ class SwOutputExcel:
 		self.__monster.write(1, 33,'スキル倍率2', format)
 		self.__monster.write(1, 34,'スキル倍率3', format)
 		self.__monster.write(1, 35,'スキル倍率4', format)
-
+		self.__monster.write(1, 36,'スキル短縮1', format)
+		self.__monster.write(1, 37,'スキル短縮2', format)
+		self.__monster.write(1, 38,'スキル短縮3', format)
+		self.__monster.write(1, 39,'スキル短縮4', format)
+		self.__monster.write(1, 40,'スキル内容1', format)
+		self.__monster.write(1, 41,'スキル内容2', format)
+		self.__monster.write(1, 42,'スキル内容3', format)
+		self.__monster.write(1, 43,'スキル内容4', format)
+		self.__monster.write(1, 44,'リーダスキル', format)
 	#
 	# ルーンWorksheetのヘッダ作成
 	#
