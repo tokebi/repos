@@ -7,6 +7,7 @@ import math
 import os.path
 import swMaster
 import swToukei
+import swInitRune
 import swOutputExcel
 import sys
 
@@ -15,13 +16,23 @@ class MAIN:
 		#マスターデータの初期化
 		self.mst = swMaster.SwMaster()
 		self.toukei = swToukei.SwToukei()
+		self.initRune = swInitRune.SwInitRune()
 		self.outputExcel = swOutputExcel.SwOutputExcel()
 		self.unit_master_hash = {}
 
 	def main(self):
 		data = self.ReadJson("819205-swarfarm.json")
-		no = 1
+		self.last_login = data["wizard_info"]["wizard_last_login"]
+		self.outputUnitList(data)
+		self.outputCraftItemList(data)
+		# Excel出力
+		self.outputExcel.save()
 
+	# 
+	# モンスター・ルーンデータ処理
+	# 
+	def outputUnitList(self, data):
+		no = 1
 		for unit_list in sorted(data["unit_list"], key=lambda x:(-x['class'],x['attribute'])):
 			# 日本語モンスター名を設定
 			self.setJname(unit_list)
@@ -90,8 +101,7 @@ class MAIN:
 			no += 1
 		# 統計データ出力
 		self.toukei.outputData()
-		# Excel出力
-		self.outputExcel.save()
+		
 	#
 	# モンスターデータを出力
 	#
@@ -295,7 +305,8 @@ class MAIN:
 		arr.append(uricomment)
 		arre.append(uri)
 		arre.append(uricomment)
-		arre.append(rune["rank"]-1) # ドロップ時のサブオプ数
+		#arre.append(rune["rank"]-1) # ドロップ時のサブオプ数
+		arre.append(self.initRune.getDropRank(rune, self.last_login))
 
 		# ルーン統計処理
 		self.toukei.addRune(rune["class"])
@@ -411,6 +422,57 @@ class MAIN:
 		if (unit_list["unit_master_id_c"] is None):
 			print("日本語名称が見つからない：ID=" + str(unit_list["unit_master_id"]))
 			sys.exit()
+	
+	# 
+	# 練磨・ジェムの処理
+	# 
+	def outputCraftItemList(self, data):
+		no = 1
+		for craftItem in sorted(data["rune_craft_item_list"], key=lambda x:(x['craft_type_id'],x['craft_type'])):#data["rune_craft_item_list"]:
+			craftTypeId = '{0:06d}'.format(craftItem["craft_type_id"])
+			# 元気等
+			runeSet = craftTypeId[0:2]
+			runeSetName = self.mst.getRuneSetName(int(runeSet))
+			# 攻撃等
+			effectType = craftTypeId[2:4]
+			effectTypeName = self.mst.getEffectTypeName(int(effectType))
+			# 魔法等
+			rarity = craftTypeId[4:6]
+			#02	魔法
+			#03	レア
+			#04	ヒーロー
+			if rarity == "01":
+				rarityName = "通常"
+			elif rarity == "02":
+				rarityName = "+2%～5%"
+			elif rarity == "03":
+				rarityName = "+3%～6%"
+			elif rarity == "04":
+				rarityName = "+4%～7%"
+			elif rarity == "05":
+				rarityName = "レジェント"
+			if craftItem["craft_type"] == 1:
+				craftType = "ジェム"
+			elif craftItem["craft_type"] == 2:
+				craftType = "練磨"
+			arr = [
+				no
+				,craftItem["craft_item_id"]
+				,craftItem["sell_value"]
+				,craftItem["craft_type_id"]
+				,craftItem["wizard_id"]
+				,craftItem["craft_type"]
+				,runeSet
+				,effectType
+				,rarity
+				,runeSetName
+				,effectTypeName
+				,rarityName
+				,craftType
+			]
+			self.outputExcel.writeCraftItemData(arr)
+			no+=1
+
 
 if __name__ == "__main__":
 	a = MAIN()

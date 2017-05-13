@@ -8,6 +8,7 @@ class SwOutputExcel:
 	def __init__(self):
 		self.__rowMonster = 2
 		self.__rowRunes = 1
+		self.__rowCraftItems = 1
 		self.__stockMonster = []
 		self.__stockRunes = []
 		self.__runeFormat = {}
@@ -20,8 +21,10 @@ class SwOutputExcel:
 		self.__book = xlsxwriter.Workbook(baseExcel + 'test.xlsx');
 		self.__monster = self.__book.add_worksheet('mons')
 		self.__runes   = self.__book.add_worksheet('runes')
+		self.__craftItems   = self.__book.add_worksheet('craftItems')
 		self.__initMonsterExcel()
 		self.__initRunesExcel()
+		self.__initCraftItemsExcel()
 
 	#
 	# モンスターWorksheetのヘッダ作成
@@ -154,6 +157,39 @@ class SwOutputExcel:
 		self.__runes.set_column('AF:AF', 5.13)
 		self.__runes.set_column('AG:AG', 4.38)
 		self.__runes.set_column('AH:AH', 5.38)
+
+	#
+	# 練磨・ジェムWorksheetのヘッダ作成
+	#
+	def __initCraftItemsExcel(self):
+		format = self.__book.add_format({
+			'bold': 1,
+			'border': 1,
+			'text_wrap': 1,
+			'align': 'center',
+			'valign': 'vcenter',
+			'fg_color': '#BFBFBF'})
+		self.__craftItems.write(0,  0, 'No', format)
+		self.__craftItems.write(0,  1, 'ルーンID', format)
+		self.__craftItems.write(0,  2, 'sell_value', format)
+		self.__craftItems.write(0,  3, 'craft_type_id', format)
+		self.__craftItems.write(0,  4, 'wizard_id', format)
+		self.__craftItems.write(0,  5, 'craft_type', format)
+		self.__craftItems.write(0,  6, 'runeSet', format)
+		self.__craftItems.write(0,  7, 'effectType', format)
+		self.__craftItems.write(0,  8, 'rarity', format)
+		self.__craftItems.write(0,  9, 'runeSetName', format)
+		self.__craftItems.write(0, 10, 'effectTypeName', format)
+		self.__craftItems.write(0, 11, 'rarityName', format)
+		self.__craftItems.write(0, 12, '種類', format)
+
+	#
+	# 練磨・ジェムWorksheetへ出力
+	#
+	def writeCraftItemData(self, arr):
+		formatHash = {}
+		self.__writeData(self.__craftItems, arr, self.__rowCraftItems, formatHash)
+		self.__rowCraftItems += 1
 
 	#
 	# Excelワークブックの保存
