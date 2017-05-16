@@ -4,17 +4,34 @@
 import math
 from swMonstersName     import SwMonstersName
 from swNotOutputMonster import SwNotOutputMonster
-from swSkill            import SwSkill
+from swSkillMaster      import SwSkillMaster
 
 class SwMaster:
-	def __init__(self):
-		self.__runeSetMap         = SwRuneSet()         .getMap()
-		self.__swEffectTypeMap    = SwEffectType()      .getMap()
-		self.__swAttribute        = SwAttribute()       .getMap()
-		self.__swMonstersNameMap  = SwMonstersName()    .getMap()
-		self.__swNotOutputMonster = SwNotOutputMonster().getMap()
-		self.__swSkill            = SwSkill()           .getMap()
+	__instance = None
+	__runeSetMap         = None
+	__swEffectTypeMap    = None
+	__swAttribute        = None
+	__swMonstersNameMap  = None
+	__swNotOutputMonster = None
+	__swSkill            = None
 
+	def __new__(cls, *args, **keys):
+		if cls.__instance is None:
+			cls.__instance = object.__new__(cls)
+			cls.__runeSetMap         = SwRuneSet()         .getMap()
+			cls.__swEffectTypeMap    = SwEffectType()      .getMap()
+			cls.__swAttribute        = SwAttribute()       .getMap()
+			cls.__swMonstersNameMap  = SwMonstersName()    .getMap()
+			cls.__swNotOutputMonster = SwNotOutputMonster().getMap()
+			cls.__swSkill            = SwSkillMaster()     .getMap()
+		return cls.__instance
+
+	@classmethod
+	def getInstance(cls):
+		if not cls.__instance:
+			cls.__instance = cls()
+		return cls.__instance
+		
 	#
 	# ルーンセット名を返す
 	#

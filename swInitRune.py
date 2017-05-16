@@ -16,21 +16,21 @@ class SwInitRune:
 			self.hashInitRune[key] = val
 	
 	def getDropRank(self, rune, lastLogin):
-		if rune['rune_id'] not in self.hashInitRune:
+		if rune.getRuneId() not in self.hashInitRune:
 			initRune = {}
-			initRune['upgrade']  = str(rune["upgrade_curr"])
-			initRune['droprank'] = str(len(rune["sec_eff"]))
+			initRune['upgrade']  = str(rune.getUpgradeCurr())
+			initRune['droprank'] = str(rune.getRank())
 			# ファイルに追記
 			self.fw = open('initRune.tsv', 'a')
-			self.fw.write(str(rune["rune_id"]) + "	")
+			self.fw.write(str(rune.getRuneId()) + "	")
 			self.fw.write(lastLogin + "	")
-			self.fw.write(str(rune["upgrade_curr"]) + "	")
-			self.fw.write(str(len(rune["sec_eff"])))
+			self.fw.write(str(rune.getUpgradeCurr()) + "	")
+			self.fw.write(str(rune.getRank()))
 			self.fw.write("\n")
 			self.fw.close()
-			print("初期ルーンを追加しました。" + str(rune["rune_id"]) )
+			print("初期ルーンを追加しました。" + str(rune.getRuneId()) )
 		else:
-			initRune = self.hashInitRune[rune['rune_id']]
+			initRune = self.hashInitRune[rune.getRuneId()]
 		if initRune['upgrade'] == "0":
 			return initRune['droprank']
 		else:

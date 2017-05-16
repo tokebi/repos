@@ -1,75 +1,70 @@
 #!/usr/bin/python
 # -*- coding: sjis -*-
 
-import codecs
-import json
 import math
-import os.path
-import swMaster
-import swToukei
-import swInitRune
-import swOutputExcel
 import sys
+
+import swData
+import swInitRune
+import swMaster
+import swOutputExcel
+import swToukei
 
 class MAIN:
 	def __init__(self):
 		#マスターデータの初期化
-		self.mst = swMaster.SwMaster()
+		self.mst = swMaster.SwMaster.getInstance()
 		self.toukei = swToukei.SwToukei()
 		self.initRune = swInitRune.SwInitRune()
 		self.outputExcel = swOutputExcel.SwOutputExcel()
 		self.unit_master_hash = {}
-
+		self.data = swData.SwData()
+		
 	def main(self):
-		data = self.ReadJson("819205-swarfarm.json")
-		self.last_login = data["wizard_info"]["wizard_last_login"]
-		self.outputUnitList(data)
-		self.outputCraftItemList(data)
+		self.last_login = self.data.getLastLogin()
+		self.outputUnitList()
+		self.outputCraftItemList()
 		# Excel出力
 		self.outputExcel.save()
 
 	# 
 	# モンスター・ルーンデータ処理
 	# 
-	def outputUnitList(self, data):
+	def outputUnitList(self):
 		no = 1
-		for unit_list in sorted(data["unit_list"], key=lambda x:(-x['class'],x['attribute'])):
+		for unit in self.data.getMonsterList():
+			#print(unit.getUnitId())
 			# 日本語モンスター名を設定
-			self.setJname(unit_list)
-			if self.mst.isNotOutputMonster(unit_list["unit_master_id_c"]):
+			jname = self.getJName(unit)
+			unit.setJName(jname)
+			if self.mst.isNotOutputMonster(unit.getJName()):
 				continue
-			# 倉庫か否か
-			sort_souko = 0
-			if unit_list["building_id" ] == 9384277:
-				sort_souko = 1
 			#モンスターデータの出力
-			self.outputMonster(no, unit_list)
+			self.outputMonster(no, unit)
 			# 所持ルーン処理
-			runes = unit_list["runes"]
+			runes = unit.getRunes()
 			for w_slot_no in range(1, 7):
 				isFound=False
 				for rune in runes:
-					if rune["slot_no"] == w_slot_no:
-						rune["unit_id"] = unit_list["unit_id"]
-						rune["unit_master_id"] = unit_list["unit_master_id_c"]
-						data["runes"].append(rune)
-						self.outputExcel.writeMonsterData([rune["rune_id"]])
+					if rune.getSlotNo() == w_slot_no:
+						rune.setId4Shoji(unit.getUnitId(), unit.getJName())
+						self.outputExcel.writeMonsterData([rune.getRuneId()])
 						isFound = True
 				if isFound == False:
 					self.outputExcel.writeMonsterData([1])
 			# モンスタータイプ処理
-			self.outputMonsterType(unit_list, runes)
+			self.outputMonsterType(unit)
 			
 			no += 1
 			# 統計処理
-			self.toukei.addMonster(unit_list["class"], unit_list["unit_level"], unit_list["attribute"])
+			self.toukei.addMonster(unit.getClass(), unit.getUnitLevel(), unit.getAttribute())
 			# スキル
 			skillno = 1
 			#      0   1 2  3 4  5 6  7 8  9   10 11 12 13  14 15 16 17  18 19 20 21  22
 			arr = ["" ,0,0 ,0,0 ,0,0 ,0,0, "", "","","","", "","","","", "","","","", ""]
-			for skill in unit_list["skills"]:
-				skill_id = str(skill[0])
-				skill_lv = str(skill[1])
+			for skill in unit.getSkills():
+				skill_id = str(skill.getId())
+				skill_lv = str(skill.getLevel())
 				#print (skillno)
 				arr[(skillno-1)*2+1] = skill_lv
 				arr[(skillno-1)*2+2] = self.mst.getSkillMaxLev(skill_id)
@@ -81,9 +76,9 @@ class MAIN:
 				arr[(skillno-1)+14] = self.mst.getSkillRyaku(skill_id)
 				skillno += 1
 			# 覚醒名称
-			arr[9] = self.mst.getKakuseiName(unit_list["unit_master_id"])
+			arr[9] = self.mst.getKakuseiName(unit.getUnitMasterId())
 			# リーダスキル
-			arr[22] = self.mst.getLSkillComment(unit_list["unit_master_id"])
+			arr[22] = self.mst.getLSkillComment(unit.getUnitMasterId())
 			self.outputExcel.writeMonsterData(arr)
 			self.outputExcel.writeMonsterNextRow()
 		# 未装備の場合のルーンを作成
@@ -92,36 +87,36 @@ class MAIN:
 		noRune[1] = 1
 		self.outputExcel.writeRuneData(noRune)
 		self.outputExcel.writeRuneNextRow()
-		# ルーンを生成
+		## ルーンを生成
 		no = 2
-		#sorted(data["unit_list"], key=lambda x:(-x['class'],x['attribute'])):
-		for rune in data["runes"]:
+		for rune in self.data.getRuneList():
 			self.outputRune(rune, no);
 			self.outputExcel.writeRuneNextRow()
 			no += 1
 		# 統計データ出力
 		self.toukei.outputData()
-		
+
+	
 	#
 	# モンスターデータを出力
 	#
-	def outputMonster(self, no, unit_list):
+	def outputMonster(self, no, unit):
 		arr = [
 				no
-				,unit_list["unit_id"]
-				,unit_list["unit_master_id_c"]
-				,unit_list["unit_level"]
-				,unit_list["class"]
-				,self.mst.getAttributeName(unit_list["attribute"])
-				,unit_list["con"]*15
-				,unit_list["atk"]
-				,unit_list["def"]
-				,unit_list["spd"]
-				,unit_list["critical_rate"]
-				,unit_list["critical_damage"]
-				,unit_list["resist"]
-				,unit_list["accuracy"]
-				,unit_list["create_time"]
+				,unit.getUnitId()
+				,unit.getJName()
+				,unit.getUnitLevel()
+				,unit.getClass()
+				,unit.getAttributeName()
+				,unit.getCon()
+				,unit.getAtk()
+				,unit.getDef()
+				,unit.getSpd()
+				,unit.getCriticalRate()
+				,unit.getCriticalDamage()
+				,unit.getResist()
+				,unit.getAccuracy()
+				,unit.getCreateTime()
 		]
 		self.outputExcel.writeMonsterData(arr)
 
@@ -139,16 +134,16 @@ class MAIN:
 	#10:ダメ
 	#11:抵抗
 	#12:的中
-	def outputMonsterType(self, unit_list, runes):
+	def outputMonsterType(self, unit):
 		# ★数とレベル
-		wbCalc = unit_list["unit_level"] * unit_list["class"] * 10
+		wbCalc = unit.getLevel() * unit.getClass() * 10
 		# ルーン
-		unit_id = unit_list["unit_master_id"]
+		unit_id = unit.getUnitMasterId()
 		type = self.mst.getMonsterTypeName(unit_id)
-		for rune in runes:
+		for rune in unit.getRunes():
 			# ★数と強化数
-			wbCalc = wbCalc + rune["class"] + rune["upgrade_curr"] * 10
-			for eff in [rune["pri_eff"]] + [rune['prefix_eff']] + rune['sec_eff']:
+			wbCalc = wbCalc + rune.getClass() + rune.getUpgradeCurr() * 10
+			for eff in [rune.getPriEff()] + [rune.getPrefixEff()] + rune.getSecEff():
 				typ = eff[0]
 				if len(eff) == 2:
 					value = eff[1]
@@ -169,15 +164,15 @@ class MAIN:
 					if typ in [2]:
 						wbCalc = wbCalc + value
 		# 属性
-		if   unit_list["attribute"] == 1: # 水
+		if   unit.getAttributeName() == "水":
 			wbCalc = wbCalc + 1000 * (1.5+1)	# 水＞火　水＝水
-		elif unit_list["attribute"] == 2: # 火
+		elif unit.getAttributeName() == "火":
 			wbCalc = wbCalc + 1000 * (1+0.5)	# 火＝火　火＜水
-		elif unit_list["attribute"] == 3: # 風
+		elif unit.getAttributeName() == "風":
 			wbCalc = wbCalc + 1000 * (0.5+1.5)	# 風＜火　風＞水
-		elif unit_list["attribute"] == 4: # 光
+		elif unit.getAttributeName() == "光":
 			wbCalc = wbCalc + 1000 * (1+1)		# 光＝火　光＝水
-		elif unit_list["attribute"] == 5: # 闇
+		elif unit.getAttributeName() == "闇":
 			wbCalc = wbCalc + 1000 * (1+1)		# 闇＝火　闇＝水
 		arr = [
 			"",
@@ -192,243 +187,109 @@ class MAIN:
 	def outputRune(self, rune, no):
 		arr = []
 		arr.append(no)
-		arr.append(rune["rune_id"])
-		arr.append(rune["slot_no"])
-		if "unit_master_id" in rune:
-			arr.append(rune["unit_master_id"])
-		else:
-			arr.append("")
-		#kouritu = self.rune_efficiency(rune)
-		arr.append('★'+ str(rune["class"]))
-		arr.append(rune["upgrade_curr"])
-		arr.append(self.mst.getRuneSetName(rune["set_id"]))
+		arr.append(rune.getRuneId())
+		arr.append(rune.getSlotNo())
+		arr.append(rune.getUnitMasterId())
+		arr.append('★'+ str(rune.getClass()))
+		arr.append(rune.getUpgradeCurr())
+		arr.append(rune.getRuneSetName())
 		# メイン効果
-		arr.append(self.mst.getEffectTypeName(rune["pri_eff"][0]))
-		arr.append(rune["pri_eff"][1])
-		# オプ効果
-		arr.append(self.mst.getEffectTypeName(rune["prefix_eff"][0]))
-		if rune["prefix_eff"][0] == 0 and rune["prefix_eff"][1] == 0:
-			arr.append("")
-		else:
-			arr.append(rune["prefix_eff"][1])
+		arr.append(rune.getEffectTypeName("pri"))
+		arr.append(rune.getEffectValue("pri"))
+		# サブメイン効果
+		arr.append(rune.getEffectTypeName("pre"))
+		arr.append(rune.getEffectValue("pre"))
+		self.setExcelColorYellow(rune.getEffectTypeName("pre"))
 		# オプ１～４効果
-		rune["reado"] = 0
 		arr.extend(self.getSecEff(rune, 0))
 		arr.extend(self.getSecEff(rune, 1))
 		arr.extend(self.getSecEff(rune, 2))
 		arr.extend(self.getSecEff(rune, 3))
 		# 効率
-		arr.append(self.rune_efficiency(rune))
-		arre = []
+		arr.append(rune.getEfficiency())
 		# Excel出力
-		arr.append( '★'+ str(rune["class"]) + "(" + str(rune["reado"]) + ")+" + str(rune["upgrade_curr"]))
-		arr.append(int(math.ceil(rune["reado"] - int(rune["upgrade_curr"]))/3))
-		arre = arr[:]
-		# tsv用
-		arr.append(self.getUmuValue(rune, 2))	# 体%有無
-		arr.append(self.getUmuValue(rune, 4))	# 攻%有無
-		arr.append(self.getUmuValue(rune, 6))	# 防%有無
-		arr.append(self.getUmuValue(rune, 8))	# 速 有無
-		arr.append(self.getUmuValue(rune, 9))	# クリ有無
-		arr.append(self.getUmuValue(rune, 10))	# ダメ有無
-		arr.append(self.getUmuValue(rune, 11))	# 抵抗有無
-		arr.append(self.getUmuValue(rune, 12))	# 的中有無
+		arr.append( '★'+ str(rune.getClass()) + "(" + str(rune.getReaDo()) + ")+" + str(rune.getUpgradeCurr()))
+		arr.append(int(math.ceil(rune.getReaDo() - int(rune.getUpgradeCurr()))/3))
+		#arre = arr[:]
 		# Excel用
 		row = str(self.outputExcel.getRuneRone()+1)
-		arre.append('=IF(J' + row + '="体%" ,K' + row + ',   IF(L' + row + '="体%" ,M' + row + ',   IF(N' + row + '="体%" ,O' + row + ',   IF(P' + row + '="体%" ,Q' + row + ',   IF(R' + row + '="体%" ,S' + row + ',0)))))')	# 体%有無
-		arre.append('=IF(J' + row + '="攻%" ,K' + row + ',   IF(L' + row + '="攻%" ,M' + row + ',   IF(N' + row + '="攻%" ,O' + row + ',   IF(P' + row + '="攻%" ,Q' + row + ',   IF(R' + row + '="攻%" ,S' + row + ',0)))))')	# 攻%有無
-		arre.append('=IF(J' + row + '="防%" ,K' + row + ',   IF(L' + row + '="防%" ,M' + row + ',   IF(N' + row + '="防%" ,O' + row + ',   IF(P' + row + '="防%" ,Q' + row + ',   IF(R' + row + '="防%" ,S' + row + ',0)))))')	# 防%有無
-		arre.append('=IF(J' + row + '="速"  ,K' + row + ',   IF(L' + row + '="速"  ,M' + row + ',   IF(N' + row + '="速"  ,O' + row + ',   IF(P' + row + '="速"  ,Q' + row + ',   IF(R' + row + '="速"  ,S' + row + ',0)))))')	# 速 有無
-		arre.append('=IF(J' + row + '="クリ",K' + row + ',   IF(L' + row + '="クリ",M' + row + ',   IF(N' + row + '="クリ",O' + row + ',   IF(P' + row + '="クリ",Q' + row + ',   IF(R' + row + '="クリ",S' + row + ',0)))))')	# クリ有無
-		arre.append('=IF(J' + row + '="ダメ",K' + row + ',   IF(L' + row + '="ダメ",M' + row + ',   IF(N' + row + '="ダメ",O' + row + ',   IF(P' + row + '="ダメ",Q' + row + ',   IF(R' + row + '="ダメ",S' + row + ',0)))))')	# ダメ有無
-		arre.append('=IF(J' + row + '="抵抗",K' + row + ',   IF(L' + row + '="抵抗",M' + row + ',   IF(N' + row + '="抵抗",O' + row + ',   IF(P' + row + '="抵抗",Q' + row + ',   IF(R' + row + '="抵抗",S' + row + ',0)))))')	# 抵抗有無
-		arre.append('=IF(J' + row + '="的中",K' + row + ',   IF(L' + row + '="的中",M' + row + ',   IF(N' + row + '="的中",O' + row + ',   IF(P' + row + '="的中",Q' + row + ',   IF(R' + row + '="的中",S' + row + ',0)))))')	# 的中有無
+		arr.append('=IF(J' + row + '="体%" ,K' + row + ',   IF(L' + row + '="体%" ,M' + row + ',   IF(N' + row + '="体%" ,O' + row + ',   IF(P' + row + '="体%" ,Q' + row + ',   IF(R' + row + '="体%" ,S' + row + ',0)))))')	# 体%有無
+		arr.append('=IF(J' + row + '="攻%" ,K' + row + ',   IF(L' + row + '="攻%" ,M' + row + ',   IF(N' + row + '="攻%" ,O' + row + ',   IF(P' + row + '="攻%" ,Q' + row + ',   IF(R' + row + '="攻%" ,S' + row + ',0)))))')	# 攻%有無
+		arr.append('=IF(J' + row + '="防%" ,K' + row + ',   IF(L' + row + '="防%" ,M' + row + ',   IF(N' + row + '="防%" ,O' + row + ',   IF(P' + row + '="防%" ,Q' + row + ',   IF(R' + row + '="防%" ,S' + row + ',0)))))')	# 防%有無
+		arr.append('=IF(J' + row + '="速"  ,K' + row + ',   IF(L' + row + '="速"  ,M' + row + ',   IF(N' + row + '="速"  ,O' + row + ',   IF(P' + row + '="速"  ,Q' + row + ',   IF(R' + row + '="速"  ,S' + row + ',0)))))')	# 速 有無
+		arr.append('=IF(J' + row + '="クリ",K' + row + ',   IF(L' + row + '="クリ",M' + row + ',   IF(N' + row + '="クリ",O' + row + ',   IF(P' + row + '="クリ",Q' + row + ',   IF(R' + row + '="クリ",S' + row + ',0)))))')	# クリ有無
+		arr.append('=IF(J' + row + '="ダメ",K' + row + ',   IF(L' + row + '="ダメ",M' + row + ',   IF(N' + row + '="ダメ",O' + row + ',   IF(P' + row + '="ダメ",Q' + row + ',   IF(R' + row + '="ダメ",S' + row + ',0)))))')	# ダメ有無
+		arr.append('=IF(J' + row + '="抵抗",K' + row + ',   IF(L' + row + '="抵抗",M' + row + ',   IF(N' + row + '="抵抗",O' + row + ',   IF(P' + row + '="抵抗",Q' + row + ',   IF(R' + row + '="抵抗",S' + row + ',0)))))')	# 抵抗有無
+		arr.append('=IF(J' + row + '="的中",K' + row + ',   IF(L' + row + '="的中",M' + row + ',   IF(N' + row + '="的中",O' + row + ',   IF(P' + row + '="的中",Q' + row + ',   IF(R' + row + '="的中",S' + row + ',0)))))')	# 的中有無
 		# 価格
-		arr.append(rune["sell_value"])
-		arre.append(rune["sell_value"])
+		arr.append(rune.getSellValue())
 		# 売りかどうか
-		uri = ""
-		uricomment = ""
-		if rune["reado"] == 6: # レア
-			if rune["sec_eff"][0][0] in [1,3,5]: # 1:体、3:攻、5:防
-				uri = "売"
-				uricomment = "1番実数"
-			if rune["sec_eff"][1][0] in [1,3,5]:
-				uri = "売"
-				uricomment = "2番実数"
-			if rune["slot_no"] in [2,4,6]:
-				uri = ""
-				uricomment = ""
-			if uri == "":
-				if rune["sec_eff"][0][0] == 8 or rune["sec_eff"][1][0] == 8:# 速度
-					if rune["class"] == 5 and \
-						((rune["sec_eff"][0][0] == 8 and rune["sec_eff"][0][1] == 3) or \
-						 (rune["sec_eff"][1][0] == 8 and rune["sec_eff"][1][1] == 3)):# 速度:3
-						uri = "売"
-						uricomment = "速度3"
-					else:
-						uri = ""
-						uricomment = ""
-				elif rune["slot_no"] in [2,4,6]: # スロットが2,4,6
-					uri = ""
-					uricomment = ""
-				elif rune["sec_eff"][0][0] in [9, 10] and rune["sec_eff"][1][0] in [9, 10]: # 9:クリ、10:ダメ
-					uri = ""
-					uricomment = ""
-				else:
-					uri = "売3"
-					uricomment = "速度なし、クリなし、ダメなし"
-		if rune["reado"] == 9: # ヒーロー
-			if rune["sec_eff"][0][0] in [1,3,5]:
-				uri = "売4"
-				uricomment = "1番実数"
-			if rune["sec_eff"][1][0] in [1,3,5]:
-				uri = "売5"
-				uricomment = "2番実数"
-			if rune["sec_eff"][2][0] in [1,3,5]:
-				uri = "売6"
-				uricomment = "3番実数"
-			if rune["slot_no"] in [2,4,6]:
-				uri = ""
-				uricomment = ""
-			if uri != "":
-				if rune["sec_eff"][0][0] == 8:
-					uri = ""
-					uricomment = ""
-				if rune["sec_eff"][1][0] == 8:
-					uri = ""
-					uricomment = ""
-				if rune["sec_eff"][2][0] == 8:
-					uri = ""
-					uricomment = ""
+		uri, uricomment = rune.getUriComment()
+		
 		arr.append(uri)
 		arr.append(uricomment)
-		arre.append(uri)
-		arre.append(uricomment)
-		#arre.append(rune["rank"]-1) # ドロップ時のサブオプ数
-		arre.append(self.initRune.getDropRank(rune, self.last_login))
+		arr.append(self.initRune.getDropRank(rune, self.last_login))
 
 		# ルーン統計処理
-		self.toukei.addRune(rune["class"])
-		self.outputExcel.writeRuneData(arre)
+		self.toukei.addRune(rune.getClass())
+		self.outputExcel.writeRuneData(arr)
 
 	#
 	# サブオプを取得
 	#
 	def getSecEff(self,  rune, effno):
-		if len(rune["sec_eff"]) >= effno+1:
-			rune["reado"] = (effno+1) * 3
-			return [self.mst.getEffectTypeName(rune["sec_eff"][effno][0])
-				,rune["sec_eff"][effno][1]+rune["sec_eff"][effno][3]
-				]
+		if len(rune.getSecEff()) >= effno+1:
+			rune.setReaDo((effno+1) * 3)
+			return [
+				rune.getEffectTypeName(effno)
+				,rune.getEffectValue(effno) +
+				 rune.getRenmaEffectValue(effno)
+			]
 		else:
 			return ["",""]
-	#
-	# 数値有無を取得
-	#
-	def getUmuValue(self, rune, type):
-		i = 0
-		for eff in [rune['prefix_eff']] + rune['sec_eff']:
-			if type == eff[0]:
-				if i == 0: # prefix_effならセルの色を黄色にする
-					self.setExcelColorYellow(type)
-				if len(eff) == 2:
-					return eff[1]
-				else:
-					return eff[1]+eff[3]
-			i += 1
-		return ""
 
 	def setExcelColorYellow(self, type):
-		# オプ効果が%系ならばExcelセルを黄色にする
-		if type == 2:
+		# オプ効果が%系ならばExcelセルを緑色にする
+		if type == "体%":
 			self.outputExcel.setRuneColorYellow(22)
-		elif type == 4:
+		elif type == "攻%":
 			self.outputExcel.setRuneColorYellow(23)
-		elif type == 6:
+		elif type == "防%":
 			self.outputExcel.setRuneColorYellow(24)
-		elif type == 8:
+		elif type == "速":
 			self.outputExcel.setRuneColorYellow(25)
-		elif type == 9:
+		elif type == "クリ":
 			self.outputExcel.setRuneColorYellow(26)
-		elif type == 10:
+		elif type == "ダメ":
 			self.outputExcel.setRuneColorYellow(27)
-		elif type == 11:
+		elif type == "抵抗":
 			self.outputExcel.setRuneColorYellow(28)
-		elif type == 12:
+		elif type == "的中":
 			self.outputExcel.setRuneColorYellow(29)
-
-	#  0: ("",""),
-	#  1: ("HP flat", "HP +%s"),
-	#  2: ("HP%", "HP %s%%"),
-	#  3: ("ATK flat", "ATK +%s"),
-	#  4: ("ATK%", "ATK %s%%"),
-	#  5: ("DEF flat", "DEF +%s"),
-	#  6: ("DEF%", "DEF %s%%"),
-	#  7: "UNKNOWN",  # ?
-	#  8: ("SPD", "SPD +%s"),
-	#  9: ("CRate", "CRI Rate %s%%"),
-	# 10: ("CDmg", "CRI Dmg %s%%"),
-	# 11: ("RES", "Resistance %s%%"),
-	# 12: ("ACC", "Accuracy %s%%")
-	def rune_efficiency(self, rune):
-		sum = 0
-		for eff in [rune['prefix_eff']] + rune['sec_eff']:
-			typ = eff[0]
-			if len(eff) == 2:
-				value = eff[1]
-			else:
-				value = eff[1]+eff[3]
-			max = 0
-			if typ in [2, 4, 6, 11, 12]:
-				max = 40.0
-			elif typ == 8 or typ == 9:
-				max = 30.0
-			elif typ == 10:
-				max = 35.0
-			if max > 0:
-				sum += (value / max)
-		sum += 1 if rune['class'] == 6 else 0.85
-		return sum / 2.8
-
-	#
-	# JSONファイルの読み込み
-	#
-	def ReadJson(self, filename):
-		targetDirs = {"C:\\Users\\hhara\\OneDrive\\SWProxy-windows"
-			     ,"C:\\Users\\tokebi\\OneDrive\\SWProxy-windows"}
-		f = None
-		for targetDir in targetDirs:
-			targetFile = targetDir + "\\" + filename
-			if os.path.exists(targetFile):
-				f = codecs.open(targetFile, "r", "utf-8")
-		if f is None:
-			print("819205-swarfarm.jsonが存在しない")
-			os.exit()
-		return json.load(f)
 
 	#
 	# モンスター名の日本語を取得
 	#
-	def setJname(self, unit_list):
-		jname = self.mst.getMonsterName(unit_list["unit_master_id"], unit_list["attribute"])
+	def getJName(self, unit):
+		jname = self.mst.getMonsterName(
+			unit.getUnitMasterId(), unit.getAttribute)
 		if jname in self.unit_master_hash:
 			# 既に同じ名前のモンスターがいたら
 			self.unit_master_hash[jname] += 1
 			jname = jname + "_" + str(self.unit_master_hash[jname])
 		else:
 			self.unit_master_hash[jname] = 1
-		unit_list["unit_master_id_c"] = jname
-		if (unit_list["unit_master_id_c"] is None):
-			print("日本語名称が見つからない：ID=" + str(unit_list["unit_master_id"]))
+		if (jname is None):
+			print("日本語名称が見つからない：ID=" + str(unit.getUnitMasterId()))
 			sys.exit()
-	
+		return jname
+
 	# 
 	# 練磨・ジェムの処理
 	# 
-	def outputCraftItemList(self, data):
+	def outputCraftItemList(self):
 		no = 1
-		for craftItem in sorted(data["rune_craft_item_list"], key=lambda x:(x['craft_type_id'],x['craft_type'])):#data["rune_craft_item_list"]:
+		for craftItem in self.data.getCraftItemList():
 			craftTypeId = '{0:06d}'.format(craftItem["craft_type_id"])
 			# 元気等
 			runeSet = craftTypeId[0:2]

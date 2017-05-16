@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: sjis -*-
 
-class SwSkill:
+class SwSkillMaster:
 	#
 	# スキルハッシュを返す
 	#
