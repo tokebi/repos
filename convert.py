@@ -133,7 +133,7 @@ class ConvertSkill:
 		return ret
 
 	def __init__(self):
-		self.outf = open("swSkill.py", "w")
+		self.outf = open("swSkillMaster.py", "w")
 		self.inb = book.sheet_by_name('モンスター')
 		self.skill_ids = {}
 
@@ -144,7 +144,7 @@ class ConvertSkill:
 		self.outf.write('#!/usr/bin/python' + "\n")
 		self.outf.write('# -*- coding: sjis -*-' + "\n")
 		self.outf.write('' + "\n")
-		self.outf.write('class SwSkill:' + "\n")
+		self.outf.write('class SwSkillMaster:' + "\n")
 		self.outf.write('	#' + "\n")
 		self.outf.write('	# スキルハッシュを返す' + "\n")
 		self.outf.write('	#' + "\n")
