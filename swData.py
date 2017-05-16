@@ -8,19 +8,27 @@ import sys
 
 from swRune import SwRune
 from swUnit import SwUnit
+from swCraftItem import SwCraftItem
 
 class SwData:
 	def __init__(self):
 		self.data = self.ReadJson("819205-swarfarm.json")
 		self.runes = []
+		self.unitList = []
+		self.craftItemList = []
+		# ルーンデータの取得
 		for rune in self.data["runes"]:
 			self.runes.append(SwRune(rune))
-		self.unitList = []
-		#for unit in self.data["unit_list"]:
+		# ユニットデータの取得
 		for unit in sorted(self.data["unit_list"], key=lambda x:(-x['class'],x['attribute'])):
 			swUnit = SwUnit(unit)
 			self.unitList.append(swUnit)
 			self.runes.extend(swUnit.getRunes())
+		# 練磨・ジェムの取得
+		for craftItem in sorted(self.data["rune_craft_item_list"], key=lambda x:(x['craft_type_id'],x['craft_type'])):
+			swCraftItem = SwCraftItem(craftItem)
+			self.craftItemList.append(swCraftItem)
+
 	#
 	# JSONファイルの読み込み
 	#
@@ -59,4 +67,4 @@ class SwData:
 	# 練磨・ジェムのリストを返す
 	#
 	def getCraftItemList(self):
-		return sorted(self.data["rune_craft_item_list"], key=lambda x:(x['craft_type_id'],x['craft_type']))
+		return self.craftItemList

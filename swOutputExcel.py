@@ -12,6 +12,7 @@ class SwOutputExcel:
 		self.__stockMonster = []
 		self.__stockRunes = []
 		self.__runeFormat = {}
+		self.__runeComment = {}
 		if os.path.exists("C:\\Users\\hhara\\OneDrive"):
 			baseExcel = "C:\\Users\\hhara\\OneDrive\\"
 		else:
@@ -175,13 +176,10 @@ class SwOutputExcel:
 		self.__craftItems.write(0,  3, 'craft_type_id', format)
 		self.__craftItems.write(0,  4, 'wizard_id', format)
 		self.__craftItems.write(0,  5, 'craft_type', format)
-		self.__craftItems.write(0,  6, 'runeSet', format)
-		self.__craftItems.write(0,  7, 'effectType', format)
-		self.__craftItems.write(0,  8, 'rarity', format)
-		self.__craftItems.write(0,  9, 'runeSetName', format)
-		self.__craftItems.write(0, 10, 'effectTypeName', format)
-		self.__craftItems.write(0, 11, 'rarityName', format)
-		self.__craftItems.write(0, 12, '種類', format)
+		self.__craftItems.write(0,  6, 'runeSetName', format)
+		self.__craftItems.write(0,  7, 'effectTypeName', format)
+		self.__craftItems.write(0,  8, 'rarityName', format)
+		self.__craftItems.write(0,  9, '種類', format)
 
 	#
 	# 練磨・ジェムWorksheetへ出力
@@ -273,9 +271,12 @@ class SwOutputExcel:
 		for k, v in self.__runeFormat.items():
 			formatHash[k] = v
 		self.__writeData(self.__runes, self.__stockRunes, self.__rowRunes, formatHash)
+		for k, v in self.__runeComment.items():
+			self.__runes.write_comment(self.__rowRunes, k, v)
 		self.__rowRunes += 1
 		self.__stockRunes = []
 		self.__runeFormat = {}
+		self.__runeComment = {}
 
 	#
 	# ルーンデータの書き出し行を取得
@@ -283,12 +284,21 @@ class SwOutputExcel:
 	def getRuneRone(self):
 		return self.__rowRunes
 
-	def setRuneColorYellow(self, col):
+	#
+	# セルの背景色を設定
+	#
+	def setRuneColorYellow(self, col, color):
 		format = self.__book.add_format({'border': 1})
 		if col in self.__runeFormat:
 			format = self.__runeFormat[col]
-		format.set_bg_color('green')
+		format.set_bg_color(color)
 		self.__runeFormat[col] = format
+
+	#
+	# セルのコメントを設定
+	#
+	def setRuneComment(self, col, comment):
+		self.__runeComment[col] = comment
 
 	#
 	# Worksheetにデータ出力

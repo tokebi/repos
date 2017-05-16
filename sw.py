@@ -37,71 +37,10 @@ class MAIN:
 			# 日本語モンスター名を設定
 			jname = self.getJName(unit)
 			unit.setJName(jname)
-			if self.mst.isNotOutputMonster(unit.getJName()):
+			if unit.isNotOutputMonster():
 				continue
 			#モンスターデータの出力
-			self.outputMonster(no, unit)
-			# 所持ルーン処理
-			runes = unit.getRunes()
-			for w_slot_no in range(1, 7):
-				isFound=False
-				for rune in runes:
-					if rune.getSlotNo() == w_slot_no:
-						rune.setId4Shoji(unit.getUnitId(), unit.getJName())
-						self.outputExcel.writeMonsterData([rune.getRuneId()])
-						isFound = True
-				if isFound == False:
-					self.outputExcel.writeMonsterData([1])
-			# モンスタータイプ処理
-			self.outputMonsterType(unit)
-			
-			no += 1
-			# 統計処理
-			self.toukei.addMonster(unit.getClass(), unit.getUnitLevel(), unit.getAttribute())
-			# スキル
-			skillno = 1
-			#      0   1 2  3 4  5 6  7 8  9   10 11 12 13  14 15 16 17  18 19 20 21  22
-			arr = ["" ,0,0 ,0,0 ,0,0 ,0,0, "", "","","","", "","","","", "","","","", ""]
-			for skill in unit.getSkills():
-				skill_id = str(skill.getId())
-				skill_lv = str(skill.getLevel())
-				#print (skillno)
-				arr[(skillno-1)*2+1] = skill_lv
-				arr[(skillno-1)*2+2] = self.mst.getSkillMaxLev(skill_id)
-				# スキル倍率
-				arr[(skillno-1)+10] = self.mst.getSkillRate(skill_id)
-				# スキルコメント
-				arr[(skillno-1)+18] = self.mst.getSkillComment(skill_id)
-				# スキル略称
-				arr[(skillno-1)+14] = self.mst.getSkillRyaku(skill_id)
-				skillno += 1
-			# 覚醒名称
-			arr[9] = self.mst.getKakuseiName(unit.getUnitMasterId())
-			# リーダスキル
-			arr[22] = self.mst.getLSkillComment(unit.getUnitMasterId())
-			self.outputExcel.writeMonsterData(arr)
-			self.outputExcel.writeMonsterNextRow()
-		# 未装備の場合のルーンを作成
-		noRune = [""] * 34
-		noRune[0] = 1
-		noRune[1] = 1
-		self.outputExcel.writeRuneData(noRune)
-		self.outputExcel.writeRuneNextRow()
-		## ルーンを生成
-		no = 2
-		for rune in self.data.getRuneList():
-			self.outputRune(rune, no);
-			self.outputExcel.writeRuneNextRow()
-			no += 1
-		# 統計データ出力
-		self.toukei.outputData()
-
-	
-	#
-	# モンスターデータを出力
-	#
-	def outputMonster(self, no, unit):
-		arr = [
+			arr = [
 				no
 				,unit.getUnitId()
 				,unit.getJName()
@@ -117,8 +56,57 @@ class MAIN:
 				,unit.getResist()
 				,unit.getAccuracy()
 				,unit.getCreateTime()
-		]
-		self.outputExcel.writeMonsterData(arr)
+			]
+			no += 1
+			# 所持ルーン処理
+			runes = unit.getRunes()
+			for w_slot_no in range(1, 7):
+				isFound=False
+				for rune in runes:
+					if rune.getSlotNo() == w_slot_no:
+						rune.setId4Shoji(unit.getUnitId(), unit.getJName())
+						arr.append(rune.getRuneId())
+						isFound = True
+				if isFound == False:
+					arr.append(1)
+			# モンスタータイプ・WB期待値の処理
+			arr.extend(self.outputMonsterType(unit))
+			
+			# 統計処理
+			self.toukei.addMonster(unit.getClass(), unit.getUnitLevel(), unit.getAttribute())
+			# スキルレベル・スキルMAXレベル
+			for skill in unit.getSkills():
+				arr.append(skill.getLevel())
+				arr.append(skill.getSkillMaxLev())
+			# 覚醒名称
+			arr.append(unit.getKakuseiName())
+			# スキル倍率
+			for skill in unit.getSkills():
+				arr.append(skill.getSkillRate())
+			# スキル略称
+			for skill in unit.getSkills():
+				arr.append(skill.getSkillRyaku())
+			# スキルコメント
+			for skill in unit.getSkills():
+				arr.append(skill.getSkillComment())
+			# リーダスキル
+			arr.append(unit.getLSkillComment())
+			self.outputExcel.writeMonsterData(arr)
+			self.outputExcel.writeMonsterNextRow()
+		# 未装備の場合のルーンを作成
+		noRune = [""] * 34
+		noRune[0] = 1
+		noRune[1] = 1
+		self.outputExcel.writeRuneData(noRune)
+		self.outputExcel.writeRuneNextRow()
+		# ルーンを生成
+		no = 2
+		for rune in self.data.getRuneList():
+			self.outputRune(rune, no);
+			self.outputExcel.writeRuneNextRow()
+			no += 1
+		# 統計データ出力
+		self.toukei.outputData()
 
 	#
 	# モンスター種類データを出力
@@ -174,12 +162,7 @@ class MAIN:
 			wbCalc = wbCalc + 1000 * (1+1)		# 光＝火　光＝水
 		elif unit.getAttributeName() == "闇":
 			wbCalc = wbCalc + 1000 * (1+1)		# 闇＝火　闇＝水
-		arr = [
-			"",
-			type,
-			wbCalc
-		]
-		self.outputExcel.writeMonsterData(arr)
+		return [type, wbCalc]
 
 	#
 	# ルーンテーブルを出力
@@ -199,12 +182,12 @@ class MAIN:
 		# サブメイン効果
 		arr.append(rune.getEffectTypeName("pre"))
 		arr.append(rune.getEffectValue("pre"))
-		self.setExcelColorYellow(rune.getEffectTypeName("pre"))
+		self.setExcelColor(rune.getEffectTypeName("pre"), 'green')
 		# オプ１～４効果
-		arr.extend(self.getSecEff(rune, 0))
-		arr.extend(self.getSecEff(rune, 1))
-		arr.extend(self.getSecEff(rune, 2))
-		arr.extend(self.getSecEff(rune, 3))
+		self.getSecEff(arr, rune, 0)
+		self.getSecEff(arr, rune, 1)
+		self.getSecEff(arr, rune, 2)
+		self.getSecEff(arr, rune, 3)
 		# 効率
 		arr.append(rune.getEfficiency())
 		# Excel出力
@@ -237,35 +220,38 @@ class MAIN:
 	#
 	# サブオプを取得
 	#
-	def getSecEff(self,  rune, effno):
+	def getSecEff(self, arr, rune, effno):
 		if len(rune.getSecEff()) >= effno+1:
 			rune.setReaDo((effno+1) * 3)
-			return [
-				rune.getEffectTypeName(effno)
-				,rune.getEffectValue(effno) +
-				 rune.getRenmaEffectValue(effno)
-			]
+			arr.append(rune.getEffectTypeName(effno))
+			arr.append(rune.getEffectValue(effno) + 
+				rune.getRenmaEffectValue(effno))
+			if rune.getRenmaEffectValue(effno) > 0:
+				self.outputExcel.setRuneComment(
+					len(arr)-1,
+					str(rune.getEffectValue(effno)) + "+" +
+					str(rune.getRenmaEffectValue(effno)))
 		else:
-			return ["",""]
+			arr.extend(["",""])
 
-	def setExcelColorYellow(self, type):
+	def setExcelColor(self, type, color):
 		# オプ効果が%系ならばExcelセルを緑色にする
 		if type == "体%":
-			self.outputExcel.setRuneColorYellow(22)
+			self.outputExcel.setRuneColorYellow(22, color)
 		elif type == "攻%":
-			self.outputExcel.setRuneColorYellow(23)
+			self.outputExcel.setRuneColorYellow(23, color)
 		elif type == "防%":
-			self.outputExcel.setRuneColorYellow(24)
+			self.outputExcel.setRuneColorYellow(24, color)
 		elif type == "速":
-			self.outputExcel.setRuneColorYellow(25)
+			self.outputExcel.setRuneColorYellow(25, color)
 		elif type == "クリ":
-			self.outputExcel.setRuneColorYellow(26)
+			self.outputExcel.setRuneColorYellow(26, color)
 		elif type == "ダメ":
-			self.outputExcel.setRuneColorYellow(27)
+			self.outputExcel.setRuneColorYellow(27, color)
 		elif type == "抵抗":
-			self.outputExcel.setRuneColorYellow(28)
+			self.outputExcel.setRuneColorYellow(28, color)
 		elif type == "的中":
-			self.outputExcel.setRuneColorYellow(29)
+			self.outputExcel.setRuneColorYellow(29, color)
 
 	#
 	# モンスター名の日本語を取得
@@ -290,50 +276,23 @@ class MAIN:
 	def outputCraftItemList(self):
 		no = 1
 		for craftItem in self.data.getCraftItemList():
-			craftTypeId = '{0:06d}'.format(craftItem["craft_type_id"])
-			# 元気等
-			runeSet = craftTypeId[0:2]
-			runeSetName = self.mst.getRuneSetName(int(runeSet))
-			# 攻撃等
-			effectType = craftTypeId[2:4]
-			effectTypeName = self.mst.getEffectTypeName(int(effectType))
-			# 魔法等
-			rarity = craftTypeId[4:6]
-			#02	魔法
-			#03	レア
-			#04	ヒーロー
-			if rarity == "01":
-				rarityName = "通常"
-			elif rarity == "02":
-				rarityName = "+2%～5%"
-			elif rarity == "03":
-				rarityName = "+3%～6%"
-			elif rarity == "04":
-				rarityName = "+4%～7%"
-			elif rarity == "05":
-				rarityName = "レジェント"
-			if craftItem["craft_type"] == 1:
-				craftType = "ジェム"
-			elif craftItem["craft_type"] == 2:
-				craftType = "練磨"
 			arr = [
 				no
-				,craftItem["craft_item_id"]
-				,craftItem["sell_value"]
-				,craftItem["craft_type_id"]
-				,craftItem["wizard_id"]
-				,craftItem["craft_type"]
-				,runeSet
-				,effectType
-				,rarity
-				,runeSetName
-				,effectTypeName
-				,rarityName
-				,craftType
+				,craftItem.getCraftItemId()
+				,craftItem.getSellValue()
+				,craftItem.getCraftTypeId()
+				,craftItem.getCraftType()
+				# 元気等
+				,craftItem.getSetName()
+				# 攻撃等
+				,craftItem.getEffectTypeName()
+				# 魔法等
+				,craftItem.getRarity()
+				# 種類
+				,craftItem.getType()
 			]
 			self.outputExcel.writeCraftItemData(arr)
 			no+=1
-
 
 if __name__ == "__main__":
 	a = MAIN()

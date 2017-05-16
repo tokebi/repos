@@ -54,6 +54,9 @@ class SwUnit:
 		for skill in self.data['skills']:
 			swSkill = SwSkill(skill)
 			skills.append(swSkill)
+		if len(skills) < 4:
+			for dummy in range(1, 4-len(skills)+1):
+				skills.append(SwSkill([0,0]))
 		self.data['skills'] = skills
 
 	#
@@ -64,6 +67,11 @@ class SwUnit:
 			return 1
 		else:
 			return 0
+	#
+	# 出力対象のモンスターかを取得
+	#
+	def isNotOutputMonster(self):
+		return self.mst.isNotOutputMonster(self.data["jname"])
 
 	#
 	# モンスターIDを取得
@@ -88,6 +96,11 @@ class SwUnit:
 	#
 	def getJName(self):
 		return self.data["jname"]
+
+	#
+	# 覚醒名称を取得
+	def getKakuseiName(self):
+		return self.mst.getKakuseiName(self.data["unit_master_id"])
 
 	#
 	# モンスターレベルを取得
@@ -187,6 +200,12 @@ class SwUnit:
 	#
 	def getSkills(self):
 		return self.data["skills"]
+
+	#
+	# リーダスキルコメントを取得
+	#
+	def getLSkillComment(self):
+		return self.mst.getLSkillComment(self.getUnitMasterId())
 
 
 
