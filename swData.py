@@ -13,17 +13,17 @@ from swCraftItem import SwCraftItem
 class SwData:
 	def __init__(self):
 		self.data = self.ReadJson("819205-swarfarm.json")
-		self.runes = []
+		self.runeList = []
 		self.unitList = []
 		self.craftItemList = []
 		# ルーンデータの取得
 		for rune in self.data["runes"]:
-			self.runes.append(SwRune(rune))
+			self.runeList.append(SwRune(rune))
 		# ユニットデータの取得
 		for unit in sorted(self.data["unit_list"], key=lambda x:(-x['class'],x['attribute'])):
 			swUnit = SwUnit(unit)
 			self.unitList.append(swUnit)
-			self.runes.extend(swUnit.getRunes())
+			self.runeList.extend(swUnit.getRunes())
 		# 練磨・ジェムの取得
 		for craftItem in sorted(self.data["rune_craft_item_list"], key=lambda x:(x['craft_type_id'],x['craft_type'])):
 			swCraftItem = SwCraftItem(craftItem)
@@ -55,13 +55,13 @@ class SwData:
 	# モンスターリストを返す
 	#
 	def getMonsterList(self):
-		return sorted(self.unitList, key=lambda x:(-x.getClass(),x.getAttribute()))
+		return self.unitList
 
 	#
 	# モンスターリストを返す
 	#
 	def getRuneList(self):
-		return self.runes
+		return self.runeList
 
 	#
 	# 練磨・ジェムのリストを返す

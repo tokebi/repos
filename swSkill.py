@@ -50,12 +50,3 @@ class SwSkill():
 	def getSkillComment(self):
 		return self.mst.getSkillComment(self.getIdStr())
 
-
-
-
-
-
-
-
-
-

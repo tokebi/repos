@@ -35,10 +35,22 @@ class SwRune():
 		self.data["reaDo"] = 0
 
 	#
-	# 装備スロットを取得
+	# 星を返す
 	#
-	def getSlotNo(self):
-		return self.data['slot_no']
+	def getClass(self):
+		return self.data["class"]
+
+	#
+	# サブオプを返す
+	#
+	def getPrefixEff(self):
+		return self.data["prefix_eff"]
+
+	#
+	# メインオプを返す
+	#
+	def getPriEff(self):
+		return self.data["pri_eff"]
 
 	#
 	# IDを取得
@@ -47,17 +59,28 @@ class SwRune():
 		return self.data['rune_id']
 
 	#
-	# 所持しているIDを設定
+	# 強化数を返す
 	#
-	def setId4Shoji(self, unitId, MasterId):
-		self.data["unit_id"] = unitId
-		self.data["unit_master_id"] = MasterId
+	def getSecEff(self):
+		return self.data["sec_eff"]
 
 	#
-	# 星を返す
+	# 売値を返す
 	#
-	def getClass(self):
-		return self.data["class"]
+	def getSellValue(self):
+		return self.data["sell_value"]
+
+	#
+	# ルーンのセット名称を返す
+	#
+	def getRuneSetName(self):
+		return self.mst.getRuneSetName(self.data['set_id'])
+
+	#
+	# 装備スロットを取得
+	#
+	def getSlotNo(self):
+		return self.data['slot_no']
 
 	#
 	# 強化数を返す
@@ -66,34 +89,17 @@ class SwRune():
 		return self.data["upgrade_curr"]
 
 	#
-	# 強化数を返す
-	#
-	def getPriEff(self):
-		return self.data["pri_eff"]
-	
-	#
-	# 強化数を返す
-	#
-	def getPrefixEff(self):
-		return self.data["prefix_eff"]
-
-	#
-	# 強化数を返す
-	#
-	def getSecEff(self):
-		return self.data["sec_eff"]
-
-	#
 	# 所持しているマスターIDを返す
 	#
 	def getUnitMasterId(self):
 		return self.data["unit_master_id"]
 
 	#
-	# ルーンのセット名称を返す
+	# 所持しているIDを設定
 	#
-	def getRuneSetName(self):
-		return self.mst.getRuneSetName(self.data['set_id'])
+	def setId4Shoji(self, unitId, MasterId):
+		self.data["unit_id"] = unitId
+		self.data["unit_master_id"] = MasterId
 
 	#
 	# ルーンの効果名称を返す
@@ -107,6 +113,7 @@ class SwRune():
 			return self.mst.getEffectTypeName(self.data["sec_eff"][key][0])
 		else:
 			print("not EffectTypeName key = " + str(key))
+
 	#
 	# ルーンの効果値を返す
 	#
@@ -133,16 +140,16 @@ class SwRune():
 			print("not getEffectValue key = " + str(key))
 
 	#
-	# レア度を設定
-	#
-	def setReaDo(self, val):
-		self.data["reaDo"] = val
-
-	#
 	# レア度を返す
 	#
 	def getReaDo(self):
 		return self.data["reaDo"]
+
+	#
+	# レア度を設定
+	#
+	def setReaDo(self, val):
+		self.data["reaDo"] = val
 
 	#  0: ("",""),
 	#  1: ("HP flat", "HP +%s"),
@@ -176,12 +183,6 @@ class SwRune():
 				sum += (value / max)
 		sum += 1 if self.data['class'] == 6 else 0.85
 		return sum / 2.8
-
-	#
-	# 売値を返す
-	#
-	def getSellValue(self):
-		return self.data["sell_value"]
 
 	def getUriComment(self):
 		uri = ""

@@ -60,6 +60,31 @@ class SwUnit:
 		self.data['skills'] = skills
 
 	#
+	# 的中を取得
+	#
+	def getAccuracy(self):
+		return self.data["accuracy"]
+
+	#
+	# 攻撃力を取得
+	#
+	def getAtk(self):
+		return self.data["atk"]
+
+	#
+	# 属性を取得
+	#
+	def getAttribute(self):
+		return self.data["attribute"]
+
+	#
+	# 属性の日本名を取得
+	#
+	def getAttributeName(self):
+		attribute = self.data["attribute"]
+		return self.mst.getAttributeName(attribute)
+
+	#
 	# 倉庫に入っているかを取得
 	#
 	def isSouko(self):
@@ -67,11 +92,68 @@ class SwUnit:
 			return 1
 		else:
 			return 0
+
 	#
-	# 出力対象のモンスターかを取得
+	# 星レベルを取得
 	#
-	def isNotOutputMonster(self):
-		return self.mst.isNotOutputMonster(self.data["jname"])
+	def getClass(self):
+		return self.data["class"]
+
+	#
+	# 体力を取得
+	#
+	def getCon(self):
+		return self.data["con"]*15
+
+	#
+	# 作成日時を取得
+	#
+	def getCreateTime(self):
+		return self.data["create_time"]
+
+	#
+	# クリダメを取得
+	#
+	def getCriticalDamage(self):
+		return self.data["critical_damage"]
+
+	#
+	# モンスターレベルを取得
+	#
+	def getCriticalRate(self):
+		
+		return self.data["critical_rate"]
+
+	#
+	# 防御力を取得
+	#
+	def getDef(self):
+		return self.data["def"]
+
+	#
+	# 攻撃速度を取得
+	#
+	def getSpd(self):
+		
+		return self.data["spd"]
+
+	#
+	# 抵抗を取得
+	#
+	def getResist(self):
+		return self.data["resist"]
+
+	#
+	# 所持ルーンを取得
+	#
+	def getRunes(self):
+		return self.data["runes"]
+
+	#
+	# スキルを取得
+	#
+	def getSkills(self):
+		return self.data["skills"]
 
 	#
 	# モンスターIDを取得
@@ -80,10 +162,22 @@ class SwUnit:
 		return self.data["unit_id"]
 
 	#
+	# レベルを取得
+	#
+	def getLevel(self):
+		return self.data["unit_level"]
+
+	#
 	# モンスターマスターIDを取得
 	#
 	def getUnitMasterId(self):
 		return self.data["unit_master_id"]
+
+	#
+	# 出力対象のモンスターかを取得
+	#
+	def isNotOutputMonster(self):
+		return self.mst.isNotOutputMonster(self.data["jname"])
 
 	#
 	# モンスターの日本語名を設定
@@ -103,113 +197,7 @@ class SwUnit:
 		return self.mst.getKakuseiName(self.data["unit_master_id"])
 
 	#
-	# モンスターレベルを取得
-	#
-	def getUnitLevel(self):
-		return self.data["unit_level"]
-
-	#
-	# 星レベルを取得
-	#
-	def getClass(self):
-		return self.data["class"]
-
-	#
-	# 属性を取得
-	#
-	def getAttribute(self):
-		return self.data["attribute"]
-
-	#
-	# 属性の日本名を取得
-	#
-	def getAttributeName(self):
-		attribute = self.data["attribute"]
-		return self.mst.getAttributeName(attribute)
-
-	#
-	# 体力を取得
-	#
-	def getCon(self):
-		return self.data["con"]*15
-
-	#
-	# 攻撃力を取得
-	#
-	def getAtk(self):
-		return self.data["atk"]
-
-	#
-	# 防御力を取得
-	#
-	def getDef(self):
-		return self.data["def"]
-
-	#
-	# 攻撃速度を取得
-	#
-	def getSpd(self):
-		
-		return self.data["spd"]
-
-	#
-	# モンスターレベルを取得
-	#
-	def getCriticalRate(self):
-		
-		return self.data["critical_rate"]
-
-	#
-	# クリダメを取得
-	#
-	def getCriticalDamage(self):
-		return self.data["critical_damage"]
-
-	#
-	# 抵抗を取得
-	#
-	def getResist(self):
-		return self.data["resist"]
-
-	#
-	# 的中を取得
-	#
-	def getAccuracy(self):
-		return self.data["accuracy"]
-
-	#
-	# 作成日時を取得
-	#
-	def getCreateTime(self):
-		return self.data["create_time"]
-
-	#
-	# レベルを取得
-	#
-	def getLevel(self):
-		return self.data["unit_level"]
-
-	#
-	# 所持ルーンを取得
-	#
-	def getRunes(self):
-		return self.data["runes"]
-
-	#
-	# スキルを取得
-	#
-	def getSkills(self):
-		return self.data["skills"]
-
-	#
 	# リーダスキルコメントを取得
 	#
 	def getLSkillComment(self):
 		return self.mst.getLSkillComment(self.getUnitMasterId())
-
-
-
-
-
-
-

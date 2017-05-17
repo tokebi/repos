@@ -44,7 +44,7 @@ class MAIN:
 				no
 				,unit.getUnitId()
 				,unit.getJName()
-				,unit.getUnitLevel()
+				,unit.getLevel()
 				,unit.getClass()
 				,unit.getAttributeName()
 				,unit.getCon()
@@ -73,7 +73,7 @@ class MAIN:
 			arr.extend(self.outputMonsterType(unit))
 			
 			# 統計処理
-			self.toukei.addMonster(unit.getClass(), unit.getUnitLevel(), unit.getAttribute())
+			self.toukei.addMonster(unit.getClass(), unit.getLevel(), unit.getAttribute())
 			# スキルレベル・スキルMAXレベル
 			for skill in unit.getSkills():
 				arr.append(skill.getLevel())

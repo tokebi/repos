@@ -6,35 +6,42 @@ import swMaster
 class SwCraftItem():
 	def __init__(self, craftItem):
 		self.mst = swMaster.SwMaster.getInstance()
-		self.data = craftItem
-		self.id = '{0:06d}'.format(self.data["craft_type_id"])
+		id = '{0:06d}'.format(craftItem["craft_type_id"])
+		self.setId       = int(id[0:2])
+		self.effectType  = int(id[2:4])
+		self.rarity      = int(id[4:6])
+		self.craftType   = craftItem["craft_type"]
+		self.craftItemId = craftItem["craft_item_id"]
+		self.sellValue   = craftItem["sell_value"]
+		self.craftTypeId = craftItem["craft_type_id"]
+		self.wizardId    = craftItem["wizard_id"]
+		self.craftType   = craftItem["craft_type"]
 
 	#
 	# セット名称を取得
 	#
 	def getSetName(self):
-		return self.mst.getRuneSetName(int(self.id[0:2]))
+		return self.mst.getRuneSetName(self.setId)
 
 	#
 	# 効果種別を取得
 	#
 	def getEffectTypeName(self):
-		return self.mst.getEffectTypeName(int(self.id[2:4]))
+		return self.mst.getEffectTypeName(self.effectType)
 
 	#
 	# レア度を取得
 	#
 	def getRarity(self):
-		rarity = self.id[4:6]
-		if rarity == "01":
+		if self.rarity == 1:
 			rarityName = "通常"
-		elif rarity == "02":
+		elif self.rarity == 2:
 			rarityName = "+2%～5%"
-		elif rarity == "03":
+		elif self.rarity == 3:
 			rarityName = "+3%～6%"
-		elif rarity == "04":
+		elif self.rarity == 4:
 			rarityName = "+4%～7%"
-		elif rarity == "05":
+		elif self.rarity == 5:
 			rarityName = "レジェント"
 		return rarityName
 
@@ -42,9 +49,9 @@ class SwCraftItem():
 	# 種類を取得
 	#
 	def getType(self):
-		if self.data["craft_type"] == 1:
+		if self.craftType == 1:
 			return "ジェム"
-		elif self.data["craft_type"] == 2:
+		elif self.craftType == 2:
 			return "練磨"
 
 
@@ -52,29 +59,29 @@ class SwCraftItem():
 	# craft_item_idを取得
 	#
 	def getCraftItemId(self):
-		return self.data["craft_item_id"]
+		return self.craftItemId
 
 	#
 	# sell_valueを取得
 	#
 	def getSellValue(self):
-		return self.data["sell_value"]
+		return self.sellValue
 
 	#
 	# craft_type_idを取得
 	#
 	def getCraftTypeId(self):
-		return self.data["craft_type_id"]
+		return self.craftTypeId
 
 	#
 	# wizard_idを取得
 	#
 	def getWizardId(self):
-		return self.data["wizard_id"]
+		return self.wizardId
 
 	#
 	# craft_typeを取得
 	#
 	def getCraftType(self):
-		return self.data["craft_type"]
+		return self.craftType
 
