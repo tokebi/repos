@@ -6,26 +6,24 @@ import os.path
 
 class SwOutputExcel:
 	def __init__(self):
-		self.__rowMonster = 2
-		self.__rowRunes = 1
-		self.__rowCraftItems = 1
-		self.__stockMonster = []
-		self.__stockRunes = []
-		self.__runeFormat = {}
-		self.__runeComment = {}
 		if os.path.exists("C:\\Users\\hhara\\OneDrive"):
 			baseExcel = "C:\\Users\\hhara\\OneDrive\\"
 		else:
 			baseExcel = "C:\\Users\\tokebi\\OneDrive\\"
-
 		# sw_dra/xlsmの「モンスター」シート
 		self.__book = xlsxwriter.Workbook(baseExcel + 'test.xlsx');
+		self.__initMonster()
+		self.__initRunes()
+		self.__initCraftItems()
+
+	#
+	# モンスター用__init__
+	#
+	def __initMonster(self):
+		self.__rowMonster = 2
+		self.__stockMonster = []
 		self.__monster = self.__book.add_worksheet('mons')
-		self.__runes   = self.__book.add_worksheet('runes')
-		self.__craftItems   = self.__book.add_worksheet('craftItems')
 		self.__initMonsterExcel()
-		self.__initRunesExcel()
-		self.__initCraftItemsExcel()
 
 	#
 	# モンスターWorksheetのヘッダ作成
@@ -91,6 +89,52 @@ class SwOutputExcel:
 		self.__monster.write(1, 42,'スキル内容3', format)
 		self.__monster.write(1, 43,'スキル内容4', format)
 		self.__monster.write(1, 44,'リーダスキル', format)
+
+	#
+	# モンスターデータの保存
+	#
+	def writeMonsterData(self, arr):
+		if arr[0] == "":
+			del arr[0]
+		self.__stockMonster.extend(arr)
+
+	#
+	# モンスターデータの行出力
+	#
+	def writeMonsterNextRow(self):
+		format_per = self.__book.add_format({
+			'border': 1,
+			'num_format': '0.00%'
+		})
+		format_date = self.__book.add_format({
+			'border': 1,
+			'num_format': 'yyyy/m/d h:mm'
+		})
+		format_shrink = self.__book.add_format({
+			'border': 1,
+			'shrink': 1,
+		})
+		formatHash = {}
+		formatHash[ 1] = format_shrink
+		formatHash[14] = format_date
+		# 日付変換
+		self.__stockMonster[14] = self.__stockMonster[14].replace('-', '/')
+		self.__writeData(self.__monster, self.__stockMonster, self.__rowMonster, formatHash)
+		self.__monster,
+		self.__rowMonster += 1
+		self.__stockMonster = []
+
+	#
+	# ルーン用__init__
+	#
+	def __initRunes(self):
+		self.__rowRunes = 1
+		self.__stockRunes = []
+		self.__runeFormat = {}
+		self.__runeComment = {}
+		self.__runes   = self.__book.add_worksheet('runes')
+		self.__initRunesExcel()
+
 	#
 	# ルーンWorksheetのヘッダ作成
 	#
@@ -160,80 +204,10 @@ class SwOutputExcel:
 		self.__runes.set_column('AH:AH', 5.38)
 
 	#
-	# 練磨・ジェムWorksheetのヘッダ作成
-	#
-	def __initCraftItemsExcel(self):
-		format = self.__book.add_format({
-			'bold': 1,
-			'border': 1,
-			'text_wrap': 1,
-			'align': 'center',
-			'valign': 'vcenter',
-			'fg_color': '#BFBFBF'})
-		self.__craftItems.write(0,  0, 'No', format)
-		self.__craftItems.write(0,  1, 'ルーンID', format)
-		self.__craftItems.write(0,  2, 'sell_value', format)
-		self.__craftItems.write(0,  3, 'craft_type_id', format)
-		self.__craftItems.write(0,  4, 'wizard_id', format)
-		self.__craftItems.write(0,  5, 'craft_type', format)
-		self.__craftItems.write(0,  6, 'runeSetName', format)
-		self.__craftItems.write(0,  7, 'effectTypeName', format)
-		self.__craftItems.write(0,  8, 'rarityName', format)
-		self.__craftItems.write(0,  9, '種類', format)
-
-	#
-	# 練磨・ジェムWorksheetへ出力
-	#
-	def writeCraftItemData(self, arr):
-		formatHash = {}
-		self.__writeData(self.__craftItems, arr, self.__rowCraftItems, formatHash)
-		self.__rowCraftItems += 1
-
-	#
-	# Excelワークブックの保存
-	#
-	def save(self):
-		self.__book.close()
-
-	#
-	# モンスターデータの保存
-	#
-	def writeMonsterData(self, arr):
-		if arr[0] == "":
-			del arr[0]
-		self.__stockMonster.extend(arr)
-
-	#
 	# ルーンデータの保存
 	#
 	def writeRuneData(self, arr):
 		self.__stockRunes.extend(arr)
-
-	#
-	# モンスターデータの行出力
-	#
-	def writeMonsterNextRow(self):
-		format_per = self.__book.add_format({
-			'border': 1,
-			'num_format': '0.00%'
-		})
-		format_date = self.__book.add_format({
-			'border': 1,
-			'num_format': 'yyyy/m/d h:mm'
-		})
-		format_shrink = self.__book.add_format({
-			'border': 1,
-			'shrink': 1,
-		})
-		formatHash = {}
-		formatHash[ 1] = format_shrink
-		formatHash[14] = format_date
-		# 日付変換
-		self.__stockMonster[14] = self.__stockMonster[14].replace('-', '/')
-		self.__writeData(self.__monster, self.__stockMonster, self.__rowMonster, formatHash)
-		self.__monster,
-		self.__rowMonster += 1
-		self.__stockMonster = []
 
 	#
 	# ルーンデータの行出力
@@ -284,6 +258,7 @@ class SwOutputExcel:
 	def getRuneRone(self):
 		return self.__rowRunes
 
+
 	#
 	# セルの背景色を設定
 	#
@@ -299,6 +274,52 @@ class SwOutputExcel:
 	#
 	def setRuneComment(self, col, comment):
 		self.__runeComment[col] = comment
+
+	#
+	# ルーン用__init__
+	#
+	def __initCraftItems(self):
+		self.__rowCraftItems = 1
+		self.__craftItems   = self.__book.add_worksheet('craftItems')
+		self.__initCraftItemsExcel()
+
+	#
+	# 練磨・ジェムWorksheetのヘッダ作成
+	#
+	def __initCraftItemsExcel(self):
+		format = self.__book.add_format({
+			'bold': 1,
+			'border': 1,
+			'text_wrap': 1,
+			'align': 'center',
+			'valign': 'vcenter',
+			'fg_color': '#BFBFBF'})
+		self.__craftItems.write(0,  0, 'No', format)
+		self.__craftItems.write(0,  1, 'ルーンID', format)
+		self.__craftItems.write(0,  2, 'sell_value', format)
+		self.__craftItems.write(0,  3, 'craft_type_id', format)
+		self.__craftItems.write(0,  4, 'craft_type', format)
+		self.__craftItems.write(0,  5, 'runeSetName', format)
+		self.__craftItems.write(0,  6, 'effectTypeName', format)
+		self.__craftItems.write(0,  7, 'rarityName', format)
+		self.__craftItems.write(0,  8, '種類', format)
+
+	#
+	# 練磨・ジェムWorksheetへ出力
+	#
+	def writeCraftItemData(self, arr):
+		formatHash = {}
+		self.__writeData(self.__craftItems, arr, self.__rowCraftItems, formatHash)
+		self.__rowCraftItems += 1
+
+
+
+
+	#
+	# Excelワークブックの保存
+	#
+	def save(self):
+		self.__book.close()
 
 	#
 	# Worksheetにデータ出力
