@@ -110,7 +110,7 @@ class SwOutputExcel:
 			['スキル内容4' , 0,  1, self.headerFormat],
 			['リーダスキル', 0,  1, self.headerFormat],
 		]
-		self.__writeHeader(self.__monster, arr)
+		self.__writeHeader(self.__monster, arr, self.__rowMonster-1)
 
 	#
 	# モンスターデータの保存
@@ -185,7 +185,7 @@ class SwOutputExcel:
 			['売　備考'      ,  4.38,  1, self.headerFormat2],
 			['ドロップランク',  5.38,  1, self.headerFormat2],
 		]
-		self.__writeHeader(self.__runes, arr)
+		self.__writeHeader(self.__runes, arr, self.__rowRunes-1)
 		self.__runes.set_zoom(90)
 
 	#
@@ -267,7 +267,7 @@ class SwOutputExcel:
 			['rarityName'    , 0,  1, self.headerFormat2],
 			['種類'          , 0,  1, self.headerFormat2],
 		]
-		self.__writeHeader(self.__craftItems, arr)
+		self.__writeHeader(self.__craftItems, arr, self.__rowCraftItems-1)
 
 	#
 	# 練磨・ジェムWorksheetへ出力
@@ -289,16 +289,16 @@ class SwOutputExcel:
 	#
 	# worksheetにヘッダ出力
 	#
-	def __writeHeader(self, target, arr):
+	def __writeHeader(self, target, arr, row):
 		for i in range(0, len(arr)):
 			value, width, colspan, format = arr[i]
 			if colspan > 1:
-				target.merge_range(0, i, 0, i+colspan-1, value, format)
+				target.merge_range(row, i, row, i+colspan-1, value, format)
 			elif colspan == -1:
 				#なにもしない
 				pass
 			else:
-				target.write(0,  i, value, format)
+				target.write(row,  i, value, format)
 			if width > 0:
 				target.set_column(i, i, width)
 	#

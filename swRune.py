@@ -242,6 +242,6 @@ class SwRune():
 		return [uri,uricomment]
 
 	def getRank(self):
-		return len(rune["sec_eff"])
+		return len(self.data["sec_eff"])
 
 

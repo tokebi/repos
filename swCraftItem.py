@@ -33,15 +33,21 @@ class SwCraftItem():
 	# レア度を取得
 	#
 	def getRarity(self):
-		if self.rarity == 1:
+		if self.rarity == 1:			# なし
 			rarityName = "通常"
-		elif self.rarity == 2:
+		elif self.rarity == 2:			# 魔法
 			rarityName = "+2%～5%"
-		elif self.rarity == 3:
+			if self.craftType == 2:		# 練磨
+				if self.effectType == 8:# 速度
+					rarityName = "+1～2"
+		elif self.rarity == 3:			# レア
 			rarityName = "+3%～6%"
-		elif self.rarity == 4:
+		elif self.rarity == 4:			# ヒーロー
 			rarityName = "+4%～7%"
-		elif self.rarity == 5:
+			if self.craftType == 1:		# ジェム
+				if self.effectType == 11: # 抵抗
+					rarityName = "+6%～9%"
+		elif self.rarity == 5:			# レジェント
 			rarityName = "レジェント"
 		return rarityName
 
