@@ -46,9 +46,16 @@ class SwUnit:
 				print(k)
 				sys.exit()
 		runes = []
-		for rune in self.data['runes']:
-			swRune = SwRune(rune)
-			runes.append(swRune)
+		if isinstance(self.data['runes'], list):
+			for rune in self.data['runes']:
+				swRune = SwRune(rune)
+				runes.append(swRune)
+		elif isinstance(self.data['runes'], dict):
+			for rune in self.data['runes'].values():
+				swRune = SwRune(rune)
+				runes.append(swRune)
+		else:
+			print("runes‚ª–¢’m‚Ì•Ï”=" + str(type(self.data['runes'])))
 		self.data['runes'] = runes
 		skills = []
 		for skill in self.data['skills']:
