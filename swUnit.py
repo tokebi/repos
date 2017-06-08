@@ -65,6 +65,24 @@ class SwUnit:
 			for dummy in range(1, 4-len(skills)+1):
 				skills.append(SwSkill([0,0]))
 		self.data['skills'] = skills
+		# 値をレベル最大にする
+		arr = {
+			# unit_id     con  atk def spd c  d  的 抵 
+			1426288509 : [9555,769,571,101,15,50,15,0], #火天舞姫
+			1840758667 : [8730,736,659,102,15,50,15,0], # 水カンフーガール
+			1833892363 : [9885,637,681,101,15,50,40,0], # 闇デスナイト
+			1293724998 : [7575,801,505,104,15,50,15,0], # 闇ハーピー
+		}
+		for k, v in arr.items():
+			if self.data["unit_id"] == k:
+				self.data["con"            ] = v[0] / 15
+				self.data["atk"            ] = v[1]
+				self.data["def"            ] = v[2]
+				self.data["spd"            ] = v[3]
+				self.data["critical_rate"  ] = v[4]
+				self.data["critical_damage"] = v[5]
+				self.data["resist"         ] = v[6]
+				self.data["accuracy"       ] = v[7]
 
 	#
 	# 的中を取得
