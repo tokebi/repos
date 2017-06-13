@@ -94,7 +94,7 @@ class MAIN:
 			self.outputExcel.writeMonsterData(arr)
 			self.outputExcel.writeMonsterNextRow()
 		# –¢‘•”õ‚Ìê‡‚Ìƒ‹[ƒ“‚ğì¬
-		noRune = [""] * 34
+		noRune = [""] * 35
 		noRune[0] = 1
 		noRune[1] = 1
 		self.outputExcel.writeRuneData(noRune)
@@ -212,6 +212,7 @@ class MAIN:
 		arr.append(uri)
 		arr.append(uricomment)
 		arr.append(self.initRune.getDropRank(rune, self.last_login))
+		arr.append(self.initRune.getDropDate(rune))
 
 		# ƒ‹[ƒ““Œvˆ—
 		self.toukei.addRune(rune.getClass())

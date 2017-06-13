@@ -35,3 +35,7 @@ class SwInitRune:
 			return initRune['droprank']
 		else:
 			return initRune['droprank'] + "ˆÈ‰º(" + initRune['upgrade'] + ")"
+
+	def getDropDate(self, rune):
+		initRune = self.hashInitRune[rune.getRuneId()]
+		return initRune['dropdate']

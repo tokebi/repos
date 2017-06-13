@@ -183,7 +183,8 @@ class SwOutputExcel:
 			['価格'          ,  7.25,  1, self.headerFormat2],
 			['売'            ,  5.13,  1, self.headerFormat2],
 			['売　備考'      ,  4.38,  1, self.headerFormat2],
-			['ドロップランク',  5.38,  1, self.headerFormat2],
+			['ドロップランク',  9   ,  1, self.headerFormat2],
+			['ドロップ確認日', 10   ,  1, self.headerFormat2],
 		]
 		self.__writeHeader(self.__runes, arr, self.__rowRunes-1)
 		self.__runes.set_zoom(90)
@@ -210,7 +211,9 @@ class SwOutputExcel:
 		formatHash[27] = self.nonZeroFormat	# ダメ有無
 		formatHash[28] = self.nonZeroFormat	# 抵抗有無
 		formatHash[29] = self.nonZeroFormat	# 的中有無
-
+		formatHash[34] = self.dateFormat	# ドロップ確認日
+		# 日付部分のみ取得
+		self.__stockRunes[34] = self.__stockRunes[34].replace('-', '/').split(" ", 1)[0]
 		for k, v in self.__runeFormat.items():
 			formatHash[k] = v
 		self.__writeData(self.__runes, self.__stockRunes, self.__rowRunes, formatHash)
