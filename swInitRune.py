@@ -18,8 +18,10 @@ class SwInitRune:
 	def getDropRank(self, rune, lastLogin):
 		if rune.getRuneId() not in self.hashInitRune:
 			initRune = {}
+			initRune['dropdate'] = lastLogin
 			initRune['upgrade']  = str(rune.getUpgradeCurr())
 			initRune['droprank'] = str(rune.getRank())
+			self.hashInitRune[rune.getRuneId()] = initRune
 			# ファイルに追記
 			self.fw = open('initRune.tsv', 'a')
 			self.fw.write(str(rune.getRuneId()) + "	")
