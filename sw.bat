@@ -24,6 +24,10 @@ IF EXIST "819205.json" (
 cd %CurDir%
 python.exe sw.py
 
+if not %ERRORLEVEL% == 0 (
+   pause
+   exit /b 1
+)
 REM emeditor monster.tsv runes.tsv skill.tsv
 REM emeditor monster.tsv runes.tsv
 

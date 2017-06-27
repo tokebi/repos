@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: sjis -*-
 
-import math
 import sys
 
 import swData
@@ -192,7 +191,7 @@ class MAIN:
 		arr.append(rune.getEfficiency())
 		# ExcelèoóÕ
 		arr.append( 'Åö'+ str(rune.getClass()) + "(" + str(rune.getReaDo()) + ")+" + str(rune.getUpgradeCurr()))
-		arr.append(int(math.ceil(rune.getReaDo() - int(rune.getUpgradeCurr()))/3))
+		arr.append(rune.getNokoriSumOpKyoka())
 		#arre = arr[:]
 		# Excelóp
 		row = str(self.outputExcel.getRuneRone()+1)

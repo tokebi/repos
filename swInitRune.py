@@ -6,14 +6,17 @@ import math
 class SwInitRune:
 	def __init__(self):
 		self.hashInitRune = {};
+		cnt = 0;
 		for line in open('initRune.tsv', 'r') :
-			items = line[:-1].split('\t')
-			key = int(items[0])
-			val = {}
-			val['dropdate'] = items[1]
-			val['upgrade']  = items[2]
-			val['droprank'] = items[3]
-			self.hashInitRune[key] = val
+			if cnt > 0:
+				items = line[:-1].split('\t')
+				key = int(items[0])
+				val = {}
+				val['dropdate'] = items[1]
+				val['upgrade']  = items[2]
+				val['droprank'] = items[3]
+				self.hashInitRune[key] = val
+			cnt += 1
 	
 	def getDropRank(self, rune, lastLogin):
 		if rune.getRuneId() not in self.hashInitRune:

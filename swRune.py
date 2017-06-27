@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: sjis -*-
 
+import math
+
 import swMaster
 
 class SwRune():
@@ -184,6 +186,9 @@ class SwRune():
 		sum += 1 if self.data['class'] == 6 else 0.85
 		return sum / 2.8
 
+	#
+	# 売りコメントを返す
+	#
 	def getUriComment(self):
 		uri = ""
 		uricomment = ""
@@ -241,7 +246,19 @@ class SwRune():
 					uricomment = ""
 		return [uri,uricomment]
 
+	#
+	# ランクを返す
+	#
 	def getRank(self):
 		return len(self.data["sec_eff"])
 
-
+	#
+	# サブオプ強化残数を返す
+	#
+	def getNokoriSumOpKyoka(self):
+		dest = math.floor(self.getReaDo()/3)
+		now  = math.floor(self.getUpgradeCurr()/3)
+		zan  = dest - now
+		if (zan == -1):
+			zan = 0
+		return zan
