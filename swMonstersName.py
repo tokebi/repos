@@ -6745,6 +6745,12 @@ class SwMonstersName:
 				,"kind":""
 				,"lskill":""
 			},
+			1000101: {
+				"name":"水ホムンクルス"
+				,"kname":""
+				,"kind":""
+				,"lskill":""
+			},
 			1000112: {
 				"name":"火ホムンクルス"
 				,"kname":""
@@ -6753,6 +6759,12 @@ class SwMonstersName:
 			},
 			1000113: {
 				"name":"風ホムンクルス"
+				,"kname":""
+				,"kind":""
+				,"lskill":""
+			},
+			1000214: {
+				"name":"光ホムンクルス"
 				,"kname":""
 				,"kind":""
 				,"lskill":""

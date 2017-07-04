@@ -2465,7 +2465,7 @@ class SwSkillMaster:
 			#グリフォン(闇),
 			"2505" :{
 				"name":"引ったくり"
-				,"comment":"1"
+				,"comment":"2505"
 				,"ryaku":""
 				,"rate":"ATK*1.0*ATTACK_SPEED+90/55"
 				,"num":1
@@ -2521,7 +2521,7 @@ class SwSkillMaster:
 			#ウンディーネ(水),
 			"2601" :{
 				"name":"氷落とし"
-				,"comment":"3"
+				,"comment":"小さい氷で敵を攻撃し、クリティカル攻撃発生時に凍らせる。"
 				,"ryaku":""
 				,"rate":"ATK*4.1-50"
 				,"num":1
@@ -2552,8 +2552,8 @@ class SwSkillMaster:
 			#ウンディーネ(火),
 			"2602" :{
 				"name":"炎落とし"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"小さい炎で敵を攻撃し、クリティカル攻撃発生時に3ターンの間、持続ダメージを与える。"
+				,"ryaku":"3T"
 				,"rate":"ATK*4.1-50"
 				,"num":1
 				,"usemin:":1
@@ -2583,8 +2583,8 @@ class SwSkillMaster:
 			#ウンディーネ(風),
 			"2603" :{
 				"name":"雷落とし"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"小さい雷で敵を攻撃し、クリティカル攻撃発生時に2ターンの間、攻撃速度を減少させる。"
+				,"ryaku":"2T"
 				,"rate":"ATK*4.1-50"
 				,"num":1
 				,"usemin:":1
@@ -2614,7 +2614,7 @@ class SwSkillMaster:
 			#ウンディーネ(光),
 			"2604" :{
 				"name":"閃光落とし"
-				,"comment":"1"
+				,"comment":"小さい光の塊で敵を攻撃し、クリティカル攻撃発生時に敵の強化効果を解除させる。"
 				,"ryaku":""
 				,"rate":"ATK*4.1-50"
 				,"num":1
@@ -2645,8 +2645,8 @@ class SwSkillMaster:
 			#ウンディーネ(闇),
 			"2605" :{
 				"name":"闇落とし"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"小さい闇の塊で敵を攻撃し、クリティカルヒット発生時、2ターンの間、敵の攻撃が外れる確率を高める。"
+				,"ryaku":"2T"
 				,"rate":"ATK*4.1-50"
 				,"num":1
 				,"usemin:":1
@@ -2892,7 +2892,7 @@ class SwSkillMaster:
 			#シルフ(水),
 			"3001" :{
 				"name":"羽飛ばし"
-				,"comment":"1"
+				,"comment":"小さい精霊を飛ばして30％の確率で連続攻撃をし、クリティカル攻撃発生時に次の攻撃のクリティカル率が30％増加する。"
 				,"ryaku":""
 				,"rate":"ATK*3.8-20"
 				,"num":1
@@ -2943,7 +2943,7 @@ class SwSkillMaster:
 			},
 			"3012" :{
 				"name":"フェニックス飛ばし"
-				,"comment":"2"
+				,"comment":"3012"
 				,"ryaku":""
 				,"rate":"ATK*4.0"
 				,"num":1
@@ -2964,8 +2964,8 @@ class SwSkillMaster:
 			},
 			"3008" :{
 				"name":"サイクロン"
-				,"comment":"2"
-				,"ryaku":""
+				,"comment":"吹きつける強風で全ての敵を3回攻撃し、それぞれ40%の確率で2ターンの間、敵のミスの確率を高める。（スキル再使用可能まで5ターン）"
+				,"ryaku":"2T"
 				,"rate":"ATK*1.3"
 				,"num":1
 				,"usemin:":4
@@ -3026,7 +3026,7 @@ class SwSkillMaster:
 			},
 			"3010" :{
 				"name":"乱気流"
-				,"comment":"1"
+				,"comment":"3010"
 				,"ryaku":""
 				,"rate":"ATK*6.0"
 				,"num":1
@@ -3112,8 +3112,8 @@ class SwSkillMaster:
 				,"lvmax":5
 			},
 			"2811" :{
-				"name":"吹き起こる南風（覚醒前）"
-				,"comment":"1"
+				"name":"吹き起こる南風"
+				,"comment":"ターゲットの体力を全回復させる。（スキル再使用可能まで6ターン）"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -3144,8 +3144,8 @@ class SwSkillMaster:
 				,"lvmax":5
 			},
 			"2812" :{
-				"name":"吹き散る東風（覚醒前）"
-				,"comment":"1"
+				"name":"吹き散る東風"
+				,"comment":"ターゲットの体力を全回復させる。（スキル再使用可能まで5ターン）"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -3176,8 +3176,8 @@ class SwSkillMaster:
 			},
 			"2813" :{
 				"name":"立ち防ぐ北風"
-				,"comment":"2"
-				,"ryaku":""
+				,"comment":"3ターンの間、味方全員にクリティカル被撃率とダメージを軽減するシールドを張る。軽減量は自分のレベルに比例する。（スキル再使用可能まで5ターン）"
+				,"ryaku":"3T"
 				,"rate":"ATTACK_LV*75.0"
 				,"num":1
 				,"usemin:":4
@@ -3207,7 +3207,7 @@ class SwSkillMaster:
 			},
 			"2814" :{
 				"name":"風の祝福"
-				,"comment":"1"
+				,"comment":"2814"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -3238,7 +3238,7 @@ class SwSkillMaster:
 			},
 			"2815" :{
 				"name":"闇の治癒"
-				,"comment":"1"
+				,"comment":"2815"
 				,"ryaku":""
 				,"rate":"ATTACK_TOT_HP*0.50, FIXED"
 				,"num":1
@@ -3248,7 +3248,7 @@ class SwSkillMaster:
 			},
 			#水シルフィード,
 			"2816" :{
-				"name":"吹き起こる南風（覚醒前）"
+				"name":"吹き起こる南風"
 				,"comment":"ターゲットの体力を全回復させる。(スキル再使用可能まで6ターン)"
 				,"ryaku":""
 				,"rate":"TARGET_TOT_HP*1.0, FIXED"
@@ -3259,7 +3259,7 @@ class SwSkillMaster:
 			},
 			#火シルフィード,
 			"2817" :{
-				"name":"吹き散る東風（覚醒前）"
+				"name":"吹き散る東風"
 				,"comment":"攻撃時、相手の攻撃ゲージを10％減少させる。自分が倒される際、他の味方の体力を全回復させる。(効果自動適用)(スキル再使用可能まで10ターン)"
 				,"ryaku":""
 				,"rate":""
@@ -3972,7 +3972,7 @@ class SwSkillMaster:
 			#光下級エレメンタル,
 			"4004" :{
 				"name":"聖水飛ばし"
-				,"comment":"1"
+				,"comment":"4004"
 				,"ryaku":""
 				,"rate":"ATK*1.9"
 				,"num":1
@@ -3982,7 +3982,7 @@ class SwSkillMaster:
 			},
 			"4009" :{
 				"name":"岩破壊"
-				,"comment":"1"
+				,"comment":"4009"
 				,"ryaku":""
 				,"rate":"ATK*1.3"
 				,"num":1
@@ -5642,7 +5642,7 @@ class SwSkillMaster:
 			#エンジェルモン(水),
 			"99001" :{
 				"name":"スペシャル材料(パッシブ)"
-				,"comment":"10"
+				,"comment":"強化素材で使う時、獲得経験値がレベルによって大幅増加する。覚醒を完了すると、経験値がより増加する。"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -5657,7 +5657,7 @@ class SwSkillMaster:
 			#水エンジェルモン,
 			"99002" :{
 				"name":"最高の材料(パッシブ)"
-				,"comment":"5"
+				,"comment":"同じ属性に強化素材として使う時、獲得経験値がさらに50%増加する。"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -5672,7 +5672,7 @@ class SwSkillMaster:
 			#レインボーモン,
 			"99003" :{
 				"name":"生まれつきレベル(パッシブ)"
-				,"comment":"1"
+				,"comment":"常に最高レベルで生まれる。良い素材進化で、進化させると他のモンスターと同じようにレベル1に戻る。"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -6236,7 +6236,7 @@ class SwSkillMaster:
 			},
 			"6509" :{
 				"name":"高潔な交渉"
-				,"comment":"1"
+				,"comment":"6509"
 				,"ryaku":""
 				,"rate":"ATK*5.9"
 				,"num":1
@@ -6814,7 +6814,7 @@ class SwSkillMaster:
 			#デビルモン,
 			"99004" :{
 				"name":"禁断の材料(パッシブ)"
-				,"comment":"1"
+				,"comment":"99004"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -9134,7 +9134,7 @@ class SwSkillMaster:
 			#マジックアーチャー(光),
 			"6816" :{
 				"name":"閃光の矢"
-				,"comment":"2"
+				,"comment":"6816"
 				,"ryaku":""
 				,"rate":"ATK*2.6"
 				,"num":1
@@ -9348,8 +9348,8 @@ class SwSkillMaster:
 			#サムライ(火),
 			"8002" :{
 				"name":"居合"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"居合斬りで敵を攻撃し、50％の確率で2ターンの間、防衛力を下げる。使用後10％の確率で「超天狼拔刀術」が活性化される。"
+				,"ryaku":"2T50%"
 				,"rate":"ATK*4.0"
 				,"num":1
 				,"usemin:":1
@@ -9358,8 +9358,8 @@ class SwSkillMaster:
 			},
 			"8007" :{
 				"name":"二段斬り"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"対象を素早く2回攻撃し、クリティカルヒット発生時は2ターンの間持続ダメージを与える。使用後30%の確率で「超天狼拔刀術」が活性化される。（スキル再使用可能まで3ターン）"
+				,"ryaku":"2T3T"
 				,"rate":"ATK*2.7"
 				,"num":1
 				,"usemin:":3
@@ -9368,8 +9368,8 @@ class SwSkillMaster:
 			},
 			"8012" :{
 				"name":"火炎斬り"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"燃えあがる剣気で相手全員を2回攻撃し、それぞれ40%の確率で2ターンの間攻撃力を下げる。使用後50％の確率で「超天狼拔刀術」が活性化される。（スキル再使用可能まで4ターン）"
+				,"ryaku":"2T50%"
 				,"rate":"ATK*2.3"
 				,"num":1
 				,"usemin:":4
@@ -9389,8 +9389,8 @@ class SwSkillMaster:
 			#サムライ(風),
 			"8003" :{
 				"name":"居合"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"居合斬りで敵を攻撃し、50％の確率で2ターンの間、防衛力を下げる。使用後10％の確率で「超天狼拔刀術」が活性化される。"
+				,"ryaku":"2T50%"
 				,"rate":"ATK*4.0"
 				,"num":1
 				,"usemin:":1
@@ -9399,8 +9399,8 @@ class SwSkillMaster:
 			},
 			"8008" :{
 				"name":"真空斬り"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"鋭い剣気を飛ばす攻撃で、クリティカルが発生すると2ターンの間攻撃速度が上昇する。使用後20％の確率で「超天狼抜刀術」が活性化される。（再使用可能まで3ターン）"
+				,"ryaku":"2T3T"
 				,"rate":"ATK*5.6"
 				,"num":1
 				,"usemin:":2
@@ -9409,8 +9409,8 @@ class SwSkillMaster:
 			},
 			"8013" :{
 				"name":"雷居合"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"雷のような迅速の居合で、敵のスキル再使用時間を最大に伸ばす。攻撃速度によって威力が上昇する。使用後50％の確率で「超天狼抜刀術」が活性化される。（再使用可能まで5ターン）"
+				,"ryaku":"50%"
 				,"rate":"ATK*1.0*ATTACK_SPEED+192/41"
 				,"num":1
 				,"usemin:":4
@@ -9430,7 +9430,7 @@ class SwSkillMaster:
 			#サムライ(光),
 			"8004" :{
 				"name":"居合"
-				,"comment":"1"
+				,"comment":"8004"
 				,"ryaku":""
 				,"rate":"ATK*4.0"
 				,"num":1
@@ -9440,7 +9440,7 @@ class SwSkillMaster:
 			},
 			"8009" :{
 				"name":"真空斬り"
-				,"comment":"1"
+				,"comment":"8009"
 				,"ryaku":""
 				,"rate":"ATK*5.6"
 				,"num":1
@@ -9450,7 +9450,7 @@ class SwSkillMaster:
 			},
 			"8014" :{
 				"name":"閃光斬り"
-				,"comment":"1"
+				,"comment":"8014"
 				,"ryaku":""
 				,"rate":"ATK*2.2"
 				,"num":1
@@ -9471,7 +9471,7 @@ class SwSkillMaster:
 			#サムライ(闇),
 			"8005" :{
 				"name":"居合"
-				,"comment":"1"
+				,"comment":"8005"
 				,"ryaku":""
 				,"rate":"ATK*4.0"
 				,"num":1
@@ -9481,7 +9481,7 @@ class SwSkillMaster:
 			},
 			"8010" :{
 				"name":"二段斬り"
-				,"comment":"1"
+				,"comment":"8010"
 				,"ryaku":""
 				,"rate":"ATK*2.7"
 				,"num":1
@@ -9491,7 +9491,7 @@ class SwSkillMaster:
 			},
 			"8015" :{
 				"name":"漆黒斬り"
-				,"comment":"1"
+				,"comment":"8015"
 				,"ryaku":""
 				,"rate":"ATK*2.2"
 				,"num":1
@@ -11313,7 +11313,7 @@ class SwSkillMaster:
 			#キングエンジェルモン(水),
 			"99005" :{
 				"name":"スペシャル材料(パッシブ)"
-				,"comment":"10"
+				,"comment":"強化素材で使用時、一般のエンジェルモンよりさらに2倍の経験値を獲得する。覚醒時はより多い経験値を獲得する。"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -11328,7 +11328,7 @@ class SwSkillMaster:
 			#水キングエンジェルモン,
 			"99006" :{
 				"name":"最高の材料(パッシブ)"
-				,"comment":"5"
+				,"comment":"同じ属性に強化素材として使う時、獲得経験値がさらに50%増加する。"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -11384,7 +11384,7 @@ class SwSkillMaster:
 			},
 			"9107" :{
 				"name":"景気付け"
-				,"comment":"1"
+				,"comment":"9107"
 				,"ryaku":""
 				,"rate":"ATTACK_TOT_HP*0.20"
 				,"num":1
@@ -11477,7 +11477,7 @@ class SwSkillMaster:
 			},
 			"9110" :{
 				"name":"景気付け"
-				,"comment":"1"
+				,"comment":"9110"
 				,"ryaku":""
 				,"rate":"ATTACK_TOT_HP*0.20"
 				,"num":1
@@ -12776,7 +12776,7 @@ class SwSkillMaster:
 			#イフリート(光),
 			"10004" :{
 				"name":"メガスマッシュ"
-				,"comment":"2"
+				,"comment":"10004"
 				,"ryaku":""
 				,"rate":"ATK*1.0*ATTACK_SPEED+210/70"
 				,"num":1
@@ -12786,7 +12786,7 @@ class SwSkillMaster:
 			},
 			"10009" :{
 				"name":"トリプルスマッシュ"
-				,"comment":"2"
+				,"comment":"10009"
 				,"ryaku":""
 				,"rate":"ATK*1.9"
 				,"num":1
@@ -12796,7 +12796,7 @@ class SwSkillMaster:
 			},
 			"10014" :{
 				"name":"(翻訳)フラッシュ アタック"
-				,"comment":"2"
+				,"comment":"10014"
 				,"ryaku":""
 				,"rate":"ATK*1.0*ATTACK_SPEED+160/210"
 				,"num":1
@@ -12843,7 +12843,7 @@ class SwSkillMaster:
 			#カウガール(水),
 			"10101" :{
 				"name":"十字砲火"
-				,"comment":"1"
+				,"comment":"10101"
 				,"ryaku":""
 				,"rate":"ATK*1.25"
 				,"num":1
@@ -12853,7 +12853,7 @@ class SwSkillMaster:
 			},
 			"10106" :{
 				"name":"野良犬退治"
-				,"comment":"1"
+				,"comment":"10106"
 				,"ryaku":""
 				,"rate":"ATK*1.5"
 				,"num":1
@@ -12863,7 +12863,7 @@ class SwSkillMaster:
 			},
 			"10111" :{
 				"name":"速射"
-				,"comment":"1"
+				,"comment":"10111"
 				,"ryaku":""
 				,"rate":"ATK*1.3"
 				,"num":1
@@ -12874,7 +12874,7 @@ class SwSkillMaster:
 			#カウガール(火),
 			"10102" :{
 				"name":"十字砲火"
-				,"comment":"1"
+				,"comment":"10102"
 				,"ryaku":""
 				,"rate":"ATK*1.25"
 				,"num":1
@@ -12884,7 +12884,7 @@ class SwSkillMaster:
 			},
 			"10107" :{
 				"name":"野良犬退治"
-				,"comment":"1"
+				,"comment":"10107"
 				,"ryaku":""
 				,"rate":"ATK*1.5"
 				,"num":1
@@ -12894,7 +12894,7 @@ class SwSkillMaster:
 			},
 			"10112" :{
 				"name":"炸裂弾"
-				,"comment":"1"
+				,"comment":"10112"
 				,"ryaku":""
 				,"rate":"ATK*3.6"
 				,"num":1
@@ -12905,7 +12905,7 @@ class SwSkillMaster:
 			#カウガール(風),
 			"10103" :{
 				"name":"十字砲火"
-				,"comment":"1"
+				,"comment":"10103"
 				,"ryaku":""
 				,"rate":"ATK*1.25"
 				,"num":1
@@ -12915,7 +12915,7 @@ class SwSkillMaster:
 			},
 			"10108" :{
 				"name":"銀弾丸"
-				,"comment":"1"
+				,"comment":"10108"
 				,"ryaku":""
 				,"rate":"ATK*2.7"
 				,"num":1
@@ -12925,7 +12925,7 @@ class SwSkillMaster:
 			},
 			"10113" :{
 				"name":"旋風撃ち"
-				,"comment":"1"
+				,"comment":"10113"
 				,"ryaku":""
 				,"rate":"ATK*1.45"
 				,"num":1
@@ -12936,7 +12936,7 @@ class SwSkillMaster:
 			#カウガール(光),
 			"10104" :{
 				"name":"十字砲火"
-				,"comment":"1"
+				,"comment":"10104"
 				,"ryaku":""
 				,"rate":"ATK*1.25"
 				,"num":1
@@ -12946,7 +12946,7 @@ class SwSkillMaster:
 			},
 			"10109" :{
 				"name":"銀弾丸"
-				,"comment":"1"
+				,"comment":"10109"
 				,"ryaku":""
 				,"rate":"ATK*2.7"
 				,"num":1
@@ -12956,7 +12956,7 @@ class SwSkillMaster:
 			},
 			"10114" :{
 				"name":"(翻訳)追撃者(パッシブ)"
-				,"comment":"1"
+				,"comment":"10114"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -12967,7 +12967,7 @@ class SwSkillMaster:
 			#カウガール(闇),
 			"10105" :{
 				"name":"十字砲火"
-				,"comment":"1"
+				,"comment":"３回の連続射撃で、それぞれ３０％の確率で２ターンの間対象の攻撃速度を下げる。"
 				,"ryaku":""
 				,"rate":"ATK*1.25"
 				,"num":1
@@ -12977,7 +12977,7 @@ class SwSkillMaster:
 			},
 			"10110" :{
 				"name":"野良犬退治"
-				,"comment":"1"
+				,"comment":"周囲の相手を２回攻撃し、クリティカル攻撃が発生した場合自分の攻撃ゲージが１０％ずつ上昇する。この攻撃はクリティカル率が３０％追加適用される。"
 				,"ryaku":""
 				,"rate":"ATK*1.5"
 				,"num":1
@@ -12987,7 +12987,7 @@ class SwSkillMaster:
 			},
 			"10115" :{
 				"name":"魔弾"
-				,"comment":"1"
+				,"comment":"相手の無敵効果を無視する禁断の弾丸を放つ。この攻撃はクリティカル発生率が30％上昇する。"
 				,"ryaku":""
 				,"rate":"ATK*3.7"
 				,"num":1
@@ -13091,7 +13091,7 @@ class SwSkillMaster:
 			#光カウガール,
 			"10124" :{
 				"name":"十字砲火"
-				,"comment":"1"
+				,"comment":"10124"
 				,"ryaku":""
 				,"rate":"ATK*1.25"
 				,"num":1
@@ -13101,7 +13101,7 @@ class SwSkillMaster:
 			},
 			"10129" :{
 				"name":"銀弾丸"
-				,"comment":"1"
+				,"comment":"10129"
 				,"ryaku":""
 				,"rate":"ATK*2.7"
 				,"num":1
@@ -13111,7 +13111,7 @@ class SwSkillMaster:
 			},
 			"10134" :{
 				"name":"(翻訳)追撃者(パッシブ)"
-				,"comment":"1"
+				,"comment":"10134"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -13153,8 +13153,8 @@ class SwSkillMaster:
 			#海賊船長(水),
 			"10201" :{
 				"name":"スピンスラッシュ"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"素早い動きで対象を攻撃し、75％の確率で1ターンの間防御力を下げる。"
+				,"ryaku":"1T75%"
 				,"rate":"ATK*3.7"
 				,"num":1
 				,"usemin:":1
@@ -13163,8 +13163,8 @@ class SwSkillMaster:
 			},
 			"10206" :{
 				"name":"海賊の流儀"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"強烈な攻撃で、対象の攻撃ゲージを30％吸収する。(スキル再使用可能まで3ターン)"
+				,"ryaku":"3T"
 				,"rate":"ATK*5.4"
 				,"num":1
 				,"usemin:":2
@@ -13174,8 +13174,8 @@ class SwSkillMaster:
 			#海賊船長(火),
 			"10202" :{
 				"name":"スピンスラッシュ"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"素早い動きで対象を攻撃し、75％の確率で1ターンの間防御力を下げる。"
+				,"ryaku":"1T75%"
 				,"rate":"ATK*3.7"
 				,"num":1
 				,"usemin:":1
@@ -13184,8 +13184,8 @@ class SwSkillMaster:
 			},
 			"10207" :{
 				"name":"艦砲支援"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"ランダム対象に3回の支援射撃を行い、それぞれ75％の確率で1ターンの間スタンさせる。(スキル再使用可能まで4ターン)"
+				,"ryaku":"1T75%"
 				,"rate":"ATK*3.0"
 				,"num":1
 				,"usemin:":3
@@ -13195,8 +13195,8 @@ class SwSkillMaster:
 			#海賊船長(風),
 			"10203" :{
 				"name":"スピンスラッシュ"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"素早い動きで対象を攻撃し、75％の確率で1ターンの間防御力を下げる。"
+				,"ryaku":"1T75%"
 				,"rate":"ATK*3.7"
 				,"num":1
 				,"usemin:":1
@@ -13205,8 +13205,8 @@ class SwSkillMaster:
 			},
 			"10208" :{
 				"name":"海賊の流儀"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"強烈な攻撃で、対象の攻撃ゲージを30％吸収する。(スキル再使用可能まで3ターン)"
+				,"ryaku":"3T"
 				,"rate":"ATK*5.4"
 				,"num":1
 				,"usemin:":2
@@ -13216,8 +13216,8 @@ class SwSkillMaster:
 			#海賊船長(光),
 			"10204" :{
 				"name":"スピンスラッシュ"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"素早い動きで対象を攻撃し、75％の確率で1ターンの間防御力を下げる。"
+				,"ryaku":"1T75%"
 				,"rate":"ATK*3.7"
 				,"num":1
 				,"usemin:":1
@@ -13226,8 +13226,8 @@ class SwSkillMaster:
 			},
 			"10209" :{
 				"name":"海賊の流儀"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"強烈な攻撃で、対象の攻撃ゲージを30％吸収する。(スキル再使用可能まで3ターン)"
+				,"ryaku":"3T"
 				,"rate":"ATK*5.4"
 				,"num":1
 				,"usemin:":2
@@ -13237,8 +13237,8 @@ class SwSkillMaster:
 			#海賊船長(闇),
 			"10205" :{
 				"name":"スピンスラッシュ"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"素早い動きで対象を攻撃し、75％の確率で1ターンの間防御力を下げる。"
+				,"ryaku":"1T75%"
 				,"rate":"ATK*3.7"
 				,"num":1
 				,"usemin:":1
@@ -13247,8 +13247,8 @@ class SwSkillMaster:
 			},
 			"10210" :{
 				"name":"艦砲支援"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"ランダム対象に3回の支援射撃を行い、それぞれ75％の確率で1ターンの間スタンさせる。(スキル再使用可能まで4ターン)"
+				,"ryaku":"1T75%"
 				,"rate":"ATK*3.0"
 				,"num":1
 				,"usemin:":3
@@ -14853,8 +14853,8 @@ class SwSkillMaster:
 			#アヌビス(水),
 			"11201" :{
 				"name":"魂魄貫き"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"対象を2回攻撃し、それぞれ30％の確率で2ターンの間体力回復を邪魔する。相手の体力状況が悪いほどダメージが上昇する。"
+				,"ryaku":"2T"
 				,"rate":"ATK*2.0"
 				,"num":1
 				,"usemin:":1
@@ -14884,7 +14884,7 @@ class SwSkillMaster:
 			#アヌビス(火),
 			"11202" :{
 				"name":"魂魄貫き"
-				,"comment":"1"
+				,"comment":"11202"
 				,"ryaku":""
 				,"rate":"ATK*2.0"
 				,"num":1
@@ -14915,8 +14915,8 @@ class SwSkillMaster:
 			#アヌビス(風),
 			"11203" :{
 				"name":"魂魄貫き"
-				,"comment":"1"
-				,"ryaku":""
+				,"comment":"対象を2回攻撃し、それぞれ30％の確率で「2ターンの間体力回復を邪魔」「1ターンの間スタン」効果を与える。"
+				,"ryaku":"1T2T"
 				,"rate":"ATK*2.0"
 				,"num":1
 				,"usemin:":1
@@ -14946,7 +14946,7 @@ class SwSkillMaster:
 			#アヌビス(光),
 			"11204" :{
 				"name":"魂魄貫き"
-				,"comment":"1"
+				,"comment":"11204"
 				,"ryaku":""
 				,"rate":"ATK*2.0"
 				,"num":1
@@ -14977,7 +14977,7 @@ class SwSkillMaster:
 			#アヌビス(闇),
 			"11205" :{
 				"name":"魂魄貫き"
-				,"comment":"1"
+				,"comment":"11205"
 				,"ryaku":""
 				,"rate":"ATK*2.0"
 				,"num":1
@@ -15704,7 +15704,7 @@ class SwSkillMaster:
 			#エルフレンジャー(水),
 			"11701" :{
 				"name":"矢綴り"
-				,"comment":"1"
+				,"comment":"11701"
 				,"ryaku":""
 				,"rate":"ATK*1.6"
 				,"num":1
@@ -15735,7 +15735,7 @@ class SwSkillMaster:
 			#エルフレンジャー(火),
 			"11702" :{
 				"name":"矢綴り"
-				,"comment":"1"
+				,"comment":"11702"
 				,"ryaku":""
 				,"rate":"ATK*1.6"
 				,"num":1
@@ -15828,7 +15828,7 @@ class SwSkillMaster:
 			#エルフレンジャー(闇),
 			"11705" :{
 				"name":"矢綴り"
-				,"comment":"1"
+				,"comment":"11705"
 				,"ryaku":""
 				,"rate":"ATK*1.6"
 				,"num":1
@@ -16694,7 +16694,7 @@ class SwSkillMaster:
 			#ユニコーン(水),
 			"12301" :{
 				"name":"氷の一角"
-				,"comment":"1"
+				,"comment":"12301"
 				,"ryaku":""
 				,"rate":"ATK*1.8+ATTACK_TOT_HP*0.12"
 				,"num":1
@@ -16704,7 +16704,7 @@ class SwSkillMaster:
 			},
 			"12306" :{
 				"name":"猛突進"
-				,"comment":"1"
+				,"comment":"12306"
 				,"ryaku":""
 				,"rate":"ATK*3.0+ATTACK_TOT_HP*0.2"
 				,"num":1
@@ -16725,7 +16725,7 @@ class SwSkillMaster:
 			#ユニコーン(火),
 			"12302" :{
 				"name":"炎の一角"
-				,"comment":"1"
+				,"comment":"12302"
 				,"ryaku":""
 				,"rate":"ATK*1.8+ATTACK_TOT_HP*0.12"
 				,"num":1
@@ -16735,7 +16735,7 @@ class SwSkillMaster:
 			},
 			"12307" :{
 				"name":"自然の加護"
-				,"comment":"1"
+				,"comment":"12307"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -16756,7 +16756,7 @@ class SwSkillMaster:
 			#ユニコーン(風),
 			"12303" :{
 				"name":"雷の一角"
-				,"comment":"1"
+				,"comment":"12303"
 				,"ryaku":""
 				,"rate":"ATK*1.8+ATTACK_TOT_HP*0.12"
 				,"num":1
@@ -16766,7 +16766,7 @@ class SwSkillMaster:
 			},
 			"12308" :{
 				"name":"自然の加護"
-				,"comment":"1"
+				,"comment":"12308"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -16787,7 +16787,7 @@ class SwSkillMaster:
 			#ユニコーン(光),
 			"12304" :{
 				"name":"光の一角"
-				,"comment":"1"
+				,"comment":"12304"
 				,"ryaku":""
 				,"rate":"ATK*1.8+ATTACK_TOT_HP*0.12"
 				,"num":1
@@ -16797,7 +16797,7 @@ class SwSkillMaster:
 			},
 			"12309" :{
 				"name":"猛突進"
-				,"comment":"1"
+				,"comment":"12309"
 				,"ryaku":""
 				,"rate":"ATK*3.0+ATTACK_TOT_HP*0.2"
 				,"num":1
@@ -16818,7 +16818,7 @@ class SwSkillMaster:
 			#ユニコーン(闇),
 			"12305" :{
 				"name":"闇の一角"
-				,"comment":"1"
+				,"comment":"12305"
 				,"ryaku":""
 				,"rate":"ATK*1.8+ATTACK_TOT_HP*0.12"
 				,"num":1
@@ -16828,7 +16828,7 @@ class SwSkillMaster:
 			},
 			"12310" :{
 				"name":"自然の加護"
-				,"comment":"1"
+				,"comment":"12310"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -17004,7 +17004,7 @@ class SwSkillMaster:
 			#水ユニコーンの化身,
 			"12401" :{
 				"name":"氷の一角"
-				,"comment":"1"
+				,"comment":"12401"
 				,"ryaku":""
 				,"rate":"ATK*3.6"
 				,"num":1
@@ -17014,7 +17014,7 @@ class SwSkillMaster:
 			},
 			"12406" :{
 				"name":"(翻訳)浄化の波"
-				,"comment":"1"
+				,"comment":"12406"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -17024,7 +17024,7 @@ class SwSkillMaster:
 			},
 			"12411" :{
 				"name":"(翻訳)祝福の翼(パッシブ)"
-				,"comment":"1"
+				,"comment":"12411"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -17045,7 +17045,7 @@ class SwSkillMaster:
 			#火ユニコーンの化身,
 			"12402" :{
 				"name":"炎の一角"
-				,"comment":"1"
+				,"comment":"12402"
 				,"ryaku":""
 				,"rate":"ATK*3.6"
 				,"num":1
@@ -17055,7 +17055,7 @@ class SwSkillMaster:
 			},
 			"12407" :{
 				"name":"(翻訳)ゆらゆらする花火"
-				,"comment":"1"
+				,"comment":"12407"
 				,"ryaku":""
 				,"rate":"ATK*3.2"
 				,"num":1
@@ -17065,7 +17065,7 @@ class SwSkillMaster:
 			},
 			"12412" :{
 				"name":"(翻訳)非常の翼(パッシブ)"
-				,"comment":"1"
+				,"comment":"12412"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -17086,7 +17086,7 @@ class SwSkillMaster:
 			#風ユニコーンの化身,
 			"12403" :{
 				"name":"雷の一角"
-				,"comment":"1"
+				,"comment":"12403"
 				,"ryaku":""
 				,"rate":"ATK*3.6"
 				,"num":1
@@ -17096,7 +17096,7 @@ class SwSkillMaster:
 			},
 			"12408" :{
 				"name":"(翻訳)避けることはできない傷"
-				,"comment":"1"
+				,"comment":"12408"
 				,"ryaku":""
 				,"rate":"ATK*1.6"
 				,"num":1
@@ -17106,7 +17106,7 @@ class SwSkillMaster:
 			},
 			"12413" :{
 				"name":"(翻訳)非常の翼(パッシブ)"
-				,"comment":"1"
+				,"comment":"12413"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -17127,7 +17127,7 @@ class SwSkillMaster:
 			#光ユニコーンの化身,
 			"12404" :{
 				"name":"光の一角"
-				,"comment":"1"
+				,"comment":"12404"
 				,"ryaku":""
 				,"rate":"ATK*3.6"
 				,"num":1
@@ -17137,7 +17137,7 @@ class SwSkillMaster:
 			},
 			"12409" :{
 				"name":"(翻訳)浄化の光"
-				,"comment":"1"
+				,"comment":"12409"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -17147,7 +17147,7 @@ class SwSkillMaster:
 			},
 			"12414" :{
 				"name":"(翻訳)祝福の翼(パッシブ)"
-				,"comment":"1"
+				,"comment":"12414"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -17168,7 +17168,7 @@ class SwSkillMaster:
 			#闇ユニコーンの化身,
 			"12405" :{
 				"name":"闇の一角"
-				,"comment":"1"
+				,"comment":"12405"
 				,"ryaku":""
 				,"rate":"ATK*3.6"
 				,"num":1
@@ -17178,7 +17178,7 @@ class SwSkillMaster:
 			},
 			"12410" :{
 				"name":"(翻訳)月の光閃光"
-				,"comment":"1"
+				,"comment":"12410"
 				,"ryaku":""
 				,"rate":"ATK*3.2"
 				,"num":1
@@ -17188,7 +17188,7 @@ class SwSkillMaster:
 			},
 			"12415" :{
 				"name":"(翻訳)非常の翼(パッシブ)"
-				,"comment":"1"
+				,"comment":"12415"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -17209,7 +17209,7 @@ class SwSkillMaster:
 			#ホムンクルス(水),
 			"10111000" :{
 				"name":"(翻訳)魔力（馬力）光線"
-				,"comment":"2"
+				,"comment":"10111000"
 				,"ryaku":""
 				,"rate":"ATK*3.8"
 				,"num":1
@@ -17219,7 +17219,7 @@ class SwSkillMaster:
 			},
 			"10112000" :{
 				"name":"(翻訳)魔力（馬力）炭"
-				,"comment":"2"
+				,"comment":"10112000"
 				,"ryaku":""
 				,"rate":"ATK*5.8"
 				,"num":1
@@ -17229,7 +17229,7 @@ class SwSkillMaster:
 			},
 			"10113000" :{
 				"name":"(翻訳)魔力（馬力）爆発"
-				,"comment":"2"
+				,"comment":"10113000"
 				,"ryaku":""
 				,"rate":"ATK*8.0"
 				,"num":1
@@ -17240,7 +17240,7 @@ class SwSkillMaster:
 			#ホムンクルス（火）,
 			"10121000" :{
 				"name":"(翻訳)魔力（馬力）光線"
-				,"comment":"2"
+				,"comment":"10121000"
 				,"ryaku":""
 				,"rate":"ATK*3.8"
 				,"num":1
@@ -17250,7 +17250,7 @@ class SwSkillMaster:
 			},
 			"10122000" :{
 				"name":"(翻訳)魔力（馬力）炭"
-				,"comment":"2"
+				,"comment":"10122000"
 				,"ryaku":""
 				,"rate":"ATK*5.8"
 				,"num":1
@@ -17260,7 +17260,7 @@ class SwSkillMaster:
 			},
 			"10123000" :{
 				"name":"(翻訳)魔力（馬力）爆発"
-				,"comment":"2"
+				,"comment":"10123000"
 				,"ryaku":""
 				,"rate":"ATK*8.0"
 				,"num":1
@@ -17271,7 +17271,7 @@ class SwSkillMaster:
 			#ホムンクルス（風）,
 			"10131000" :{
 				"name":"(翻訳)魔力（馬力）光線"
-				,"comment":"2"
+				,"comment":"10131000"
 				,"ryaku":""
 				,"rate":"ATK*3.8"
 				,"num":1
@@ -17281,7 +17281,7 @@ class SwSkillMaster:
 			},
 			"10132000" :{
 				"name":"(翻訳)魔力（馬力）炭"
-				,"comment":"2"
+				,"comment":"10132000"
 				,"ryaku":""
 				,"rate":"ATK*5.8"
 				,"num":1
@@ -17291,7 +17291,7 @@ class SwSkillMaster:
 			},
 			"10133000" :{
 				"name":"(翻訳)魔力（馬力）爆発"
-				,"comment":"2"
+				,"comment":"10133000"
 				,"ryaku":""
 				,"rate":"ATK*8.0"
 				,"num":1
@@ -17309,6 +17309,37 @@ class SwSkillMaster:
 				,"usemin:":10
 				,"usemax":10
 				,"lvmax":1
+			},
+			#水ホムンクルス,
+			"10111012" :{
+				"name":"フロストレイ：波動"
+				,"comment":""
+				,"ryaku":""
+				,"rate":""
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
+			"10112022" :{
+				"name":"フリーズバレット：連鎖"
+				,"comment":""
+				,"ryaku":""
+				,"rate":""
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
+			"10113030" :{
+				"name":"フロストウィンド"
+				,"comment":""
+				,"ryaku":""
+				,"rate":""
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
 			},
 			#火ホムンクルス,
 			"10124000" :{
@@ -17332,10 +17363,51 @@ class SwSkillMaster:
 				,"usemax":10
 				,"lvmax":1
 			},
+			#光ホムンクルス,
+			"10241000" :{
+				"name":"マナショック"
+				,"comment":"マナを使って相手を攻撃、ダメージを与える。"
+				,"ryaku":""
+				,"rate":""
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
+			"10242000" :{
+				"name":"オペレーションサポート"
+				,"comment":"ターゲットの味方の体力を20%回復させる。(スキル再利用まで4ターン)"
+				,"ryaku":""
+				,"rate":""
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
+			"10243000" :{
+				"name":"プロテクションフィールド"
+				,"comment":"味方全員に2ターンの間、自分に比例しダメージを九州するシールドを張って防御力を増加させる。"
+				,"ryaku":"2T"
+				,"rate":""
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
+			"10244000" :{
+				"name":"魔力の暴走II"
+				,"comment":""
+				,"ryaku":""
+				,"rate":""
+				,"num":1
+				,"usemin:":1
+				,"usemax":1
+				,"lvmax":9999
+			},
 			#あかすり？(水),
 			"6401" :{
 				"name":"(翻訳)あか落とす1"
-				,"comment":"2"
+				,"comment":"6401"
 				,"ryaku":""
 				,"rate":"ATK*1.0*ATTACK_SPEED+210/70"
 				,"num":1
@@ -17345,7 +17417,7 @@ class SwSkillMaster:
 			},
 			"6406" :{
 				"name":"(翻訳)あか落とす2"
-				,"comment":"2"
+				,"comment":"6406"
 				,"ryaku":""
 				,"rate":"ATK*1.4+DEF*1.4"
 				,"num":1
@@ -17355,7 +17427,7 @@ class SwSkillMaster:
 			},
 			"6411" :{
 				"name":"(翻訳)あか落とす3"
-				,"comment":"2"
+				,"comment":"6411"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -17366,7 +17438,7 @@ class SwSkillMaster:
 			#あかすり？(火),
 			"6402" :{
 				"name":"(翻訳)あか落とす1"
-				,"comment":"2"
+				,"comment":"6402"
 				,"ryaku":""
 				,"rate":"ATK*1.0*ATTACK_SPEED+210/70"
 				,"num":1
@@ -17376,7 +17448,7 @@ class SwSkillMaster:
 			},
 			"6407" :{
 				"name":"(翻訳)あか落とす2"
-				,"comment":"2"
+				,"comment":"6407"
 				,"ryaku":""
 				,"rate":"ATK*1.4+DEF*1.4"
 				,"num":1
@@ -17386,7 +17458,7 @@ class SwSkillMaster:
 			},
 			"6412" :{
 				"name":"(翻訳)あか落とす3"
-				,"comment":"2"
+				,"comment":"6412"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -17397,7 +17469,7 @@ class SwSkillMaster:
 			#あかすり？(風),
 			"6403" :{
 				"name":"(翻訳)あか落とす1"
-				,"comment":"2"
+				,"comment":"6403"
 				,"ryaku":""
 				,"rate":"ATK*1.0*ATTACK_SPEED+210/70"
 				,"num":1
@@ -17407,7 +17479,7 @@ class SwSkillMaster:
 			},
 			"6408" :{
 				"name":"(翻訳)あか落とす2"
-				,"comment":"2"
+				,"comment":"6408"
 				,"ryaku":""
 				,"rate":"ATK*1.9"
 				,"num":1
@@ -17417,7 +17489,7 @@ class SwSkillMaster:
 			},
 			"6413" :{
 				"name":"(翻訳)あか落とす3"
-				,"comment":"2"
+				,"comment":"6413"
 				,"ryaku":""
 				,"rate":"ATK*2.0"
 				,"num":1
@@ -17428,7 +17500,7 @@ class SwSkillMaster:
 			#あかすり？(光),
 			"6404" :{
 				"name":"(翻訳)あか落とす1"
-				,"comment":"2"
+				,"comment":"6404"
 				,"ryaku":""
 				,"rate":"ATK*1.0*ATTACK_SPEED+210/70"
 				,"num":1
@@ -17438,7 +17510,7 @@ class SwSkillMaster:
 			},
 			"6409" :{
 				"name":"(翻訳)あか落とす2"
-				,"comment":"2"
+				,"comment":"6409"
 				,"ryaku":""
 				,"rate":"ATK*1.9"
 				,"num":1
@@ -17448,7 +17520,7 @@ class SwSkillMaster:
 			},
 			"6414" :{
 				"name":"(翻訳)あか落とす3"
-				,"comment":"2"
+				,"comment":"6414"
 				,"ryaku":""
 				,"rate":"ATK*1.0*ATTACK_SPEED+160/210"
 				,"num":1
@@ -17459,7 +17531,7 @@ class SwSkillMaster:
 			#あかすり？(闇),
 			"6405" :{
 				"name":"(翻訳)あか落とす1"
-				,"comment":"2"
+				,"comment":"6405"
 				,"ryaku":""
 				,"rate":"ATK*1.0*ATTACK_SPEED+210/70"
 				,"num":1
@@ -17469,7 +17541,7 @@ class SwSkillMaster:
 			},
 			"6410" :{
 				"name":"(翻訳)あか落とす2"
-				,"comment":"2"
+				,"comment":"6410"
 				,"ryaku":""
 				,"rate":"ATK*1.4+DEF*1.4"
 				,"num":1
@@ -17479,7 +17551,7 @@ class SwSkillMaster:
 			},
 			"6415" :{
 				"name":"(翻訳)あか落とす3"
-				,"comment":"2"
+				,"comment":"6415"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -17503,7 +17575,7 @@ class SwSkillMaster:
 			#イゲドゥレゴン(ダイコン),
 			"100301" :{
 				"name":"(翻訳)暗黒花火"
-				,"comment":"1"
+				,"comment":"100301"
 				,"ryaku":""
 				,"rate":"ATK*4.0"
 				,"num":1
@@ -17513,7 +17585,7 @@ class SwSkillMaster:
 			},
 			"100302" :{
 				"name":"(翻訳)虚無の洗礼"
-				,"comment":"1"
+				,"comment":"100302"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -17523,7 +17595,7 @@ class SwSkillMaster:
 			},
 			"100303" :{
 				"name":"(翻訳)空虚ブレス"
-				,"comment":"1"
+				,"comment":"100303"
 				,"ryaku":""
 				,"rate":"ATK*6.6"
 				,"num":1
@@ -17534,7 +17606,7 @@ class SwSkillMaster:
 			#テスナイトゥ(水),
 			"7416" :{
 				"name":"(翻訳)死の一撃(ボス用)"
-				,"comment":"1"
+				,"comment":"7416"
 				,"ryaku":""
 				,"rate":"ATK*4.0"
 				,"num":1
@@ -17544,7 +17616,7 @@ class SwSkillMaster:
 			},
 			"7417" :{
 				"name":"(翻訳)のに聞くだろうウェーブ(ボス用)"
-				,"comment":"1"
+				,"comment":"7417"
 				,"ryaku":""
 				,"rate":"ATTACK_TOT_HP*0.20"
 				,"num":1
@@ -17554,7 +17626,7 @@ class SwSkillMaster:
 			},
 			"7418" :{
 				"name":"(翻訳)拒絶(ボス用)"
-				,"comment":"1"
+				,"comment":"7418"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -17565,7 +17637,7 @@ class SwSkillMaster:
 			#リーチ(火),
 			"7516" :{
 				"name":"(翻訳)司令（辞令）召還(ボス用)"
-				,"comment":"1"
+				,"comment":"7516"
 				,"ryaku":""
 				,"rate":"ATK*1.6"
 				,"num":1
@@ -17576,7 +17648,7 @@ class SwSkillMaster:
 			#巨大ロボット(風),
 			"100801" :{
 				"name":"(翻訳)拡散ビーム"
-				,"comment":"1"
+				,"comment":"100801"
 				,"ryaku":""
 				,"rate":"ATK*4.0"
 				,"num":1
@@ -17586,7 +17658,7 @@ class SwSkillMaster:
 			},
 			"100802" :{
 				"name":"(翻訳)プラズマ キヤノン"
-				,"comment":"1"
+				,"comment":"100802"
 				,"ryaku":""
 				,"rate":"ATK*1.5"
 				,"num":1
@@ -17596,7 +17668,7 @@ class SwSkillMaster:
 			},
 			"100803" :{
 				"name":"(翻訳)圧縮ビーム"
-				,"comment":"1"
+				,"comment":"100803"
 				,"ryaku":""
 				,"rate":"ATK*4.0"
 				,"num":1
@@ -17607,7 +17679,7 @@ class SwSkillMaster:
 			#汚染された龍(水),
 			"100701" :{
 				"name":"(翻訳)猛毒ふくこと"
-				,"comment":"1"
+				,"comment":"100701"
 				,"ryaku":""
 				,"rate":"ATK*2.0"
 				,"num":1
@@ -17617,7 +17689,7 @@ class SwSkillMaster:
 			},
 			"100702" :{
 				"name":"(翻訳)呪いの息遣い"
-				,"comment":"1"
+				,"comment":"100702"
 				,"ryaku":""
 				,"rate":"TARGET_TOT_HP*0.50"
 				,"num":1
@@ -17627,7 +17699,7 @@ class SwSkillMaster:
 			},
 			"100703" :{
 				"name":"(翻訳)必死のあがき(パッシブ)"
-				,"comment":"1"
+				,"comment":"100703"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -17638,7 +17710,7 @@ class SwSkillMaster:
 			#アスタロス(ダイコン),
 			"100601" :{
 				"name":"(翻訳)ギロチン"
-				,"comment":"1"
+				,"comment":"100601"
 				,"ryaku":""
 				,"rate":"ATK*3.2"
 				,"num":1
@@ -17648,7 +17720,7 @@ class SwSkillMaster:
 			},
 			"100602" :{
 				"name":"(翻訳)ジェノサイド"
-				,"comment":"1"
+				,"comment":"100602"
 				,"ryaku":""
 				,"rate":"ATK*4.0"
 				,"num":1
@@ -17658,7 +17730,7 @@ class SwSkillMaster:
 			},
 			"100603" :{
 				"name":"(翻訳)ペイ脱フレーム(パッシブ)"
-				,"comment":"1"
+				,"comment":"100603"
 				,"ryaku":""
 				,"rate":"ATK*0.5"
 				,"num":1
@@ -17669,7 +17741,7 @@ class SwSkillMaster:
 			#リリス(ダイコン),
 			"100901" :{
 				"name":"(翻訳)精神崩壊"
-				,"comment":"2"
+				,"comment":"100901"
 				,"ryaku":""
 				,"rate":"ATK*2.5"
 				,"num":1
@@ -17679,7 +17751,7 @@ class SwSkillMaster:
 			},
 			"100902" :{
 				"name":"(翻訳)被害妄想"
-				,"comment":"2"
+				,"comment":"100902"
 				,"ryaku":""
 				,"rate":"ATK*1.5+ABSORPTION_TOT_CNT*1000.0"
 				,"num":1
@@ -17689,7 +17761,7 @@ class SwSkillMaster:
 			},
 			"100903" :{
 				"name":"(翻訳)化身降臨"
-				,"comment":"1"
+				,"comment":"100903"
 				,"ryaku":""
 				,"rate":"6.0, FIXED"
 				,"num":1
@@ -17700,7 +17772,7 @@ class SwSkillMaster:
 			#リリス(ダイコン) -上向き,
 			"100906" :{
 				"name":"(翻訳)化身降臨-上向き"
-				,"comment":"1"
+				,"comment":"100906"
 				,"ryaku":""
 				,"rate":"6.0, FIXED"
 				,"num":1
@@ -17711,7 +17783,7 @@ class SwSkillMaster:
 			#ビング漢方医魔手,
 			"101401" :{
 				"name":"(翻訳)ビング漢方医さらうこと"
-				,"comment":"1"
+				,"comment":"101401"
 				,"ryaku":""
 				,"rate":"ATK*3.5"
 				,"num":1
@@ -17721,7 +17793,7 @@ class SwSkillMaster:
 			},
 			"101426" :{
 				"name":"(翻訳)絶望の可視"
-				,"comment":"1"
+				,"comment":"101426"
 				,"ryaku":""
 				,"rate":"0.85*1, ^, TARGET_DEF-900.0/100.0*ATK*2.4+ATK*4.8"
 				,"num":1
@@ -17731,7 +17803,7 @@ class SwSkillMaster:
 			},
 			"101406" :{
 				"name":"極地の雄叫び"
-				,"comment":"1"
+				,"comment":"101406"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -17752,7 +17824,7 @@ class SwSkillMaster:
 			#塩化の魔手,
 			"101402" :{
 				"name":"(翻訳)塩化のさらうこと"
-				,"comment":"1"
+				,"comment":"101402"
 				,"ryaku":""
 				,"rate":"ATK*2.2"
 				,"num":1
@@ -17762,7 +17834,7 @@ class SwSkillMaster:
 			},
 			"101427" :{
 				"name":"(翻訳)絶望の可視"
-				,"comment":"1"
+				,"comment":"101427"
 				,"ryaku":""
 				,"rate":"0.85*1, ^, TARGET_DEF-900.0/100.0*ATK*2.4+ATK*4.8"
 				,"num":1
@@ -17772,7 +17844,7 @@ class SwSkillMaster:
 			},
 			"101407" :{
 				"name":"(翻訳)爆発胞子召還"
-				,"comment":"1"
+				,"comment":"101407"
 				,"ryaku":""
 				,"rate":"ATK*3.0"
 				,"num":1
@@ -17793,7 +17865,7 @@ class SwSkillMaster:
 			#嵐の魔手,
 			"101403" :{
 				"name":"(翻訳)嵐のさらうこと"
-				,"comment":"1"
+				,"comment":"101403"
 				,"ryaku":""
 				,"rate":"ATK*3.5"
 				,"num":1
@@ -17803,7 +17875,7 @@ class SwSkillMaster:
 			},
 			"101428" :{
 				"name":"(翻訳)絶望の可視"
-				,"comment":"1"
+				,"comment":"101428"
 				,"ryaku":""
 				,"rate":"0.85*1, ^, TARGET_DEF-900.0/100.0*ATK*2.4+ATK*4.8"
 				,"num":1
@@ -17813,7 +17885,7 @@ class SwSkillMaster:
 			},
 			"101408" :{
 				"name":"(翻訳)雷電の咆哮"
-				,"comment":"1"
+				,"comment":"101408"
 				,"ryaku":""
 				,"rate":"ATK*3.0"
 				,"num":1
@@ -17834,7 +17906,7 @@ class SwSkillMaster:
 			#光輝の魔手,
 			"101404" :{
 				"name":"(翻訳)光輝のさらうこと"
-				,"comment":"1"
+				,"comment":"101404"
 				,"ryaku":""
 				,"rate":"ATK*2.2"
 				,"num":1
@@ -17844,7 +17916,7 @@ class SwSkillMaster:
 			},
 			"101429" :{
 				"name":"(翻訳)絶望の可視"
-				,"comment":"1"
+				,"comment":"101429"
 				,"ryaku":""
 				,"rate":"0.85*1, ^, TARGET_DEF-900.0/100.0*ATK*2.4+ATK*4.8"
 				,"num":1
@@ -17854,7 +17926,7 @@ class SwSkillMaster:
 			},
 			"101409" :{
 				"name":"(翻訳)光の歪曲"
-				,"comment":"1"
+				,"comment":"101409"
 				,"ryaku":""
 				,"rate":"ATK*3.0"
 				,"num":1
@@ -17875,7 +17947,7 @@ class SwSkillMaster:
 			#深淵の魔手,
 			"101405" :{
 				"name":"(翻訳)深淵のさらうこと"
-				,"comment":"1"
+				,"comment":"101405"
 				,"ryaku":""
 				,"rate":"ATK*2.2"
 				,"num":1
@@ -17885,7 +17957,7 @@ class SwSkillMaster:
 			},
 			"101430" :{
 				"name":"(翻訳)絶望の可視"
-				,"comment":"1"
+				,"comment":"101430"
 				,"ryaku":""
 				,"rate":"0.85*1, ^, TARGET_DEF-900.0/100.0*ATK*2.4+ATK*4.8"
 				,"num":1
@@ -17895,7 +17967,7 @@ class SwSkillMaster:
 			},
 			"101410" :{
 				"name":"(翻訳)暗黒の咆哮"
-				,"comment":"1"
+				,"comment":"101410"
 				,"ryaku":""
 				,"rate":"ATK*3.0"
 				,"num":1
@@ -17916,7 +17988,7 @@ class SwSkillMaster:
 			#異系レイドゥ(左側),
 			"101601" :{
 				"name":"(翻訳)破滅の息遣い-左側"
-				,"comment":"1"
+				,"comment":"101601"
 				,"ryaku":""
 				,"rate":"ATK*1.4"
 				,"num":1
@@ -17926,7 +17998,7 @@ class SwSkillMaster:
 			},
 			"101604" :{
 				"name":"(翻訳)破滅の屠殺-左側"
-				,"comment":"1"
+				,"comment":"101604"
 				,"ryaku":""
 				,"rate":"0.85*1, ^, TARGET_DEF-900.0/100.0*ATK*1.2+ATK*1.2"
 				,"num":1
@@ -17936,7 +18008,7 @@ class SwSkillMaster:
 			},
 			"101607" :{
 				"name":"(翻訳)怒りの咆哮-左側"
-				,"comment":"1"
+				,"comment":"101607"
 				,"ryaku":""
 				,"rate":"ATK*2.0"
 				,"num":1
@@ -17957,7 +18029,7 @@ class SwSkillMaster:
 			#異系レイドゥ（カウンデ）,
 			"101602" :{
 				"name":"(翻訳)破滅の息遣い-の中で"
-				,"comment":"1"
+				,"comment":"101602"
 				,"ryaku":""
 				,"rate":"ATK*1.4"
 				,"num":1
@@ -17967,7 +18039,7 @@ class SwSkillMaster:
 			},
 			"101605" :{
 				"name":"(翻訳)破滅の屠殺-の中で"
-				,"comment":"1"
+				,"comment":"101605"
 				,"ryaku":""
 				,"rate":"0.85*1, ^, TARGET_DEF-900.0/100.0*ATK*1.2+ATK*1.2"
 				,"num":1
@@ -17977,7 +18049,7 @@ class SwSkillMaster:
 			},
 			"101608" :{
 				"name":"(翻訳)怒りの咆哮-の中で"
-				,"comment":"1"
+				,"comment":"101608"
 				,"ryaku":""
 				,"rate":"ATK*2.0"
 				,"num":1
@@ -17988,7 +18060,7 @@ class SwSkillMaster:
 			#異系レイドゥ(右側),
 			"101603" :{
 				"name":"(翻訳)破滅の息遣い-右側"
-				,"comment":"1"
+				,"comment":"101603"
 				,"ryaku":""
 				,"rate":"ATK*1.4"
 				,"num":1
@@ -17998,7 +18070,7 @@ class SwSkillMaster:
 			},
 			"101606" :{
 				"name":"(翻訳)破滅の屠殺-右側"
-				,"comment":"1"
+				,"comment":"101606"
 				,"ryaku":""
 				,"rate":"0.85*1, ^, TARGET_DEF-900.0/100.0*ATK*1.2+ATK*1.2"
 				,"num":1
@@ -18008,7 +18080,7 @@ class SwSkillMaster:
 			},
 			"101609" :{
 				"name":"(翻訳)怒りの咆哮-右側"
-				,"comment":"1"
+				,"comment":"101609"
 				,"ryaku":""
 				,"rate":"ATK*2.0"
 				,"num":1
@@ -18024,7 +18096,7 @@ class SwSkillMaster:
 			#古代の守護者(水),
 			"100001" :{
 				"name":"(翻訳)亡者の浄化"
-				,"comment":"1"
+				,"comment":"100001"
 				,"ryaku":""
 				,"rate":"ATK*1.0*TARGET_WIZARD_LIFE_RATE*-7.0+10.5"
 				,"num":1
@@ -18034,7 +18106,7 @@ class SwSkillMaster:
 			},
 			"100006" :{
 				"name":"(翻訳)亡者の受験（凝視）"
-				,"comment":"1"
+				,"comment":"100006"
 				,"ryaku":""
 				,"rate":"ATK*6.0"
 				,"num":1
@@ -18044,7 +18116,7 @@ class SwSkillMaster:
 			},
 			"100015" :{
 				"name":"(翻訳)抹殺(パッシブ)"
-				,"comment":"7"
+				,"comment":"100015"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18055,7 +18127,7 @@ class SwSkillMaster:
 			#古代の守護者(火),
 			"100002" :{
 				"name":"(翻訳)亡者の浄化"
-				,"comment":"1"
+				,"comment":"100002"
 				,"ryaku":""
 				,"rate":"ATK*1.0*TARGET_WIZARD_LIFE_RATE*-7.0+10.5"
 				,"num":1
@@ -18065,7 +18137,7 @@ class SwSkillMaster:
 			},
 			"100007" :{
 				"name":"(翻訳)亡者の受験（凝視）"
-				,"comment":"1"
+				,"comment":"100007"
 				,"ryaku":""
 				,"rate":"ATK*6.0"
 				,"num":1
@@ -18076,7 +18148,7 @@ class SwSkillMaster:
 			#古代の守護者(風),
 			"100003" :{
 				"name":"(翻訳)亡者の浄化"
-				,"comment":"1"
+				,"comment":"100003"
 				,"ryaku":""
 				,"rate":"ATK*1.0*TARGET_WIZARD_LIFE_RATE*-7.0+10.5"
 				,"num":1
@@ -18086,7 +18158,7 @@ class SwSkillMaster:
 			},
 			"100008" :{
 				"name":"(翻訳)亡者の受験（凝視）"
-				,"comment":"1"
+				,"comment":"100008"
 				,"ryaku":""
 				,"rate":"ATK*6.0"
 				,"num":1
@@ -18097,7 +18169,7 @@ class SwSkillMaster:
 			#古代の守護者(光),
 			"100004" :{
 				"name":"(翻訳)亡者の浄化"
-				,"comment":"2"
+				,"comment":"100004"
 				,"ryaku":""
 				,"rate":"ATK*1.0*TARGET_WIZARD_LIFE_RATE*-7.0+10.5"
 				,"num":1
@@ -18107,7 +18179,7 @@ class SwSkillMaster:
 			},
 			"100009" :{
 				"name":"(翻訳)亡者の受験（凝視）"
-				,"comment":"2"
+				,"comment":"100009"
 				,"ryaku":""
 				,"rate":"ATK*6.0"
 				,"num":1
@@ -18118,7 +18190,7 @@ class SwSkillMaster:
 			#古代の守護者(闇),
 			"100005" :{
 				"name":"(翻訳)亡者の浄化"
-				,"comment":"1"
+				,"comment":"100005"
 				,"ryaku":""
 				,"rate":"ATK*1.0*TARGET_WIZARD_LIFE_RATE*-7.0+10.5"
 				,"num":1
@@ -18128,7 +18200,7 @@ class SwSkillMaster:
 			},
 			"100010" :{
 				"name":"(翻訳)亡者の受験（凝視）"
-				,"comment":"1"
+				,"comment":"100010"
 				,"ryaku":""
 				,"rate":"ATK*6.0"
 				,"num":1
@@ -18139,7 +18211,7 @@ class SwSkillMaster:
 			#ストーン ジャイアンツ(水),
 			"100101" :{
 				"name":"(翻訳)落石"
-				,"comment":"1"
+				,"comment":"100101"
 				,"ryaku":""
 				,"rate":"ATK*5.4"
 				,"num":1
@@ -18149,7 +18221,7 @@ class SwSkillMaster:
 			},
 			"100106" :{
 				"name":"(翻訳)大地震"
-				,"comment":"1"
+				,"comment":"100106"
 				,"ryaku":""
 				,"rate":"ATK*8.1+120"
 				,"num":1
@@ -18159,7 +18231,7 @@ class SwSkillMaster:
 			},
 			"100116" :{
 				"name":"(翻訳)防護(パッシブ)"
-				,"comment":"5"
+				,"comment":"100116"
 				,"ryaku":""
 				,"rate":"ATK*8.0"
 				,"num":1
@@ -18170,7 +18242,7 @@ class SwSkillMaster:
 			#ストーン ジャイアンツ(火),
 			"100102" :{
 				"name":"(翻訳)落石"
-				,"comment":"1"
+				,"comment":"100102"
 				,"ryaku":""
 				,"rate":"ATK*5.4"
 				,"num":1
@@ -18180,7 +18252,7 @@ class SwSkillMaster:
 			},
 			"100107" :{
 				"name":"(翻訳)大地震"
-				,"comment":"1"
+				,"comment":"100107"
 				,"ryaku":""
 				,"rate":"ATK*8.1+120"
 				,"num":1
@@ -18191,7 +18263,7 @@ class SwSkillMaster:
 			#ストーン ジャイアンツ(風),
 			"100103" :{
 				"name":"(翻訳)落石"
-				,"comment":"1"
+				,"comment":"100103"
 				,"ryaku":""
 				,"rate":"ATK*5.4"
 				,"num":1
@@ -18201,7 +18273,7 @@ class SwSkillMaster:
 			},
 			"100108" :{
 				"name":"(翻訳)大地震"
-				,"comment":"1"
+				,"comment":"100108"
 				,"ryaku":""
 				,"rate":"ATK*8.1+120"
 				,"num":1
@@ -18212,7 +18284,7 @@ class SwSkillMaster:
 			#ストーン ジャイアンツ(光),
 			"100104" :{
 				"name":"(翻訳)落石"
-				,"comment":"1"
+				,"comment":"100104"
 				,"ryaku":""
 				,"rate":"ATK*5.4"
 				,"num":1
@@ -18222,7 +18294,7 @@ class SwSkillMaster:
 			},
 			"100109" :{
 				"name":"(翻訳)大地震"
-				,"comment":"1"
+				,"comment":"100109"
 				,"ryaku":""
 				,"rate":"ATK*8.1+120"
 				,"num":1
@@ -18233,7 +18305,7 @@ class SwSkillMaster:
 			#ストーン ジャイアンツ(闇),
 			"100105" :{
 				"name":"(翻訳)落石"
-				,"comment":"1"
+				,"comment":"100105"
 				,"ryaku":""
 				,"rate":"ATK*5.4"
 				,"num":1
@@ -18243,7 +18315,7 @@ class SwSkillMaster:
 			},
 			"100110" :{
 				"name":"(翻訳)大地震"
-				,"comment":"1"
+				,"comment":"100110"
 				,"ryaku":""
 				,"rate":"ATK*8.1+120"
 				,"num":1
@@ -18254,7 +18326,7 @@ class SwSkillMaster:
 			#伝説ドラゴン(水),
 			"100201" :{
 				"name":"(翻訳)激怒の息遣い"
-				,"comment":"1"
+				,"comment":"100201"
 				,"ryaku":""
 				,"rate":"ATK*3.4"
 				,"num":1
@@ -18264,7 +18336,7 @@ class SwSkillMaster:
 			},
 			"100206" :{
 				"name":"(翻訳)大災難"
-				,"comment":"1"
+				,"comment":"100206"
 				,"ryaku":""
 				,"rate":"ATK*24.0+720"
 				,"num":1
@@ -18274,7 +18346,7 @@ class SwSkillMaster:
 			},
 			"100215" :{
 				"name":"(翻訳)用意怒り(パッシブ)"
-				,"comment":"5"
+				,"comment":"100215"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18285,7 +18357,7 @@ class SwSkillMaster:
 			#伝説ドラゴン(火),
 			"100202" :{
 				"name":"(翻訳)激怒の息遣い"
-				,"comment":"1"
+				,"comment":"100202"
 				,"ryaku":""
 				,"rate":"ATK*3.4"
 				,"num":1
@@ -18295,7 +18367,7 @@ class SwSkillMaster:
 			},
 			"100207" :{
 				"name":"(翻訳)大災難"
-				,"comment":"1"
+				,"comment":"100207"
 				,"ryaku":""
 				,"rate":"ATK*24.0+720"
 				,"num":1
@@ -18306,7 +18378,7 @@ class SwSkillMaster:
 			#伝説ドラゴン(風),
 			"100203" :{
 				"name":"(翻訳)激怒の息遣い"
-				,"comment":"1"
+				,"comment":"100203"
 				,"ryaku":""
 				,"rate":"ATK*3.4"
 				,"num":1
@@ -18316,7 +18388,7 @@ class SwSkillMaster:
 			},
 			"100208" :{
 				"name":"(翻訳)大災難"
-				,"comment":"1"
+				,"comment":"100208"
 				,"ryaku":""
 				,"rate":"ATK*24.0+720"
 				,"num":1
@@ -18327,7 +18399,7 @@ class SwSkillMaster:
 			#伝説ドラゴン(光),
 			"100204" :{
 				"name":"(翻訳)激怒の息遣い"
-				,"comment":"1"
+				,"comment":"100204"
 				,"ryaku":""
 				,"rate":"ATK*3.4"
 				,"num":1
@@ -18337,7 +18409,7 @@ class SwSkillMaster:
 			},
 			"100209" :{
 				"name":"(翻訳)大災難"
-				,"comment":"1"
+				,"comment":"100209"
 				,"ryaku":""
 				,"rate":"ATK*24.0+720"
 				,"num":1
@@ -18348,7 +18420,7 @@ class SwSkillMaster:
 			#伝説ドラゴン(闇),
 			"100205" :{
 				"name":"(翻訳)激怒の息遣い"
-				,"comment":"1"
+				,"comment":"100205"
 				,"ryaku":""
 				,"rate":"ATK*3.4"
 				,"num":1
@@ -18358,7 +18430,7 @@ class SwSkillMaster:
 			},
 			"100210" :{
 				"name":"(翻訳)大災難"
-				,"comment":"1"
+				,"comment":"100210"
 				,"ryaku":""
 				,"rate":"ATK*24.0+720"
 				,"num":1
@@ -18369,7 +18441,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(水)-A(ボス),
 			"100501" :{
 				"name":"(翻訳)ホーリーノバ"
-				,"comment":"1"
+				,"comment":"100501"
 				,"ryaku":""
 				,"rate":"TARGET_TOT_HP*0.20"
 				,"num":1
@@ -18379,7 +18451,7 @@ class SwSkillMaster:
 			},
 			"100514" :{
 				"name":"(翻訳)天使の輪(パッシブ)"
-				,"comment":"14"
+				,"comment":"100514"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18389,7 +18461,7 @@ class SwSkillMaster:
 			},
 			"100515" :{
 				"name":"(翻訳)気まぐれ(パッシブ)"
-				,"comment":"14"
+				,"comment":"100515"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18400,7 +18472,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(水)-B-1(ボス),
 			"100521" :{
 				"name":"(翻訳)反抗"
-				,"comment":"1"
+				,"comment":"100521"
 				,"ryaku":""
 				,"rate":"ATK*9.0"
 				,"num":1
@@ -18411,7 +18483,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(水)-B-2(ボス),
 			"100526" :{
 				"name":"(翻訳)不条理"
-				,"comment":"1"
+				,"comment":"100526"
 				,"ryaku":""
 				,"rate":"ATK*6.0"
 				,"num":1
@@ -18422,7 +18494,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(水)-C(つつく),
 			"100531" :{
 				"name":"(翻訳)突撃"
-				,"comment":"1"
+				,"comment":"100531"
 				,"ryaku":""
 				,"rate":"ATK*4.0"
 				,"num":1
@@ -18432,7 +18504,7 @@ class SwSkillMaster:
 			},
 			"100513" :{
 				"name":"(翻訳)自爆(パッシブ)"
-				,"comment":"7"
+				,"comment":"100513"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18443,7 +18515,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(火)-A(ボス),
 			"100502" :{
 				"name":"(翻訳)ホーリーノバ"
-				,"comment":"1"
+				,"comment":"100502"
 				,"ryaku":""
 				,"rate":"TARGET_TOT_HP*0.20"
 				,"num":1
@@ -18454,7 +18526,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(火)-B-1(ボス),
 			"100522" :{
 				"name":"(翻訳)反抗"
-				,"comment":"1"
+				,"comment":"100522"
 				,"ryaku":""
 				,"rate":"ATK*9.0"
 				,"num":1
@@ -18465,7 +18537,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(火)-B-2(ボス),
 			"100527" :{
 				"name":"(翻訳)不条理"
-				,"comment":"1"
+				,"comment":"100527"
 				,"ryaku":""
 				,"rate":"ATK*6.0"
 				,"num":1
@@ -18476,7 +18548,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(火)-C(つつく),
 			"100532" :{
 				"name":"(翻訳)突撃"
-				,"comment":"1"
+				,"comment":"100532"
 				,"ryaku":""
 				,"rate":"ATK*4.0"
 				,"num":1
@@ -18487,7 +18559,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(風)-A(ボス),
 			"100503" :{
 				"name":"(翻訳)ホーリーノバ"
-				,"comment":"1"
+				,"comment":"100503"
 				,"ryaku":""
 				,"rate":"TARGET_TOT_HP*0.20"
 				,"num":1
@@ -18498,7 +18570,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(風)-B-1(ボス),
 			"100523" :{
 				"name":"(翻訳)反抗"
-				,"comment":"1"
+				,"comment":"100523"
 				,"ryaku":""
 				,"rate":"ATK*9.0"
 				,"num":1
@@ -18509,7 +18581,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(風)-B-2(ボス),
 			"100528" :{
 				"name":"(翻訳)不条理"
-				,"comment":"1"
+				,"comment":"100528"
 				,"ryaku":""
 				,"rate":"ATK*6.0"
 				,"num":1
@@ -18520,7 +18592,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(風)-C(つつく),
 			"100533" :{
 				"name":"(翻訳)突撃"
-				,"comment":"1"
+				,"comment":"100533"
 				,"ryaku":""
 				,"rate":"ATK*4.0"
 				,"num":1
@@ -18531,7 +18603,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(光)-A(ボス),
 			"100504" :{
 				"name":"(翻訳)ホーリーノバ"
-				,"comment":"2"
+				,"comment":"100504"
 				,"ryaku":""
 				,"rate":"TARGET_TOT_HP*0.20"
 				,"num":1
@@ -18542,7 +18614,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(光)-B-1(ボス),
 			"100524" :{
 				"name":"(翻訳)反抗"
-				,"comment":"2"
+				,"comment":"100524"
 				,"ryaku":""
 				,"rate":"ATK*9.0"
 				,"num":1
@@ -18553,7 +18625,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(光)-B-2(ボス),
 			"100529" :{
 				"name":"(翻訳)不条理"
-				,"comment":"2"
+				,"comment":"100529"
 				,"ryaku":""
 				,"rate":"ATK*6.0"
 				,"num":1
@@ -18564,7 +18636,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(光)-C(つつく),
 			"100534" :{
 				"name":"(翻訳)突撃"
-				,"comment":"2"
+				,"comment":"100534"
 				,"ryaku":""
 				,"rate":"ATK*4.0"
 				,"num":1
@@ -18575,7 +18647,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(闇)-A(ボス),
 			"100505" :{
 				"name":"(翻訳)ホーリーノバ"
-				,"comment":"2"
+				,"comment":"100505"
 				,"ryaku":""
 				,"rate":"TARGET_TOT_HP*0.20"
 				,"num":1
@@ -18586,7 +18658,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(闇)-B-1(ボス),
 			"100525" :{
 				"name":"(翻訳)反抗"
-				,"comment":"2"
+				,"comment":"100525"
 				,"ryaku":""
 				,"rate":"ATK*9.0"
 				,"num":1
@@ -18597,7 +18669,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(闇)-B-2(ボス),
 			"100530" :{
 				"name":"(翻訳)不条理"
-				,"comment":"2"
+				,"comment":"100530"
 				,"ryaku":""
 				,"rate":"ATK*6.0"
 				,"num":1
@@ -18608,7 +18680,7 @@ class SwSkillMaster:
 			#エンジェル追い立てた(闇)-C(つつく),
 			"100535" :{
 				"name":"(翻訳)突撃"
-				,"comment":"2"
+				,"comment":"100535"
 				,"ryaku":""
 				,"rate":"ATK*4.0"
 				,"num":1
@@ -18628,7 +18700,7 @@ class SwSkillMaster:
 			#古代リッチ王(水),
 			"101301" :{
 				"name":"(翻訳)魂搾取"
-				,"comment":"1"
+				,"comment":"101301"
 				,"ryaku":""
 				,"rate":"ATK*2.5"
 				,"num":1
@@ -18638,7 +18710,7 @@ class SwSkillMaster:
 			},
 			"101306" :{
 				"name":"(翻訳)魂拘束"
-				,"comment":"1"
+				,"comment":"101306"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18648,7 +18720,7 @@ class SwSkillMaster:
 			},
 			"101312" :{
 				"name":"(翻訳)死んだ者の時間(パッシブ)"
-				,"comment":"5"
+				,"comment":"101312"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18659,7 +18731,7 @@ class SwSkillMaster:
 			#古代リッチ王(火),
 			"101302" :{
 				"name":"(翻訳)魂搾取"
-				,"comment":"1"
+				,"comment":"101302"
 				,"ryaku":""
 				,"rate":"ATK*2.5"
 				,"num":1
@@ -18669,7 +18741,7 @@ class SwSkillMaster:
 			},
 			"101307" :{
 				"name":"(翻訳)魂拘束"
-				,"comment":"1"
+				,"comment":"101307"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18680,7 +18752,7 @@ class SwSkillMaster:
 			#古代リッチ王(風),
 			"101303" :{
 				"name":"(翻訳)魂搾取"
-				,"comment":"1"
+				,"comment":"101303"
 				,"ryaku":""
 				,"rate":"ATK*2.5"
 				,"num":1
@@ -18690,7 +18762,7 @@ class SwSkillMaster:
 			},
 			"101308" :{
 				"name":"(翻訳)魂拘束"
-				,"comment":"1"
+				,"comment":"101308"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18701,7 +18773,7 @@ class SwSkillMaster:
 			#古代リッチ王(光),
 			"101304" :{
 				"name":"(翻訳)魂搾取"
-				,"comment":"1"
+				,"comment":"101304"
 				,"ryaku":""
 				,"rate":"ATK*2.5"
 				,"num":1
@@ -18711,7 +18783,7 @@ class SwSkillMaster:
 			},
 			"101309" :{
 				"name":"(翻訳)魂拘束"
-				,"comment":"1"
+				,"comment":"101309"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18722,7 +18794,7 @@ class SwSkillMaster:
 			#古代リッチ王(闇),
 			"101305" :{
 				"name":"(翻訳)魂搾取"
-				,"comment":"1"
+				,"comment":"101305"
 				,"ryaku":""
 				,"rate":"ATK*2.5"
 				,"num":1
@@ -18732,7 +18804,7 @@ class SwSkillMaster:
 			},
 			"101310" :{
 				"name":"(翻訳)魂拘束"
-				,"comment":"1"
+				,"comment":"101310"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18744,7 +18816,7 @@ class SwSkillMaster:
 			#タワー(水) -防御無視,
 			"110004" :{
 				"name":"(翻訳)ティタウォ(青-ダイヤ)"
-				,"comment":"5"
+				,"comment":"110004"
 				,"ryaku":""
 				,"rate":"ATK*6.0"
 				,"num":1
@@ -18755,7 +18827,7 @@ class SwSkillMaster:
 			#タワー(水) -生命強奪,
 			"110001" :{
 				"name":"(翻訳)ティタウォ(赤-ダイヤ)"
-				,"comment":"5"
+				,"comment":"110001"
 				,"ryaku":""
 				,"rate":"TARGET_TOT_HP*0.20, FIXED"
 				,"num":1
@@ -18766,7 +18838,7 @@ class SwSkillMaster:
 			#タワー(水) -打撃,
 			"110007" :{
 				"name":"(翻訳)ティタウォ(黄-ダイヤ)"
-				,"comment":"5"
+				,"comment":"110007"
 				,"ryaku":""
 				,"rate":"ATK*9.0"
 				,"num":1
@@ -18777,7 +18849,7 @@ class SwSkillMaster:
 			#タワー(水) -回復妨害,
 			"110010" :{
 				"name":"(翻訳)ティタウォ(白-ダイヤ)"
-				,"comment":"5"
+				,"comment":"110010"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18788,7 +18860,7 @@ class SwSkillMaster:
 			#タワー(水) -爆弾,
 			"110013" :{
 				"name":"(翻訳)ティタウォ(見よ-ダイヤ)"
-				,"comment":"5"
+				,"comment":"110013"
 				,"ryaku":""
 				,"rate":"99999.0, FIXED"
 				,"num":1
@@ -18799,7 +18871,7 @@ class SwSkillMaster:
 			#タワー(水) -防御強化,
 			"110005" :{
 				"name":"(翻訳)ティタウォ(青-具体（球体）)"
-				,"comment":"5"
+				,"comment":"110005"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18810,7 +18882,7 @@ class SwSkillMaster:
 			#タワー(水) -治癒,
 			"110002" :{
 				"name":"(翻訳)ティタウォ(赤-具体（球体）)"
-				,"comment":"5"
+				,"comment":"110002"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18821,7 +18893,7 @@ class SwSkillMaster:
 			#タワー(水) -攻撃強化,
 			"110008" :{
 				"name":"(翻訳)ティタウォ(黄-具体（球体）)"
-				,"comment":"5"
+				,"comment":"110008"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18832,7 +18904,7 @@ class SwSkillMaster:
 			#タワー(水) -完全治癒,
 			"110011" :{
 				"name":"(翻訳)ティタウォ(白-具体（球体）)"
-				,"comment":"5"
+				,"comment":"110011"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18843,7 +18915,7 @@ class SwSkillMaster:
 			#タワー(水) -無敵,
 			"110014" :{
 				"name":"(翻訳)ティタウォ(見よ-具体（球体）)"
-				,"comment":"5"
+				,"comment":"110014"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18854,7 +18926,7 @@ class SwSkillMaster:
 			#タワー(水) -防御弱化,
 			"110006" :{
 				"name":"(翻訳)ティタウォ(青-別)"
-				,"comment":"5"
+				,"comment":"110006"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18865,7 +18937,7 @@ class SwSkillMaster:
 			#タワー(水) -衝撃,
 			"110003" :{
 				"name":"(翻訳)ティタウォ(赤-別)"
-				,"comment":"5"
+				,"comment":"110003"
 				,"ryaku":""
 				,"rate":"10.0, FIXED"
 				,"num":1
@@ -18876,7 +18948,7 @@ class SwSkillMaster:
 			#タワー(水) -攻撃弱化,
 			"110009" :{
 				"name":"(翻訳)ティタウォ(黄-別)"
-				,"comment":"5"
+				,"comment":"110009"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18887,7 +18959,7 @@ class SwSkillMaster:
 			#タワー(水) -猛毒,
 			"110012" :{
 				"name":"(翻訳)ティタウォ(白-別)"
-				,"comment":"5"
+				,"comment":"110012"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18898,7 +18970,7 @@ class SwSkillMaster:
 			#タワー(水) -免疫,
 			"110015" :{
 				"name":"(翻訳)ティタウォ(見よ-別)"
-				,"comment":"5"
+				,"comment":"110015"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18909,7 +18981,7 @@ class SwSkillMaster:
 			#タワー(水) -全体衝撃修正,
 			"110016" :{
 				"name":"(翻訳)ティタウォ(全体衝撃修正)"
-				,"comment":"5"
+				,"comment":"110016"
 				,"ryaku":""
 				,"rate":"ATK*2.0"
 				,"num":1
@@ -18920,7 +18992,7 @@ class SwSkillMaster:
 			#タワー(水) -球の中ゲージ,
 			"111002" :{
 				"name":"(翻訳)加速修正"
-				,"comment":"6"
+				,"comment":"111002"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -18999,7 +19071,7 @@ class SwSkillMaster:
 			#シホムィタプタワー(左側),
 			"111001" :{
 				"name":"(翻訳)回復妨害修正"
-				,"comment":"1"
+				,"comment":"111001"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -19011,7 +19083,7 @@ class SwSkillMaster:
 			#シホムィタプ貪欲の化身,
 			"101001" :{
 				"name":"(翻訳)精神崩壊"
-				,"comment":"2"
+				,"comment":"101001"
 				,"ryaku":""
 				,"rate":"ATK*2.5"
 				,"num":1
@@ -19021,7 +19093,7 @@ class SwSkillMaster:
 			},
 			"101002" :{
 				"name":"(翻訳)破滅の兆し"
-				,"comment":"2"
+				,"comment":"101002"
 				,"ryaku":""
 				,"rate":"ATK*3.6"
 				,"num":1
@@ -19031,7 +19103,7 @@ class SwSkillMaster:
 			},
 			"101003" :{
 				"name":"(翻訳)貪欲の化身(パッシブ)"
-				,"comment":"1"
+				,"comment":"101003"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -19042,7 +19114,7 @@ class SwSkillMaster:
 			#シホムィタプ複数の化身,
 			"101101" :{
 				"name":"(翻訳)精神崩壊"
-				,"comment":"2"
+				,"comment":"101101"
 				,"ryaku":""
 				,"rate":"ATK*2.5"
 				,"num":1
@@ -19052,7 +19124,7 @@ class SwSkillMaster:
 			},
 			"101102" :{
 				"name":"(翻訳)破壊衝動"
-				,"comment":"2"
+				,"comment":"101102"
 				,"ryaku":""
 				,"rate":"ATK*1.2"
 				,"num":1
@@ -19062,7 +19134,7 @@ class SwSkillMaster:
 			},
 			"101103" :{
 				"name":"(翻訳)複数の化身(パッシブ)"
-				,"comment":"1"
+				,"comment":"101103"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -19073,7 +19145,7 @@ class SwSkillMaster:
 			#シホムィタプ保護の化身,
 			"101201" :{
 				"name":"(翻訳)精神崩壊"
-				,"comment":"2"
+				,"comment":"101201"
 				,"ryaku":""
 				,"rate":"ATK*2.5"
 				,"num":1
@@ -19083,7 +19155,7 @@ class SwSkillMaster:
 			},
 			"101202" :{
 				"name":"(翻訳)悪の進言"
-				,"comment":"2"
+				,"comment":"101202"
 				,"ryaku":""
 				,"rate":"ATK*0.5+DEF*3.0"
 				,"num":1
@@ -19093,7 +19165,7 @@ class SwSkillMaster:
 			},
 			"101203" :{
 				"name":"(翻訳)保護の化身(パッシブ)"
-				,"comment":"1"
+				,"comment":"101203"
 				,"ryaku":""
 				,"rate":"15.0, FIXED"
 				,"num":1
@@ -19104,7 +19176,7 @@ class SwSkillMaster:
 			#シホムィタプ貪欲の化身-上向き,
 			"101004" :{
 				"name":"(翻訳)貪欲の化身(パッシブ) -上向き"
-				,"comment":"1"
+				,"comment":"101004"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -19115,7 +19187,7 @@ class SwSkillMaster:
 			#シホムィタプ複数の化身-上向き,
 			"101104" :{
 				"name":"(翻訳)複数の化身(パッシブ) -上向き"
-				,"comment":"1"
+				,"comment":"101104"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -19126,7 +19198,7 @@ class SwSkillMaster:
 			#シホムィタプ保護の化身-上向き,
 			"101204" :{
 				"name":"(翻訳)保護の化身(パッシブ) -上向き"
-				,"comment":"1"
+				,"comment":"101204"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -19137,7 +19209,7 @@ class SwSkillMaster:
 			#属性減らした全（前）(火)ポクチュン,
 			"101501" :{
 				"name":"(翻訳)自爆"
-				,"comment":"1"
+				,"comment":"101501"
 				,"ryaku":""
 				,"rate":"ATTACK_TOT_HP*2.0"
 				,"num":1
@@ -19147,7 +19219,7 @@ class SwSkillMaster:
 			},
 			"101502" :{
 				"name":"(翻訳)毒性粘液"
-				,"comment":"1"
+				,"comment":"101502"
 				,"ryaku":""
 				,"rate":""
 				,"num":1
@@ -19158,7 +19230,7 @@ class SwSkillMaster:
 			#ガード_青(牛),
 			"120004" :{
 				"name":"(翻訳)下級ガード(青)"
-				,"comment":"1"
+				,"comment":"120004"
 				,"ryaku":""
 				,"rate":"ATK*5.0"
 				,"num":1
@@ -19169,7 +19241,7 @@ class SwSkillMaster:
 			#ガード_赤(牛),
 			"120002" :{
 				"name":"(翻訳)下級ガード(赤)"
-				,"comment":"1"
+				,"comment":"120002"
 				,"ryaku":""
 				,"rate":"ATK*3.6"
 				,"num":1
@@ -19180,7 +19252,7 @@ class SwSkillMaster:
 			#ガード_黄(牛),
 			"120006" :{
 				"name":"(翻訳)下級ガード(黄)"
-				,"comment":"1"
+				,"comment":"120006"
 				,"ryaku":""
 				,"rate":"ATK*3.0"
 				,"num":1
@@ -19191,7 +19263,7 @@ class SwSkillMaster:
 			#ガード_白(牛),
 			"120008" :{
 				"name":"(翻訳)下級ガード(白)"
-				,"comment":"1"
+				,"comment":"120008"
 				,"ryaku":""
 				,"rate":"ATTACK_LV*50.0, FIXED"
 				,"num":1
@@ -19202,7 +19274,7 @@ class SwSkillMaster:
 			#ガード_見よ(牛),
 			"120010" :{
 				"name":"(翻訳)下級ガード(見よ)"
-				,"comment":"1"
+				,"comment":"120010"
 				,"ryaku":""
 				,"rate":"ATK*3.0"
 				,"num":1
@@ -19213,7 +19285,7 @@ class SwSkillMaster:
 			#ガード_青(中),
 			"120003" :{
 				"name":"(翻訳)上級ガード(青)"
-				,"comment":"1"
+				,"comment":"120003"
 				,"ryaku":""
 				,"rate":"ATK*18.0"
 				,"num":1
@@ -19224,7 +19296,7 @@ class SwSkillMaster:
 			#ガード_赤(中),
 			"120001" :{
 				"name":"(翻訳)上級ガード(赤)"
-				,"comment":"1"
+				,"comment":"120001"
 				,"ryaku":""
 				,"rate":"ATK*7.2"
 				,"num":1
@@ -19235,7 +19307,7 @@ class SwSkillMaster:
 			#ガード_黄(中),
 			"120005" :{
 				"name":"(翻訳)上級ガード(黄)"
-				,"comment":"1"
+				,"comment":"120005"
 				,"ryaku":""
 				,"rate":"ATK*2.4"
 				,"num":1
@@ -19246,7 +19318,7 @@ class SwSkillMaster:
 			#ガード_白(中),
 			"120007" :{
 				"name":"(翻訳)上級ガード(白)"
-				,"comment":"1"
+				,"comment":"120007"
 				,"ryaku":""
 				,"rate":"ATTACK_LV*100.0, FIXED"
 				,"num":1
@@ -19257,7 +19329,7 @@ class SwSkillMaster:
 			#ガード_見よ(中),
 			"120009" :{
 				"name":"(翻訳)上級ガード(見よ)"
-				,"comment":"1"
+				,"comment":"120009"
 				,"ryaku":""
 				,"rate":"ATK*6.0"
 				,"num":1
@@ -19268,7 +19340,7 @@ class SwSkillMaster:
 			#他オに(ダイコン),
 			"5201" :{
 				"name":"(翻訳)空虚の電撃"
-				,"comment":"1"
+				,"comment":"5201"
 				,"ryaku":""
 				,"rate":"ATK*4.0"
 				,"num":1
@@ -19278,7 +19350,7 @@ class SwSkillMaster:
 			},
 			"5202" :{
 				"name":"(翻訳)空虚の嵐"
-				,"comment":"1"
+				,"comment":"5202"
 				,"ryaku":""
 				,"rate":"ATK*1.0+TARGET_TOT_HP*0.1"
 				,"num":1
@@ -19289,7 +19361,7 @@ class SwSkillMaster:
 			#亀(ダイコン),
 			"5001" :{
 				"name":"(翻訳)土地ウーリー期"
-				,"comment":"1"
+				,"comment":"5001"
 				,"ryaku":""
 				,"rate":"ATK*3.5"
 				,"num":1
@@ -19299,7 +19371,7 @@ class SwSkillMaster:
 			},
 			"5002" :{
 				"name":"(翻訳)トクプムギ"
-				,"comment":"1"
+				,"comment":"5002"
 				,"ryaku":""
 				,"rate":"ATK*5.0"
 				,"num":1
@@ -19310,7 +19382,7 @@ class SwSkillMaster:
 			#アイスビースト(ダイコン),
 			"5101" :{
 				"name":"(翻訳)駆け寄ること"
-				,"comment":"1"
+				,"comment":"5101"
 				,"ryaku":""
 				,"rate":"ATK*3.5+50"
 				,"num":1
@@ -19320,7 +19392,7 @@ class SwSkillMaster:
 			},
 			"5102" :{
 				"name":"(翻訳)上から下へ打ち込むこと"
-				,"comment":"1"
+				,"comment":"5102"
 				,"ryaku":""
 				,"rate":"ATK*5.5"
 				,"num":1

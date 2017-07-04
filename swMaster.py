@@ -116,6 +116,8 @@ class SwMaster:
 		ret = ""
 		if id in self.__swSkill:
 			ret = self.__swSkill[id]["comment"]
+		if ret == "":
+			ret = str(id)
 		return ret
 		
 	#

@@ -32,10 +32,10 @@ REM emeditor monster.tsv runes.tsv skill.tsv
 REM emeditor monster.tsv runes.tsv
 
 IF EXIST "C:\Users\hhara\OneDrive\SWProxy-windows" (
-	C:\Users\hhara\OneDrive\test.xlsx
+	start C:\Users\hhara\OneDrive\test.xlsx
 )
 IF EXIST "C:\Users\tokebi\OneDrive\SWProxy-windows" (
-	C:\Users\tokebi\OneDrive\test.xlsx
+	start C:\Users\tokebi\OneDrive\test.xlsx
 )
 
-pause
+REM pause
