@@ -20,6 +20,13 @@ IF EXIST "819205.json" (
 	move 819205* %foldername%
 	copy %foldername%\819205-swarfarm.json .
 )
+IF EXIST "2263709.json" ( 
+	if NOT EXIST "%foldername%" (
+		mkdir %foldername%
+	)
+	move 2263709* %foldername%
+	copy %foldername%\2263709-swarfarm.json 819205-swarfarm.json
+)
 
 cd %CurDir%
 python.exe sw.py
@@ -28,8 +35,6 @@ if not %ERRORLEVEL% == 0 (
    pause
    exit /b 1
 )
-REM emeditor monster.tsv runes.tsv skill.tsv
-REM emeditor monster.tsv runes.tsv
 
 IF EXIST "C:\Users\hhara\OneDrive\SWProxy-windows" (
 	start C:\Users\hhara\OneDrive\test.xlsx
