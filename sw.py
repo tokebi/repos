@@ -23,6 +23,7 @@ class MAIN:
 		self.last_login = self.data.getLastLogin()
 		self.outputUnitList()
 		self.outputCraftItemList()
+		self.outputInventoryList()
 		# Excelo—Í
 		self.outputExcel.save()
 
@@ -292,6 +293,24 @@ class MAIN:
 				,craftItem.getType()
 			]
 			self.outputExcel.writeCraftItemData(arr)
+			no+=1
+
+	# 
+	# İŒÉî•ñ‚Ìˆ—
+	# 
+	def outputInventoryList(self):
+		no = 1
+		for inventory in self.data.getInventoryList():
+			if inventory.getQuantity() == 0:
+				continue;
+			arr = [
+				no
+				,inventory.getMasterType()
+				,inventory.getMasterId()
+				,inventory.getJName()
+				,inventory.getQuantity()
+			]
+			self.outputExcel.writeInventoryData(arr)
 			no+=1
 
 if __name__ == "__main__":

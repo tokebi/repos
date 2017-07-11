@@ -47,6 +47,7 @@ class SwOutputExcel:
 		self.__initMonster()
 		self.__initRunes()
 		self.__initCraftItems()
+		self.__initInventoryItems()
 
 	#
 	# モンスター用__init__
@@ -281,6 +282,34 @@ class SwOutputExcel:
 		self.__rowCraftItems += 1
 
 
+	#
+	# 在庫情報用__init__
+	#
+	def __initInventoryItems(self):
+		self.__rowInventoryItems = 1
+		self.__inventoryItems   = self.__book.add_worksheet('inventoryItem')
+		self.__initInventoryExcel()
+
+	#
+	# 在庫情報Worksheetのヘッダ作成
+	#
+	def __initInventoryExcel(self):
+		arr = [
+			['No' , 0,  1, self.headerFormat2],
+			['在庫種類' ,  0,  1, self.headerFormat2],
+			['在庫ID'   ,  0,  1, self.headerFormat2],
+			['在庫名'   , 40,  1, self.headerFormat2],
+			['在庫数'   ,  0,  1, self.headerFormat2],
+		]
+		self.__writeHeader(self.__inventoryItems, arr, self.__rowInventoryItems-1)
+
+	#
+	# 在庫情報Worksheetへ出力
+	#
+	def writeInventoryData(self, arr):
+		formatHash = {}
+		self.__writeData(self.__inventoryItems, arr, self.__rowInventoryItems, formatHash)
+		self.__rowInventoryItems += 1
 
 
 	#

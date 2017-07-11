@@ -9,6 +9,7 @@ import sys
 from swRune import SwRune
 from swUnit import SwUnit
 from swCraftItem import SwCraftItem
+from swInventory import SwInventory
 
 class SwData:
 	def __init__(self):
@@ -16,6 +17,7 @@ class SwData:
 		self.runeList = []
 		self.unitList = []
 		self.craftItemList = []
+		self.inventoryList = []
 		# ルーンデータの取得
 		for rune in self.data["runes"]:
 			self.runeList.append(SwRune(rune))
@@ -26,8 +28,10 @@ class SwData:
 			self.runeList.extend(swUnit.getRunes())
 		# 練磨・ジェムの取得
 		for craftItem in sorted(self.data["rune_craft_item_list"], key=lambda x:(x['craft_type_id'],x['craft_type'])):
-			swCraftItem = SwCraftItem(craftItem)
-			self.craftItemList.append(swCraftItem)
+			self.craftItemList.append(SwCraftItem(craftItem))
+		# 在庫情報の取得
+		for inventoryInfo in self.data["inventory_info"]:
+			self.inventoryList.append(SwInventory(inventoryInfo))
 
 	#
 	# JSONファイルの読み込み
@@ -68,3 +72,9 @@ class SwData:
 	#
 	def getCraftItemList(self):
 		return self.craftItemList
+
+	#
+	# 在庫情報を返す
+	#
+	def getInventoryList(self):
+		return self.inventoryList
