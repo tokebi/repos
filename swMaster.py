@@ -47,7 +47,7 @@ class SwMaster:
 	#
 	# モンスターの日本語名を返す
 	#
-	def getMonsterName(self, id, attribute_id):
+	def getMonsterName(self, id):
 		if id in self.__swMonstersNameMap:
 			return self.__swMonstersNameMap[id]["name"]
 

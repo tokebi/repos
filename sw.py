@@ -258,8 +258,7 @@ class MAIN:
 	# モンスター名の日本語を取得
 	#
 	def getJName(self, unit):
-		jname = self.mst.getMonsterName(
-			unit.getUnitMasterId(), unit.getAttribute)
+		jname = self.mst.getMonsterName(unit.getUnitMasterId())
 		if jname in self.unit_master_hash:
 			# 既に同じ名前のモンスターがいたら
 			self.unit_master_hash[jname] += 1
