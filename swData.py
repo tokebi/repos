@@ -30,7 +30,7 @@ class SwData:
 		for craftItem in sorted(self.data["rune_craft_item_list"], key=lambda x:(x['craft_type_id'],x['craft_type'])):
 			self.craftItemList.append(SwCraftItem(craftItem))
 		# İŒÉî•ñ‚Ìæ“¾
-		for inventoryInfo in self.data["inventory_info"]:
+		for inventoryInfo in sorted(self.data["inventory_info"], key=lambda x:(x['item_master_type'],x['item_master_id'])):
 			self.inventoryList.append(SwInventory(inventoryInfo))
 
 	#
