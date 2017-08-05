@@ -5,13 +5,13 @@ import xlsxwriter
 import os.path
 
 class SwOutputExcel:
-	def __init__(self):
+	def __init__(self, dataID):
 		if os.path.exists("C:\\Users\\hhara\\OneDrive"):
 			baseExcel = "C:\\Users\\hhara\\OneDrive\\"
 		else:
 			baseExcel = "C:\\Users\\tokebi\\OneDrive\\"
 		# sw_dra/xlsmの「モンスター」シート
-		self.__book = xlsxwriter.Workbook(baseExcel + 'test.xlsx');
+		self.__book = xlsxwriter.Workbook(baseExcel + 'test' + dataID + '.xlsx');
 		self.format = self.__book.add_format({
 			'border': 1,
 			})

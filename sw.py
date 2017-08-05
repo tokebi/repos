@@ -10,15 +10,16 @@ import swOutputExcel
 import swToukei
 
 class MAIN:
-	def __init__(self):
+	def __init__(self, dataID):
 		#マスターデータの初期化
 		self.mst = swMaster.SwMaster.getInstance()
 		self.toukei = swToukei.SwToukei()
 		self.initRune = swInitRune.SwInitRune()
-		self.outputExcel = swOutputExcel.SwOutputExcel()
+		self.outputExcel = swOutputExcel.SwOutputExcel(dataID)
 		self.unit_master_hash = {}
-		self.data = swData.SwData()
-		
+		self.dataID = dataID
+		self.data = swData.SwData(self.dataID)
+
 	def main(self):
 		self.last_login = self.data.getLastLogin()
 		self.outputUnitList()
@@ -313,6 +314,6 @@ class MAIN:
 			no+=1
 
 if __name__ == "__main__":
-	a = MAIN()
+	a = MAIN(sys.argv[1])
 	a.main()
 

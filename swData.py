@@ -12,8 +12,8 @@ from swCraftItem import SwCraftItem
 from swInventory import SwInventory
 
 class SwData:
-	def __init__(self):
-		self.data = self.ReadJson("819205-swarfarm.json")
+	def __init__(self, dataID):
+		self.data = self.ReadJson(dataID + "-swarfarm.json")
 		self.runeList = []
 		self.unitList = []
 		self.craftItemList = []
@@ -45,7 +45,7 @@ class SwData:
 			if os.path.exists(targetFile):
 				f = codecs.open(targetFile, "r", "utf-8")
 		if f is None:
-			print("819205-swarfarm.jsonÇ™ë∂ç›ÇµÇ»Ç¢")
+			print(filename + "Ç™ë∂ç›ÇµÇ»Ç¢")
 			os.exit()
 		return json.load(f)
 
