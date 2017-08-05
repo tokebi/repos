@@ -4,11 +4,12 @@
 import datetime
 
 class SwToukei:
-	def __init__(self):
+	def __init__(self, dataID):
 		self.__rune6 = 0
 		self.__rune5 = 0
 		self.__monster6 = 7*[0]
 		self.__monster5 = 7*[0]
+		self.__dataID = dataID
 
 	#
 	# モンスター統計の処理
@@ -34,7 +35,7 @@ class SwToukei:
 	# 統計データ取得
 	#
 	def outputData(self):
-		f = open("tokei.tsv", "a")
+		f = open("tokei" + self.__dataID + ".tsv", "a")
 		f.write(datetime.date.today().strftime("%Y/%m/%d") + "\t")
 		f.write(str(self.__monster6[0]) + "\t")
 		f.write(str(self.__monster6[1]) + "\t")

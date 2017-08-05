@@ -13,7 +13,7 @@ class MAIN:
 	def __init__(self, dataID):
 		#マスターデータの初期化
 		self.mst = swMaster.SwMaster.getInstance()
-		self.toukei = swToukei.SwToukei()
+		self.toukei = swToukei.SwToukei(dataID)
 		self.initRune = swInitRune.SwInitRune()
 		self.outputExcel = swOutputExcel.SwOutputExcel(dataID)
 		self.unit_master_hash = {}
