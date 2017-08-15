@@ -53,7 +53,7 @@ class SwOutputExcel:
 	# モンスター用__init__
 	#
 	def __initMonster(self):
-		self.__rowMonster = 2
+		self.__rowMonster = 1
 		self.__stockMonster = []
 		self.__monster = self.__book.add_worksheet('mons')
 		self.__initMonsterExcel()
@@ -62,54 +62,52 @@ class SwOutputExcel:
 	# モンスターWorksheetのヘッダ作成
 	#
 	def __initMonsterExcel(self):
-		for var in range(2, 36):
-			self.__monster.write(0, var, str(var))
 		arr = [
-			['No'          , 0,  1, self.headerFormat],
-			['ID'          , 0,  1, self.headerFormat],
-			['名前'        , 0,  1, self.headerFormat],
-			['レベル'      , 0,  1, self.headerFormat],
-			['★'          , 0,  1, self.headerFormat],
-			['属性'        , 0,  1, self.headerFormat],
-			['体力'        , 0,  1, self.headerFormat],
-			['攻撃'        , 0,  1, self.headerFormat],
-			['防御'        , 0,  1, self.headerFormat],
-			['速度'        , 0,  1, self.headerFormat],
-			['クリ率'      , 0,  1, self.headerFormat],
-			['クリダメ'    , 0,  1, self.headerFormat],
-			['抵抗'        , 0,  1, self.headerFormat],
-			['的中'        , 0,  1, self.headerFormat],
-			['作成日'      , 0,  1, self.headerFormat],
-			['ルーン1'     , 0,  1, self.headerFormat],
-			['ルーン2'     , 0,  1, self.headerFormat],
-			['ルーン3'     , 0,  1, self.headerFormat],
-			['ルーン4'     , 0,  1, self.headerFormat],
-			['ルーン5'     , 0,  1, self.headerFormat],
-			['ルーン6'     , 0,  1, self.headerFormat],
-			['種類'        , 0,  1, self.headerFormat],
-			['WB期待値'    , 0,  1, self.headerFormat],
-			['S1レベル'    , 0,  1, self.headerFormat],
-			['S1MAX'       , 0,  1, self.headerFormat],
-			['S2レベル'    , 0,  1, self.headerFormat],
-			['S2MAX'       , 0,  1, self.headerFormat],
-			['S3レベル'    , 0,  1, self.headerFormat],
-			['S3MAX'       , 0,  1, self.headerFormat],
-			['S4レベル'    , 0,  1, self.headerFormat],
-			['S4MAX'       , 0,  1, self.headerFormat],
-			['覚醒名称'    , 0,  1, self.headerFormat],
-			['スキル倍率1' , 0,  1, self.headerFormat],
-			['スキル倍率2' , 0,  1, self.headerFormat],
-			['スキル倍率3' , 0,  1, self.headerFormat],
-			['スキル倍率4' , 0,  1, self.headerFormat],
-			['スキル短縮1' , 0,  1, self.headerFormat],
-			['スキル短縮2' , 0,  1, self.headerFormat],
-			['スキル短縮3' , 0,  1, self.headerFormat],
-			['スキル短縮4' , 0,  1, self.headerFormat],
-			['スキル内容1' , 0,  1, self.headerFormat],
-			['スキル内容2' , 0,  1, self.headerFormat],
-			['スキル内容3' , 0,  1, self.headerFormat],
-			['スキル内容4' , 0,  1, self.headerFormat],
-			['リーダスキル', 0,  1, self.headerFormat],
+			['No'          , 0,  0, self.headerFormat],
+			['ID'          , 0,  0, self.headerFormat],
+			['名前'        , 0,  0, self.headerFormat],
+			['レベル'      , 0,  0, self.headerFormat],
+			['★'          , 0,  0, self.headerFormat],
+			['属性'        , 0,  0, self.headerFormat],
+			['体力'        , 0,  0, self.headerFormat],
+			['攻撃'        , 0,  0, self.headerFormat],
+			['防御'        , 0,  0, self.headerFormat],
+			['速度'        , 0,  0, self.headerFormat],
+			['クリ率'      , 0,  0, self.headerFormat],
+			['クリダメ'    , 0,  0, self.headerFormat],
+			['抵抗'        , 0,  0, self.headerFormat],
+			['的中'        , 0,  0, self.headerFormat],
+			['作成日'      , 0,  0, self.headerFormat],
+			['ルーン1'     , 0,  0, self.headerFormat],
+			['ルーン2'     , 0,  0, self.headerFormat],
+			['ルーン3'     , 0,  0, self.headerFormat],
+			['ルーン4'     , 0,  0, self.headerFormat],
+			['ルーン5'     , 0,  0, self.headerFormat],
+			['ルーン6'     , 0,  0, self.headerFormat],
+			['種類'        , 0,  0, self.headerFormat],
+			['WB期待値'    , 0,  0, self.headerFormat],
+			['S1レベル'    , 0,  0, self.headerFormat],
+			['S1MAX'       , 0,  0, self.headerFormat],
+			['S2レベル'    , 0,  0, self.headerFormat],
+			['S2MAX'       , 0,  0, self.headerFormat],
+			['S3レベル'    , 0,  0, self.headerFormat],
+			['S3MAX'       , 0,  0, self.headerFormat],
+			['S4レベル'    , 0,  0, self.headerFormat],
+			['S4MAX'       , 0,  0, self.headerFormat],
+			['覚醒名称'    , 0,  0, self.headerFormat],
+			['スキル倍率1' , 0,  0, self.headerFormat],
+			['スキル倍率2' , 0,  0, self.headerFormat],
+			['スキル倍率3' , 0,  0, self.headerFormat],
+			['スキル倍率4' , 0,  0, self.headerFormat],
+			['スキル短縮1' , 0,  0, self.headerFormat],
+			['スキル短縮2' , 0,  0, self.headerFormat],
+			['スキル短縮3' , 0,  0, self.headerFormat],
+			['スキル短縮4' , 0,  0, self.headerFormat],
+			['スキル内容1' , 0,  0, self.headerFormat],
+			['スキル内容2' , 0,  0, self.headerFormat],
+			['スキル内容3' , 0,  0, self.headerFormat],
+			['スキル内容4' , 0,  0, self.headerFormat],
+			['リーダスキル', 0,  0, self.headerFormat],
 		]
 		self.__writeHeader(self.__monster, arr, self.__rowMonster-1)
 
@@ -316,6 +314,8 @@ class SwOutputExcel:
 	# Excelワークブックの保存
 	#
 	def save(self):
+		for var in range(0, 36):
+			self.__monster.write(self.__rowMonster, var, str(var))
 		self.__book.close()
 
 	#

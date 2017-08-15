@@ -168,7 +168,16 @@ class ConvertMonster:
 	KAKU_MONSTER	= 2
 	KIND_ATTACK		= 5
 	LSKILL_COMMENT	= 10
-	
+	BASE_STAR		= 51
+	BASE_CON		= 52
+	BASE_ATK		= 53
+	BASE_DEF		= 54
+	BASE_SPD		= 55
+	BASE_CRI		= 56
+	BASE_DMG		= 57
+	BASE_TEK		= 58
+	BASE_TEI		= 59
+
 	def __init__(self):
 		self.outf = open("swMonstersName.py", "w")
 		self.inb = book.sheet_by_name('モンスター')
@@ -197,6 +206,17 @@ class ConvertMonster:
 			kname = self.inb.cell(row, self.KAKU_MONSTER).value
 			kind  = self.inb.cell(row, self.KIND_ATTACK).value
 			lskill= self.inb.cell(row, self.LSKILL_COMMENT).value
+			baseStar= self.inb.cell(row, self.BASE_STAR).value
+			baseCon = self.inb.cell(row, self.BASE_CON).value
+			baseAtk = self.inb.cell(row, self.BASE_ATK).value
+			baseDef = self.inb.cell(row, self.BASE_DEF).value
+			baseSpd = self.inb.cell(row, self.BASE_SPD).value
+			baseCri = self.inb.cell(row, self.BASE_CRI).value
+			baseDmg = self.inb.cell(row, self.BASE_DMG).value
+			baseTek = self.inb.cell(row, self.BASE_TEK).value
+			baseTei = self.inb.cell(row, self.BASE_TEI).value
+			monster = Monster(baseCon*15, baseAtk, baseDef, baseStar)
+			
 			if not isinstance(lskill, str):
 				lskill = ""
 			try:
@@ -206,17 +226,75 @@ class ConvertMonster:
 				line = line + '				"name":"'  + name  + '"' + "\n"
 				line = line + '				,"kname":"' + kname + '"' + "\n"
 				line = line + '				,"kind":"'  + kind  + '"' + "\n"
-				line = line + '				,"lskill":"'  + lskill  + '"' + "\n"
+				line = line + '				,"lskill":"'  + lskill + '"' + "\n"
+				line = line + '				,"con":'  + str(monster.calculate_actual_stat(baseCon)*15) + '' + "\n"
+				line = line + '				,"atk":'  + str(monster.calculate_actual_stat(baseAtk)) + '' + "\n"
+				line = line + '				,"def":'  + str(monster.calculate_actual_stat(baseDef)) + '' + "\n"
+				line = line + '				,"spd":'  + str(int(baseSpd)) + '' + "\n"
+				line = line + '				,"cri":'  + str(int(baseCri)) + '' + "\n"
+				line = line + '				,"dmg":'  + str(int(baseDmg)) + '' + "\n"
+				line = line + '				,"tek":'  + str(int(baseTek)) + '' + "\n"
+				line = line + '				,"tei":'  + str(int(baseTei)) + '' + "\n"
+				
 				line = line + '			},'
 				lines.append(line)
 			except:
 				print("変換エラー：id=" + id )
+				import traceback
+				traceback.print_exc()
+				import sys
+				sys.exit()
 		#for line in sorted(lines):
 		for line in lines:
 			self.outf.write(line +"\n")
 		self.outf.write('		}' +"\n")
 		self.outf.close()
 	
+class Monster:
+	def __init__(self, base_hp, base_attack, base_defense, base_stars):
+		self.base_hp      = base_hp
+		self.base_attack  = base_attack
+		self.base_defense = base_defense
+		self.base_stars   = base_stars
+	#
+	# _calculate_actual_statを呼び出すラッパー
+	#
+	def calculate_actual_stat(self, stat):
+		return self._calculate_actual_stat(stat, 6, 40)
+	#
+	# header.models.pyの180行目の関数をそのまま移植
+	#
+	def _calculate_actual_stat(self, stat, grade, level):
+		max_lvl = 10 + grade * 5
+		
+		weight = float(self.base_hp / 15 + self.base_attack + self.base_defense)
+		base_value = round((stat * (105 + 15 * self.base_stars)) / weight, 0)
+		
+		# Magic multipliers taken from summoner's war wikia calculator. Used to calculate stats for lvl 1 and lvl MAX
+		magic_multipliers = [
+			{'1': 1.0, 'max': 1.9958},
+			{'1': 1.5966, 'max': 3.03050646},
+			{'1': 2.4242774, 'max': 4.364426603},
+			{'1': 3.4914444, 'max': 5.941390935},
+			{'1': 4.7529032, 'max': 8.072330795},
+			{'1': 6.4582449, 'max': 10.97901633},
+		]
+		
+		stat_lvl_1 = round(base_value * magic_multipliers[grade - 1]['1'], 0)
+		stat_lvl_max = round(base_value * magic_multipliers[grade - 1]['max'], 0)
+		
+		if level == 1:
+			return int(stat_lvl_1)
+		elif level == max_lvl:
+			return int(stat_lvl_max)
+		else:
+			# Use exponential function in format value=ae^(bx)
+			# a=stat_lvl_1*e^(-b)
+			from math import log, exp
+			b_coeff = log(stat_lvl_max / stat_lvl_1) / (max_lvl - 1)
+			
+			return int(round((stat_lvl_1 * exp(-b_coeff)) * exp(b_coeff * level)))
+
 if __name__ == "__main__":
 	# sw_dra/xlsmの「モンスター」シート
 	book = xlrd.open_workbook('C:\\Users\\hhara\\OneDrive\\sw_dra.xlsm')

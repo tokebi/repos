@@ -45,6 +45,15 @@ class SwUnit:
 			else:
 				print(k)
 				sys.exit()
+		self.data["con"            ] = self.mst.getMonsterCon(self.data["unit_master_id"]) / 15
+		self.data["atk"            ] = self.mst.getMonsterAtk(self.data["unit_master_id"])
+		self.data["def"            ] = self.mst.getMonsterDef(self.data["unit_master_id"])
+		self.data["spd"            ] = self.mst.getMonsterSpd(self.data["unit_master_id"])
+		self.data["critical_rate"  ] = self.mst.getMonsterCri(self.data["unit_master_id"])
+		self.data["critical_damage"] = self.mst.getMonsterDame(self.data["unit_master_id"])
+		self.data["resist"         ] = self.mst.getMonsterResist(self.data["unit_master_id"])
+		self.data["accuracy"       ] = self.mst.getMonsterAccuracy(self.data["unit_master_id"])
+		
 		runes = []
 		if isinstance(self.data['runes'], list):
 			for rune in self.data['runes']:
@@ -65,29 +74,6 @@ class SwUnit:
 			for dummy in range(1, 4-len(skills)+1):
 				skills.append(SwSkill([0,0]))
 		self.data['skills'] = skills
-		# 値をレベル最大にする
-		arr = {
-			# unit_id     con  atk def spd c  d  的 抵 
-			1426288509 : [ 9555,769,571,101,15,50,15,0], # 火天舞姫
-			1840758667 : [ 8730,736,659,102,15,50,15,0], # 水カンフーガール
-			1833892363 : [ 9885,637,681,101,15,50,40,0], # 闇デスナイト
-			1293724998 : [ 7575,801,505,104,15,50,15,0], # 闇ハーピー
-			1715431680 : [10380,790,329,102,15,50,15,0], # 光アマゾン
-			1426259960 : [ 7575,845,461,105,15,50,15,0], # 風マジックアーチャー
-			 589620128 : [ 9225,845,351,102,15,50,15,0], # 風アマゾン
-			 474538221 : [ 9555,900,439,103,15,50,15,0], # 風ピエレット
-			1426256885 : [ 8235,736,527, 99,30,50,15,0], # 風ドランクンマスター
-		}
-		for k, v in arr.items():
-			if self.data["unit_id"] == k:
-				self.data["con"            ] = v[0] / 15
-				self.data["atk"            ] = v[1]
-				self.data["def"            ] = v[2]
-				self.data["spd"            ] = v[3]
-				self.data["critical_rate"  ] = v[4]
-				self.data["critical_damage"] = v[5]
-				self.data["resist"         ] = v[6]
-				self.data["accuracy"       ] = v[7]
 
 	#
 	# 的中を取得

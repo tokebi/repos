@@ -44,33 +44,81 @@ class SwMaster:
 	def getEffectTypeName(self, id):
 		return self.__swEffectTypeMap[id]
 
+	def __getMonsterNameMapData(self, id, key):
+		if id in self.__swMonstersNameMap:
+			return self.__swMonstersNameMap[id][key]
+
 	#
 	# モンスターの日本語名を返す
 	#
 	def getMonsterName(self, id):
-		if id in self.__swMonstersNameMap:
-			return self.__swMonstersNameMap[id]["name"]
+		return self.__getMonsterNameMapData(id, "name")
 
 	#
 	# モンスターの覚醒名称名を返す
 	#
 	def getKakuseiName(self, id):
-		if id in self.__swMonstersNameMap:
-			return self.__swMonstersNameMap[id]["kname"]
+		return self.__getMonsterNameMapData(id, "kname")
 
 	#
 	# モンスターの攻撃種類を返す
 	#
 	def getMonsterTypeName(self, id):
-		if id in self.__swMonstersNameMap:
-			return self.__swMonstersNameMap[id]["kind"]
+		return self.__getMonsterNameMapData(id, "kind")
 
 	#
 	# モンスターのリーダスキルを返す
 	#
 	def getLSkillComment(self, id):
-		if id in self.__swMonstersNameMap:
-			return self.__swMonstersNameMap[id]["lskill"]
+		return self.__getMonsterNameMapData(id, "lskill")
+
+	#
+	# モンスターのリーダスキルを返す
+	#
+	def getMonsterCon(self, id):
+		return self.__getMonsterNameMapData(id, "con")
+
+	#
+	# モンスターのリーダスキルを返す
+	#
+	def getMonsterAtk(self, id):
+		return self.__getMonsterNameMapData(id, "atk")
+
+	#
+	# モンスターのリーダスキルを返す
+	#
+	def getMonsterDef(self, id):
+		return self.__getMonsterNameMapData(id, "def")
+
+	#
+	# モンスターのリーダスキルを返す
+	#
+	def getMonsterSpd(self, id):
+		return self.__getMonsterNameMapData(id, "spd")
+
+	#
+	# モンスターのリーダスキルを返す
+	#
+	def getMonsterCri(self, id):
+		return self.__getMonsterNameMapData(id, "cri")
+
+	#
+	# モンスターのリーダスキルを返す
+	#
+	def getMonsterDame(self, id):
+		return self.__getMonsterNameMapData(id, "dmg")
+
+	#
+	# モンスターのリーダスキルを返す
+	#
+	def getMonsterResist(self, id):
+		return self.__getMonsterNameMapData(id, "tek")
+
+	#
+	# モンスターのリーダスキルを返す
+	#
+	def getMonsterAccuracy(self, id):
+		return self.__getMonsterNameMapData(id, "tei")
 
 	#
 	# 出力対象外のモンスターを返す
