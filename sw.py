@@ -12,31 +12,30 @@ import swToukei
 class MAIN:
 	def __init__(self, dataID):
 		#マスターデータの初期化
-		self.mst = swMaster.SwMaster.getInstance()
-		self.toukei = swToukei.SwToukei(dataID)
-		self.initRune = swInitRune.SwInitRune()
-		self.outputExcel = swOutputExcel.SwOutputExcel(dataID)
-		self.unit_master_hash = {}
-		self.dataID = dataID
-		self.data = swData.SwData(self.dataID)
+		self.__mst = swMaster.SwMaster.getInstance()
+		self.__toukei = swToukei.SwToukei(dataID)
+		self.__initRune = swInitRune.SwInitRune()
+		self.__outputExcel = swOutputExcel.SwOutputExcel(dataID)
+		self.__unitMasterHash = {}
+		self.__data = swData.SwData(dataID)
 
 	def main(self):
-		self.last_login = self.data.getLastLogin()
-		self.outputUnitList()
-		self.outputCraftItemList()
-		self.outputInventoryList()
+		self.__lastLogin = self.__data.getLastLogin()
+		self.__outputUnitList()
+		self.__outputCraftItemList()
+		self.__outputInventoryList()
 		# Excel出力
-		self.outputExcel.save()
+		self.__outputExcel.save()
 
 	# 
 	# モンスター・ルーンデータ処理
 	# 
-	def outputUnitList(self):
+	def __outputUnitList(self):
 		no = 1
-		for unit in self.data.getMonsterList():
+		for unit in self.__data.getMonsterList():
 			#print(unit.getUnitId())
 			# 日本語モンスター名を設定
-			jname = self.getJName(unit)
+			jname = self.__getJName(unit)
 			unit.setJName(jname)
 			if unit.isNotOutputMonster():
 				continue
@@ -71,10 +70,10 @@ class MAIN:
 				if isFound == False:
 					arr.append(1)
 			# モンスタータイプ・WB期待値の処理
-			arr.extend(self.outputMonsterType(unit))
+			arr.extend(self.__outputMonsterType(unit))
 			
 			# 統計処理
-			self.toukei.addMonster(unit.getClass(), unit.getLevel(), unit.getAttribute())
+			self.__toukei.addMonster(unit.getClass(), unit.getLevel(), unit.getAttribute())
 			# スキルレベル・スキルMAXレベル
 			for skill in unit.getSkills():
 				arr.append(skill.getLevel())
@@ -92,22 +91,22 @@ class MAIN:
 				arr.append(skill.getSkillComment())
 			# リーダスキル
 			arr.append(unit.getLSkillComment())
-			self.outputExcel.writeMonsterData(arr)
-			self.outputExcel.writeMonsterNextRow()
+			self.__outputExcel.writeMonsterData(arr)
+			self.__outputExcel.writeMonsterNextRow()
 		# 未装備の場合のルーンを作成
 		noRune = [""] * 35
 		noRune[0] = 1
 		noRune[1] = 1
-		self.outputExcel.writeRuneData(noRune)
-		self.outputExcel.writeRuneNextRow()
+		self.__outputExcel.writeRuneData(noRune)
+		self.__outputExcel.writeRuneNextRow()
 		# ルーンを生成
 		no = 2
-		for rune in self.data.getRuneList():
-			self.outputRune(rune, no);
-			self.outputExcel.writeRuneNextRow()
+		for rune in self.__data.getRuneList():
+			self.__outputRune(rune, no);
+			self.__outputExcel.writeRuneNextRow()
 			no += 1
 		# 統計データ出力
-		self.toukei.outputData()
+		self.__toukei.outputData()
 
 	#
 	# モンスター種類データを出力
@@ -123,12 +122,12 @@ class MAIN:
 	#10:ダメ
 	#11:抵抗
 	#12:的中
-	def outputMonsterType(self, unit):
+	def __outputMonsterType(self, unit):
 		# ★数とレベル
 		wbCalc = unit.getLevel() * unit.getClass() * 10
 		# ルーン
 		unit_id = unit.getUnitMasterId()
-		type = self.mst.getMonsterTypeName(unit_id)
+		type = self.__mst.getMonsterTypeName(unit_id)
 		for rune in unit.getRunes():
 			# ★数と強化数
 			wbCalc = wbCalc + rune.getClass() + rune.getUpgradeCurr() * 10
@@ -168,7 +167,7 @@ class MAIN:
 	#
 	# ルーンテーブルを出力
 	#
-	def outputRune(self, rune, no):
+	def __outputRune(self, rune, no):
 		arr = []
 		arr.append(no)
 		arr.append(rune.getRuneId())
@@ -183,12 +182,12 @@ class MAIN:
 		# サブメイン効果
 		arr.append(rune.getEffectTypeName("pre"))
 		arr.append(rune.getEffectValue("pre"))
-		self.setExcelColor(rune.getEffectTypeName("pre"), 'green')
+		self.__setExcelColor(rune.getEffectTypeName("pre"), 'green')
 		# オプ１～４効果
-		self.getSecEff(arr, rune, 0)
-		self.getSecEff(arr, rune, 1)
-		self.getSecEff(arr, rune, 2)
-		self.getSecEff(arr, rune, 3)
+		self.__getSecEff(arr, rune, 0)
+		self.__getSecEff(arr, rune, 1)
+		self.__getSecEff(arr, rune, 2)
+		self.__getSecEff(arr, rune, 3)
 		# 効率
 		arr.append(rune.getEfficiency())
 		# Excel出力
@@ -196,7 +195,7 @@ class MAIN:
 		arr.append(rune.getNokoriSumOpKyoka())
 		#arre = arr[:]
 		# Excel用
-		row = str(self.outputExcel.getRuneRone()+1)
+		row = str(self.__outputExcel.getRuneRone()+1)
 		arr.append('=IF(J' + row + '="体%" ,K' + row + ',   IF(L' + row + '="体%" ,M' + row + ',   IF(N' + row + '="体%" ,O' + row + ',   IF(P' + row + '="体%" ,Q' + row + ',   IF(R' + row + '="体%" ,S' + row + ',0)))))')	# 体%有無
 		arr.append('=IF(J' + row + '="攻%" ,K' + row + ',   IF(L' + row + '="攻%" ,M' + row + ',   IF(N' + row + '="攻%" ,O' + row + ',   IF(P' + row + '="攻%" ,Q' + row + ',   IF(R' + row + '="攻%" ,S' + row + ',0)))))')	# 攻%有無
 		arr.append('=IF(J' + row + '="防%" ,K' + row + ',   IF(L' + row + '="防%" ,M' + row + ',   IF(N' + row + '="防%" ,O' + row + ',   IF(P' + row + '="防%" ,Q' + row + ',   IF(R' + row + '="防%" ,S' + row + ',0)))))')	# 防%有無
@@ -212,60 +211,60 @@ class MAIN:
 		
 		arr.append(uri)
 		arr.append(uricomment)
-		arr.append(self.initRune.getDropRank(rune, self.last_login))
-		arr.append(self.initRune.getDropDate(rune))
+		arr.append(self.__initRune.getDropRank(rune, self.__lastLogin))
+		arr.append(self.__initRune.getDropDate(rune))
 
 		# ルーン統計処理
-		self.toukei.addRune(rune.getClass())
-		self.outputExcel.writeRuneData(arr)
+		self.__toukei.addRune(rune.getClass())
+		self.__outputExcel.writeRuneData(arr)
 
 	#
 	# サブオプを取得
 	#
-	def getSecEff(self, arr, rune, effno):
+	def __getSecEff(self, arr, rune, effno):
 		if len(rune.getSecEff()) >= effno+1:
 			rune.setReaDo((effno+1) * 3)
 			arr.append(rune.getEffectTypeName(effno))
 			arr.append(rune.getEffectValue(effno) + 
 				rune.getRenmaEffectValue(effno))
 			if rune.getRenmaEffectValue(effno) > 0:
-				self.outputExcel.setRuneComment(
+				self.__outputExcel.setRuneComment(
 					len(arr)-1,
 					str(rune.getEffectValue(effno)) + "+" +
 					str(rune.getRenmaEffectValue(effno)))
 		else:
 			arr.extend(["",""])
 
-	def setExcelColor(self, type, color):
+	def __setExcelColor(self, type, color):
 		# オプ効果が%系ならばExcelセルを緑色にする
 		if type == "体%":
-			self.outputExcel.setRuneColorYellow(22, color)
+			self.__outputExcel.setRuneColorYellow(22, color)
 		elif type == "攻%":
-			self.outputExcel.setRuneColorYellow(23, color)
+			self.__outputExcel.setRuneColorYellow(23, color)
 		elif type == "防%":
-			self.outputExcel.setRuneColorYellow(24, color)
+			self.__outputExcel.setRuneColorYellow(24, color)
 		elif type == "速":
-			self.outputExcel.setRuneColorYellow(25, color)
+			self.__outputExcel.setRuneColorYellow(25, color)
 		elif type == "クリ":
-			self.outputExcel.setRuneColorYellow(26, color)
+			self.__outputExcel.setRuneColorYellow(26, color)
 		elif type == "ダメ":
-			self.outputExcel.setRuneColorYellow(27, color)
+			self.__outputExcel.setRuneColorYellow(27, color)
 		elif type == "抵抗":
-			self.outputExcel.setRuneColorYellow(28, color)
+			self.__outputExcel.setRuneColorYellow(28, color)
 		elif type == "的中":
-			self.outputExcel.setRuneColorYellow(29, color)
+			self.__outputExcel.setRuneColorYellow(29, color)
 
 	#
 	# モンスター名の日本語を取得
 	#
-	def getJName(self, unit):
-		jname = self.mst.getMonsterName(unit.getUnitMasterId())
-		if jname in self.unit_master_hash:
+	def __getJName(self, unit):
+		jname = self.__mst.getMonsterName(unit.getUnitMasterId())
+		if jname in self.__unitMasterHash:
 			# 既に同じ名前のモンスターがいたら
-			self.unit_master_hash[jname] += 1
-			jname = jname + "_" + str(self.unit_master_hash[jname])
+			self.__unitMasterHash[jname] += 1
+			jname = jname + "_" + str(self.__unitMasterHash[jname])
 		else:
-			self.unit_master_hash[jname] = 1
+			self.__unitMasterHash[jname] = 1
 		if (jname is None):
 			print("日本語名称が見つからない：ID=" + str(unit.getUnitMasterId()))
 			sys.exit()
@@ -274,9 +273,9 @@ class MAIN:
 	# 
 	# 練磨・ジェムの処理
 	# 
-	def outputCraftItemList(self):
+	def __outputCraftItemList(self):
 		no = 1
-		for craftItem in self.data.getCraftItemList():
+		for craftItem in self.__data.getCraftItemList():
 			arr = [
 				no
 				,craftItem.getCraftItemId()
@@ -292,15 +291,15 @@ class MAIN:
 				# 種類
 				,craftItem.getType()
 			]
-			self.outputExcel.writeCraftItemData(arr)
+			self.__outputExcel.writeCraftItemData(arr)
 			no+=1
 
 	# 
 	# 在庫情報の処理
 	# 
-	def outputInventoryList(self):
+	def __outputInventoryList(self):
 		no = 1
-		for inventory in self.data.getInventoryList():
+		for inventory in self.__data.getInventoryList():
 			if inventory.getQuantity() == 0:
 				continue;
 			arr = [
@@ -310,7 +309,7 @@ class MAIN:
 				,inventory.getJName()
 				,inventory.getQuantity()
 			]
-			self.outputExcel.writeInventoryData(arr)
+			self.__outputExcel.writeInventoryData(arr)
 			no+=1
 
 if __name__ == "__main__":

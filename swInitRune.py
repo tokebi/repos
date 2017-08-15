@@ -5,7 +5,7 @@ import math
 
 class SwInitRune:
 	def __init__(self):
-		self.hashInitRune = {};
+		self.__hashInitRune = {};
 		cnt = 0;
 		for line in open('initRune.tsv', 'r') :
 			if cnt > 0:
@@ -15,16 +15,16 @@ class SwInitRune:
 				val['dropdate'] = items[1]
 				val['upgrade']  = items[2]
 				val['droprank'] = items[3]
-				self.hashInitRune[key] = val
+				self.__hashInitRune[key] = val
 			cnt += 1
 	
 	def getDropRank(self, rune, lastLogin):
-		if rune.getRuneId() not in self.hashInitRune:
+		if rune.getRuneId() not in self.__hashInitRune:
 			initRune = {}
 			initRune['dropdate'] = lastLogin
 			initRune['upgrade']  = str(rune.getUpgradeCurr())
 			initRune['droprank'] = str(rune.getRank())
-			self.hashInitRune[rune.getRuneId()] = initRune
+			self.__hashInitRune[rune.getRuneId()] = initRune
 			# ファイルに追記
 			self.fw = open('initRune.tsv', 'a')
 			self.fw.write(str(rune.getRuneId()) + "	")
@@ -35,12 +35,12 @@ class SwInitRune:
 			self.fw.close()
 			print("初期ルーンを追加しました。" + str(rune.getRuneId()) )
 		else:
-			initRune = self.hashInitRune[rune.getRuneId()]
+			initRune = self.__hashInitRune[rune.getRuneId()]
 		if initRune['upgrade'] == "0":
 			return initRune['droprank']
 		else:
 			return initRune['droprank'] + "以下(" + initRune['upgrade'] + ")"
 
 	def getDropDate(self, rune):
-		initRune = self.hashInitRune[rune.getRuneId()]
+		initRune = self.__hashInitRune[rune.getRuneId()]
 		return initRune['dropdate']

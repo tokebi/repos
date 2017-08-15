@@ -12,35 +12,35 @@ class SwOutputExcel:
 			baseExcel = "C:\\Users\\tokebi\\OneDrive\\"
 		# sw_dra/xlsmの「モンスター」シート
 		self.__book = xlsxwriter.Workbook(baseExcel + 'test' + dataID + '.xlsx');
-		self.format = self.__book.add_format({
+		self.__format = self.__book.add_format({
 			'border': 1,
 			})
-		self.headerFormat = self.__book.add_format({
+		self.__headerFormat = self.__book.add_format({
 			'bold': 1,
 			'border': 1,
 			'align': 'center',
 			'valign': 'vcenter',
 			'fg_color': '#BFBFBF'})
-		self.headerFormat2 = self.__book.add_format({
+		self.__headerFormat2 = self.__book.add_format({
 			'bold': 1,
 			'border': 1,
 			'text_wrap': 1,
 			'align': 'center',
 			'valign': 'vcenter',
 			'fg_color': '#BFBFBF'})
-		self.perFormat = self.__book.add_format({
+		self.__perFormat = self.__book.add_format({
 			'border': 1,
 			'num_format': '0.00%'
 		})
-		self.shrinkFormat = self.__book.add_format({
+		self.__shrinkFormat = self.__book.add_format({
 			'border': 1,
 			'shrink': 1,
 		})
-		self.nonZeroFormat = self.__book.add_format({
+		self.__nonZeroFormat = self.__book.add_format({
 			'border': 1,
 			'num_format': '#;-#;"";@'
 		})
-		self.dateFormat = self.__book.add_format({
+		self.__dateFormat = self.__book.add_format({
 			'border': 1,
 			'num_format': 'yyyy/m/d h:mm'
 		})
@@ -63,51 +63,51 @@ class SwOutputExcel:
 	#
 	def __initMonsterExcel(self):
 		arr = [
-			['No'          , 0,  0, self.headerFormat],
-			['ID'          , 0,  0, self.headerFormat],
-			['名前'        , 0,  0, self.headerFormat],
-			['レベル'      , 0,  0, self.headerFormat],
-			['★'          , 0,  0, self.headerFormat],
-			['属性'        , 0,  0, self.headerFormat],
-			['体力'        , 0,  0, self.headerFormat],
-			['攻撃'        , 0,  0, self.headerFormat],
-			['防御'        , 0,  0, self.headerFormat],
-			['速度'        , 0,  0, self.headerFormat],
-			['クリ率'      , 0,  0, self.headerFormat],
-			['クリダメ'    , 0,  0, self.headerFormat],
-			['抵抗'        , 0,  0, self.headerFormat],
-			['的中'        , 0,  0, self.headerFormat],
-			['作成日'      , 0,  0, self.headerFormat],
-			['ルーン1'     , 0,  0, self.headerFormat],
-			['ルーン2'     , 0,  0, self.headerFormat],
-			['ルーン3'     , 0,  0, self.headerFormat],
-			['ルーン4'     , 0,  0, self.headerFormat],
-			['ルーン5'     , 0,  0, self.headerFormat],
-			['ルーン6'     , 0,  0, self.headerFormat],
-			['種類'        , 0,  0, self.headerFormat],
-			['WB期待値'    , 0,  0, self.headerFormat],
-			['S1レベル'    , 0,  0, self.headerFormat],
-			['S1MAX'       , 0,  0, self.headerFormat],
-			['S2レベル'    , 0,  0, self.headerFormat],
-			['S2MAX'       , 0,  0, self.headerFormat],
-			['S3レベル'    , 0,  0, self.headerFormat],
-			['S3MAX'       , 0,  0, self.headerFormat],
-			['S4レベル'    , 0,  0, self.headerFormat],
-			['S4MAX'       , 0,  0, self.headerFormat],
-			['覚醒名称'    , 0,  0, self.headerFormat],
-			['スキル倍率1' , 0,  0, self.headerFormat],
-			['スキル倍率2' , 0,  0, self.headerFormat],
-			['スキル倍率3' , 0,  0, self.headerFormat],
-			['スキル倍率4' , 0,  0, self.headerFormat],
-			['スキル短縮1' , 0,  0, self.headerFormat],
-			['スキル短縮2' , 0,  0, self.headerFormat],
-			['スキル短縮3' , 0,  0, self.headerFormat],
-			['スキル短縮4' , 0,  0, self.headerFormat],
-			['スキル内容1' , 0,  0, self.headerFormat],
-			['スキル内容2' , 0,  0, self.headerFormat],
-			['スキル内容3' , 0,  0, self.headerFormat],
-			['スキル内容4' , 0,  0, self.headerFormat],
-			['リーダスキル', 0,  0, self.headerFormat],
+			['No'          , 0,  0, self.__headerFormat],
+			['ID'          , 0,  0, self.__headerFormat],
+			['名前'        , 0,  0, self.__headerFormat],
+			['レベル'      , 0,  0, self.__headerFormat],
+			['★'          , 0,  0, self.__headerFormat],
+			['属性'        , 0,  0, self.__headerFormat],
+			['体力'        , 0,  0, self.__headerFormat],
+			['攻撃'        , 0,  0, self.__headerFormat],
+			['防御'        , 0,  0, self.__headerFormat],
+			['速度'        , 0,  0, self.__headerFormat],
+			['クリ率'      , 0,  0, self.__headerFormat],
+			['クリダメ'    , 0,  0, self.__headerFormat],
+			['抵抗'        , 0,  0, self.__headerFormat],
+			['的中'        , 0,  0, self.__headerFormat],
+			['作成日'      , 0,  0, self.__headerFormat],
+			['ルーン1'     , 0,  0, self.__headerFormat],
+			['ルーン2'     , 0,  0, self.__headerFormat],
+			['ルーン3'     , 0,  0, self.__headerFormat],
+			['ルーン4'     , 0,  0, self.__headerFormat],
+			['ルーン5'     , 0,  0, self.__headerFormat],
+			['ルーン6'     , 0,  0, self.__headerFormat],
+			['種類'        , 0,  0, self.__headerFormat],
+			['WB期待値'    , 0,  0, self.__headerFormat],
+			['S1レベル'    , 0,  0, self.__headerFormat],
+			['S1MAX'       , 0,  0, self.__headerFormat],
+			['S2レベル'    , 0,  0, self.__headerFormat],
+			['S2MAX'       , 0,  0, self.__headerFormat],
+			['S3レベル'    , 0,  0, self.__headerFormat],
+			['S3MAX'       , 0,  0, self.__headerFormat],
+			['S4レベル'    , 0,  0, self.__headerFormat],
+			['S4MAX'       , 0,  0, self.__headerFormat],
+			['覚醒名称'    , 0,  0, self.__headerFormat],
+			['スキル倍率1' , 0,  0, self.__headerFormat],
+			['スキル倍率2' , 0,  0, self.__headerFormat],
+			['スキル倍率3' , 0,  0, self.__headerFormat],
+			['スキル倍率4' , 0,  0, self.__headerFormat],
+			['スキル短縮1' , 0,  0, self.__headerFormat],
+			['スキル短縮2' , 0,  0, self.__headerFormat],
+			['スキル短縮3' , 0,  0, self.__headerFormat],
+			['スキル短縮4' , 0,  0, self.__headerFormat],
+			['スキル内容1' , 0,  0, self.__headerFormat],
+			['スキル内容2' , 0,  0, self.__headerFormat],
+			['スキル内容3' , 0,  0, self.__headerFormat],
+			['スキル内容4' , 0,  0, self.__headerFormat],
+			['リーダスキル', 0,  0, self.__headerFormat],
 		]
 		self.__writeHeader(self.__monster, arr, self.__rowMonster-1)
 
@@ -124,8 +124,8 @@ class SwOutputExcel:
 	#
 	def writeMonsterNextRow(self):
 		formatHash = {}
-		formatHash[ 1] = self.shrinkFormat
-		formatHash[14] = self.dateFormat
+		formatHash[ 1] = self.__shrinkFormat
+		formatHash[14] = self.__dateFormat
 		# 日付変換
 		self.__stockMonster[14] = self.__stockMonster[14].replace('-', '/')
 		self.__writeData(self.__monster, self.__stockMonster, self.__rowMonster, formatHash)
@@ -149,41 +149,41 @@ class SwOutputExcel:
 	#
 	def __initRunesExcel(self):
 		arr = [
-			['No'            ,  5.38,  1, self.headerFormat2],
-			['ルーンID'      , 11   ,  1, self.headerFormat2],
-			['SLT'           ,  3   ,  1, self.headerFormat2],
-			['所持'          , 14.13,  1, self.headerFormat2],
-			['星'            ,  4.63,  1, self.headerFormat2],
-			['LV'            ,  3.25,  1, self.headerFormat2],
-			['種類'          ,  3.5 ,  1, self.headerFormat2],
-			['メイン'        ,  4.13,  2, self.headerFormat2],
-			[''              ,  4.63, -1, self.headerFormat2],
-			['サブオプ'      ,  4.13,  2, self.headerFormat2],
-			[''              ,  4.63, -1, self.headerFormat2],
-			['サブオプ１'    ,  4.13,  2, self.headerFormat2],
-			[''              ,  4.63, -1, self.headerFormat2],
-			['サブオプ２'    ,  4.13,  2, self.headerFormat2],
-			[''              ,  4.63, -1, self.headerFormat2],
-			['サブオプ３'    ,  4.13,  2, self.headerFormat2],
-			[''              ,  4.63, -1, self.headerFormat2],
-			['サブオプ４'    ,  4.13,  2, self.headerFormat2],
-			[''              ,  4.63, -1, self.headerFormat2],
-			['価値'          ,  6.5 ,  1, self.headerFormat2],
-			['星'            ,  9   ,  1, self.headerFormat2],
-			[''              ,  3.25,  1, self.headerFormat2],
-			['体%有無'       ,  4.75,  1, self.headerFormat2],
-			['攻%有無'       ,  4.75,  1, self.headerFormat2],
-			['防%有無'       ,  4.75,  1, self.headerFormat2],
-			['速　有無'      ,  4.75,  1, self.headerFormat2],
-			['クリ有無'      ,  4.75,  1, self.headerFormat2],
-			['ダメ有無'      ,  4.75,  1, self.headerFormat2],
-			['抵抗有無'      ,  4.75,  1, self.headerFormat2],
-			['的中有無'      ,  4.75,  1, self.headerFormat2],
-			['価格'          ,  7.25,  1, self.headerFormat2],
-			['売'            ,  5.13,  1, self.headerFormat2],
-			['売　備考'      ,  4.38,  1, self.headerFormat2],
-			['ドロップランク',  9   ,  1, self.headerFormat2],
-			['ドロップ確認日', 10   ,  1, self.headerFormat2],
+			['No'            ,  5.38,  1, self.__headerFormat2],
+			['ルーンID'      , 11   ,  1, self.__headerFormat2],
+			['SLT'           ,  3   ,  1, self.__headerFormat2],
+			['所持'          , 14.13,  1, self.__headerFormat2],
+			['星'            ,  4.63,  1, self.__headerFormat2],
+			['LV'            ,  3.25,  1, self.__headerFormat2],
+			['種類'          ,  3.5 ,  1, self.__headerFormat2],
+			['メイン'        ,  4.13,  2, self.__headerFormat2],
+			[''              ,  4.63, -1, self.__headerFormat2],
+			['サブオプ'      ,  4.13,  2, self.__headerFormat2],
+			[''              ,  4.63, -1, self.__headerFormat2],
+			['サブオプ１'    ,  4.13,  2, self.__headerFormat2],
+			[''              ,  4.63, -1, self.__headerFormat2],
+			['サブオプ２'    ,  4.13,  2, self.__headerFormat2],
+			[''              ,  4.63, -1, self.__headerFormat2],
+			['サブオプ３'    ,  4.13,  2, self.__headerFormat2],
+			[''              ,  4.63, -1, self.__headerFormat2],
+			['サブオプ４'    ,  4.13,  2, self.__headerFormat2],
+			[''              ,  4.63, -1, self.__headerFormat2],
+			['価値'          ,  6.5 ,  1, self.__headerFormat2],
+			['星'            ,  9   ,  1, self.__headerFormat2],
+			[''              ,  3.25,  1, self.__headerFormat2],
+			['体%有無'       ,  4.75,  1, self.__headerFormat2],
+			['攻%有無'       ,  4.75,  1, self.__headerFormat2],
+			['防%有無'       ,  4.75,  1, self.__headerFormat2],
+			['速　有無'      ,  4.75,  1, self.__headerFormat2],
+			['クリ有無'      ,  4.75,  1, self.__headerFormat2],
+			['ダメ有無'      ,  4.75,  1, self.__headerFormat2],
+			['抵抗有無'      ,  4.75,  1, self.__headerFormat2],
+			['的中有無'      ,  4.75,  1, self.__headerFormat2],
+			['価格'          ,  7.25,  1, self.__headerFormat2],
+			['売'            ,  5.13,  1, self.__headerFormat2],
+			['売　備考'      ,  4.38,  1, self.__headerFormat2],
+			['ドロップランク',  9   ,  1, self.__headerFormat2],
+			['ドロップ確認日', 10   ,  1, self.__headerFormat2],
 		]
 		self.__writeHeader(self.__runes, arr, self.__rowRunes-1)
 		self.__runes.set_zoom(90)
@@ -200,17 +200,17 @@ class SwOutputExcel:
 	def writeRuneNextRow(self):
 		# 各列のフォーマットを設定
 		formatHash = {}
-		formatHash[ 1] = self.shrinkFormat	# ルーンID
-		formatHash[19] = self.perFormat		# ルーン価値
-		formatHash[22] = self.nonZeroFormat	# 体%有無
-		formatHash[23] = self.nonZeroFormat	# 攻%有無
-		formatHash[24] = self.nonZeroFormat	# 防%有無
-		formatHash[25] = self.nonZeroFormat	# 速　有無
-		formatHash[26] = self.nonZeroFormat	# クリ有無
-		formatHash[27] = self.nonZeroFormat	# ダメ有無
-		formatHash[28] = self.nonZeroFormat	# 抵抗有無
-		formatHash[29] = self.nonZeroFormat	# 的中有無
-		formatHash[34] = self.dateFormat	# ドロップ確認日
+		formatHash[ 1] = self.__shrinkFormat	# ルーンID
+		formatHash[19] = self.__perFormat		# ルーン価値
+		formatHash[22] = self.__nonZeroFormat	# 体%有無
+		formatHash[23] = self.__nonZeroFormat	# 攻%有無
+		formatHash[24] = self.__nonZeroFormat	# 防%有無
+		formatHash[25] = self.__nonZeroFormat	# 速　有無
+		formatHash[26] = self.__nonZeroFormat	# クリ有無
+		formatHash[27] = self.__nonZeroFormat	# ダメ有無
+		formatHash[28] = self.__nonZeroFormat	# 抵抗有無
+		formatHash[29] = self.__nonZeroFormat	# 的中有無
+		formatHash[34] = self.__dateFormat	# ドロップ確認日
 		# 日付部分のみ取得
 		self.__stockRunes[34] = self.__stockRunes[34].replace('-', '/').split(" ", 1)[0]
 		for k, v in self.__runeFormat.items():
@@ -228,7 +228,6 @@ class SwOutputExcel:
 	#
 	def getRuneRone(self):
 		return self.__rowRunes
-
 
 	#
 	# セルの背景色を設定
@@ -259,15 +258,15 @@ class SwOutputExcel:
 	#
 	def __initCraftItemsExcel(self):
 		arr = [
-			['No'            , 0,  1, self.headerFormat2],
-			['ルーンID'      , 0,  1, self.headerFormat2],
-			['sell_value'    , 0,  1, self.headerFormat2],
-			['craft_type_id' , 0,  1, self.headerFormat2],
-			['craft_type'    , 0,  1, self.headerFormat2],
-			['runeSetName'   , 0,  1, self.headerFormat2],
-			['effectTypeName', 0,  1, self.headerFormat2],
-			['rarityName'    , 0,  1, self.headerFormat2],
-			['種類'          , 0,  1, self.headerFormat2],
+			['No'            , 0,  1, self.__headerFormat2],
+			['ルーンID'      , 0,  1, self.__headerFormat2],
+			['sell_value'    , 0,  1, self.__headerFormat2],
+			['craft_type_id' , 0,  1, self.__headerFormat2],
+			['craft_type'    , 0,  1, self.__headerFormat2],
+			['runeSetName'   , 0,  1, self.__headerFormat2],
+			['effectTypeName', 0,  1, self.__headerFormat2],
+			['rarityName'    , 0,  1, self.__headerFormat2],
+			['種類'          , 0,  1, self.__headerFormat2],
 		]
 		self.__writeHeader(self.__craftItems, arr, self.__rowCraftItems-1)
 
@@ -293,11 +292,11 @@ class SwOutputExcel:
 	#
 	def __initInventoryExcel(self):
 		arr = [
-			['No' , 0,  1, self.headerFormat2],
-			['在庫種類' ,  0,  1, self.headerFormat2],
-			['在庫ID'   ,  0,  1, self.headerFormat2],
-			['在庫名'   , 40,  1, self.headerFormat2],
-			['在庫数'   ,  0,  1, self.headerFormat2],
+			['No' , 0,  1, self.__headerFormat2],
+			['在庫種類' ,  0,  1, self.__headerFormat2],
+			['在庫ID'   ,  0,  1, self.__headerFormat2],
+			['在庫名'   , 40,  1, self.__headerFormat2],
+			['在庫数'   ,  0,  1, self.__headerFormat2],
 		]
 		self.__writeHeader(self.__inventoryItems, arr, self.__rowInventoryItems-1)
 
@@ -342,7 +341,7 @@ class SwOutputExcel:
 			if colnum in formatHash:
 				format = formatHash[colnum]
 			else:
-				format = self.format
+				format = self.__format
 			target.write(rownum,  colnum, one, format)
 			colnum += 1
 		return colnum

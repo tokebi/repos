@@ -13,25 +13,25 @@ from swInventory import SwInventory
 
 class SwData:
 	def __init__(self, dataID):
-		self.data = self.ReadJson(dataID + "-swarfarm.json")
-		self.runeList = []
-		self.unitList = []
-		self.craftItemList = []
-		self.inventoryList = []
+		self.__data = self.ReadJson(dataID + "-swarfarm.json")
+		self.__runeList = []
+		self.__unitList = []
+		self.__craftItemList = []
+		self.__inventoryList = []
 		# ルーンデータの取得
-		for rune in self.data["runes"]:
-			self.runeList.append(SwRune(rune))
+		for rune in self.__data["runes"]:
+			self.__runeList.append(SwRune(rune))
 		# ユニットデータの取得
-		for unit in sorted(self.data["unit_list"], key=lambda x:(-x['class'],x['attribute'])):
+		for unit in sorted(self.__data["unit_list"], key=lambda x:(-x['class'],x['attribute'])):
 			swUnit = SwUnit(unit)
-			self.unitList.append(swUnit)
-			self.runeList.extend(swUnit.getRunes())
+			self.__unitList.append(swUnit)
+			self.__runeList.extend(swUnit.getRunes())
 		# 練磨・ジェムの取得
-		for craftItem in sorted(self.data["rune_craft_item_list"], key=lambda x:(x['craft_type_id'],x['craft_type'])):
-			self.craftItemList.append(SwCraftItem(craftItem))
+		for craftItem in sorted(self.__data["rune_craft_item_list"], key=lambda x:(x['craft_type_id'],x['craft_type'])):
+			self.__craftItemList.append(SwCraftItem(craftItem))
 		# 在庫情報の取得
-		for inventoryInfo in sorted(self.data["inventory_info"], key=lambda x:(x['item_master_type'],x['item_master_id'])):
-			self.inventoryList.append(SwInventory(inventoryInfo))
+		for inventoryInfo in sorted(self.__data["inventory_info"], key=lambda x:(x['item_master_type'],x['item_master_id'])):
+			self.__inventoryList.append(SwInventory(inventoryInfo))
 
 	#
 	# JSONファイルの読み込み
@@ -53,28 +53,28 @@ class SwData:
 	# 最終ログイン時間を返す
 	#
 	def getLastLogin(self):
-		return self.data["wizard_info"]["wizard_last_login"]
+		return self.__data["wizard_info"]["wizard_last_login"]
 
 	#
 	# モンスターリストを返す
 	#
 	def getMonsterList(self):
-		return self.unitList
+		return self.__unitList
 
 	#
 	# モンスターリストを返す
 	#
 	def getRuneList(self):
-		return self.runeList
+		return self.__runeList
 
 	#
 	# 練磨・ジェムのリストを返す
 	#
 	def getCraftItemList(self):
-		return self.craftItemList
+		return self.__craftItemList
 
 	#
 	# 在庫情報を返す
 	#
 	def getInventoryList(self):
-		return self.inventoryList
+		return self.__inventoryList

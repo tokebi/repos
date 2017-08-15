@@ -13,32 +13,32 @@ import os
 
 class MAIN:
 	def __init__(self):
-		self.jsonDir = "C:\\Users\hhara\\OneDrive\\SWProxy-windows"
-		self.hashRune = {}
-		self.lstRune  = []
-		self.fw = open('initRune.tsv', 'w')
-		self.fl = open('initRune.log', 'w')
+		self.__jsonDir = "C:\\Users\hhara\\OneDrive\\SWProxy-windows"
+		self.__hashRune = {}
+		self.__lstRune  = []
+		self.__fw = open('initRune.tsv', 'w')
+		self.__fl = open('initRune.log', 'w')
 
 	def main(self):
-		for file in self.fild_all_files(self.jsonDir):
+		for file in self.fild_all_files(self.__jsonDir):
 			data = self.ReadJson(file)
 			self.runeSokyu(data)
-		for key in sorted(self.hashRune):
-			rune = self.hashRune[key]
+		for key in sorted(self.__hashRune):
+			rune = self.__hashRune[key]
 			#print(str(rune["rune_id"]) + "	" + rune["wizard_last_login"] + "	" + str(len(rune["sec_eff"])))
-			self.fw.write(str(rune["rune_id"]) + "	")
-			self.fw.write(rune["wizard_last_login"] + "	")
-			self.fw.write(str(rune["upgrade_curr"]) + "	")
-			self.fw.write(str(len(rune["sec_eff"])))
-			self.fw.write("\n")
-		for rune in sorted(self.lstRune, key=lambda h: h["rune_id"]):
-			self.fl.write(str(rune["rune_id"]) + "	")
-			self.fl.write(rune["wizard_last_login"] + "	")
-			self.fl.write(str(rune["upgrade_curr"]) + "	")
-			self.fl.write(str(len(rune["sec_eff"])))
-			self.fl.write("\n")
-		self.fw.close()
-		self.fl.close()
+			self.__fw.write(str(rune["rune_id"]) + "	")
+			self.__fw.write(rune["wizard_last_login"] + "	")
+			self.__fw.write(str(rune["upgrade_curr"]) + "	")
+			self.__fw.write(str(len(rune["sec_eff"])))
+			self.__fw.write("\n")
+		for rune in sorted(self.__lstRune, key=lambda h: h["rune_id"]):
+			self.__fl.write(str(rune["rune_id"]) + "	")
+			self.__fl.write(rune["wizard_last_login"] + "	")
+			self.__fl.write(str(rune["upgrade_curr"]) + "	")
+			self.__fl.write(str(len(rune["sec_eff"])))
+			self.__fl.write("\n")
+		self.__fw.close()
+		self.__fl.close()
 
 	def runeSokyu(self, data):
 		wizard_last_login = data["wizard_info"]["wizard_last_login"]
@@ -56,12 +56,12 @@ class MAIN:
 		sec_eff      = rune["sec_eff"]
 		rune["wizard_last_login"] = wizard_last_login
 		if upgrade_curr >= 0:
-			if rune_id in self.hashRune:
-				if self.hashRune[rune_id]["wizard_last_login"] > wizard_last_login:
-					self.hashRune[rune_id] = rune
+			if rune_id in self.__hashRune:
+				if self.__hashRune[rune_id]["wizard_last_login"] > wizard_last_login:
+					self.__hashRune[rune_id] = rune
 			else:
-				self.hashRune[rune_id] = rune
-			self.lstRune.append(rune)
+				self.__hashRune[rune_id] = rune
+			self.__lstRune.append(rune)
 
 
 	#

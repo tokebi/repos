@@ -7,8 +7,8 @@ from swSkill  import SwSkill
 
 class SwUnit:
 	def __init__(self, unit):
-		self.mst = swMaster.SwMaster.getInstance()
-		self.data = {}
+		self.__mst = swMaster.SwMaster.getInstance()
+		self.__data = {}
 		for k, v in unit.items():   # for/if文では文末のコロン「:」を忘れないように
 			if k in {
 				"accuracy"
@@ -41,70 +41,70 @@ class SwUnit:
 				,"unit_master_id"
 				,"wizard_id"
 			}:
-				self.data[k] = unit[k]
+				self.__data[k] = unit[k]
 			else:
 				print(k)
 				sys.exit()
-		self.data["con"            ] = self.mst.getMonsterCon(self.data["unit_master_id"]) / 15
-		self.data["atk"            ] = self.mst.getMonsterAtk(self.data["unit_master_id"])
-		self.data["def"            ] = self.mst.getMonsterDef(self.data["unit_master_id"])
-		self.data["spd"            ] = self.mst.getMonsterSpd(self.data["unit_master_id"])
-		self.data["critical_rate"  ] = self.mst.getMonsterCri(self.data["unit_master_id"])
-		self.data["critical_damage"] = self.mst.getMonsterDame(self.data["unit_master_id"])
-		self.data["resist"         ] = self.mst.getMonsterResist(self.data["unit_master_id"])
-		self.data["accuracy"       ] = self.mst.getMonsterAccuracy(self.data["unit_master_id"])
+		self.__data["con"            ] = self.__mst.getMonsterCon(self.__data["unit_master_id"]) / 15
+		self.__data["atk"            ] = self.__mst.getMonsterAtk(self.__data["unit_master_id"])
+		self.__data["def"            ] = self.__mst.getMonsterDef(self.__data["unit_master_id"])
+		self.__data["spd"            ] = self.__mst.getMonsterSpd(self.__data["unit_master_id"])
+		self.__data["critical_rate"  ] = self.__mst.getMonsterCri(self.__data["unit_master_id"])
+		self.__data["critical_damage"] = self.__mst.getMonsterDame(self.__data["unit_master_id"])
+		self.__data["resist"         ] = self.__mst.getMonsterResist(self.__data["unit_master_id"])
+		self.__data["accuracy"       ] = self.__mst.getMonsterAccuracy(self.__data["unit_master_id"])
 		
 		runes = []
-		if isinstance(self.data['runes'], list):
-			for rune in self.data['runes']:
+		if isinstance(self.__data['runes'], list):
+			for rune in self.__data['runes']:
 				swRune = SwRune(rune)
 				runes.append(swRune)
-		elif isinstance(self.data['runes'], dict):
-			for rune in self.data['runes'].values():
+		elif isinstance(self.__data['runes'], dict):
+			for rune in self.__data['runes'].values():
 				swRune = SwRune(rune)
 				runes.append(swRune)
 		else:
-			print("runesが未知の変数=" + str(type(self.data['runes'])))
-		self.data['runes'] = runes
+			print("runesが未知の変数=" + str(type(self.__data['runes'])))
+		self.__data['runes'] = runes
 		skills = []
-		for skill in self.data['skills']:
+		for skill in self.__data['skills']:
 			swSkill = SwSkill(skill)
 			skills.append(swSkill)
 		if len(skills) < 4:
 			for dummy in range(1, 4-len(skills)+1):
 				skills.append(SwSkill([0,0]))
-		self.data['skills'] = skills
+		self.__data['skills'] = skills
 
 	#
 	# 的中を取得
 	#
 	def getAccuracy(self):
-		return self.data["accuracy"]
+		return self.__data["accuracy"]
 
 	#
 	# 攻撃力を取得
 	#
 	def getAtk(self):
-		return self.data["atk"]
+		return self.__data["atk"]
 
 	#
 	# 属性を取得
 	#
 	def getAttribute(self):
-		return self.data["attribute"]
+		return self.__data["attribute"]
 
 	#
 	# 属性の日本名を取得
 	#
 	def getAttributeName(self):
-		attribute = self.data["attribute"]
-		return self.mst.getAttributeName(attribute)
+		attribute = self.__data["attribute"]
+		return self.__mst.getAttributeName(attribute)
 
 	#
 	# 倉庫に入っているかを取得
 	#
 	def isSouko(self):
-		if self.data["building_id" ] == 9384277:
+		if self.__data["building_id" ] == 9384277:
 			return 1
 		else:
 			return 0
@@ -113,107 +113,107 @@ class SwUnit:
 	# 星レベルを取得
 	#
 	def getClass(self):
-		return self.data["class"]
+		return self.__data["class"]
 
 	#
 	# 体力を取得
 	#
 	def getCon(self):
-		return self.data["con"]*15
+		return self.__data["con"]*15
 
 	#
 	# 作成日時を取得
 	#
 	def getCreateTime(self):
-		return self.data["create_time"]
+		return self.__data["create_time"]
 
 	#
 	# クリダメを取得
 	#
 	def getCriticalDamage(self):
-		return self.data["critical_damage"]
+		return self.__data["critical_damage"]
 
 	#
 	# モンスターレベルを取得
 	#
 	def getCriticalRate(self):
 		
-		return self.data["critical_rate"]
+		return self.__data["critical_rate"]
 
 	#
 	# 防御力を取得
 	#
 	def getDef(self):
-		return self.data["def"]
+		return self.__data["def"]
 
 	#
 	# 攻撃速度を取得
 	#
 	def getSpd(self):
 		
-		return self.data["spd"]
+		return self.__data["spd"]
 
 	#
 	# 抵抗を取得
 	#
 	def getResist(self):
-		return self.data["resist"]
+		return self.__data["resist"]
 
 	#
 	# 所持ルーンを取得
 	#
 	def getRunes(self):
-		return self.data["runes"]
+		return self.__data["runes"]
 
 	#
 	# スキルを取得
 	#
 	def getSkills(self):
-		return self.data["skills"]
+		return self.__data["skills"]
 
 	#
 	# モンスターIDを取得
 	#
 	def getUnitId(self):
-		return self.data["unit_id"]
+		return self.__data["unit_id"]
 
 	#
 	# レベルを取得
 	#
 	def getLevel(self):
-		return self.data["unit_level"]
+		return self.__data["unit_level"]
 
 	#
 	# モンスターマスターIDを取得
 	#
 	def getUnitMasterId(self):
-		return self.data["unit_master_id"]
+		return self.__data["unit_master_id"]
 
 	#
 	# 出力対象のモンスターかを取得
 	#
 	def isNotOutputMonster(self):
-		return self.mst.isNotOutputMonster(self.data["jname"])
+		return self.__mst.isNotOutputMonster(self.__data["jname"])
 
 	#
 	# モンスターの日本語名を設定
 	#
 	def setJName(self, jname):
-		self.data["jname"] = jname
+		self.__data["jname"] = jname
 
 	#
 	# モンスターの日本語名を取得
 	#
 	def getJName(self):
-		return self.data["jname"]
+		return self.__data["jname"]
 
 	#
 	# 覚醒名称を取得
 	def getKakuseiName(self):
-		return self.mst.getKakuseiName(self.data["unit_master_id"])
+		return self.__mst.getKakuseiName(self.__data["unit_master_id"])
 
 	#
 	# リーダスキルコメントを取得
 	#
 	def getLSkillComment(self):
-		return self.mst.getLSkillComment(self.getUnitMasterId())
+		return self.__mst.getLSkillComment(self.getUnitMasterId())
