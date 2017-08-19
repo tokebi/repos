@@ -250,7 +250,7 @@ class SwOutputExcel:
 	#
 	def __initCraftItems(self):
 		self.__rowCraftItems = 1
-		self.__craftItems   = self.__book.add_worksheet('craftItems')
+		self.__craftItems   = self.__book.add_worksheet('ÉNÉâÉtÉg')
 		self.__initCraftItemsExcel()
 
 	#
@@ -284,7 +284,7 @@ class SwOutputExcel:
 	#
 	def __initInventoryItems(self):
 		self.__rowInventoryItems = 1
-		self.__inventoryItems   = self.__book.add_worksheet('inventoryItem')
+		self.__inventoryItems   = self.__book.add_worksheet('ç›å…')
 		self.__initInventoryExcel()
 
 	#
