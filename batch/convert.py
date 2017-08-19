@@ -133,7 +133,7 @@ class ConvertSkill:
 		return ret
 
 	def __init__(self):
-		self.outf = open("swSkillMaster.py", "w")
+		self.outf = open("../swSkillMaster.py", "w")
 		self.inb = book.sheet_by_name('モンスター')
 		self.skill_ids = {}
 
@@ -179,7 +179,7 @@ class ConvertMonster:
 	BASE_TEI		= 59
 
 	def __init__(self):
-		self.outf = open("swMonstersName.py", "w")
+		self.outf = open("../swMonstersName.py", "w")
 		self.inb = book.sheet_by_name('モンスター')
 		self.skill_ids = {}
 

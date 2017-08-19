@@ -3,21 +3,21 @@
 
 import sys
 
-import swData
-import swInitRune
-import swMaster
-import swOutputExcel
-import swToukei
+from lib.swData        import SwData
+from lib.swInitRune    import SwInitRune
+from lib.swMaster      import SwMaster
+from lib.swOutputExcel import SwOutputExcel
+from lib.swToukei      import SwToukei
 
 class MAIN:
 	def __init__(self, dataID):
 		#マスターデータの初期化
-		self.__mst = swMaster.SwMaster.getInstance()
-		self.__toukei = swToukei.SwToukei(dataID)
-		self.__initRune = swInitRune.SwInitRune()
-		self.__outputExcel = swOutputExcel.SwOutputExcel(dataID)
+		self.__mst = SwMaster.getInstance()
+		self.__toukei = SwToukei(dataID)
+		self.__initRune = SwInitRune()
+		self.__outputExcel = SwOutputExcel(dataID)
 		self.__unitMasterHash = {}
-		self.__data = swData.SwData(dataID)
+		self.__data = SwData(dataID)
 
 	def main(self):
 		self.__lastLogin = self.__data.getLastLogin()

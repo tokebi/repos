@@ -1,12 +1,12 @@
 #!/usr/bin/python
 # -*- coding: sjis -*-
 
-import swMaster
+from lib.swMaster import SwMaster
 
 class SwInventory():
 	def __init__(self, craftItem):
 		#マスターデータの初期化
-		self.__mst = swMaster.SwMaster.getInstance()
+		self.__mst = SwMaster.getInstance()
 		self.__masterType = craftItem["item_master_type"]
 		self.__quantity   = craftItem["item_quantity"]
 		self.__masterId   = craftItem["item_master_id"]

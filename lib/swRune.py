@@ -3,11 +3,11 @@
 
 import math
 
-import swMaster
+from lib.swMaster import SwMaster
 
 class SwRune():
 	def __init__(self, rune):
-		self.__mst = swMaster.SwMaster.getInstance()
+		self.__mst = SwMaster.getInstance()
 		self.__data = {}
 		for k, v in rune.items():   # for/if•¶‚Å‚Í•¶––‚ÌƒRƒƒ“u:v‚ğ–Y‚ê‚È‚¢‚æ‚¤‚É
 			if k in {

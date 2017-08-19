@@ -1,11 +1,11 @@
 #!/usr/bin/python
 # -*- coding: sjis -*-
 
-import swMaster
+from lib.swMaster import SwMaster
 
 class SwSkill():
 	def __init__(self, skills):
-		self.__mst = swMaster.SwMaster.getInstance()
+		self.__mst = SwMaster.getInstance()
 		self.__data = skills
 
 	#

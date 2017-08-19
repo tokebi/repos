@@ -6,10 +6,10 @@ import json
 import os.path
 import sys
 
-from swRune import SwRune
-from swUnit import SwUnit
-from swCraftItem import SwCraftItem
-from swInventory import SwInventory
+from lib.swRune      import SwRune
+from lib.swUnit      import SwUnit
+from lib.swCraftItem import SwCraftItem
+from lib.swInventory import SwInventory
 
 class SwData:
 	def __init__(self, dataID):

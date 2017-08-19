@@ -1,13 +1,13 @@
 #!/usr/bin/python
 # -*- coding: sjis -*-
 
-import swMaster
-from swRune import SwRune
-from swSkill  import SwSkill
+from lib.swMaster import SwMaster
+from lib.swRune   import SwRune
+from lib.swSkill  import SwSkill
 
 class SwUnit:
 	def __init__(self, unit):
-		self.__mst = swMaster.SwMaster.getInstance()
+		self.__mst = SwMaster.getInstance()
 		self.__data = {}
 		for k, v in unit.items():   # for/if•¶‚Å‚Í•¶––‚ÌƒRƒƒ“u:v‚ğ–Y‚ê‚È‚¢‚æ‚¤‚É
 			if k in {

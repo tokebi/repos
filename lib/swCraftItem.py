@@ -1,11 +1,11 @@
 #!/usr/bin/python
 # -*- coding: sjis -*-
 
-import swMaster
+from lib.swMaster import SwMaster
 
 class SwCraftItem():
 	def __init__(self, craftItem):
-		self.__mst = swMaster.SwMaster.getInstance()
+		self.__mst = SwMaster.getInstance()
 		id = '{0:06d}'.format(craftItem["craft_type_id"])
 		self.__setId       = int(id[0:2])
 		self.__effectType  = int(id[2:4])
