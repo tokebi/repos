@@ -15776,14 +15776,14 @@ class SwMonstersName:
 				,"kname":""
 				,"kind":""
 				,"lskill":""
-				,"con":40350
-				,"atk":2690
-				,"def":2690
-				,"spd":42
-				,"cri":42
-				,"dmg":42
-				,"tek":42
-				,"tei":42
+				,"con":12345
+				,"atk":626
+				,"def":692
+				,"spd":101
+				,"cri":15
+				,"dmg":50
+				,"tek":15
+				,"tei":0
 			},
 			17101: {
 				"name":"‚ ‚©‚·‚èH(…)"
