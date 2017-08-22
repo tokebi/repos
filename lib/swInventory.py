@@ -45,6 +45,7 @@ class SwInventory():
 			# モンスター召還書の欠片
 			return self.__mst.getMonsterName(self.__masterId)+"召還書の欠片"
 		elif self.__masterType == 19 and self.__masterId == 19200:	return "「イフリート」の召還書の欠片"
+		elif self.__masterType == 19 and self.__masterId == 19300:	return "「カウガール」の召還書の欠片"
 		elif self.__masterType == 20 and self.__masterId == 1:		return "万能召還の欠片"
 		elif self.__masterType == 29 and self.__masterId == 1001:	return "堅固な古木"
 		elif self.__masterType == 29 and self.__masterId == 1002:	return "強靭な皮"
